@@ -20,14 +20,14 @@ class Species(models.Model):
     Description: All info for Species
     """
     scientific_name = models.CharField(max_length=450)
-    common_name = models.CharField(max_length=450)
-    food_group = models.ForeignKey(FoodGroup)
-    name_order = models.ForeignKey(NameOrder)
-    name_family = models.ForeignKey(NameFamily)
-    name_genus = models.ForeignKey(NameGenus)
-    name_species = models.ForeignKey(NameSpecies)
-    cultivar = models.IntegerField(choices=CHOICES_CULTIVAR)
-    type_species = models.IntegerField(choices=CHOICES_TYPE_SPECIES)
+    common_name = models.CharField(max_length=450, null=True, blank=True)
+    food_group = models.ForeignKey(FoodGroup, null=True, blank=True)
+    name_order = models.ForeignKey(NameOrder, null=True, blank=True)
+    name_family = models.ForeignKey(NameFamily, null=True, blank=True)
+    name_genus = models.ForeignKey(NameGenus, null=True, blank=True)
+    name_species = models.ForeignKey(NameSpecies, null=True, blank=True)
+    cultivar = models.IntegerField(choices=CHOICES_CULTIVAR, null=True, blank=True)
+    type_species = models.IntegerField(choices=CHOICES_TYPE_SPECIES, null=True, blank=True)
 
     def __str__(self):
         return self.scientific_name
