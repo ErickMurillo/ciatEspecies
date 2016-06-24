@@ -96,7 +96,7 @@ class CRP(models.Model):
 		return self.name
 
 
-class Laguage(models.Model):
+class Language(models.Model):
 	name = models.CharField(max_length = 250)
 
 	def __str__(self):
@@ -110,6 +110,10 @@ class EthnicGroup(models.Model):
 	def __str__(self):
 		return self.name
 
+CHOICE_SEASONS = (
+					(1, 'Year-Round (Y)'),
+					(2, 'Lean Season (L)'),
+				)
     
 class FocusGroup(models.Model):
 	location = models.ForeignKey(Location)
@@ -118,6 +122,14 @@ class FocusGroup(models.Model):
 	organization = models.ForeignKey(Organizations)
 	crp = models.ForeignKey(CRP)
 	ethnic_group = models.ForeignKey(EthnicGroup)
+	language = models.ForeignKey(Language)
+	hh = models.CharField(max_length = 250)
+	area = models.FloatField()
+	frecuency = models.CharField(max_length = 250)
+	definition_seasons = models.IntegerField(choices=CHOICE_SEASONS)
+	method_observations = models.TextField()
 
+	def __str__(self):
+		return self.scientist
 
 
