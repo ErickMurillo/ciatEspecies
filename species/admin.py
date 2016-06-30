@@ -1,6 +1,6 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
-from .models import Species
+from .models import Species, FctEspecies
 
 
 class SpeciesAdmin(ImportExportModelAdmin):
@@ -12,3 +12,4 @@ class SpeciesAdmin(ImportExportModelAdmin):
 
 # Register your models here.
 admin.site.register(Species, SpeciesAdmin)
+admin.site.register(FctEspecies)

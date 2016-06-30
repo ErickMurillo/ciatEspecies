@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from species.models import Species
 
 # Create your models here.
 
@@ -105,7 +106,7 @@ class Language(models.Model):
 
 class EthnicGroup(models.Model):
 	name = models.CharField(max_length = 250)
-	language = models.ForeignKey(Laguage)
+	language = models.ForeignKey(Language)
 
 	def __str__(self):
 		return self.name
@@ -131,5 +132,58 @@ class FocusGroup(models.Model):
 
 	def __str__(self):
 		return self.scientist
+
+
+CHOICE_FCA = ((1, '1'),(2, '2'),(3, '3'),(4,'4'))
+CHOICE_PRESENCE = ((0, '0'),(1, '1'))
+CHOICE_SOURCE = ((1, 'Cultivated/Reared'),(2, 'Wild'),(3, 'Mixed/Both'))
+CHOICE_SEASON = (('L', 'Lean'),('A', 'All year'))
+CHOICE_OFF_SEASON = ((0, 'No'),(1, 'Yes'))
+
+
+class PartUsed(models.Model):
+	name = models.CharField(max_length=250)
+
+	def __str__(self):
+		return self.name
+
+class Uses(models.Model):
+	name = models.CharField(max_length=250)
+
+	def __str__(self):
+		return self.name
+
+class CookingMethod(models.Model):
+	name = models.CharField(max_length=250)
+
+	def __str__(self):
+		return self.name
+
+class FcaCode(models.Model):
+	focus_groups = models.ForeignKey(FocusGroup)
+	species = models.ForeignKey(Species)
+	fca_cultivated = models.IntegerField(choices=CHOICE_FCA, null=True, blank=True)
+	fca_sold = models.IntegerField(choices=CHOICE_FCA, null=True, blank=True)
+	fca_purchased = models.IntegerField(choices=CHOICE_FCA, null=True, blank=True)
+	fca_consumed = models.IntegerField(choices=CHOICE_FCA, null=True, blank=True)
+	presence_cultivated = models.IntegerField(choices=CHOICE_PRESENCE, null=True, blank=True)
+	presence_sold = models.IntegerField(choices=CHOICE_PRESENCE, null=True, blank=True)
+	presence_purchased = models.IntegerField(choices=CHOICE_PRESENCE, null=True, blank=True)
+	presence_consumed = models.IntegerField(choices=CHOICE_PRESENCE, null=True, blank=True)
+	source = models.IntegerField(choices=CHOICE_SOURCE, null=True, blank=True)
+	season = models.CharField(max_length=2, choices=CHOICE_SEASON, null=True, blank=True)
+	off_season = models.IntegerField(choices=CHOICE_OFF_SEASON, null=True, blank=True)
+	lean_season = models.IntegerField(choices=CHOICE_OFF_SEASON, null=True, blank=True)
+	parts_used = models.ForeignKey(PartUsed, null=True, blank=True)
+	uses = models.ForeignKey(Uses, null=True, blank=True)
+	cooking_method = models.ForeignKey(CookingMethod, null=True, blank=True)
+	notes = models.TextField()
+
+	def __str__(self):
+		return self.focus_groups
+
+	class Meta:
+		verbose_name='FCA Codes'
+		verbose_name_plural='FCA Codes'
 
 

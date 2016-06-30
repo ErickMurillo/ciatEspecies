@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     #apps for species
     'globalconfigs',
     'species',
+    'focusgroups',
 
     #apps for third party
     'report_builder' ,
