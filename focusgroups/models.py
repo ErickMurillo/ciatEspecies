@@ -162,6 +162,10 @@ class CookingMethod(models.Model):
 class FcaCode(models.Model):
 	focus_groups = models.ForeignKey(FocusGroup)
 	species = models.ForeignKey(Species)
+	scientific_name2 = models.CharField(max_length=450, null=True, blank=True)
+	species_english_name = models.CharField(max_length=450, null=True, blank=True)
+	species_french_name = models.CharField(max_length=450, null=True, blank=True)
+	species_vernacular_name = models.CharField(max_length=450, null=True, blank=True)
 	fca_cultivated = models.IntegerField(choices=CHOICE_FCA, null=True, blank=True)
 	fca_sold = models.IntegerField(choices=CHOICE_FCA, null=True, blank=True)
 	fca_purchased = models.IntegerField(choices=CHOICE_FCA, null=True, blank=True)

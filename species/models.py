@@ -21,10 +21,6 @@ class Species(models.Model):
     """
     scientific_name = models.CharField(max_length=450)
     common_name = models.CharField(max_length=450, null=True, blank=True)
-    scientific_name2 = models.CharField(max_length=450, null=True, blank=True)
-    species_english_name = models.CharField(max_length=450, null=True, blank=True)
-    species_french_name = models.CharField(max_length=450, null=True, blank=True)
-    species_vernacular_name = models.CharField(max_length=450, null=True, blank=True)
     food_group = models.ForeignKey(FoodGroup, null=True, blank=True)
     name_order = models.ForeignKey(NameOrder, null=True, blank=True)
     name_family = models.ForeignKey(NameFamily, null=True, blank=True)
