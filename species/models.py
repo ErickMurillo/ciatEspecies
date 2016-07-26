@@ -19,13 +19,15 @@ class Species(models.Model):
     """
     Description: All info for Species
     """
-    scientific_name = models.CharField(max_length=450)
+    scientific_name = models.CharField(max_length=450, null=True, blank=True)
+    name_genus1 = models.CharField(max_length=100,verbose_name='Name genus')
+    name_species1 = models.CharField(max_length=100,verbose_name='Name species')
     common_name = models.CharField(max_length=450, null=True, blank=True)
     food_group = models.ForeignKey(FoodGroup, null=True, blank=True)
     name_order = models.ForeignKey(NameOrder, null=True, blank=True)
     name_family = models.ForeignKey(NameFamily, null=True, blank=True)
-    name_genus = models.ForeignKey(NameGenus, null=True, blank=True)
-    name_species = models.ForeignKey(NameSpecies, null=True, blank=True)
+    # name_genus = models.ForeignKey(NameGenus, null=True, blank=True)
+    # name_species = models.ForeignKey(NameSpecies, null=True, blank=True)
     cultivar = models.IntegerField(choices=CHOICES_CULTIVAR, null=True, blank=True)
     type_species = models.IntegerField(choices=CHOICES_TYPE_SPECIES, null=True, blank=True)
 
@@ -37,6 +39,10 @@ class Species(models.Model):
         verbose_name_plural = 'Species'
         ordering = ['scientific_name']
         unique_together = ('scientific_name', 'common_name')
+
+    def save(self, *args, **kwargs):
+		self.scientific_name = self.name_genus1 + ' ' + self.name_species1
+		super(Species, self).save(*args, **kwargs)
 
 
 
@@ -87,4 +93,3 @@ class FctEspecies(models.Model):
 
     def __str__(self):
         return self.specie
-
