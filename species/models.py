@@ -31,14 +31,14 @@ class Species(models.Model):
     cultivar = models.IntegerField(choices=CHOICES_CULTIVAR, null=True, blank=True)
     type_species = models.IntegerField(choices=CHOICES_TYPE_SPECIES, null=True, blank=True)
 
-    def __str__(self):
-        return self.scientific_name
+    # def __str__(self):
+    #     return self.scientific_name
 
     class Meta:
         verbose_name = 'Species'
         verbose_name_plural = 'Species'
         ordering = ['scientific_name']
-        unique_together = ('scientific_name', 'common_name')
+        # unique_together = ('scientific_name', 'common_name')
 
     def save(self, *args, **kwargs):
 		self.scientific_name = self.name_genus1 + ' ' + self.name_species1
