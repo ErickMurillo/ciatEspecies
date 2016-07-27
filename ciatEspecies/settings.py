@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'focusgroups',
 
     #apps for third party
-    'report_builder' ,
+    # 'report_builder' ,
     'import_export',
 
 
