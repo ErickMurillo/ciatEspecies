@@ -15,29 +15,38 @@ CHOICE_REGION = (
 
 
 class Country(models.Model):
+	region = models.IntegerField(choices=CHOICE_REGION)
 	name = models.CharField(max_length=250)
-	latitud = models.FloatField()
-	longitud = models.FloatField()
+	latitud = models.FloatField(blank=True,null=True)
+	longitud = models.FloatField(blank=True,null=True)
 
 	def __str__(self):
 		return self.name
 
 
 class Province(models.Model):
-	country = models.ForeignKey(Country)
+	country = models.ForeignKey(Country,blank=True,null=True)
 	name = models.CharField(max_length=250)
-	latitud = models.FloatField()
-	longitud = models.FloatField()
+	latitud = models.FloatField(blank=True,null=True)
+	longitud = models.FloatField(blank=True,null=True)
 
 	def __str__(self):
-		return self.name 
+		return self.name
 
+class County(models.Model):
+	province = models.ForeignKey(Province,blank=True,null=True)
+	name = models.CharField(max_length=250)
+	latitud = models.FloatField(blank=True,null=True)
+	longitud = models.FloatField(blank=True,null=True)
+
+	def __str__(self):
+		return self.name
 
 class Community(models.Model):
-	province = models.ForeignKey(Province)
+	county = models.ForeignKey(County,blank=True,null=True)
 	name = models.CharField(max_length=250)
-	latitud = models.FloatField()
-	longitud = models.FloatField()
+	latitud = models.FloatField(blank=True,null=True)
+	longitud = models.FloatField(blank=True,null=True)
 
 	def __str__(self):
 		return self.name
@@ -50,25 +59,25 @@ class Climate(models.Model):
 		return self.name
 
 
-class Location(models.Model):
-    """
-    Description: Info about location all focus groups
-    """
-    region = models.IntegerField(choices=CHOICE_REGION)
-    country = models.ForeignKey(Country)
-    province = models.ForeignKey(Province)
-    community = models.ForeignKey(Community)
-    climate = models.ForeignKey(Climate)
-    market_distance = models.FloatField(help_text='in km')
-    population = models.FloatField()
-
-    def __str__(self):
-    	return self.get_region_display()
-
-
-   	class Meta:
-   		verbose_name = 'Location info'
-   		verbose_name_plural = 'Location info'
+# class Location(models.Model):
+#     """
+#     Description: Info about location all focus groups
+#     """
+#     region = models.IntegerField(choices=CHOICE_REGION)
+#     country = models.ForeignKey(Country)
+#     province = models.ForeignKey(Province)
+#     community = models.ForeignKey(Community)
+#     climate = models.ForeignKey(Climate)
+#     market_distance = models.FloatField(help_text='in km')
+#     population = models.FloatField()
+#
+#     def __str__(self):
+#     	return self.get_region_display()
+#
+#
+#    	class Meta:
+#    		verbose_name = 'Location info'
+#    		verbose_name_plural = 'Location info'
 
 
 CHOICE_GENDER = ((1,'Female'),(2, 'Male'),)
@@ -115,9 +124,12 @@ CHOICE_SEASONS = (
 					(1, 'Year-Round (Y)'),
 					(2, 'Lean Season (L)'),
 				)
-    
+
 class FocusGroup(models.Model):
-	location = models.ForeignKey(Location)
+	country = models.ForeignKey(Country,blank=True,null=True)
+	province = models.ForeignKey(Province,blank=True,null=True)
+	county = models.ForeignKey(County,blank=True,null=True)
+	community = models.ForeignKey(Community,blank=True,null=True)
 	date = models.DateField()
 	scientist = models.ForeignKey(Scientists)
 	organization = models.ForeignKey(Organizations)
@@ -189,5 +201,3 @@ class FcaCode(models.Model):
 	class Meta:
 		verbose_name='FCA Codes'
 		verbose_name_plural='FCA Codes'
-
-

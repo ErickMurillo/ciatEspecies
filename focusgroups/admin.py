@@ -4,9 +4,10 @@ from .models import *
 # Register your models here.
 admin.site.register(Country)
 admin.site.register(Province)
+admin.site.register(County)
 admin.site.register(Community)
 admin.site.register(Climate)
-admin.site.register(Location)
+# admin.site.register(Location)
 admin.site.register(Scientists)
 admin.site.register(Organizations)
 admin.site.register(CRP)
