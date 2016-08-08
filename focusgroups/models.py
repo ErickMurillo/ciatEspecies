@@ -124,6 +124,7 @@ CHOICE_SEASONS = (
 					(1, 'Year-Round (Y)'),
 					(2, 'Lean Season (L)'),
 				)
+GENDER_CHOICES = ((1,'Female'),(2, 'Male'),(3,'Both'))
 
 class FocusGroup(models.Model):
 	country = models.ForeignKey(Country,blank=True,null=True)
@@ -141,6 +142,7 @@ class FocusGroup(models.Model):
 	frecuency = models.CharField(max_length = 250)
 	definition_seasons = models.IntegerField(choices=CHOICE_SEASONS)
 	method_observations = models.TextField()
+	gender = models.IntegerField(choices=GENDER_CHOICES)
 
 	def __str__(self):
 		return self.scientist
