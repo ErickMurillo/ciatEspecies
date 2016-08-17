@@ -1,26 +1,94 @@
+# -*- coding: utf-8 -*-
 from django.contrib import admin
 from .models import *
 from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
-admin.site.register(Country)
-admin.site.register(Province)
-admin.site.register(County)
-admin.site.register(Community)
-admin.site.register(Climate)
+class CountryAdmin(ImportExportModelAdmin):
+    model = Country
+    list_display = ('id','name','region')
+
+admin.site.register(Country,CountryAdmin)
+
+class ProvinceAdmin(ImportExportModelAdmin):
+    model = Province
+    list_display = ('id','name','country')
+
+admin.site.register(Province,ProvinceAdmin)
+
+class CountyAdmin(ImportExportModelAdmin):
+    model = County
+    list_display = ('id','name','province')
+
+admin.site.register(County,CountyAdmin)
+
+class CommunityAdmin(ImportExportModelAdmin):
+    model = Community
+    list_display = ('id','name')
+
+admin.site.register(Community,CommunityAdmin)
+
+class ClimateAdmin(ImportExportModelAdmin):
+    model = Climate
+    list_display = ('id','name')
+
+admin.site.register(Climate,ClimateAdmin)
 # admin.site.register(Location)
-admin.site.register(Scientists)
-admin.site.register(Organizations)
-admin.site.register(CRP)
-admin.site.register(Language)
-admin.site.register(EthnicGroup)
+
+class ScientistsAdmin(ImportExportModelAdmin):
+    model = Scientists
+    list_display = ('id','name')
+
+admin.site.register(Scientists,ScientistsAdmin)
+
+class OrganizationsAdmin(ImportExportModelAdmin):
+    model = Organizations
+    list_display = ('id','name')
+
+admin.site.register(Organizations,OrganizationsAdmin)
+
+class CRPAdmin(ImportExportModelAdmin):
+    model = CRP
+    list_display = ('id','name')
+
+admin.site.register(CRP,CRPAdmin)
+
+class LanguageAdmin(ImportExportModelAdmin):
+    model = Language
+    list_display = ('id','name')
+
+admin.site.register(Language,LanguageAdmin)
+
+class EthnicGroupAdmin(ImportExportModelAdmin):
+    model = EthnicGroup
+    list_display = ('id','name')
+
+admin.site.register(EthnicGroup,EthnicGroupAdmin)
 
 class FocusGroupAdmin(ImportExportModelAdmin):
     model = FocusGroup
 
 admin.site.register(FocusGroup,FocusGroupAdmin)
 
-admin.site.register(PartUsed)
-admin.site.register(Uses)
-admin.site.register(CookingMethod)
-admin.site.register(FcaCode)
+class PartUsedAdmin(ImportExportModelAdmin):
+    model = PartUsed
+    list_display = ('id','name')
+
+admin.site.register(PartUsed,PartUsedAdmin)
+
+class UsesAdmin(ImportExportModelAdmin):
+    model = Uses
+    list_display = ('id','name')
+
+admin.site.register(Uses,UsesAdmin)
+
+class CookingMethodAdmin(ImportExportModelAdmin):
+    model = CookingMethod
+    list_display = ('id','name')
+
+admin.site.register(CookingMethod,CookingMethodAdmin)
+
+class FcaCodeAdmin(ImportExportModelAdmin):
+    model = FcaCode
+
+admin.site.register(FcaCode,FcaCodeAdmin)

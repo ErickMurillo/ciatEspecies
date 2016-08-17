@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import models
@@ -8,9 +9,10 @@ from species.models import Species
 
 CHOICE_REGION = (
 					(1, 'APAC'),
-					(2, 'SSA'),
-					(3, 'Mena'),
-					(4, 'LatAm'),
+					(2, 'LatAm'),
+					(3, 'South Asia'),
+					(4, 'Asia'),
+					(5, 'Africa'),
 				)
 
 
@@ -49,7 +51,7 @@ class Community(models.Model):
 	longitud = models.FloatField(blank=True,null=True)
 
 	def __str__(self):
-		return self.name
+		return u'self.name'
 
 
 class Climate(models.Model):
@@ -84,9 +86,9 @@ CHOICE_GENDER = ((1,'Female'),(2, 'Male'),)
 
 
 class Scientists(models.Model):
-	country = models.ForeignKey(Country)
+	# country = models.ForeignKey(Country)
 	name = models.CharField(max_length = 250)
-	gender = models.IntegerField(choices=CHOICE_GENDER)
+	# gender = models.IntegerField(choices=CHOICE_GENDER)
 
 	def __str__(self):
 		return self.name
@@ -131,7 +133,7 @@ class FocusGroup(models.Model):
 	province = models.ForeignKey(Province,blank=True,null=True)
 	county = models.ForeignKey(County,blank=True,null=True)
 	community = models.ForeignKey(Community,blank=True,null=True)
-	date = models.DateField()
+	date = models.DateField(blank=True,null=True)
 	scientist = models.ForeignKey(Scientists,blank=True,null=True)
 	organization = models.ForeignKey(Organizations,blank=True,null=True)
 	crp = models.ForeignKey(CRP,blank=True,null=True)
@@ -140,9 +142,13 @@ class FocusGroup(models.Model):
 	hh = models.CharField(max_length = 250,blank=True,null=True)
 	area = models.FloatField(blank=True,null=True)
 	frecuency = models.CharField(max_length = 250,blank=True,null=True)
-	definition_seasons = models.IntegerField(choices=CHOICE_SEASONS,blank=True,null=True)
+	year_round = models.CharField(max_length = 250,blank=True,null=True)
+	lean_season = models.CharField(max_length = 250,blank=True,null=True)
+	climate = models.CharField(max_length = 250,blank=True,null=True)
+	population = models.FloatField(blank=True,null=True)
+	market_distance = models.TextField(help_text='in km',blank=True,null=True)
+	gender = models.IntegerField(choices=GENDER_CHOICES,blank=True,null=True)
 	method_observations = models.TextField(blank=True,null=True)
-	# gender = models.IntegerField(choices=GENDER_CHOICES,blank=True,null=True)
 
 	# def __str__(self):
 	# 	return self.scientist
