@@ -51,7 +51,7 @@ class Community(models.Model):
 	longitud = models.FloatField(blank=True,null=True)
 
 	def __str__(self):
-		return u'self.name'
+		return self.name.encode('utf-8')
 
 
 class Climate(models.Model):
@@ -201,7 +201,7 @@ class FcaCode(models.Model):
 	parts_used = models.ForeignKey(PartUsed, null=True, blank=True)
 	uses = models.ForeignKey(Uses, null=True, blank=True)
 	cooking_method = models.ForeignKey(CookingMethod, null=True, blank=True)
-	notes = models.TextField()
+	# notes = models.TextField()
 
 	def __str__(self):
 		return self.focus_groups

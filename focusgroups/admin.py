@@ -67,6 +67,8 @@ admin.site.register(EthnicGroup,EthnicGroupAdmin)
 
 class FocusGroupAdmin(ImportExportModelAdmin):
     model = FocusGroup
+    empty_value_display = '-empty-'
+    list_display = ('id','community','date','scientist')
 
 admin.site.register(FocusGroup,FocusGroupAdmin)
 
