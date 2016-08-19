@@ -51,7 +51,7 @@ class Community(models.Model):
 	longitud = models.FloatField(blank=True,null=True)
 
 	def __str__(self):
-		return self.name.encode('utf-8')
+		return self.name.encode('ASCII', 'ignore')
 
 
 class Climate(models.Model):
@@ -151,7 +151,7 @@ class FocusGroup(models.Model):
 	method_observations = models.TextField(blank=True,null=True)
 
 	# def __str__(self):
-	# 	return self.scientist
+	# 	return u'%s - %s' % (self.id,self.date)
 
 
 CHOICE_FCA = ((1, '1'),(2, '2'),(3, '3'),(4,'4'))
@@ -181,7 +181,7 @@ class CookingMethod(models.Model):
 
 class FcaCode(models.Model):
 	focus_groups = models.ForeignKey(FocusGroup)
-	species = models.ForeignKey(Species)
+	species = models.ForeignKey(Species,null=True, blank=True)
 	scientific_name2 = models.CharField(max_length=450, null=True, blank=True)
 	species_english_name = models.CharField(max_length=450, null=True, blank=True)
 	species_french_name = models.CharField(max_length=450, null=True, blank=True)
@@ -198,13 +198,13 @@ class FcaCode(models.Model):
 	season = models.CharField(max_length=2, choices=CHOICE_SEASON, null=True, blank=True)
 	off_season = models.IntegerField(choices=CHOICE_OFF_SEASON, null=True, blank=True)
 	lean_season = models.IntegerField(choices=CHOICE_OFF_SEASON, null=True, blank=True)
-	parts_used = models.ForeignKey(PartUsed, null=True, blank=True)
-	uses = models.ForeignKey(Uses, null=True, blank=True)
-	cooking_method = models.ForeignKey(CookingMethod, null=True, blank=True)
+	parts_used = models.ManyToManyField(PartUsed,blank=True)
+	uses = models.CharField(max_length=450, null=True, blank=True)
+	cooking_method = models.CharField(max_length=450, null=True, blank=True)
 	# notes = models.TextField()
 
-	def __str__(self):
-		return self.focus_groups
+	# def __str__(self):
+	# 	return self.focus_groups
 
 	class Meta:
 		verbose_name='FCA Codes'

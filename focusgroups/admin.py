@@ -68,7 +68,7 @@ admin.site.register(EthnicGroup,EthnicGroupAdmin)
 class FocusGroupAdmin(ImportExportModelAdmin):
     model = FocusGroup
     empty_value_display = '-empty-'
-    list_display = ('id','community','date','scientist')
+    list_display = ('id','community','date','scientist','organization')
 
 admin.site.register(FocusGroup,FocusGroupAdmin)
 
@@ -78,17 +78,17 @@ class PartUsedAdmin(ImportExportModelAdmin):
 
 admin.site.register(PartUsed,PartUsedAdmin)
 
-class UsesAdmin(ImportExportModelAdmin):
-    model = Uses
-    list_display = ('id','name')
+# class UsesAdmin(ImportExportModelAdmin):
+#     model = Uses
+#     list_display = ('id','name')
+#
+# admin.site.register(Uses,UsesAdmin)
+#
+# class CookingMethodAdmin(ImportExportModelAdmin):
+#     model = CookingMethod
+#     list_display = ('id','name')
 
-admin.site.register(Uses,UsesAdmin)
-
-class CookingMethodAdmin(ImportExportModelAdmin):
-    model = CookingMethod
-    list_display = ('id','name')
-
-admin.site.register(CookingMethod,CookingMethodAdmin)
+# admin.site.register(CookingMethod,CookingMethodAdmin)
 
 class FcaCodeAdmin(ImportExportModelAdmin):
     model = FcaCode
