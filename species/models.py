@@ -31,8 +31,8 @@ class Species(models.Model):
     cultivar = models.IntegerField(choices=CHOICES_CULTIVAR, null=True, blank=True)
     type_species = models.IntegerField(choices=CHOICES_TYPE_SPECIES, null=True, blank=True)
 
-    # def __str__(self):
-    #     return self.scientific_name
+    def __str__(self):
+        return self.scientific_name
 
     class Meta:
         verbose_name = 'Species'

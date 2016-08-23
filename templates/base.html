@@ -80,38 +80,6 @@
 <script type="text/javascript" src="/static/js/jquery.isotope.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.circliful.js"></script>
 <script type="text/javascript" src="/static/js/docs.min.js"></script>
-
-
-
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-<script type="text/javascript">
-    function initialize() {
-      var marcadores = [
-        [ 42.603, -5.577],
-        [40.963, -5.669],
-        [ 41.503, -5.744]
-      ];
-      var map = new google.maps.Map(document.getElementById('mapa'), {
-        zoom: 3,
-        center: new google.maps.LatLng(10, 0),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      });
-      var infowindow = new google.maps.InfoWindow();
-      var marker, i;
-      for (i = 0; i < marcadores.length; i++) {
-        marker = new google.maps.Marker({
-          position: new google.maps.LatLng(marcadores[i][1], marcadores[i][2]),
-          map: map
-        });
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-            infowindow.setContent(marcadores[i][0]);
-            infowindow.open(map, marker);
-          }
-        })(marker, i));
-      }
-    }
-    google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+{% block extra_js %}{% endblock %}
 </body>
 </html>

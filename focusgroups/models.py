@@ -150,8 +150,8 @@ class FocusGroup(models.Model):
 	gender = models.IntegerField(choices=GENDER_CHOICES,blank=True,null=True)
 	method_observations = models.TextField(blank=True,null=True)
 
-	# def __str__(self):
-	# 	return u'%s - %s' % (self.id,self.date)
+	def __str__(self):
+		return u'%s - %s - %s - %s - %s' % (self.id,self.community,self.date,self.scientist,self.organization)
 
 
 CHOICE_FCA = ((1, '1'),(2, '2'),(3, '3'),(4,'4'))
