@@ -25,6 +25,9 @@ def _queryset_filtrado(request):
     if request.session['community']:
         params['community__in'] = request.session['community']
 
+    if request.session['gender']:
+        params['gender'] = request.session['gender']
+
 	unvalid_keys = []
 	for key in params:
 		if not params[key]:
@@ -35,23 +38,24 @@ def _queryset_filtrado(request):
 
 	return FocusGroup.objects.filter(**params)
 
-def filtros(request,template="filtros.html"):
+def filtros(request,template="consulta.html"):
     if request.method == 'POST':
-		mensaje = None
-		form = FocusGroupForm(request.POST)
-		if form.is_valid():
-			request.session['region'] = form.cleaned_data['region']
-			request.session['country'] = form.cleaned_data['country']
-			request.session['province'] = form.cleaned_data['province']
-			request.session['county'] = form.cleaned_data['county']
-			request.session['community'] = form.cleaned_data['community']
+        mensaje = None
+        form = FocusGroupForm(request.POST)
+        if form.is_valid():
+            request.session['region'] = form.cleaned_data['region']
+            request.session['country'] = form.cleaned_data['country']
+            request.session['province'] = form.cleaned_data['province']
+            request.session['county'] = form.cleaned_data['county']
+            request.session['community'] = form.cleaned_data['community']
+            request.session['gender'] = form.cleaned_data['gender']
 
-			mensaje = "Todas las variables estan correctamente :)"
-			request.session['activo'] = True
-			centinela = 1
+            mensaje = "Todas las variables estan correctamente :)"
+            request.session['activo'] = True
+            centinela = 1
 
-		else:
-			centinela = 0
+        else:
+            centinela = 0
 
     else:
         form = FocusGroupForm()
@@ -64,8 +68,12 @@ def filtros(request,template="filtros.html"):
             del request.session['comunidad']
             del request.session['county']
             del request.session['community']
+            del request.session['gender']
         except:
             pass
+
+    focusgroups = FocusGroup.objects.all()
+    species = Species.objects.all()
 
     return render(request, template, locals())
 

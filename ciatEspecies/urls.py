@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from .views import *
 from focusgroups.views import *
+from utils import *
 
 urlpatterns = [
     url(r'^$', index, name='index'),
@@ -29,6 +30,7 @@ urlpatterns = [
     url(r'^filtros/$', filtros, name='filtros'),
     url(r'^ajax/countries/$', get_country, name='get-country'),
     url(r'^ajax/provinces/$', get_province, name='get-province'),
-    url(r'^export-focusgroup/$', export_focusgroup_csv, name='export-focusgroup-csv'),
-    url(r'^export-species/$', export_species_csv, name='export-species-csv'),
+    url(r'^xls/$', save_as_xls),
+    # url(r'^export-focusgroup/$', export_focusgroup_csv, name='export-focusgroup-csv'),
+    # url(r'^export-species/$', export_species_csv, name='export-species-csv'),
 ]

@@ -2,7 +2,8 @@
 from django.contrib import admin
 from .models import *
 from import_export.admin import ImportExportModelAdmin
-from import_export import resources
+from import_export import resources,fields
+from import_export.widgets import ManyToManyWidget
 
 # Register your models here.
 class CountryAdmin(ImportExportModelAdmin):
@@ -101,3 +102,10 @@ admin.site.register(FcaCode,FcaCodeAdmin)
 class FocusGroupResource(resources.ModelResource):
     class Meta:
         model = FocusGroup
+        fields = ('id','country__name','province__name','county__name','community__name','date','scientist__name','organization__name',
+                    'crp__name','ethnic_group__name','language','hh','area','frecuency','year_round','lean_season','climate',
+                    'population','market_distance','gender','method_observations',)
+
+        export_order = ('id','country__name','province__name','county__name','community__name','date','scientist__name','organization__name',
+                    'crp__name','ethnic_group__name','language','hh','area','frecuency','year_round','lean_season','climate',
+                    'population','market_distance','gender','method_observations',)
