@@ -650,3 +650,16 @@
 <div class="clearfix"></div>
 
 {% endblock content %}
+{% block extra_js %}
+    <script type="text/javascript">
+        $(function () {
+            var menu= $(".page-header").height() + 50;
+            $(" #miLink").click(function (e) {
+                e.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $("#monitoreo").offset().top -menu}, 2000);
+            });
+        })
+    </script>
+{% endblock extra_js %}
+     
