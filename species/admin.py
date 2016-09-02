@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 from .models import Species, FctEspecies
-
+from import_export import resources
 
 class SpeciesAdmin(ImportExportModelAdmin):
     empty_value_display = '-empty-'
@@ -13,3 +13,9 @@ class SpeciesAdmin(ImportExportModelAdmin):
 # Register your models here.
 admin.site.register(Species, SpeciesAdmin)
 admin.site.register(FctEspecies)
+
+class SpeciesResource(resources.ModelResource):
+    class Meta:
+        model = Species
+        fields = ('id','scientific_name','name_genus1','name_species1','common_name','food_group__name','name_order__name','name_family__name','cultivar','type_species',)
+        export_order = ('id','scientific_name','name_genus1','name_species1','common_name','food_group__name','name_order__name','name_family__name','cultivar','type_species',)

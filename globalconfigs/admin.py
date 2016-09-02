@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import *
-from import_export.admin import ImportExportActionModelAdmin
+from import_export.admin import ImportExportModelAdmin
 
 # admin.site.register(FoodGroup)
 # admin.site.register(NameOrder)
@@ -10,17 +10,20 @@ from import_export.admin import ImportExportActionModelAdmin
 admin.site.register(NameCultivar)
 
 # import export
-class FoodGroupAdmin(ImportExportActionModelAdmin):
+class FoodGroupAdmin(ImportExportModelAdmin):
     model = FoodGroup
+    list_display = ('id','name')
 
 admin.site.register(FoodGroup,FoodGroupAdmin)
 
-class NameOrderAdmin(ImportExportActionModelAdmin):
+class NameOrderAdmin(ImportExportModelAdmin):
     model = NameOrder
+    list_display = ('id','name')
 
 admin.site.register(NameOrder,NameOrderAdmin)
 
-class NameFamilyAdmin(ImportExportActionModelAdmin):
+class NameFamilyAdmin(ImportExportModelAdmin):
     model = NameFamily
+    list_display = ('id','name')
 
 admin.site.register(NameFamily,NameFamilyAdmin)

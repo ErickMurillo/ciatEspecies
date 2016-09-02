@@ -1,59 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<!-- Mobile Specific -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-<link rel="shortcut icon" href="images/favicon.png">
-<title>Welcome to Carna</title>
-<!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<!-- Just for debugging purposes. Don't actually copy this line! -->
-<!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-<!-- Google Fonts -->
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+{% extends "base.html" %}
 
-<!-- FontAweasome Icon -->
-<link  href="css/font-awesome.min.css" rel="stylesheet">
-<!-- Custom styles for this template -->
-<link href="css/jquery.circliful.css" rel="stylesheet" type="text/css" />
-<link href="css/style.css" rel="stylesheet" type="text/css" >
-<link href="css/main.css" rel="stylesheet" type="text/css" >
+{% block extra_css %}
+  <link rel="stylesheet" href="/static/css/bootstrap-multiselect.css" type="text/css"/>
+{% endblock %}
 
-</head>
-<!-- NAVBAR
-================================================== -->
-<body>
-<div class="navbar-wrapper">
-  <div class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        <a class="navbar-brand" href="#home"><img src="images/logo.png" alt=""> </a> </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav"> 
-          <li><a href="#about">INTRODUCCIÓN</a></li>
-          <li><a href="2">EXPLORAR DATOS</a></li>
-          <li><a href="#team">CONTRIBUYENTES</a></li>
-          <li><a href="#afiliase">AFILIARSE</a></li>
-          <li><a href="#contact">SOLICITAR DATOS</a></li>
-          <li><a href="#metodologia">METODOLOGÍA</a></li>
-          <li><a href="#blog">PROYECTOS Y PUBLICACIONES</a></li>
-          <li><a href="#">INICIAR SESIÓN</a></li>
-          
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
+{% block content %}
 <!-- CONTACT Section
     ================================================== -->
 <div class="consulta" id="consulta">
@@ -66,7 +17,7 @@
   <div class="contact_wrap">
     <div class="container">
         <div class="row">
-            
+
             <div class="col-sm-6">
                 <div class="query form-consulta">
                     <h3>FILTRO DE DATOS</h3>
@@ -98,10 +49,7 @@
                                 Región Geográfico
                             </label>
                             <div class="col-sm-12 col-lg-8">
-                                <select name="" id="input" class="form-control" required="required">
-                                    <option value="">-------</option>
-                                    <option value="valor1"> Valor1</option>
-                                </select>
+                                {{form.region}}
                             </div>
                         </div>
                         <div class="form-group row">
@@ -109,21 +57,23 @@
                                 País
                             </label>
                             <div class="col-sm-12 col-lg-8">
-                                <select name="" id="input" class="form-control" required="required">
-                                    <option value="">-------</option>
-                                    <option value="valor1"> Valor1</option>
-                                </select>
+                                {{form.country}}
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-                                Provincia/Estado
+                                Provincia
                             </label>
                             <div class="col-sm-12 col-lg-8">
-                                <select name="" id="input" class="form-control" required="required">
-                                    <option value="">-------</option>
-                                    <option value="valor1"> Valor1</option>
-                                </select>
+                                {{form.province}}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+                                Estado
+                            </label>
+                            <div class="col-sm-12 col-lg-8">
+                                {{form.county}}
                             </div>
                         </div>
                         <div class="form-group row">
@@ -131,42 +81,18 @@
                                 Comunidad
                             </label>
                             <div class="col-sm-12 col-lg-8">
-                                <select name="" id="input" class="form-control" required="required">
-                                    <option value="">-------</option>
-                                    <option value="valor1"> Valor1</option>
-                                </select>
+                                {{form.community}}
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
                                 Género
                             </label>
-                            <div class="col-sm-12 col-lg-2">
-                                <div class="radio radio-success">
-                                    <input type="radio" name="radio1" id="radio1" value="Hombres">
-                                        <label for="radio1">
-                                            Hombres
-                                        </label>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-lg-2">
-                                <div class="radio radio-success">
-                                    <input type="radio" name="radio2" id="radio2" value="Mujeres">
-                                        <label for="radio2">
-                                            Mujeres
-                                        </label>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-lg-2">
-                                <div class="radio radio-success">
-                                    <input type="radio" name="radio3" id="radio3" value="Ambos">
-                                        <label for="radio3">
-                                            Ambos
-                                        </label>
-                                </div>
+                            <div class="col-sm-12 col-lg-8">
+                                {{form.gender}}
                             </div>
                         </div>
-                        
+
 
 
 
@@ -179,43 +105,275 @@
             <div class="col-sm-6">
                 <div class="">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d52491780.825310744!2d-8.517101532792102!3d17.265583516212416!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sni!4v1466710021328" width="100%" height="430" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    
+
                 </div>
+            </div>
+
+            <style media="screen">
+            .table-responsive {
+              margin-top: 20px;
+              height: 300px !important;
+              overflow: scroll;
+            }
+            </style>
+            <div class="col-sm-12">
+              <h4>Focus Groups Table <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad'); return false;">Exportar</a></h4>
+              <div class="table-responsive" id="modalidad">
+                <table class="table table-bordered table-hover" cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Country</th>
+                      <th>Province</th>
+                      <th>Community</th>
+                      <th>Date</th>
+                      <th>Scientist</th>
+                      <th>Organization</th>
+                      <th>CRP</th>
+                      <th>Ethnic group</th>
+                      <th>Language</th>
+                      <th>HH</th>
+                      <th>Area</th>
+                      <th>Frecuency</th>
+                      <th>Year round</th>
+                      <th>Lean season</th>
+                      <th>Climate</th>
+                      <th>Population</th>
+                      <th>Market distance</th>
+                      <th>Gender</th>
+                      <th>Method observations</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {%for fg in focusgroups %}
+                    <tr>
+                      <td>{{fg.id}}</td>
+                      <td>{{fg.country|default:""}}</td>
+                      <td>{{fg.province|default:""}}</td>
+                      <td>{{fg.community|default:""}}</td>
+                      <td>{{fg.date|default:""}}</td>
+                      <td>{{fg.scientist|default:""}}</td>
+                      <td>{{fg.organization|default:""}}</td>
+                      <td>{{fg.crp|default:""}}</td>
+                      <td>{% for x in fg.ethnic_group.all %}{{x|default:""}},{% endfor %}</td>
+                      <td>{% for x in fg.language.all %}{{x|default:""}},{% endfor %}</td>
+                      <td>{{fg.hh|default:""}}</td>
+                      <td>{{fg.area|default:""}}</td>
+                      <td>{{fg.frecuency|default:""}}</td>
+                      <td>{{fg.year_round|default:""}}</td>
+                      <td>{{fg.lean_season|default:""}}</td>
+                      <td>{{fg.climate|default:""}}</td>
+                      <td>{{fg.population|default:""}}</td>
+                      <td>{{fg.market_distance|default:""}}</td>
+                      <td>{{fg.get_gender_display|default:""}}</td>
+                      <td>{{fg.method_observations|default:""}}</td>
+                    </tr>
+                    {%endfor%}
+                  </tbody>
+                </table>
+            </div>
+            </div>
+
+            <div class="col-sm-12">
+              <h4>Species Table <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad1'); return false;">Exportar</a></h4>
+              <div class="table-responsive" id="modalidad1">
+                <table class="table table-bordered table-hover" cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Scientific name</th>
+                      <th>Name genus</th>
+                      <th>Name species</th>
+                      <th>Common name</th>
+                      <th>Food group</th>
+                      <th>Name order</th>
+                      <th>Name family</th>
+                      <th>Cultivar</th>
+                      <th>Type species</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {%for specie in species %}
+                    <tr>
+                      <td>{{specie.id}}</td>
+                      <td>{{specie.scientific_name|default:""}}</td>
+                      <td>{{specie.name_genus1|default:""}}</td>
+                      <td>{{specie.name_species1|default:""}}</td>
+                      <td>{{specie.common_name|default:""}}</td>
+                      <td>{{specie.food_group|default:""}}</td>
+                      <td>{{specie.name_order|default:""}}</td>
+                      <td>{{specie.name_family|default:""}}</td>
+                      <td>{{specie.get_cultivar_display|default:""}}</td>
+                      <td>{{specie.get_type_species_display|default:""}}</td>
+                    </tr>
+                    {%endfor%}
+                  </tbody>
+                </table>
+            </div>
             </div>
         </div>
     </div>
   </div>
 </div>
 <!-- / contact Close -->
+{% endblock %}
 
-<!-- FOOTER Section
-    ================================================== -->
-<div class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6">
-        <div class="mborder"></div>
-      </div>
-      <div class="col-xs-6">
-        <div class="qborder"></div>
-      </div>
-    </div>
-    <p>© 2016 Bioversity Internacional, Todos los derechos reservados. Desarrollado por <span style="color:green;">SIMAS</span></p>
+{% block extra_js %}
+<script type="text/javascript" src="/static/js/bootstrap-multiselect.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#id_region').addClass('form-control');
+    $('#id_gender').addClass('form-control');
 
-  </div>
-</div>
-<!-- / contact Close --> 
+    $('#id_country').multiselect({
+        buttonWidth: '100%',
+        includeSelectAllOption: true,
+        selectAllText: 'Seleccionar todos',
+        buttonText: function(options, select) {
+                if (options.length === 0) {
+                    return 'Sin selección ...';
+                }
+                else if (options.length > 3) {
+                    return 'Varias opciones seleccionadas!';
+                }
+                 else {
+                     var labels = [];
+                     options.each(function() {
+                         if ($(this).attr('label') !== undefined) {
+                             labels.push($(this).attr('label'));
+                         }
+                         else {
+                             labels.push($(this).html());
+                         }
+                     });
+                     return labels.join(', ') + '';
+                 }
+            }
+    });
 
-<!-- Bootstrap core JavaScript
-    ================================================== --> 
-<!-- Placed at the end of the document so the pages load faster --> 
-<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script> 
-<script type="text/javascript" src="js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="js/onepagenav.js"></script> 
-<script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script> 
-<script type="text/javascript" src="js/jquery.isotope.min.js"></script> 
-<script type="text/javascript" src="js/jquery.circliful.js"></script> 
-<script type="text/javascript" src="js/docs.min.js"></script> 
+    $('#id_province').multiselect({
+        buttonWidth: '100%',
+        includeSelectAllOption: true,
+        selectAllText: 'Seleccionar todos',
+        buttonText: function(options, select) {
+                if (options.length === 0) {
+                    return 'Sin selección ...';
+                }
+                else if (options.length > 3) {
+                    return 'Varias opciones seleccionadas!';
+                }
+                 else {
+                     var labels = [];
+                     options.each(function() {
+                         if ($(this).attr('label') !== undefined) {
+                             labels.push($(this).attr('label'));
+                         }
+                         else {
+                             labels.push($(this).html());
+                         }
+                     });
+                     return labels.join(', ') + '';
+                 }
+            }
+    });
 
-</body>
-</html>
+    $('#id_county').multiselect({
+        buttonWidth: '100%',
+        includeSelectAllOption: true,
+        selectAllText: 'Seleccionar todos',
+        buttonText: function(options, select) {
+                if (options.length === 0) {
+                    return 'Sin selección ...';
+                }
+                else if (options.length > 3) {
+                    return 'Varias opciones seleccionadas!';
+                }
+                 else {
+                     var labels = [];
+                     options.each(function() {
+                         if ($(this).attr('label') !== undefined) {
+                             labels.push($(this).attr('label'));
+                         }
+                         else {
+                             labels.push($(this).html());
+                         }
+                     });
+                     return labels.join(', ') + '';
+                 }
+            }
+    });
+
+    $('#id_community').multiselect({
+        buttonWidth: '100%',
+        includeSelectAllOption: true,
+        selectAllText: 'Seleccionar todos',
+        buttonText: function(options, select) {
+                if (options.length === 0) {
+                    return 'Sin selección ...';
+                }
+                else if (options.length > 3) {
+                    return 'Varias opciones seleccionadas!';
+                }
+                 else {
+                     var labels = [];
+                     options.each(function() {
+                         if ($(this).attr('label') !== undefined) {
+                             labels.push($(this).attr('label'));
+                         }
+                         else {
+                             labels.push($(this).html());
+                         }
+                     });
+                     return labels.join(', ') + '';
+                 }
+            }
+    });
+
+    $("#id_country").multiselect('disable');
+    $("#id_province").multiselect('disable');
+
+    // country
+    $(document).on('change','#id_region',function(){
+        var region = $('#id_region :selected').val();
+        $.getJSON('/ajax/countries/?ids='+region, function(data){
+            $('#id_country').html('');
+            $("#id_country").multiselect('enable');
+            if(data){
+                $.each(data, function(i, item){
+                    $('#id_country').append($('<option></option>').val(item.id).html(item.name));
+                    });
+                $('#id_country').multiselect('rebuild');
+           }
+       });
+    });
+
+    //province
+    var foo = [];
+    $(document).on('change','#id_country',function(){
+
+        $('#id_country :selected').each(function(i, selected){
+            foo[i] = $(selected).val();
+        });
+        $.getJSON('/ajax/provinces/?ids='+foo.join(","), function(data){
+            $('#id_province').html('');
+            $('#id_province').multiselect('enable');
+            var province = $('#id_province')
+            if(data){
+
+               $.each(data, function(i, item){
+                $.each(item, function(j, item2){
+                    var group = $('<optgroup></optgroup>').attr('label', j);
+                    $.each(item2, function(k, item3){
+                        group.append($('<option></option>').val(item3.id).html(item3.name));
+                    });
+                    group.appendTo(province);
+                    $('#id_province').multiselect('rebuild');
+                });
+            });
+           }
+       });
+    });
+
+});
+</script>
+{% endblock %}
