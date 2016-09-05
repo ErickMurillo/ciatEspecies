@@ -17,6 +17,6 @@ class FocusGroupForm(forms.Form):
         self.fields['region'] = forms.ChoiceField(choices=CHOICE_REGION,required=True,label=u'Region Geografico')
         self.fields['country'] = forms.ModelMultipleChoiceField(queryset=country(), required=False, label=u'Pais')
         self.fields['province'] = forms.ModelMultipleChoiceField(queryset=Province.objects.all(), required=False)
-        self.fields['county'] = forms.ModelMultipleChoiceField(queryset=County.objects.all(), required=False)
+        # self.fields['county'] = forms.ModelMultipleChoiceField(queryset=County.objects.all(), required=False)
         self.fields['community'] = forms.ModelMultipleChoiceField(queryset=Community.objects.all(),required=False)
         self.fields['gender'] = forms.ChoiceField(choices=GENDER_CHOICES,required=True,label=u'Género')

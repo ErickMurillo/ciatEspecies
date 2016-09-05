@@ -46,50 +46,67 @@ class Species(models.Model):
 
 
 
-CHOICES_COOKING_METHOD = (
-                        (1, 'Raw'),
-                        (2, 'Not consumed'),
-                        (3, 'Fresh'),
-                        (4, 'Dried'),
-                    )
+# CHOICES_COOKING_METHOD = (
+#                         (1, 'Raw'),
+#                         (2, 'Not consumed'),
+#                         (3, 'Fresh'),
+#                         (4, 'Dried'),
+#                     )
+
+class CookingMethod(models.Model):
+    name = models.CharField(max_length = 250)
+
+    def __str__(self):
+        return self.name
 
 class FctEspecies(models.Model):
     specie = models.ForeignKey(Species)
-    cooking_method = models.IntegerField(choices=CHOICES_COOKING_METHOD)
-    dry = models.FloatField()
-    water = models.FloatField()
-    energy = models.FloatField()
-    protein = models.FloatField()
-    fat = models.FloatField()
-    ash = models.FloatField()
-    carbohidrate = models.FloatField()
+    cooking_method = models.ForeignKey(CookingMethod,null=True, blank=True)
+    optifood_group = models.FloatField(null=True, blank=True)
+    optifood_sub_group = models.FloatField(null=True, blank=True)
+    dry = models.FloatField(null=True, blank=True)
+    water = models.FloatField(null=True, blank=True)
+    energy = models.FloatField(null=True, blank=True)
+    protein = models.FloatField(null=True, blank=True)
+    fat = models.FloatField(null=True, blank=True)
+    ash = models.FloatField(null=True, blank=True)
+    carbohidrate = models.FloatField(null=True, blank=True)
     #otras ondas
-    ca = models.FloatField()
-    fe = models.FloatField()
-    mg = models.FloatField()
-    na = models.FloatField()
-    zn = models.FloatField()
-    vit_c = models.FloatField()
-    b1 = models.FloatField()
-    b2 = models.FloatField()
-    b3 = models.FloatField()
-    pnto = models.FloatField()
-    b6 = models.FloatField()
-    dfe = models.FloatField()
-    fol = models.FloatField()
-    folac = models.FloatField()
-    b12 = models.FloatField()
-    va_re = models.FloatField()
-    va_rae = models.FloatField()
-    retinol = models.FloatField()
-    alcar = models.FloatField()
-    becar = models.FloatField()
-    becry = models.FloatField()
-    phy = models.FloatField()
-    lodine = models.FloatField()
-    fe_heme = models.FloatField()
-    fe_non_heme = models.FloatField()
-    iron_animal = models.FloatField()
+    ca = models.FloatField(null=True, blank=True)
+    fe = models.FloatField(null=True, blank=True)
+    mg = models.FloatField(null=True, blank=True)
+    na = models.FloatField(null=True, blank=True)
+    zn = models.FloatField(null=True, blank=True)
+    vit_c = models.FloatField(null=True, blank=True)
+    b1 = models.FloatField(null=True, blank=True)
+    b2 = models.FloatField(null=True, blank=True)
+    b3 = models.FloatField(null=True, blank=True)
+    pnto = models.FloatField(null=True, blank=True)
+    b6 = models.FloatField(null=True, blank=True)
+    dfe = models.FloatField(null=True, blank=True)
+    fol = models.FloatField(null=True, blank=True)
+    folac = models.FloatField(null=True, blank=True)
+    b12 = models.FloatField(null=True, blank=True)
+    va_re = models.FloatField(null=True, blank=True)
+    va_rae = models.FloatField(null=True, blank=True)
+    retinol = models.FloatField(null=True, blank=True)
+    alcar = models.FloatField(null=True, blank=True)
+    becar = models.FloatField(null=True, blank=True)
+    becry = models.FloatField(null=True, blank=True)
+    phy = models.FloatField(null=True, blank=True)
+    lodine = models.FloatField(null=True, blank=True)
+    fe_heme = models.FloatField(null=True, blank=True)
+    fe_non_heme = models.FloatField(null=True, blank=True)
+    iron_animal = models.FloatField(null=True, blank=True)
+    fct_source_code = models.CharField(max_length=50,null=True, blank=True)
+    fct_source_descr = models.CharField(max_length=50,null=True, blank=True)
+    vol_wt_source = models.FloatField(null=True, blank=True)
+    vol_wt_descr_1 = models.FloatField(null=True, blank=True)
+    vol_wt_calc_1 = models.FloatField(null=True, blank=True)
+    vol_wt_source_2 = models.FloatField(null=True, blank=True)
+    vol_wt_calc_2 = models.FloatField(null=True, blank=True)
+    ret_code = models.FloatField(null=True, blank=True)
+    ret_descr = models.FloatField(null=True, blank=True)
 
     def __str__(self):
         return self.specie

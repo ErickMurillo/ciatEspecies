@@ -19,8 +19,8 @@ def _queryset_filtrado(request):
     if request.session['province']:
         params['province__in'] = request.session['province']
 
-    if request.session['county']:
-        params['county__in'] = request.session['county']
+    # if request.session['county']:
+    #     params['county__in'] = request.session['county']
 
     if request.session['community']:
         params['community__in'] = request.session['community']
@@ -46,7 +46,7 @@ def filtros(request,template="consulta.html"):
             request.session['region'] = form.cleaned_data['region']
             request.session['country'] = form.cleaned_data['country']
             request.session['province'] = form.cleaned_data['province']
-            request.session['county'] = form.cleaned_data['county']
+            # request.session['county'] = form.cleaned_data['county']
             request.session['community'] = form.cleaned_data['community']
             request.session['gender'] = form.cleaned_data['gender']
 
@@ -66,7 +66,7 @@ def filtros(request,template="consulta.html"):
             del request.session['country']
             del request.session['province']
             del request.session['comunidad']
-            del request.session['county']
+            # del request.session['county']
             del request.session['community']
             del request.session['gender']
         except:

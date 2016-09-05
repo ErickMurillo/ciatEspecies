@@ -45,7 +45,8 @@ class County(models.Model):
 		return self.name
 
 class Community(models.Model):
-	county = models.ForeignKey(County,blank=True,null=True)
+	# county = models.ForeignKey(County,blank=True,null=True)
+	province = models.ForeignKey(Province,blank=True,null=True)
 	name = models.CharField(max_length=250)
 	latitud = models.FloatField(blank=True,null=True)
 	longitud = models.FloatField(blank=True,null=True)
@@ -131,7 +132,7 @@ GENDER_CHOICES = ((1,'Female'),(2, 'Male'),(3,'Both'))
 class FocusGroup(models.Model):
 	country = models.ForeignKey(Country,blank=True,null=True)
 	province = models.ForeignKey(Province,blank=True,null=True)
-	county = models.ForeignKey(County,blank=True,null=True)
+	# county = models.ForeignKey(County,blank=True,null=True)
 	community = models.ForeignKey(Community,blank=True,null=True)
 	date = models.DateField(blank=True,null=True)
 	scientist = models.ForeignKey(Scientists,blank=True,null=True)
