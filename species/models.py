@@ -110,5 +110,5 @@ class FctEspecies(models.Model):
     ret_code = models.FloatField(null=True, blank=True)
     ret_descr = models.FloatField(null=True, blank=True)
 
-    def __str__(self):
-        return self.specie
+    # def __str__(self):
+    #     return self.specie
