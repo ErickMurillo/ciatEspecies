@@ -5,13 +5,14 @@ from focusgroups.models import *
 from focusgroups.forms import *
 from focusgroups.admin import *
 from species.admin import *
+from globalconfigs.models import *
 
 # Create your views here.
 def _queryset_filtrado(request):
     params = {}
 
     if request.session['region']:
-        params['region'] = request.session['region']
+        params['country__region'] = request.session['region']
 
     if request.session['country']:
         params['country__in'] = request.session['country']
@@ -25,8 +26,8 @@ def _queryset_filtrado(request):
     if request.session['community']:
         params['community__in'] = request.session['community']
 
-    if request.session['gender']:
-        params['gender'] = request.session['gender']
+        # if request.session['gender']:
+        #     params['gender'] = request.session['gender']
 
 	unvalid_keys = []
 	for key in params:
@@ -48,12 +49,11 @@ def filtros(request,template="consulta.html"):
             request.session['province'] = form.cleaned_data['province']
             # request.session['county'] = form.cleaned_data['county']
             request.session['community'] = form.cleaned_data['community']
-            request.session['gender'] = form.cleaned_data['gender']
+            #request.session['gender'] = form.cleaned_data['gender']
 
             mensaje = "Todas las variables estan correctamente :)"
             request.session['activo'] = True
             centinela = 1
-
         else:
             centinela = 0
 
@@ -68,7 +68,7 @@ def filtros(request,template="consulta.html"):
             del request.session['comunidad']
             # del request.session['county']
             del request.session['community']
-            del request.session['gender']
+            #del request.session['gender']
         except:
             pass
 
@@ -77,6 +77,26 @@ def filtros(request,template="consulta.html"):
 
     return render(request, template, locals())
 
+def grupo_nutricional(request,template="salidas/grupo_nutricional.html"):
+    filtro = _queryset_filtrado(request)
+
+    comunnity = request.session['community']
+
+    comu = {}
+    for obj in comunnity:
+        food = {}
+        for x in FoodGroup.objects.all():
+            lista = []
+            for gender in GENDER_CHOICES:
+                print filtro
+                conteo = filtro.filter(fcacode__species__food_group = x,community = obj,gender = gender[0]).count()
+                lista.append(conteo)
+            food[x] = lista
+        comu[obj] = food
+
+    return render(request, template, locals())
+
+#ajax
 def get_country(request):
 	ids = request.GET.get('ids', '')
 	if ids:
@@ -103,6 +123,30 @@ def get_province(request):
                     prov['name'] = province.name
                     lista1.append(prov)
                     dicc[country.name] = lista1
+            except:
+                pass
+
+    resultado.append(dicc)
+
+    return HttpResponse(simplejson.dumps(resultado), content_type = 'application/json')
+
+def get_community(request):
+    ids = request.GET.get('ids', '')
+    dicc = {}
+    resultado = []
+    if ids:
+        lista = ids.split(',')
+        for id in lista:
+            try:
+                province = Province.objects.get(id = id)
+                communities = Community.objects.filter(province__id = province.id).order_by('name')
+                lista1 = []
+                for community in communities:
+                    comu = {}
+                    comu['id'] = community.id
+                    comu['name'] = community.name
+                    lista1.append(comu)
+                    dicc[province.name] = lista1
             except:
                 pass
 

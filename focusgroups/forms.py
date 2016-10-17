@@ -15,8 +15,8 @@ class FocusGroupForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(FocusGroupForm, self).__init__(*args, **kwargs)
         self.fields['region'] = forms.ChoiceField(choices=CHOICE_REGION,required=True,label=u'Region Geografico')
-        self.fields['country'] = forms.ModelMultipleChoiceField(queryset=country(), required=False, label=u'Pais')
-        self.fields['province'] = forms.ModelMultipleChoiceField(queryset=Province.objects.all(), required=False)
+        self.fields['country'] = forms.ModelMultipleChoiceField(queryset=country(), required=True, label=u'Pais')
+        self.fields['province'] = forms.ModelMultipleChoiceField(queryset=Province.objects.all(), required=True)
         # self.fields['county'] = forms.ModelMultipleChoiceField(queryset=County.objects.all(), required=False)
-        self.fields['community'] = forms.ModelMultipleChoiceField(queryset=Community.objects.all(),required=False)
-        self.fields['gender'] = forms.ChoiceField(choices=GENDER_CHOICES,required=True,label=u'Género')
+        self.fields['community'] = forms.ModelMultipleChoiceField(queryset=Community.objects.all(),required=True)
+        self.fields['gender'] = forms.ChoiceField(choices=GENDER_CHOICES,required=False,label=u'Género')

@@ -28,8 +28,10 @@ urlpatterns = [
     # url(r'^report_builder/', include('report_builder.urls'))
     url(r'^mapa-index/$', obtener_lista, name='obtener-lista'),
     url(r'^filtros/$', filtros, name='filtros'),
+    url(r'^especies/', include('focusgroups.urls')),
     url(r'^ajax/countries/$', get_country, name='get-country'),
     url(r'^ajax/provinces/$', get_province, name='get-province'),
+    url(r'^ajax/communities/$', get_community, name='get-community'),
     url(r'^xls/$', save_as_xls),
     # url(r'^export-focusgroup/$', export_focusgroup_csv, name='export-focusgroup-csv'),
     # url(r'^export-species/$', export_species_csv, name='export-species-csv'),

@@ -96,6 +96,7 @@ class FcaCodeAdmin(ImportExportModelAdmin):
     model = FcaCode
     empty_value_display = '-empty-'
     list_display = ('id','focus_groups','species')
+    search_fields = ['focus_groups__id',]
 
 admin.site.register(FcaCode,FcaCodeAdmin)
 
