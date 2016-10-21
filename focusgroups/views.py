@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.http import HttpResponse
 import json as simplejson
@@ -77,22 +78,115 @@ def filtros(request,template="consulta.html"):
 
     return render(request, template, locals())
 
-def grupo_nutricional(request,template="salidas/grupo_nutricional.html"):
+def grupo_nutricional_comunidad(request,template="salidas/grupo_nutricional.html"):
     filtro = _queryset_filtrado(request)
 
+    # 1. Gráfica histograma y tabla de conteos de número de especies por
+    # grupo nutricional entre comunidades seleccionada por el usuario
     comunnity = request.session['community']
+    GENDER_CHOICES = ((1,'Female'),(2, 'Male'))
 
     comu = {}
     for obj in comunnity:
         food = {}
+        food_tabla = {}
         for x in FoodGroup.objects.all():
             lista = []
+            tabla = []
             for gender in GENDER_CHOICES:
-                print filtro
-                conteo = filtro.filter(fcacode__species__food_group = x,community = obj,gender = gender[0]).count()
+                #grafica
+                conteo = filtro.filter(fcacode__species__food_group = x,community = obj,gender = gender[0]).distinct('fcacode__species').count()
                 lista.append(conteo)
+
+                #tabla
+                produced = filtro.filter(fcacode__species__food_group = x,community = obj,gender = gender[0],fcacode__presence_cultivated = 1).distinct('fcacode__species').count()
+                sold = filtro.filter(fcacode__species__food_group = x,community = obj,gender = gender[0],fcacode__presence_sold = 1).distinct('fcacode__species').count()
+                purchased = filtro.filter(fcacode__species__food_group = x,community = obj,gender = gender[0],fcacode__presence_purchased = 1).distinct('fcacode__species').count()
+                consumed = filtro.filter(fcacode__species__food_group = x,community = obj,gender = gender[0],fcacode__presence_consumed = 1).distinct('fcacode__species').count()
+                tabla.append((produced,sold,purchased,consumed))
+
             food[x] = lista
-        comu[obj] = food
+            food_tabla[x] = tabla
+        comu[obj] = (food,food_tabla)
+
+    return render(request, template, locals())
+
+def grupo_nutricional_pais(request,template="salidas/grupo_nutricional_pais.html"):
+    filtro = _queryset_filtrado(request)
+
+    country = request.session['country']
+    GENDER_CHOICES = ((1,'Female'),(2, 'Male'))
+
+    pais = {}
+    for obj in country:
+        food = {}
+        food_tabla = {}
+        for x in FoodGroup.objects.all():
+            lista = []
+            tabla = []
+            for gender in GENDER_CHOICES:
+                #grafica
+                conteo = filtro.filter(fcacode__species__food_group = x,country = obj,gender = gender[0]).distinct('fcacode__species').count()
+                lista.append(conteo)
+
+                #tabla
+                produced = filtro.filter(fcacode__species__food_group = x,country = obj,gender = gender[0],fcacode__presence_cultivated = 1).distinct('fcacode__species').count()
+                sold = filtro.filter(fcacode__species__food_group = x,country = obj,gender = gender[0],fcacode__presence_sold = 1).distinct('fcacode__species').count()
+                purchased = filtro.filter(fcacode__species__food_group = x,country = obj,gender = gender[0],fcacode__presence_purchased = 1).distinct('fcacode__species').count()
+                consumed = filtro.filter(fcacode__species__food_group = x,country = obj,gender = gender[0],fcacode__presence_consumed = 1).distinct('fcacode__species').count()
+                tabla.append((produced,sold,purchased,consumed))
+
+            food[x] = lista
+            food_tabla[x] = tabla
+        pais[obj] = (food,food_tabla)
+
+    return render(request, template, locals())
+
+def numero_especies(request,template="salidas/numero_especies.html"):
+    filtro = _queryset_filtrado(request)
+
+    country = request.session['country']
+    community = request.session['community']
+
+    comu = {}
+    for obj in community:
+        #produced
+        produced = []
+        produced_hombres = filtro.filter(community = obj,gender = '2',fcacode__presence_cultivated = 1).distinct('fcacode__species').count()
+        produced_mujeres = filtro.filter(community = obj,gender = '1',fcacode__presence_cultivated = 1).distinct('fcacode__species').count()
+        produced_media = (produced_hombres + produced_mujeres) / float(2)
+        produced.append((produced_media,produced_hombres,produced_mujeres))
+
+        #sold
+        sold = []
+        sold_hombres = filtro.filter(community = obj,gender = '2',fcacode__presence_sold = 1).distinct('fcacode__species').count()
+        sold_mujeres = filtro.filter(community = obj,gender = '1',fcacode__presence_sold = 1).distinct('fcacode__species').count()
+        sold_media = (sold_hombres + sold_mujeres) / float(2)
+        sold.append((sold_media,sold_hombres,sold_mujeres))
+
+        #purchased
+        purchased = []
+        purchased_hombres = filtro.filter(community = obj,gender = '2',fcacode__presence_purchased = 1).distinct('fcacode__species').count()
+        purchased_mujeres = filtro.filter(community = obj,gender = '1',fcacode__presence_purchased = 1).distinct('fcacode__species').count()
+        purchased_media = (purchased_hombres + purchased_mujeres) / float(2)
+        purchased.append((purchased_media,purchased_hombres,purchased_mujeres))
+
+        #consumed
+        consumed = []
+        consumed_hombres = filtro.filter(community = obj,gender = '2',fcacode__presence_consumed = 1).distinct('fcacode__species').count()
+        consumed_mujeres = filtro.filter(community = obj,gender = '1',fcacode__presence_consumed = 1).distinct('fcacode__species').count()
+        consumed_media = (consumed_hombres + consumed_mujeres) / float(2)
+        consumed.append((consumed_media,consumed_hombres,consumed_mujeres))
+
+        #total
+        total = []
+        total_hombres = produced_hombres + sold_hombres + purchased_hombres + consumed_hombres
+        total_mujeres = produced_mujeres + sold_media + purchased_mujeres + consumed_mujeres
+        total_media = (total_hombres + total_mujeres) / float(2)
+        total.append((total_media,total_hombres,total_mujeres))
+
+        comu[obj] = (total,produced,sold,purchased,consumed)
+
 
     return render(request, template, locals())
 

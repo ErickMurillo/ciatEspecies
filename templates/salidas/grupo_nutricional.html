@@ -4,7 +4,7 @@
 <div class="consulta" id="consulta">
   <div class="container">
     <div class="head_section">
-      <h2>Grupo nutricional</h2>
+      <h2>Grupos nutricionales por comunidad</h2>
     </div>
   </div>
 
@@ -22,9 +22,48 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-    {% for key in comu.keys %}
+    {% for key,values in comu.items %}
     <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
       <div id="container{{forloop.counter}}" style="width: 1000px; height: 400px; margin: 0 auto"></div>
+      <div class="table-responsive" id="modalidad">
+          <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th colspan="2">Produced</th>
+                    <th colspan="2">Sold</th>
+                    <th colspan="2">Purchased</th>
+                    <th colspan="2">Consumed</th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th>Hombres</th>
+                  <th>Mujeres</th>
+                  <th>Hombres</th>
+                  <th>Mujeres</th>
+                  <th>Hombres</th>
+                  <th>Mujeres</th>
+                  <th>Hombres</th>
+                  <th>Mujeres</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for k,v in values.1.items %}
+                <tr>
+                    <td>{{k|safe}}</td>
+                    {% for x in v %}
+                      <td>{{x.0}}</td>
+                      <td>{{x.1}}</td>
+                      <td>{{x.2}}</td>
+                      <td>{{x.3}}</td>
+                    {% endfor %}
+                </tr>
+              {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
     </div>
     {% endfor %}
   </div>
@@ -49,13 +88,13 @@ $(function () {
             text: 'número de especies por grupo nutricional'
         },
         xAxis: {
-            categories: ['Mujeres', 'Hombres','Ambos']
+            categories: ['Mujeres', 'Hombres']
         },
         credits: {
             enabled: false
         },
         series: [
-          {% for k,v in values.items %}
+          {% for k,v in values.0.items %}
             {
               name: '{{k|safe}}',
               data: [{% for x in v %}{{x}},{% endfor %}]

@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="consulta" id="consulta">
+  <div class="container">
+    <div class="head_section">
+      <h2>Especies</h2>
+    </div>
+  </div>
+
+  <div class="contact_wrap">
+    <div class="container">
+      <div class="row">
+        <div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    {% for key in comu.keys %}
+      <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}"><a href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a></li>
+    {% endfor %}
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    {% for key,values in comu.items %}
+    <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
+      <div class="table-responsive" id="modalidad">
+          <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th colspan="4">Numero de especies</th>
+                </tr>
+                <tr>
+                  <th></th>
+                  <th>Media</th>
+                  <th>Hombres</th>
+                  <th>Mujeres</th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for v in values.0 %}
+                <tr>
+                  <td>Total</td>
+                  <td>{{v.0}}</td>
+                  <td>{{v.1}}</td>
+                  <td>{{v.2}}</td>
+                </tr>
+              {% endfor %}
+              {% for v in values.1 %}
+                <tr>
+                  <td>Produced</td>
+                  <td>{{v.0}}</td>
+                  <td>{{v.1}}</td>
+                  <td>{{v.2}}</td>
+                </tr>
+              {% endfor %}
+              {% for v in values.2 %}
+                <tr>
+                  <td>Sold</td>
+                  <td>{{v.0}}</td>
+                  <td>{{v.1}}</td>
+                  <td>{{v.2}}</td>
+                </tr>
+              {% endfor %}
+              {% for v in values.3 %}
+                <tr>
+                  <td>Purchased</td>
+                  <td>{{v.0}}</td>
+                  <td>{{v.1}}</td>
+                  <td>{{v.2}}</td>
+                </tr>
+              {% endfor %}
+              {% for v in values.4 %}
+                <tr>
+                  <td>Consumed</td>
+                  <td>{{v.0}}</td>
+                  <td>{{v.1}}</td>
+                  <td>{{v.2}}</td>
+                </tr>
+              {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
