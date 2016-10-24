@@ -7,6 +7,8 @@ from focusgroups.forms import *
 from focusgroups.admin import *
 from species.admin import *
 from globalconfigs.models import *
+from django.db.models import Avg, Sum, F
+from collections import OrderedDict, Counter
 
 # Create your views here.
 def _queryset_filtrado(request):
@@ -148,6 +150,7 @@ def numero_especies(request,template="salidas/numero_especies.html"):
     country = request.session['country']
     community = request.session['community']
 
+    #por comunidad
     comu = {}
     for obj in community:
         #produced
@@ -181,14 +184,96 @@ def numero_especies(request,template="salidas/numero_especies.html"):
         #total
         total = []
         total_hombres = produced_hombres + sold_hombres + purchased_hombres + consumed_hombres
-        total_mujeres = produced_mujeres + sold_media + purchased_mujeres + consumed_mujeres
+        total_mujeres = produced_mujeres + sold_mujeres + purchased_mujeres + consumed_mujeres
         total_media = (total_hombres + total_mujeres) / float(2)
         total.append((total_media,total_hombres,total_mujeres))
 
         comu[obj] = (total,produced,sold,purchased,consumed)
 
+    #por pais
+    pais = {}
+    for obj in country:
+        #produced
+        country_produced = []
+        country_produced_hombres = filtro.filter(country = obj,gender = '2',fcacode__presence_cultivated = 1).distinct('fcacode__species').count()
+        country_produced_mujeres = filtro.filter(country = obj,gender = '1',fcacode__presence_cultivated = 1).distinct('fcacode__species').count()
+        country_produced_media = (country_produced_hombres + country_produced_mujeres) / float(2)
+        country_produced.append((country_produced_media,country_produced_hombres,country_produced_mujeres))
+
+        #sold
+        country_sold = []
+        country_sold_hombres = filtro.filter(country = obj,gender = '2',fcacode__presence_sold = 1).distinct('fcacode__species').count()
+        country_sold_mujeres = filtro.filter(country = obj,gender = '1',fcacode__presence_sold = 1).distinct('fcacode__species').count()
+        country_sold_media = (country_sold_hombres + country_sold_mujeres) / float(2)
+        country_sold.append((country_sold_media,country_sold_hombres,country_sold_mujeres))
+
+        #purchased
+        country_purchased = []
+        country_purchased_hombres = filtro.filter(country = obj,gender = '2',fcacode__presence_purchased = 1).distinct('fcacode__species').count()
+        country_purchased_mujeres = filtro.filter(country = obj,gender = '1',fcacode__presence_purchased = 1).distinct('fcacode__species').count()
+        country_purchased_media = (country_purchased_hombres + country_purchased_mujeres) / float(2)
+        country_purchased.append((country_purchased_media,country_purchased_hombres,country_purchased_mujeres))
+
+        #consumed
+        country_consumed = []
+        country_consumed_hombres = filtro.filter(country = obj,gender = '2',fcacode__presence_consumed = 1).distinct('fcacode__species').count()
+        country_consumed_mujeres = filtro.filter(country = obj,gender = '1',fcacode__presence_consumed = 1).distinct('fcacode__species').count()
+        country_consumed_media = (country_consumed_hombres + country_consumed_mujeres) / float(2)
+        country_consumed.append((country_consumed_media,country_consumed_hombres,country_consumed_mujeres))
+
+        #total
+        country_total = []
+        country_total_hombres = country_produced_hombres + country_sold_hombres + country_purchased_hombres + country_consumed_hombres
+        country_total_mujeres = country_produced_mujeres + country_sold_mujeres + country_purchased_mujeres + country_consumed_mujeres
+        country_total_media = (country_total_hombres + country_total_mujeres) / float(2)
+        country_total.append((country_total_media,country_total_hombres,country_total_mujeres))
+        pais[obj] = (country_total,country_produced,country_sold,country_purchased,country_consumed)
 
     return render(request, template, locals())
+
+def numero_especies_comunidad(request,template="salidas/numero_especies_comunidad.html"):
+    filtro = _queryset_filtrado(request)
+
+    community = request.session['community']
+    GENDER_CHOICES = ((1,'Mujeres'),(2, 'Hombres'))
+
+    comu = {}
+    rainfall = {}
+    for obj in community:
+        distancia_mercado = {}
+        areas = {}
+        for x in GENDER_CHOICES:
+            menor_10 = filtro.filter(community = obj,gender = x[0],market_distance__range = (0,10)).count()
+            entre_10_50 = filtro.filter(community = obj,gender = x[0],market_distance__range = (10.01,50)).count()
+            mayor_50 = filtro.filter(community = obj,gender = x[0],market_distance__range = (50.01,1000)).count()
+            distancia_mercado[x[1]] = (menor_10,entre_10_50,mayor_50)
+
+            #areas
+            hectarea_1 = filtro.filter(community = obj,gender = x[0],area__range = (0,1)).count()
+            entre_1_2 = filtro.filter(community = obj,gender = x[0],area__range = (1.01,2.5)).count()
+            entre_2_5 = filtro.filter(community = obj,gender = x[0],area__range = (2.51,5)).count()
+            areas[x[1]] = (hectarea_1,entre_1_2,entre_2_5)
+
+        comu[obj] = (distancia_mercado,areas)
+
+        #precipitacion
+        rain = filtro.filter(community = obj).aggregate(avg = Avg('rainfall'))['avg']
+        rainfall[obj] = rain
+
+        print rainfall
+
+    return render(request, template, locals())
+
+def crear_rangos(request, lista, start=0, stop=0, step=0):
+    dict_algo = OrderedDict()
+    rangos = []
+    contador = 0
+    rangos = [(n, n+int(step)-1) for n in range(int(start), int(stop), int(step))]
+
+    for desde, hasta in rangos:
+        dict_algo['%s a %s' % (desde,hasta)] = len([x for x in lista if desde <= x <= hasta])
+
+    return dict_algo
 
 #ajax
 def get_country(request):
