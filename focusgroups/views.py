@@ -6,8 +6,9 @@ from focusgroups.models import *
 from focusgroups.forms import *
 from focusgroups.admin import *
 from species.admin import *
+from species.models import *
 from globalconfigs.models import *
-from django.db.models import Avg, Sum, F
+from django.db.models import Avg, Sum, F, Count
 from collections import OrderedDict, Counter
 
 # Create your views here.
@@ -239,6 +240,7 @@ def numero_especies_comunidad(request,template="salidas/numero_especies_comunida
 
     comu = {}
     rainfall = {}
+    temperature = {}
     for obj in community:
         distancia_mercado = {}
         areas = {}
@@ -260,7 +262,66 @@ def numero_especies_comunidad(request,template="salidas/numero_especies_comunida
         rain = filtro.filter(community = obj).aggregate(avg = Avg('rainfall'))['avg']
         rainfall[obj] = rain
 
-        print rainfall
+        #temperatura
+        temp = filtro.filter(community = obj).aggregate(avg = Avg('annual_mean_temperature'))['avg']
+        temperature[obj] = temp
+
+    return render(request, template, locals())
+
+def perfil_especies(request,template="salidas/perfil_especies.html"):
+    filtro = _queryset_filtrado(request)
+
+    paises = Country.objects.all().count()
+    comunidades = Community.objects.all().count()
+
+    lista = []
+
+    esp = OrderedDict()
+    for obj in filtro:
+        especies = Species.objects.filter(fcacode__focus_groups = obj).values_list('id','scientific_name')
+        for especie in especies:
+            lista = []
+            scientific_name2 = FcaCode.objects.filter(focus_groups = obj,species = especie[0]).distinct('scientific_name2').values_list('scientific_name2', flat = True)
+            english_name = FcaCode.objects.filter(focus_groups = obj,species = especie[0]).distinct('species_english_name').values_list('species_english_name', flat = True)
+            french_name = FcaCode.objects.filter(focus_groups = obj,species = especie[0]).distinct('species_french_name').values_list('species_french_name', flat = True)
+            vernacular_name = FcaCode.objects.filter(focus_groups = obj,species = especie[0]).distinct('species_vernacular_name').values_list('species_vernacular_name', flat = True)
+
+            # #produced
+            # produced = []
+            # produced_hombres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '2',presence_cultivated = 1).count()
+            # produced_mujeres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '1',presence_cultivated = 1).count()
+            # produced_media = (produced_hombres + produced_mujeres) / float(2)
+            # produced.append((produced_media,produced_hombres,produced_mujeres))
+            #
+            # #sold
+            # sold = []
+            # sold_hombres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '2',presence_sold = 1).count()
+            # sold_mujeres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '1',presence_sold = 1).count()
+            # sold_media = (sold_hombres + sold_mujeres) / float(2)
+            # sold.append((sold_media,sold_hombres,sold_mujeres))
+            #
+            # #purchased
+            # purchased = []
+            # purchased_hombres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '2',presence_purchased = 1).count()
+            # purchased_mujeres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '1',presence_purchased = 1).count()
+            # purchased_media = (purchased_hombres + purchased_mujeres) / float(2)
+            # purchased.append((purchased_media,purchased_hombres,purchased_mujeres))
+            #
+            # #consumed
+            # consumed = []
+            # consumed_hombres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '2',presence_consumed = 1).count()
+            # consumed_mujeres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '1',presence_consumed = 1).count()
+            # consumed_media = (consumed_hombres + consumed_mujeres) / float(2)
+            # consumed.append((consumed_media,consumed_hombres,consumed_mujeres))
+
+            # num paises
+
+            count_pais = FcaCode.objects.filter(focus_groups = obj,species = especie[0]).count()
+            porcent_paises = saca_porcentajes(count_pais,paises,False)
+
+            lista.append((scientific_name2,english_name,french_name,vernacular_name,count_pais,porcent_paises))
+
+            esp[especie[1]] = lista
 
     return render(request, template, locals())
 
@@ -349,3 +410,16 @@ def export_species_csv(request):
     response['Content-Disposition'] = 'attachment; filename="Species.xls"'
 
     return response
+
+def saca_porcentajes(dato, total, formato=True):
+	if dato != None:
+		try:
+			porcentaje = (dato/float(total)) * 100 if total != None or total != 0 else 0
+		except:
+			return 0
+		if formato:
+			return porcentaje
+		else:
+			return '%.2f' % porcentaje
+	else:
+		return 0

@@ -4,7 +4,7 @@
 <div class="consulta" id="consulta">
   <div class="container">
     <div class="head_section">
-      <h2>Especies</h2>
+      <h2>Salida 4</h2>
     </div>
   </div>
 
@@ -29,6 +29,7 @@
             </div>
             {% endfor %}
             <div id="rain" style="width: 1000px; height: 400px; margin: 0 auto"></div>
+            <div id="temp" style="width: 1000px; height: 400px; margin: 0 auto"></div>
           </div>
 
         </div>
@@ -147,6 +148,54 @@ $(function () {
            ]
        }],
    });
+
+   $('#temp').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Temperatura promedio'
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Promedio'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.2f}'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}<br/>'
+        },
+
+        series: [{
+            name: 'Promedio',
+            colorByPoint: true,
+            data: [
+              {% for k,v in temperature.items %}
+              {
+                name: '{{k}}',
+                y: {{v}},
+              },
+              {% endfor %}
+            ]
+        }],
+    });
 
 });
 </script>

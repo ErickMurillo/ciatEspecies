@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style media="screen">
+.table-responsive {
+  height: 600px !important;
+  overflow: scroll;
+}
+</style>
+<div class="consulta" id="consulta">
+  <div class="container">
+    <div class="head_section">
+      <h2>Perfil especies</h2>
+    </div>
+  </div>
+
+  <div class="contact_wrap">
+    <div class="container">
+      <div class="row">
+        <div class="table-responsive" id="modalidad">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Scient. Name</th>
+                <th>Scient. Name 2</th>
+                <th>Species English Name</th>
+                <th>Species French Name</th>
+                <th>Vernacular Name</th>
+                <!--<th>Gender</th>-->
+                <th>Número de paises</th>
+                <th>% de paises</th>
+                <th>Número de comunidades</th>
+                <th>% de comunidades</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for k,v in esp.items %}
+              <tr>
+                <td>{{k}}</td>
+                <td>
+                  {% for valor in v %}
+                  {% for x in valor.0 %}
+                    {% if forloop.last %}{{x}}{% else %}{{x}},{% endif %}
+                  {% endfor %}
+                  {% endfor %}
+                </td>
+                <td>
+                  {% for valor in v %}
+                  {% for x in valor.1 %}
+                    {% if forloop.last %}{{x}}{% else %}{{x}},{% endif %}
+                  {% endfor %}
+                  {% endfor %}
+                </td>
+                <td>
+                  {% for valor in v %}
+                  {% for x in valor.2 %}
+                    {% if forloop.last %}{{x}}{% else %}{{x}},{% endif %}
+                  {% endfor %}
+                  {% endfor %}
+                </td>
+                <td>
+                  {% for valor in v %}
+                  {% for x in valor.3 %}
+                    {% if forloop.last %}{{x}}{% else %}{{x}},{% endif %}
+                  {% endfor %}
+                  {% endfor %}
+                </td>
+                <td>
+                  {% for valor in v %}
+                    {{valor.4}}
+                  {% endfor %}
+                </td>
+                <td>
+                  {% for valor in v %}
+                    {{valor.5}}
+                  {% endfor %}
+                </td>
+
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
