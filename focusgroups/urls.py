@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^numero-especies/$', numero_especies, name='numero-especies'),
     url(r'^numero-especies-comunidad/$', numero_especies_comunidad, name='numero-especies-comunidad'),
     url(r'^perfil-especies/$', perfil_especies, name='perfil-especies'),
+    url(r'^perfil-especies/(?P<id>\d+)/$', perfil_especies_detalle, name='perfil-especies-detalle'),
 ]

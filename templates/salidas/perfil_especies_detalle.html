@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="consulta" id="consulta">
+  <div class="container">
+    <div class="head_section">
+      <h2>{{object.scientific_name}}</h2>
+    </div>
+  </div>
+
+<div class="contact_wrap">
+  <div class="container">
+    <div class="row">
+      Name genus: {{object.name_genus1}}<br>
+      Name specie: {{object.name_species1}}<br>
+      Common name: {{object.common_name}}<br>
+      Food group: {{object.food_group}}<br>
+      Name order: {{object.name_order}}<br>
+      Name family: {{object.name_family}}<br>
+      Cultivar: {% if object.cultivar == 1 %}Animal{% else %}Planta{% endif %}<br>
+      {% if object.type_species %}Type species: {{object.type_species}}{% endif %}<br>
+      <hr>
+      Scientific name : {% for x in scientific_name2 %}{{x}},{% endfor %}<br>
+      English name: {% for x in english_name %}{{x}},{% endfor %}<br>
+      French name: {% for x in french_name %}{{x}},{% endfor %}<br>
+      Vernacular name: {% for x in vernacular_name %}{{x}},{% endfor %}<br>
+      <hr>
+      Paises: {% for x in country %}{{x.focus_groups.country}},{% endfor %}<br>
+      Pocentaje de paises: {{porcent_pais}}%<br>
+      Comunidades: {% for x in comunnity %}{{x.focus_groups.community}},{% endfor %}<br>
+      Pocentaje de comunidades: {{porcent_comunnity}}%<br>
+      <hr>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Media</th>
+            <th>Hombres</th>
+            <th>Mujeres</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Producido</td>
+            {% for valor in produced %}
+            <td>{{valor.0}}</td>
+            <td>{{valor.1}}</td>
+            <td>{{valor.2}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>Vendido</td>
+            {% for valor in sold %}
+            <td>{{valor.0}}</td>
+            <td>{{valor.1}}</td>
+            <td>{{valor.2}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>Comprado</td>
+            {% for valor in purchased %}
+            <td>{{valor.0}}</td>
+            <td>{{valor.1}}</td>
+            <td>{{valor.2}}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>Consumido</td>
+            {% for valor in consumed %}
+            <td>{{valor.0}}</td>
+            <td>{{valor.1}}</td>
+            <td>{{valor.2}}</td>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

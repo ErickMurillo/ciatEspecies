@@ -4,7 +4,6 @@
 <style media="screen">
 .table-responsive {
   height: 600px !important;
-  overflow: scroll;
 }
 </style>
 <div class="consulta" id="consulta">
@@ -26,17 +25,12 @@
                 <th>Species English Name</th>
                 <th>Species French Name</th>
                 <th>Vernacular Name</th>
-                <!--<th>Gender</th>-->
-                <th>Número de paises</th>
-                <th>% de paises</th>
-                <th>Número de comunidades</th>
-                <th>% de comunidades</th>
               </tr>
             </thead>
             <tbody>
               {% for k,v in esp.items %}
               <tr>
-                <td>{{k}}</td>
+                <td><a href="{% url 'perfil-especies-detalle' k.1 %}">{{k.0}}</a></td>
                 <td>
                   {% for valor in v %}
                   {% for x in valor.0 %}
@@ -65,17 +59,6 @@
                   {% endfor %}
                   {% endfor %}
                 </td>
-                <td>
-                  {% for valor in v %}
-                    {{valor.4}}
-                  {% endfor %}
-                </td>
-                <td>
-                  {% for valor in v %}
-                    {{valor.5}}
-                  {% endfor %}
-                </td>
-
               </tr>
               {% endfor %}
             </tbody>
@@ -86,4 +69,14 @@
       </div>
     </div>
   </div>
+{% endblock %}
+
+{% block extra_js %}
+<link href="/static/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.table').DataTable();
+});
+</script>
 {% endblock %}
