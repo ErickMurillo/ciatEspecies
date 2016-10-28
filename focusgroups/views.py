@@ -285,34 +285,6 @@ def perfil_especies(request,template="salidas/perfil_especies.html"):
             french_name = FcaCode.objects.filter(focus_groups = obj,species = especie[0]).distinct('species_french_name').values_list('species_french_name', flat = True)
             vernacular_name = FcaCode.objects.filter(focus_groups = obj,species = especie[0]).distinct('species_vernacular_name').values_list('species_vernacular_name', flat = True)
 
-            # #produced
-            # produced = []
-            # produced_hombres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '2',presence_cultivated = 1).count()
-            # produced_mujeres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '1',presence_cultivated = 1).count()
-            # produced_media = (produced_hombres + produced_mujeres) / float(2)
-            # produced.append((produced_media,produced_hombres,produced_mujeres))
-            #
-            # #sold
-            # sold = []
-            # sold_hombres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '2',presence_sold = 1).count()
-            # sold_mujeres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '1',presence_sold = 1).count()
-            # sold_media = (sold_hombres + sold_mujeres) / float(2)
-            # sold.append((sold_media,sold_hombres,sold_mujeres))
-            #
-            # #purchased
-            # purchased = []
-            # purchased_hombres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '2',presence_purchased = 1).count()
-            # purchased_mujeres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '1',presence_purchased = 1).count()
-            # purchased_media = (purchased_hombres + purchased_mujeres) / float(2)
-            # purchased.append((purchased_media,purchased_hombres,purchased_mujeres))
-            #
-            # #consumed
-            # consumed = []
-            # consumed_hombres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '2',presence_consumed = 1).count()
-            # consumed_mujeres = FcaCode.objects.filter(focus_groups = obj,species = especie[0],focus_groups__gender = '1',presence_consumed = 1).count()
-            # consumed_media = (consumed_hombres + consumed_mujeres) / float(2)
-            # consumed.append((consumed_media,consumed_hombres,consumed_mujeres))
-
             lista.append((scientific_name2,english_name,french_name,vernacular_name))
 
             esp[especie[1],especie[0]] = lista
