@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'^numero-especies-comunidad/$', numero_especies_comunidad, name='numero-especies-comunidad'),
     url(r'^perfil-especies/$', perfil_especies, name='perfil-especies'),
     url(r'^perfil-especies/(?P<id>\d+)/$', perfil_especies_detalle, name='perfil-especies-detalle'),
+    url(r'^perfil-focus-groups/$', perfil_focus_groups, name='perfil_focus_groups'),
+    url(r'^perfil-focus-groups/(?P<id>\d+)/$', perfil_focus_groups_detail, name='perfil-focus-groups-detail'),
 ]

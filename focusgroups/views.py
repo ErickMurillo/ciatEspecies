@@ -343,6 +343,18 @@ def perfil_especies_detalle(request,id = None):
 
     return render(request, template, locals())
 
+def perfil_focus_groups(request,template="salidas/perfil_focus_groups.html"):
+    filtro = _queryset_filtrado(request)
+    focus_groups = filtro
+
+    return render(request, template, locals())
+
+def perfil_focus_groups_detail(request,id = None):
+    template = "salidas/perfil_fg_detalle.html"
+    object = FocusGroup.objects.get(id = id)
+
+    return render(request, template, locals())
+
 def crear_rangos(request, lista, start=0, stop=0, step=0):
     dict_algo = OrderedDict()
     rangos = []

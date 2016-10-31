@@ -25,7 +25,8 @@
     {% for key,values in pais.items %}
     <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
       <div id="container{{forloop.counter}}" style="width: 1000px; height: 400px; margin: 0 auto"></div>
-      <div class="table-responsive" id="modalidad">
+      <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;">Exportar</a>
+      <div class="table-responsive" id="modalidad{{forloop.counter}}">
           <table class="table table-bordered table-hover">
             <thead>
                 <tr>

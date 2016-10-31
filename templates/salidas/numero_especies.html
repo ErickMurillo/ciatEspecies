@@ -24,7 +24,8 @@
   <div class="tab-content">
     {% for key,values in comu.items %}
     <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
-      <div class="table-responsive" id="modalidad">
+      <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;">Exportar</a>
+      <div class="table-responsive" id="modalidad{{forloop.counter}}">
           <table class="table table-bordered table-hover">
             <thead>
                 <tr>
@@ -99,7 +100,8 @@
   <div class="tab-content">
     {% for key,values in pais.items %}
     <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{key}}-{{forloop.counter}}">
-      <div class="table-responsive" id="modalidad">
+      <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad2-{{forloop.counter}}'); return false;">Exportar</a>
+      <div class="table-responsive" id="modalidad2-{{forloop.counter}}">
           <table class="table table-bordered table-hover">
             <thead>
                 <tr>
