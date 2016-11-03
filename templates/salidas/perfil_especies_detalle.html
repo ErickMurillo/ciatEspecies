@@ -11,18 +11,19 @@
 <div class="contact_wrap">
   <div class="container">
     <div class="row">
-      Name genus: {{object.name_genus1}}<br>
-      Name specie: {{object.name_species1}}<br>
-      Common name: {{object.common_name}}<br>
-      Food group: {{object.food_group}}<br>
-      Name order: {{object.name_order}}<br>
-      Name family: {{object.name_family}}<br>
+
+      Nombre del género: {{object.name_genus1}}<br>
+      Nombre de la especie: {{object.name_species1}}<br>
+      Nombre común: {{object.common_name}}<br>
+      Grupo alimenticio: {{object.food_group}}<br>
+      Orden de nombre: {{object.name_order}}<br>
+      Nombre de la familia: {{object.name_family}}<br>
       Cultivar: {% if object.cultivar == 1 %}Animal{% else %}Planta{% endif %}<br>
       {% if object.type_species %}Type species: {{object.type_species}}{% endif %}<br>
       <hr>
-      Scientific name : {% for x in scientific_name2 %}{{x}},{% endfor %}<br>
-      English name: {% for x in english_name %}{{x}},{% endfor %}<br>
-      French name: {% for x in french_name %}{{x}},{% endfor %}<br>
+      Nombre científico: {% for x in scientific_name2 %}{{x}},{% endfor %}<br>
+      Nombre en ingles: {% for x in english_name %}{{x}},{% endfor %}<br>
+      Nombre en francés: {% for x in french_name %}{{x}},{% endfor %}<br>
       Vernacular name: {% for x in vernacular_name %}{{x}},{% endfor %}<br>
       <hr>
       Paises: {% for x in country %}{{x.focus_groups.country}},{% endfor %}<br>
