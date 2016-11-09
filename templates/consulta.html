@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="/static/css/bootstrap-multiselect.css" type="text/css"/>
+<link rel="stylesheet" href="/static/css/bootstrap-multiselect.css" type="text/css"/>
 {% endblock %}
 
 {% block content %}
 <!-- CONTACT Section
-    ================================================== -->
+================================================== -->
 <div class="consulta" id="consulta">
   <div class="container">
     <div class="head_section">
@@ -15,205 +15,215 @@
     </div>
   </div>
   <div class="contact_wrap">
+    {% if centinela == 1 %}
     <div class="container">
-        <div class="row">
-
-            <div class="col-sm-6">
-                <div class="query form-consulta">
-                    <h3>FILTRO DE DATOS</h3>
-                    <form name="mailform" id="mailform" method="post" enctype="multipart/form-data" >
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-                                Zona Agroecologico
-                            </label>
-                            <div class="col-sm-12 col-lg-8">
-                                <select name="" id="input" class="form-control" required="required">
-                                    <option value="">-------</option>
-                                    <option value="valor1"> Valor1</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-                                Sistema de producción
-                            </label>
-                            <div class="col-sm-12 col-lg-8">
-                                <select name="" id="input" class="form-control" required="required">
-                                    <option value="">-------</option>
-                                    <option value="valor1"> Valor1</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-                                Región Geográfico
-                            </label>
-                            <div class="col-sm-12 col-lg-8">
-                                {{form.region}}
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-                                País
-                            </label>
-                            <div class="col-sm-12 col-lg-8">
-                                {{form.country}}
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-                                Provincia
-                            </label>
-                            <div class="col-sm-12 col-lg-8">
-                                {{form.province}}
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-                                Estado
-                            </label>
-                            <div class="col-sm-12 col-lg-8">
-                                {{form.county}}
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-                                Comunidad
-                            </label>
-                            <div class="col-sm-12 col-lg-8">
-                                {{form.community}}
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-                                Género
-                            </label>
-                            <div class="col-sm-12 col-lg-8">
-                                {{form.gender}}
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="error"></div>
-                        <input type="button" value="CONSULTAR" class="submit-btn" onClick="ValiDate()">
-                    </form>
-                    <div class="mailSuccessDiv"> Your Message Sent Successfully!!! </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d52491780.825310744!2d-8.517101532792102!3d17.265583516212416!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sni!4v1466710021328" width="100%" height="430" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-                </div>
-            </div>
-
-            <style media="screen">
-            .table-responsive {
-              margin-top: 20px;
-              height: 300px !important;
-              overflow: scroll;
-            }
-            </style>
-            <div class="col-sm-12">
-              <h4>Focus Groups Table <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad'); return false;">Exportar</a></h4>
-              <div class="table-responsive" id="modalidad">
-                <table class="table table-bordered table-hover" cellspacing="0" width="100%">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Country</th>
-                      <th>Province</th>
-                      <th>Community</th>
-                      <th>Date</th>
-                      <th>Scientist</th>
-                      <th>Organization</th>
-                      <th>CRP</th>
-                      <th>Ethnic group</th>
-                      <th>Language</th>
-                      <th>HH</th>
-                      <th>Area</th>
-                      <th>Frecuency</th>
-                      <th>Year round</th>
-                      <th>Lean season</th>
-                      <th>Climate</th>
-                      <th>Population</th>
-                      <th>Market distance</th>
-                      <th>Gender</th>
-                      <th>Method observations</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {%for fg in focusgroups %}
-                    <tr>
-                      <td>{{fg.id}}</td>
-                      <td>{{fg.country|default:""}}</td>
-                      <td>{{fg.province|default:""}}</td>
-                      <td>{{fg.community|default:""}}</td>
-                      <td>{{fg.date|default:""}}</td>
-                      <td>{{fg.scientist|default:""}}</td>
-                      <td>{{fg.organization|default:""}}</td>
-                      <td>{{fg.crp|default:""}}</td>
-                      <td>{% for x in fg.ethnic_group.all %}{{x|default:""}},{% endfor %}</td>
-                      <td>{% for x in fg.language.all %}{{x|default:""}},{% endfor %}</td>
-                      <td>{{fg.hh|default:""}}</td>
-                      <td>{{fg.area|default:""}}</td>
-                      <td>{{fg.frecuency|default:""}}</td>
-                      <td>{{fg.year_round|default:""}}</td>
-                      <td>{{fg.lean_season|default:""}}</td>
-                      <td>{{fg.climate|default:""}}</td>
-                      <td>{{fg.population|default:""}}</td>
-                      <td>{{fg.market_distance|default:""}}</td>
-                      <td>{{fg.get_gender_display|default:""}}</td>
-                      <td>{{fg.method_observations|default:""}}</td>
-                    </tr>
-                    {%endfor%}
-                  </tbody>
-                </table>
-            </div>
-            </div>
-
-            <div class="col-sm-12">
-              <h4>Species Table <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad1'); return false;">Exportar</a></h4>
-              <div class="table-responsive" id="modalidad1">
-                <table class="table table-bordered table-hover" cellspacing="0" width="100%">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Scientific name</th>
-                      <th>Name genus</th>
-                      <th>Name species</th>
-                      <th>Common name</th>
-                      <th>Food group</th>
-                      <th>Name order</th>
-                      <th>Name family</th>
-                      <th>Cultivar</th>
-                      <th>Type species</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {%for specie in species %}
-                    <tr>
-                      <td>{{specie.id}}</td>
-                      <td>{{specie.scientific_name|default:""}}</td>
-                      <td>{{specie.name_genus1|default:""}}</td>
-                      <td>{{specie.name_species1|default:""}}</td>
-                      <td>{{specie.common_name|default:""}}</td>
-                      <td>{{specie.food_group|default:""}}</td>
-                      <td>{{specie.name_order|default:""}}</td>
-                      <td>{{specie.name_family|default:""}}</td>
-                      <td>{{specie.get_cultivar_display|default:""}}</td>
-                      <td>{{specie.get_type_species_display|default:""}}</td>
-                    </tr>
-                    {%endfor%}
-                  </tbody>
-                </table>
-            </div>
-            </div>
+      <div class="row">
+        <div class="col-md-12">
+          <a class="btn btn-default" href="/especies/grupo-nutricional-comunidad/" role="button">especies por grupo nutricional por comunidad</a>
+          <a class="btn btn-default" href="/especies/grupo-nutricional-pais/" role="button">especies por grupo nutricional por pais</a>
+          <a class="btn btn-default" href="/especies/numero-especies/" role="button">especies total</a>
+          <a class="btn btn-default" href="/especies/numero-especies-comunidad/" role="button">números promedios de especies por comunidad</a>
+          <a class="btn btn-default" href="/especies/perfil-especies/" role="button">Perfil especies</a>
+          <a class="btn btn-default" href="/especies/perfil-focus-groups/" role="button">Perfil focus groups</a>
         </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="query form-consulta">
+            <h3>FILTRO DE DATOS</h3>
+            <form name="mailform" id="mailform" action="." method="post" enctype="multipart/form-data" >{% csrf_token %}
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+                  Zona Agroecologico
+                </label>
+                <div class="col-sm-12 col-lg-8">
+                  <select name="" id="input" class="form-control" required="required">
+                    <option value="">-------</option>
+                    <option value="valor1"> Valor1</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+                  Sistema de producción
+                </label>
+                <div class="col-sm-12 col-lg-8">
+                  <select name="" id="input" class="form-control" required="required">
+                    <option value="">-------</option>
+                    <option value="valor1"> Valor1</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+                  Región Geográfico
+                </label>
+                <div class="col-sm-12 col-lg-8">
+                  {{form.region}}
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+                  País
+                </label>
+                <div class="col-sm-12 col-lg-8">
+                  {{form.country}}
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+                  Provincia
+                </label>
+                <div class="col-sm-12 col-lg-8">
+                  {{form.province}}
+                </div>
+              </div>
+              <!--<div class="form-group row">
+              <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+              Estado
+            </label>
+            <div class="col-sm-12 col-lg-8">
+            {{form.county}}
+          </div>
+        </div>-->
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+            Comunidad
+          </label>
+          <div class="col-sm-12 col-lg-8">
+            {{form.community}}
+          </div>
+        </div>
+        <!--<div class="form-group row">
+          <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+            Género
+          </label>
+          <div class="col-sm-12 col-lg-8">
+            {{form.gender}}
+          </div>
+        </div>-->
+        <div class="error"></div>
+        <input type="submit" name="consulta" value="CONSULTAR" class="submit-btn" onClick="ValiDate()">
+      </form>
+      <div class="mailSuccessDiv"> Your Message Sent Successfully!!! </div>
     </div>
   </div>
+  <div class="col-sm-6">
+    <div class="">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d52491780.825310744!2d-8.517101532792102!3d17.265583516212416!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sni!4v1466710021328" width="100%" height="430" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+    </div>
+  </div>
+
+  <style media="screen">
+  .table-responsive {
+    margin-top: 20px;
+    height: 300px !important;
+    overflow: scroll;
+  }
+  </style>
+  <div class="col-sm-12">
+    <h4>Focus Groups Table <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad'); return false;">Exportar</a></h4>
+    <div class="table-responsive" id="modalidad">
+      <table class="table table-bordered table-hover" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Country</th>
+            <th>Province</th>
+            <th>Community</th>
+            <th>Date</th>
+            <th>Scientist</th>
+            <th>Organization</th>
+            <th>CRP</th>
+            <th>Ethnic group</th>
+            <th>Language</th>
+            <th>HH</th>
+            <th>Area</th>
+            <th>Frecuency</th>
+            <th>Year round</th>
+            <th>Lean season</th>
+            <th>Climate</th>
+            <th>Population</th>
+            <th>Market distance</th>
+            <th>Gender</th>
+            <th>Method observations</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for fg in focusgroups %}
+          <tr>
+            <td>{{fg.id}}</td>
+            <td>{{fg.country|default:""}}</td>
+            <td>{{fg.province|default:""}}</td>
+            <td>{{fg.community|default:""}}</td>
+            <td>{{fg.date|default:""}}</td>
+            <td>{{fg.scientist|default:""}}</td>
+            <td>{{fg.organization|default:""}}</td>
+            <td>{{fg.crp|default:""}}</td>
+            <td>{% for x in fg.ethnic_group.all %}{{x|default:""}},{% endfor %}</td>
+            <td>{% for x in fg.language.all %}{{x|default:""}},{% endfor %}</td>
+            <td>{{fg.hh|default:""}}</td>
+            <td>{{fg.area|default:""}}</td>
+            <td>{{fg.frecuency|default:""}}</td>
+            <td>{{fg.year_round|default:""}}</td>
+            <td>{{fg.lean_season|default:""}}</td>
+            <td>{{fg.climate|default:""}}</td>
+            <td>{{fg.population|default:""}}</td>
+            <td>{{fg.market_distance|default:""}}</td>
+            <td>{{fg.get_gender_display|default:""}}</td>
+            <td>{{fg.method_observations|default:""}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <h4>Species Table <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad1'); return false;">Exportar</a></h4>
+    <div class="table-responsive" id="modalidad1">
+      <table class="table table-bordered table-hover" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Scientific name</th>
+            <th>Name genus</th>
+            <th>Name species</th>
+            <th>Common name</th>
+            <th>Food group</th>
+            <th>Name order</th>
+            <th>Name family</th>
+            <th>Cultivar</th>
+            <th>Type species</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for specie in species %}
+          <tr>
+            <td>{{specie.id}}</td>
+            <td>{{specie.scientific_name|default:""}}</td>
+            <td>{{specie.name_genus1|default:""}}</td>
+            <td>{{specie.name_species1|default:""}}</td>
+            <td>{{specie.common_name|default:""}}</td>
+            <td>{{specie.food_group|default:""}}</td>
+            <td>{{specie.name_order|default:""}}</td>
+            <td>{{specie.name_family|default:""}}</td>
+            <td>{{specie.get_cultivar_display|default:""}}</td>
+            <td>{{specie.get_type_species_display|default:""}}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 </div>
 <!-- / contact Close -->
 {% endblock %}
@@ -222,157 +232,181 @@
 <script type="text/javascript" src="/static/js/bootstrap-multiselect.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#id_region').addClass('form-control');
-    $('#id_gender').addClass('form-control');
+  $('#id_region').addClass('form-control');
+  $('#id_gender').addClass('form-control');
 
-    $('#id_country').multiselect({
-        buttonWidth: '100%',
-        includeSelectAllOption: true,
-        selectAllText: 'Seleccionar todos',
-        buttonText: function(options, select) {
-                if (options.length === 0) {
-                    return 'Sin selección ...';
-                }
-                else if (options.length > 3) {
-                    return 'Varias opciones seleccionadas!';
-                }
-                 else {
-                     var labels = [];
-                     options.each(function() {
-                         if ($(this).attr('label') !== undefined) {
-                             labels.push($(this).attr('label'));
-                         }
-                         else {
-                             labels.push($(this).html());
-                         }
-                     });
-                     return labels.join(', ') + '';
-                 }
-            }
-    });
-
-    $('#id_province').multiselect({
-        buttonWidth: '100%',
-        includeSelectAllOption: true,
-        selectAllText: 'Seleccionar todos',
-        buttonText: function(options, select) {
-                if (options.length === 0) {
-                    return 'Sin selección ...';
-                }
-                else if (options.length > 3) {
-                    return 'Varias opciones seleccionadas!';
-                }
-                 else {
-                     var labels = [];
-                     options.each(function() {
-                         if ($(this).attr('label') !== undefined) {
-                             labels.push($(this).attr('label'));
-                         }
-                         else {
-                             labels.push($(this).html());
-                         }
-                     });
-                     return labels.join(', ') + '';
-                 }
-            }
-    });
-
-    $('#id_county').multiselect({
-        buttonWidth: '100%',
-        includeSelectAllOption: true,
-        selectAllText: 'Seleccionar todos',
-        buttonText: function(options, select) {
-                if (options.length === 0) {
-                    return 'Sin selección ...';
-                }
-                else if (options.length > 3) {
-                    return 'Varias opciones seleccionadas!';
-                }
-                 else {
-                     var labels = [];
-                     options.each(function() {
-                         if ($(this).attr('label') !== undefined) {
-                             labels.push($(this).attr('label'));
-                         }
-                         else {
-                             labels.push($(this).html());
-                         }
-                     });
-                     return labels.join(', ') + '';
-                 }
-            }
-    });
-
-    $('#id_community').multiselect({
-        buttonWidth: '100%',
-        includeSelectAllOption: true,
-        selectAllText: 'Seleccionar todos',
-        buttonText: function(options, select) {
-                if (options.length === 0) {
-                    return 'Sin selección ...';
-                }
-                else if (options.length > 3) {
-                    return 'Varias opciones seleccionadas!';
-                }
-                 else {
-                     var labels = [];
-                     options.each(function() {
-                         if ($(this).attr('label') !== undefined) {
-                             labels.push($(this).attr('label'));
-                         }
-                         else {
-                             labels.push($(this).html());
-                         }
-                     });
-                     return labels.join(', ') + '';
-                 }
-            }
-    });
-
-    $("#id_country").multiselect('disable');
-    $("#id_province").multiselect('disable');
-
-    // country
-    $(document).on('change','#id_region',function(){
-        var region = $('#id_region :selected').val();
-        $.getJSON('/ajax/countries/?ids='+region, function(data){
-            $('#id_country').html('');
-            $("#id_country").multiselect('enable');
-            if(data){
-                $.each(data, function(i, item){
-                    $('#id_country').append($('<option></option>').val(item.id).html(item.name));
-                    });
-                $('#id_country').multiselect('rebuild');
-           }
-       });
-    });
-
-    //province
-    var foo = [];
-    $(document).on('change','#id_country',function(){
-
-        $('#id_country :selected').each(function(i, selected){
-            foo[i] = $(selected).val();
+  $('#id_country').multiselect({
+    buttonWidth: '100%',
+    includeSelectAllOption: true,
+    selectAllText: 'Seleccionar todos',
+    buttonText: function(options, select) {
+      if (options.length === 0) {
+        return 'Sin selección ...';
+      }
+      else if (options.length > 3) {
+        return 'Varias opciones seleccionadas!';
+      }
+      else {
+        var labels = [];
+        options.each(function() {
+          if ($(this).attr('label') !== undefined) {
+            labels.push($(this).attr('label'));
+          }
+          else {
+            labels.push($(this).html());
+          }
         });
-        $.getJSON('/ajax/provinces/?ids='+foo.join(","), function(data){
-            $('#id_province').html('');
-            $('#id_province').multiselect('enable');
-            var province = $('#id_province')
-            if(data){
+        return labels.join(', ') + '';
+      }
+    }
+  });
 
-               $.each(data, function(i, item){
-                $.each(item, function(j, item2){
-                    var group = $('<optgroup></optgroup>').attr('label', j);
-                    $.each(item2, function(k, item3){
-                        group.append($('<option></option>').val(item3.id).html(item3.name));
-                    });
-                    group.appendTo(province);
-                    $('#id_province').multiselect('rebuild');
-                });
-            });
-           }
-       });
+  $('#id_province').multiselect({
+    buttonWidth: '100%',
+    includeSelectAllOption: true,
+    selectAllText: 'Seleccionar todos',
+    buttonText: function(options, select) {
+      if (options.length === 0) {
+        return 'Sin selección ...';
+      }
+      else if (options.length > 3) {
+        return 'Varias opciones seleccionadas!';
+      }
+      else {
+        var labels = [];
+        options.each(function() {
+          if ($(this).attr('label') !== undefined) {
+            labels.push($(this).attr('label'));
+          }
+          else {
+            labels.push($(this).html());
+          }
+        });
+        return labels.join(', ') + '';
+      }
+    }
+  });
+
+  $('#id_county').multiselect({
+    buttonWidth: '100%',
+    includeSelectAllOption: true,
+    selectAllText: 'Seleccionar todos',
+    buttonText: function(options, select) {
+      if (options.length === 0) {
+        return 'Sin selección ...';
+      }
+      else if (options.length > 3) {
+        return 'Varias opciones seleccionadas!';
+      }
+      else {
+        var labels = [];
+        options.each(function() {
+          if ($(this).attr('label') !== undefined) {
+            labels.push($(this).attr('label'));
+          }
+          else {
+            labels.push($(this).html());
+          }
+        });
+        return labels.join(', ') + '';
+      }
+    }
+  });
+
+  $('#id_community').multiselect({
+    buttonWidth: '100%',
+    includeSelectAllOption: true,
+    selectAllText: 'Seleccionar todos',
+    buttonText: function(options, select) {
+      if (options.length === 0) {
+        return 'Sin selección ...';
+      }
+      else if (options.length > 3) {
+        return 'Varias opciones seleccionadas!';
+      }
+      else {
+        var labels = [];
+        options.each(function() {
+          if ($(this).attr('label') !== undefined) {
+            labels.push($(this).attr('label'));
+          }
+          else {
+            labels.push($(this).html());
+          }
+        });
+        return labels.join(', ') + '';
+      }
+    }
+  });
+
+  $("#id_country").multiselect('disable');
+  $("#id_province").multiselect('disable');
+  $("#id_community").multiselect('disable');
+
+  // country
+  $(document).on('change','#id_region',function(){
+    var region = $('#id_region :selected').val();
+    $.getJSON('/ajax/countries/?ids='+region, function(data){
+      $('#id_country').html('');
+      $("#id_country").multiselect('enable');
+      if(data){
+        $.each(data, function(i, item){
+          $('#id_country').append($('<option></option>').val(item.id).html(item.name));
+        });
+        $('#id_country').multiselect('rebuild');
+      }
     });
+  });
+
+  //province
+  var foo = [];
+  $(document).on('change','#id_country',function(){
+    $('#id_country :selected').each(function(i, selected){
+      foo[i] = $(selected).val();
+    });
+    $.getJSON('/ajax/provinces/?ids='+foo.join(","), function(data){
+      $('#id_province').html('');
+      $('#id_province').multiselect('enable');
+      var province = $('#id_province');
+      if(data){
+        $.each(data, function(i, item){
+          $.each(item, function(j, item2){
+            var group = $('<optgroup></optgroup>').attr('label', j);
+            $.each(item2, function(k, item3){
+              group.append($('<option></option>').val(item3.id).html(item3.name));
+            });
+            group.appendTo(province);
+            $('#id_province').multiselect('rebuild');
+          });
+        });
+      }
+    });
+  });
+
+  //community
+  var foo2 = [];
+  $(document).on('change','#id_province',function(){
+    $('#id_province :selected').each(function(i, selected){
+      foo2[i] = $(selected).val();
+    });
+    $.getJSON('/ajax/communities/?ids='+foo2.join(","), function(data){
+      $("#id_community").html('');
+      $("#id_community").multiselect('enable');
+      var community = $('#id_community')
+      if(data){
+        $.each(data, function(i, item){
+          $.each(item, function(j, item2){
+            var group = $('<optgroup></optgroup>').attr('label', j);
+            $.each(item2, function(k, item3){
+              group.append($('<option></option>').val(item3.id).html(item3.name));
+            });
+            group.appendTo(community);
+            $('#id_community').multiselect('rebuild');
+          });
+        });
+      }
+    });
+  });
 
 });
 </script>

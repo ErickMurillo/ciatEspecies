@@ -1,6 +1,6 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
-from .models import Species, FctEspecies
+from .models import Species, FctEspecies, CookingMethod
 from import_export import resources
 
 class SpeciesAdmin(ImportExportModelAdmin):
@@ -12,7 +12,19 @@ class SpeciesAdmin(ImportExportModelAdmin):
 
 # Register your models here.
 admin.site.register(Species, SpeciesAdmin)
-admin.site.register(FctEspecies)
+
+class FctEspeciesAdmin(ImportExportModelAdmin):
+    model = FctEspecies
+    empty_value_display = '-empty-'
+    list_display = ('id','specie','cooking_method')
+
+admin.site.register(FctEspecies,FctEspeciesAdmin)
+
+class CookingMethodAdmin(ImportExportModelAdmin):
+    model = CookingMethod
+    list_display = ('id','name')
+
+admin.site.register(CookingMethod,CookingMethodAdmin)
 
 class SpeciesResource(resources.ModelResource):
     class Meta:

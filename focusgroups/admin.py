@@ -22,7 +22,7 @@ class CountyAdmin(ImportExportModelAdmin):
     model = County
     list_display = ('id','name','province')
 
-admin.site.register(County,CountyAdmin)
+# admin.site.register(County,CountyAdmin)
 
 class CommunityAdmin(ImportExportModelAdmin):
     model = Community
@@ -96,16 +96,17 @@ class FcaCodeAdmin(ImportExportModelAdmin):
     model = FcaCode
     empty_value_display = '-empty-'
     list_display = ('id','focus_groups','species')
+    search_fields = ['focus_groups__id',]
 
 admin.site.register(FcaCode,FcaCodeAdmin)
 
 class FocusGroupResource(resources.ModelResource):
     class Meta:
         model = FocusGroup
-        fields = ('id','country__name','province__name','county__name','community__name','date','scientist__name','organization__name',
+        fields = ('id','country__name','province__name','community__name','date','scientist__name','organization__name',
                     'crp__name','ethnic_group__name','language','hh','area','frecuency','year_round','lean_season','climate',
                     'population','market_distance','gender','method_observations',)
 
-        export_order = ('id','country__name','province__name','county__name','community__name','date','scientist__name','organization__name',
+        export_order = ('id','country__name','province__name','community__name','date','scientist__name','organization__name',
                     'crp__name','ethnic_group__name','language','hh','area','frecuency','year_round','lean_season','climate',
                     'population','market_distance','gender','method_observations',)

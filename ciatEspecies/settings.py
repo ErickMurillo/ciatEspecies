@@ -122,6 +122,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static_media"),
 )
 
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
 JET_SIDE_MENU_COMPACT = True
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="consulta" id="consulta">
+  <div class="container">
+    <div class="head_section">
+      <h2>Perfil</h2>
+    </div>
+  </div>
+
+  <div class="contact_wrap">
+    <div class="container">
+      <div class="row">
+        Región: {{object.country.get_region_display}} <br>
+        Pais: {{object.country}} <br>
+        Provincia: {{object.province}} <br>
+        Comunidad: {{object.community}} <br>
+        {% if object.date %}Fecha: {{object.date}}<br>{% endif %}
+        Científico: {{object.scientist}} <br>
+        Organización: {{object.organization}} <br>
+        Crp: {{object.crp}} <br>
+
+        {% if object.ethnic_group %}
+        Grupo étnico :
+        {% for eg in object.ethnic_group.all %}
+        {{ eg }}{% if not forloop.last %},{% endif %}
+        {% endfor %} <br>
+        {% endif %}
+
+        {% if object.language %}
+        Lenguaje: {% for language in object.language.all %}
+        {{ language }}{% if not forloop.last %},{% endif %}
+        {% endfor %} <br>
+        {% endif %}
+
+        {% if object.hh %}HH: {{object.hh}} <br>{% endif %}
+        {% if object.area %}Área: {{object.area}} <br>{% endif %}
+        {% if object.frecuency %}Frecuencia: {{object.frecuency}} <br>{% endif %}
+        {% if object.year_round %}Todo el año: {{object.year_round}} <br>{% endif %}
+        {% if object.lean_season %}Temporada de escasez: {{object.lean_season}} <br>{% endif %}
+        {% if object.climate_zone %}Zona climática: {{object.climate_zone}} <br>{% endif %}
+        {% if object.annual_mean_temperature %}Temperatura media: {{object.annual_mean_temperature}} <br>{% endif %}
+        {% if object.rainfall %}Lluvia: {{object.rainfall}} <br>{% endif %}
+        {% if object.precipitation %}Precipitación: {{object.precipitation}} <br>{% endif %}
+        {% if object.altitude %}Altitud: {{object.altitude}} <br>{% endif %}
+        {% if object.population %}Población: {{object.population}} <br>{% endif %}
+        {% if object.market_distance %}Distancia de mercado: {{object.market_distance}} <br>{% endif %}
+        {% if object.population %}Población: {{object.population}} <br>{% endif %}
+        {% if object.gender %}Genero: {{object.get_gender_display}} <br>{% endif %}
+        {% if object.method_observations %}Metodo de observación: {{object.method_observations}} <br>{% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

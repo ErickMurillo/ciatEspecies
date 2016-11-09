@@ -45,7 +45,8 @@ class County(models.Model):
 		return self.name
 
 class Community(models.Model):
-	county = models.ForeignKey(County,blank=True,null=True)
+	# county = models.ForeignKey(County,blank=True,null=True)
+	province = models.ForeignKey(Province,blank=True,null=True)
 	name = models.CharField(max_length=250)
 	latitud = models.FloatField(blank=True,null=True)
 	longitud = models.FloatField(blank=True,null=True)
@@ -131,7 +132,7 @@ GENDER_CHOICES = ((1,'Female'),(2, 'Male'),(3,'Both'))
 class FocusGroup(models.Model):
 	country = models.ForeignKey(Country,blank=True,null=True)
 	province = models.ForeignKey(Province,blank=True,null=True)
-	county = models.ForeignKey(County,blank=True,null=True)
+	# county = models.ForeignKey(County,blank=True,null=True)
 	community = models.ForeignKey(Community,blank=True,null=True)
 	date = models.DateField(blank=True,null=True)
 	scientist = models.ForeignKey(Scientists,blank=True,null=True)
@@ -144,15 +145,25 @@ class FocusGroup(models.Model):
 	frecuency = models.CharField(max_length = 250,blank=True,null=True)
 	year_round = models.CharField(max_length = 250,blank=True,null=True)
 	lean_season = models.CharField(max_length = 250,blank=True,null=True)
-	climate = models.CharField(max_length = 250,blank=True,null=True)
+	# climate = models.CharField(max_length = 250,blank=True,null=True)
+	climate_zone = models.ForeignKey(Climate,blank=True,null=True)
+	annual_mean_temperature = models.FloatField(blank=True,null=True)
+	rainfall = models.FloatField(blank=True,null=True)
+	precipitation = models.FloatField(blank=True,null=True)
+	altitude = models.FloatField(blank=True,null=True)
 	population = models.FloatField(blank=True,null=True)
 	market_distance = models.TextField(help_text='in km',blank=True,null=True)
 	gender = models.IntegerField(choices=GENDER_CHOICES,blank=True,null=True)
 	method_observations = models.TextField(blank=True,null=True)
+	year = models.IntegerField(blank=True,null=True)
 
 	def __str__(self):
 		return u'%s - %s - %s - %s - %s' % (self.id,self.community,self.date,self.scientist,self.organization)
 
+	def save(self, *args, **kwargs):
+		if self.date != None:
+			self.year = self.date.year
+		super(FocusGroup, self).save(*args, **kwargs)
 
 CHOICE_FCA = ((1, '1'),(2, '2'),(3, '3'),(4,'4'))
 CHOICE_PRESENCE = ((0, '0'),(1, '1'))

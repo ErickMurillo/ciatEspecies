@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style media="screen">
+.table-responsive {
+  height: 600px !important;
+}
+</style>
+<div class="consulta" id="consulta">
+  <div class="container">
+    <div class="head_section">
+      <h2>Perfil especies</h2>
+    </div>
+  </div>
+
+  <div class="contact_wrap">
+    <div class="container">
+      <div class="row">
+        <div class="table-responsive" id="modalidad">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Nombre científico</th>
+                <th>Nombre científico 2</th>
+                <th>Nombre en ingles</th>
+                <th>Nombre en francés</th>
+                <th>Vernacular Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for k,v in esp.items %}
+              <tr>
+                <td><a href="{% url 'perfil-especies-detalle' k.1 %}">{{k.0}}</a></td>
+                <td>
+                  {% for valor in v %}
+                  {% for x in valor.0 %}
+                    {% if forloop.last %}{{x}}{% else %}{{x}},{% endif %}
+                  {% endfor %}
+                  {% endfor %}
+                </td>
+                <td>
+                  {% for valor in v %}
+                  {% for x in valor.1 %}
+                    {% if forloop.last %}{{x}}{% else %}{{x}},{% endif %}
+                  {% endfor %}
+                  {% endfor %}
+                </td>
+                <td>
+                  {% for valor in v %}
+                  {% for x in valor.2 %}
+                    {% if forloop.last %}{{x}}{% else %}{{x}},{% endif %}
+                  {% endfor %}
+                  {% endfor %}
+                </td>
+                <td>
+                  {% for valor in v %}
+                  {% for x in valor.3 %}
+                    {% if forloop.last %}{{x}}{% else %}{{x}},{% endif %}
+                  {% endfor %}
+                  {% endfor %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+<link href="/static/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.table').DataTable({
+    "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por pagina",
+            "zeroRecords": "Ningún registro encontrado",
+            "info": "Mostrando pagina _PAGE_ of _PAGES_",
+            "infoEmpty": "No existen registros disponibles",
+            "infoFiltered": "(filtrado de _MAX_ total de registros)",
+            "paginate": {
+                "first":"Primero",
+                "last":"Último",
+                "next":"Siguiente",
+                "previous":"Anterior"
+            },
+            "search":"Buscar:",
+        }
+  });
+});
+</script>
+{% endblock %}

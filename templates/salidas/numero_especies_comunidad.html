@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="consulta" id="consulta">
+  <div class="container">
+    <div class="head_section">
+      <h2>Salida 4</h2>
+    </div>
+  </div>
+
+  <div class="contact_wrap">
+    <div class="container">
+      <div class="row">
+        <div>
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            {% for key in comu.keys %}
+            <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}"><a href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a></li>
+            {% endfor %}
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            {% for key,values in comu.items %}
+            <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
+              <div id="container{{forloop.counter}}" style="width: 1000px; height: 400px; margin: 0 auto"></div>
+              <div id="areas{{forloop.counter}}" style="width: 1000px; height: 400px; margin: 0 auto"></div>
+            </div>
+            {% endfor %}
+            <div id="rain" style="width: 1000px; height: 400px; margin: 0 auto"></div>
+            <div id="temp" style="width: 1000px; height: 400px; margin: 0 auto"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+$(function () {
+  {% for values in comu.values %}
+  $('#container{{forloop.counter}}').highcharts({
+      chart: {
+          type: 'column'
+      },
+      title: {
+          text: 'Distancia a mercado'
+      },
+      xAxis: {
+          categories: ['Menor 10 km', '10-50 km', '> 50 km']
+      },
+      yAxis: {
+          title: {
+              text: 'Frecuencia'
+          }
+      },
+      credits: {
+          enabled: false
+      },
+      series: [
+        {% for k,v in values.0.items %}
+        {
+          name: '{{k}}',
+          data: [{% for x in v %}{{x}},{% endfor %}]
+        },
+        {% endfor %}
+      ]
+  });
+
+  $('#areas{{forloop.counter}}').highcharts({
+      chart: {
+          type: 'column'
+      },
+      title: {
+          text: 'Tamaño de finca'
+      },
+      xAxis: {
+          categories: ['Menor 1 ha', '1-2.5 ha', '2.5-5 ha']
+      },
+      yAxis: {
+          title: {
+              text: 'Frecuencia'
+          }
+      },
+      credits: {
+          enabled: false
+      },
+      series: [
+        {% for k,v in values.1.items %}
+        {
+          name: '{{k}}',
+          data: [{% for x in v %}{{x}},{% endfor %}]
+        },
+        {% endfor %}
+      ]
+  });
+  {% endfor %}
+
+  $('#rain').highcharts({
+       chart: {
+           type: 'column'
+       },
+       title: {
+           text: 'Precipitación promedio'
+       },
+       xAxis: {
+           type: 'category'
+       },
+       yAxis: {
+           title: {
+               text: 'Promedio'
+           }
+
+       },
+       legend: {
+           enabled: false
+       },
+       plotOptions: {
+           series: {
+               borderWidth: 0,
+               dataLabels: {
+                   enabled: true,
+                   format: '{point.y:.2f}'
+               }
+           }
+       },
+
+       tooltip: {
+           headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+           pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}<br/>'
+       },
+
+       series: [{
+           name: 'Promedio',
+           colorByPoint: true,
+           data: [
+             {% for k,v in rainfall.items %}
+             {
+               name: '{{k}}',
+               y: {{v}},
+             },
+             {% endfor %}
+           ]
+       }],
+   });
+
+   $('#temp').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Temperatura promedio'
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Promedio'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.2f}'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}<br/>'
+        },
+
+        series: [{
+            name: 'Promedio',
+            colorByPoint: true,
+            data: [
+              {% for k,v in temperature.items %}
+              {
+                name: '{{k}}',
+                y: {{v}},
+              },
+              {% endfor %}
+            ]
+        }],
+    });
+
+});
+</script>
+{% endblock %}
