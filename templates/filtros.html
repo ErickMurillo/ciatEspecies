@@ -5,18 +5,30 @@
 {% endblock %}
 
 {% block content %}
+
+
 <style media="screen">
 .container{margin-top: 100px;}
 #id_region{width: 250px}
 </style>
 
 <div class="container">
+	<!-- START BREADCRUMB -->
+		<ul class="breadcrumb">
+			<li><a href="/">Inicio</a></li>
+			<li><a href="/filtro/">Filtro</a></li>
+			<li class="active">Dashboard</li>
+		</ul>
+	<!-- END BREADCRUMB -->
+
+
+
   <div class="col-md-8">
-    {{form.as_p}}
+	{{form.as_p}}
   </div>
   <div class="col-md-4" id="export">
-    <a class="btn btn-default" role="button" href="/export-focusgroup/">Export Focus Group</a>
-    <a class="btn btn-default" role="button" href="/export-species/">Export Species</a>
+	<a class="btn btn-default" role="button" href="/export-focusgroup/">Export Focus Group</a>
+	<a class="btn btn-default" role="button" href="/export-species/">Export Species</a>
   </div>
 </div>
 {% endblock %}
@@ -25,156 +37,156 @@
 <script type="text/javascript" src="/static/js/bootstrap-multiselect.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#id_region').addClass('form-control')
+	$('#id_region').addClass('form-control')
 
-    $('#id_country').multiselect({
-        buttonWidth: '250px',
-        includeSelectAllOption: true,
-        selectAllText: 'Seleccionar todos',
-        buttonText: function(options, select) {
-                if (options.length === 0) {
-                    return 'Sin selección ...';
-                }
-                else if (options.length > 3) {
-                    return 'Varias opciones seleccionadas!';
-                }
-                 else {
-                     var labels = [];
-                     options.each(function() {
-                         if ($(this).attr('label') !== undefined) {
-                             labels.push($(this).attr('label'));
-                         }
-                         else {
-                             labels.push($(this).html());
-                         }
-                     });
-                     return labels.join(', ') + '';
-                 }
-            }
-    });
+	$('#id_country').multiselect({
+		buttonWidth: '250px',
+		includeSelectAllOption: true,
+		selectAllText: 'Seleccionar todos',
+		buttonText: function(options, select) {
+				if (options.length === 0) {
+					return 'Sin selección ...';
+				}
+				else if (options.length > 3) {
+					return 'Varias opciones seleccionadas!';
+				}
+				 else {
+					 var labels = [];
+					 options.each(function() {
+						 if ($(this).attr('label') !== undefined) {
+							 labels.push($(this).attr('label'));
+						 }
+						 else {
+							 labels.push($(this).html());
+						 }
+					 });
+					 return labels.join(', ') + '';
+				 }
+			}
+	});
 
-    $('#id_province').multiselect({
-        buttonWidth: '250px',
-        includeSelectAllOption: true,
-        selectAllText: 'Seleccionar todos',
-        buttonText: function(options, select) {
-                if (options.length === 0) {
-                    return 'Sin selección ...';
-                }
-                else if (options.length > 3) {
-                    return 'Varias opciones seleccionadas!';
-                }
-                 else {
-                     var labels = [];
-                     options.each(function() {
-                         if ($(this).attr('label') !== undefined) {
-                             labels.push($(this).attr('label'));
-                         }
-                         else {
-                             labels.push($(this).html());
-                         }
-                     });
-                     return labels.join(', ') + '';
-                 }
-            }
-    });
+	$('#id_province').multiselect({
+		buttonWidth: '250px',
+		includeSelectAllOption: true,
+		selectAllText: 'Seleccionar todos',
+		buttonText: function(options, select) {
+				if (options.length === 0) {
+					return 'Sin selección ...';
+				}
+				else if (options.length > 3) {
+					return 'Varias opciones seleccionadas!';
+				}
+				 else {
+					 var labels = [];
+					 options.each(function() {
+						 if ($(this).attr('label') !== undefined) {
+							 labels.push($(this).attr('label'));
+						 }
+						 else {
+							 labels.push($(this).html());
+						 }
+					 });
+					 return labels.join(', ') + '';
+				 }
+			}
+	});
 
-    $('#id_county').multiselect({
-        buttonWidth: '250px',
-        includeSelectAllOption: true,
-        selectAllText: 'Seleccionar todos',
-        buttonText: function(options, select) {
-                if (options.length === 0) {
-                    return 'Sin selección ...';
-                }
-                else if (options.length > 3) {
-                    return 'Varias opciones seleccionadas!';
-                }
-                 else {
-                     var labels = [];
-                     options.each(function() {
-                         if ($(this).attr('label') !== undefined) {
-                             labels.push($(this).attr('label'));
-                         }
-                         else {
-                             labels.push($(this).html());
-                         }
-                     });
-                     return labels.join(', ') + '';
-                 }
-            }
-    });
+	$('#id_county').multiselect({
+		buttonWidth: '250px',
+		includeSelectAllOption: true,
+		selectAllText: 'Seleccionar todos',
+		buttonText: function(options, select) {
+				if (options.length === 0) {
+					return 'Sin selección ...';
+				}
+				else if (options.length > 3) {
+					return 'Varias opciones seleccionadas!';
+				}
+				 else {
+					 var labels = [];
+					 options.each(function() {
+						 if ($(this).attr('label') !== undefined) {
+							 labels.push($(this).attr('label'));
+						 }
+						 else {
+							 labels.push($(this).html());
+						 }
+					 });
+					 return labels.join(', ') + '';
+				 }
+			}
+	});
 
-    $('#id_community').multiselect({
-        buttonWidth: '250px',
-        includeSelectAllOption: true,
-        selectAllText: 'Seleccionar todos',
-        buttonText: function(options, select) {
-                if (options.length === 0) {
-                    return 'Sin selección ...';
-                }
-                else if (options.length > 3) {
-                    return 'Varias opciones seleccionadas!';
-                }
-                 else {
-                     var labels = [];
-                     options.each(function() {
-                         if ($(this).attr('label') !== undefined) {
-                             labels.push($(this).attr('label'));
-                         }
-                         else {
-                             labels.push($(this).html());
-                         }
-                     });
-                     return labels.join(', ') + '';
-                 }
-            }
-    });
+	$('#id_community').multiselect({
+		buttonWidth: '250px',
+		includeSelectAllOption: true,
+		selectAllText: 'Seleccionar todos',
+		buttonText: function(options, select) {
+				if (options.length === 0) {
+					return 'Sin selección ...';
+				}
+				else if (options.length > 3) {
+					return 'Varias opciones seleccionadas!';
+				}
+				 else {
+					 var labels = [];
+					 options.each(function() {
+						 if ($(this).attr('label') !== undefined) {
+							 labels.push($(this).attr('label'));
+						 }
+						 else {
+							 labels.push($(this).html());
+						 }
+					 });
+					 return labels.join(', ') + '';
+				 }
+			}
+	});
 
-    $("#id_country").multiselect('disable');
-    $("#id_province").multiselect('disable');
+	$("#id_country").multiselect('disable');
+	$("#id_province").multiselect('disable');
 
-    // country
-    $(document).on('change','#id_region',function(){
-        var region = $('#id_region :selected').val();
-        $.getJSON('/ajax/countries/?ids='+region, function(data){
-            $('#id_country').html('');
-            $("#id_country").multiselect('enable');
-            if(data){
-                $.each(data, function(i, item){
-                    $('#id_country').append($('<option></option>').val(item.id).html(item.name));
-                    });
-                $('#id_country').multiselect('rebuild');
-           }
-       });
-    });
+	// country
+	$(document).on('change','#id_region',function(){
+		var region = $('#id_region :selected').val();
+		$.getJSON('/ajax/countries/?ids='+region, function(data){
+			$('#id_country').html('');
+			$("#id_country").multiselect('enable');
+			if(data){
+				$.each(data, function(i, item){
+					$('#id_country').append($('<option></option>').val(item.id).html(item.name));
+					});
+				$('#id_country').multiselect('rebuild');
+		   }
+	   });
+	});
 
-    //province
-    var foo = [];
-    $(document).on('change','#id_country',function(){
+	//province
+	var foo = [];
+	$(document).on('change','#id_country',function(){
 
-        $('#id_country :selected').each(function(i, selected){
-            foo[i] = $(selected).val();
-        });
-        $.getJSON('/ajax/provinces/?ids='+foo.join(","), function(data){
-            $('#id_province').html('');
-            $('#id_province').multiselect('enable');
-            var province = $('#id_province')
-            if(data){
+		$('#id_country :selected').each(function(i, selected){
+			foo[i] = $(selected).val();
+		});
+		$.getJSON('/ajax/provinces/?ids='+foo.join(","), function(data){
+			$('#id_province').html('');
+			$('#id_province').multiselect('enable');
+			var province = $('#id_province')
+			if(data){
 
-               $.each(data, function(i, item){
-                $.each(item, function(j, item2){
-                    var group = $('<optgroup></optgroup>').attr('label', j);
-                    $.each(item2, function(k, item3){
-                        group.append($('<option></option>').val(item3.id).html(item3.name));
-                    });
-                    group.appendTo(province);
-                    $('#id_province').multiselect('rebuild');
-                });
-            });
-           }
-       });
-    });
+			   $.each(data, function(i, item){
+				$.each(item, function(j, item2){
+					var group = $('<optgroup></optgroup>').attr('label', j);
+					$.each(item2, function(k, item3){
+						group.append($('<option></option>').val(item3.id).html(item3.name));
+					});
+					group.appendTo(province);
+					$('#id_province').multiselect('rebuild');
+				});
+			});
+		   }
+	   });
+	});
 
 });
 </script>

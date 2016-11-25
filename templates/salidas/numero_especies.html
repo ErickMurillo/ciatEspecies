@@ -2,173 +2,220 @@
 
 {% block content %}
 <div class="consulta" id="consulta">
-  <div class="container">
-    <div class="head_section">
-      <h2>Especies</h2>
-    </div>
-  </div>
+	<div class="container">
+		<div class="head_section">
+			<h2>Especies</h2>
+		</div>
+	</div>
 
-  <div class="contact_wrap">
-    <div class="container">
-      <div class="row">
-        <div>
+	<div class="contact_wrap">
+		<div class="container">
+			<div class="row">
+				<div>
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    {% for key in comu.keys %}
-      <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}"><a href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a></li>
-    {% endfor %}
-  </ul>
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						{% for key in comu.keys %}
+						<li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}"><a href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a></li>
+						{% endfor %}
+					</ul>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    {% for key,values in comu.items %}
-    <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
-      <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;">Exportar</a>
-      <div class="table-responsive" id="modalidad{{forloop.counter}}">
-          <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th colspan="4">Numero de especies</th>
-                </tr>
-                <tr>
-                  <th></th>
-                  <th>Media</th>
-                  <th>Hombres</th>
-                  <th>Mujeres</th>
-                </tr>
-            </thead>
-            <tbody>
-              {% for v in values.0 %}
-                <tr>
-                  <td>Total</td>
-                  <td>{{v.0}}</td>
-                  <td>{{v.1}}</td>
-                  <td>{{v.2}}</td>
-                </tr>
-              {% endfor %}
-              {% for v in values.1 %}
-                <tr>
-                  <td>Produced</td>
-                  <td>{{v.0}}</td>
-                  <td>{{v.1}}</td>
-                  <td>{{v.2}}</td>
-                </tr>
-              {% endfor %}
-              {% for v in values.2 %}
-                <tr>
-                  <td>Sold</td>
-                  <td>{{v.0}}</td>
-                  <td>{{v.1}}</td>
-                  <td>{{v.2}}</td>
-                </tr>
-              {% endfor %}
-              {% for v in values.3 %}
-                <tr>
-                  <td>Purchased</td>
-                  <td>{{v.0}}</td>
-                  <td>{{v.1}}</td>
-                  <td>{{v.2}}</td>
-                </tr>
-              {% endfor %}
-              {% for v in values.4 %}
-                <tr>
-                  <td>Consumed</td>
-                  <td>{{v.0}}</td>
-                  <td>{{v.1}}</td>
-                  <td>{{v.2}}</td>
-                </tr>
-              {% endfor %}
+					<!-- Tab panes -->
+					<div class="tab-content">
+						{% for key,values in comu.items %}
+						<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
 
 
-            </tbody>
-        </table>
-    </div>
-    </div>
-    {% endfor %}
-  </div>
+							<!-- START SALES BLOCK -->
+                            <div class="panel panel-default panel-salidas">
+                                <div class="panel-heading">
+                                    <div class="panel-title-box">
+                                        <h3>Número de especies</h3>
+                                        <span>Gráfico Frecuencia</span>
+                                        
+                                    </div>
+                                    <div class="btn-group pull-right">
+                                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Exportar Datos</button>
+                                        <ul class="dropdown-menu">
 
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    {% for key in pais.keys %}
-      <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}"><a href="#{{key}}-{{forloop.counter}}" aria-controls="{{key}}-{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a></li>
-    {% endfor %}
-  </ul>
+                                            <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    {% for key,values in pais.items %}
-    <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{key}}-{{forloop.counter}}">
-      <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad2-{{forloop.counter}}'); return false;">Exportar</a>
-      <div class="table-responsive" id="modalidad2-{{forloop.counter}}">
-          <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th colspan="4">Numero de especies</th>
-                </tr>
-                <tr>
-                  <th></th>
-                  <th>Media</th>
-                  <th>Hombres</th>
-                  <th>Mujeres</th>
-                </tr>
-            </thead>
-            <tbody>
-              {% for v in values.0 %}
-                <tr>
-                  <td>Total</td>
-                  <td>{{v.0}}</td>
-                  <td>{{v.1}}</td>
-                  <td>{{v.2}}</td>
-                </tr>
-              {% endfor %}
-              {% for v in values.1 %}
-                <tr>
-                  <td>Cultivado</td>
-                  <td>{{v.0}}</td>
-                  <td>{{v.1}}</td>
-                  <td>{{v.2}}</td>
-                </tr>
-              {% endfor %}
-              {% for v in values.2 %}
-                <tr>
-                  <td>Vendido</td>
-                  <td>{{v.0}}</td>
-                  <td>{{v.1}}</td>
-                  <td>{{v.2}}</td>
-                </tr>
-              {% endfor %}
-              {% for v in values.3 %}
-                <tr>
-                  <td>Comprado</td>
-                  <td>{{v.0}}</td>
-                  <td>{{v.1}}</td>
-                  <td>{{v.2}}</td>
-                </tr>
-              {% endfor %}
-              {% for v in values.4 %}
-                <tr>
-                  <td>Consumido</td>
-                  <td>{{v.0}}</td>
-                  <td>{{v.1}}</td>
-                  <td>{{v.2}}</td>
-                </tr>
-              {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="panel-body">                                    
+                                    <div class="table-responsive" id="modalidad{{forloop.counter}}">
+										<table class="table table-bordered table-hover">
+											<thead>
+												<tr>
+													<th></th>
+													<th colspan="4">Numero de especies</th>
+												</tr>
+												<tr>
+													<th></th>
+													<th>Media</th>
+													<th>Hombres</th>
+													<th>Mujeres</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for v in values.0 %}
+												<tr>
+													<td>Total</td>
+													<td>{{v.0}}</td>
+													<td>{{v.1}}</td>
+													<td>{{v.2}}</td>
+												</tr>
+												{% endfor %}
+												{% for v in values.1 %}
+												<tr>
+													<td>Produced</td>
+													<td>{{v.0}}</td>
+													<td>{{v.1}}</td>
+													<td>{{v.2}}</td>
+												</tr>
+												{% endfor %}
+												{% for v in values.2 %}
+												<tr>
+													<td>Sold</td>
+													<td>{{v.0}}</td>
+													<td>{{v.1}}</td>
+													<td>{{v.2}}</td>
+												</tr>
+												{% endfor %}
+												{% for v in values.3 %}
+												<tr>
+													<td>Purchased</td>
+													<td>{{v.0}}</td>
+													<td>{{v.1}}</td>
+													<td>{{v.2}}</td>
+												</tr>
+												{% endfor %}
+												{% for v in values.4 %}
+												<tr>
+													<td>Consumed</td>
+													<td>{{v.0}}</td>
+													<td>{{v.1}}</td>
+													<td>{{v.2}}</td>
+												</tr>
+												{% endfor %}
 
 
-            </tbody>
-        </table>
-    </div>
-    </div>
-    {% endfor %}
-  </div>
+											</tbody>
+										</table>
+									</div>
+                                </div>
+                            </div>
+                            <!-- END SALES BLOCK -->
+							<a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;">Exportar</a>
+							
+						</div>
+						{% endfor %}
+					</div>
 
-</div>
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						{% for key in pais.keys %}
+						<li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}"><a href="#{{key}}-{{forloop.counter}}" aria-controls="{{key}}-{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a></li>
+						{% endfor %}
+					</ul>
 
-      </div>
-    </div>
-  </div>
+					<!-- Tab panes -->
+					<div class="tab-content">
+						{% for key,values in pais.items %}
+						<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{key}}-{{forloop.counter}}">
+							
+							<!-- START SALES BLOCK -->
+                            <div class="panel panel-default panel-salidas">
+                                <div class="panel-heading">
+                                    <div class="panel-title-box">
+                                        <h3>Número</h3>
+                                        <span>Gráfico Frecuencia</span>
+                                        
+                                    </div>
+
+                                    <div class="btn-group pull-right">
+                                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Exportar Datos</button>
+                                        <ul class="dropdown-menu">
+
+                                            <li><a onclick="exportarXLS('modalidad2-{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="panel-body">                                    
+                                    <div class="table-responsive" id="modalidad2-{{forloop.counter}}">
+										<table class="table table-bordered table-hover">
+											<thead>
+												<tr>
+													<th></th>
+													<th colspan="4">Numero de especies</th>
+												</tr>
+												<tr>
+													<th></th>
+													<th>Media</th>
+													<th>Hombres</th>
+													<th>Mujeres</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for v in values.0 %}
+												<tr>
+													<td>Total</td>
+													<td>{{v.0}}</td>
+													<td>{{v.1}}</td>
+													<td>{{v.2}}</td>
+												</tr>
+												{% endfor %}
+												{% for v in values.1 %}
+												<tr>
+													<td>Cultivado</td>
+													<td>{{v.0}}</td>
+													<td>{{v.1}}</td>
+													<td>{{v.2}}</td>
+												</tr>
+												{% endfor %}
+												{% for v in values.2 %}
+												<tr>
+													<td>Vendido</td>
+													<td>{{v.0}}</td>
+													<td>{{v.1}}</td>
+													<td>{{v.2}}</td>
+												</tr>
+												{% endfor %}
+												{% for v in values.3 %}
+												<tr>
+													<td>Comprado</td>
+													<td>{{v.0}}</td>
+													<td>{{v.1}}</td>
+													<td>{{v.2}}</td>
+												</tr>
+												{% endfor %}
+												{% for v in values.4 %}
+												<tr>
+													<td>Consumido</td>
+													<td>{{v.0}}</td>
+													<td>{{v.1}}</td>
+													<td>{{v.2}}</td>
+												</tr>
+												{% endfor %}
+
+
+											</tbody>
+										</table>
+									</div>                                  
+                                </div>
+                            </div>
+                            <!-- END SALES BLOCK -->
+							
+						</div>
+						{% endfor %}
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock %}
