@@ -37,8 +37,12 @@ INSTALLED_APPS = [
     #apps for third party
     # 'report_builder' ,
     'import_export',
+    'ckeditor',
+    'ckeditor_uploader',
+    'sorl.thumbnail',
 
-
+    #otras apps
+    'informacion',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -130,3 +134,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     )
 }
+
+THUMBNAIL_DEBUG = True
+
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"

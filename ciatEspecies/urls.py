@@ -19,11 +19,15 @@ from django.views.generic import TemplateView
 from .views import *
 from focusgroups.views import *
 from utils import *
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^jet/', include('jet.urls', 'jet')),
     #url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^admin/', admin.site.urls),
     # url(r'^report_builder/', include('report_builder.urls'))
     url(r'^mapa-index/$', obtener_lista, name='obtener-lista'),
@@ -35,4 +39,10 @@ urlpatterns = [
     url(r'^xls/$', save_as_xls),
     # url(r'^export-focusgroup/$', export_focusgroup_csv, name='export-focusgroup-csv'),
     # url(r'^export-species/$', export_species_csv, name='export-species-csv'),
-]
+
+    url(r'^proyecto-o-publicacion/(?P<slug>[\w-]+)/$', ProyectoDetailView.as_view(), name='proyecto-detalle'),
+    url(r'^organizacion/(?P<slug>[\w-]+)/$', OrganizacionDetailView.as_view(), name='org-detalle'),
+    url(r'^cientifico/(?P<slug>[\w-]+)/$', CientificoDetailView.as_view(), name='cientifico-detalle'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += staticfiles_urlpatterns()

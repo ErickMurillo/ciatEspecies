@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load thumbnail %}
 
 {% block content %}
 <!-- Header
@@ -82,10 +83,10 @@
                 <h6 class="text-circle">Otro</h6>
             </div>
         </div>
-        
-     
-    </div> 
- <!-- / Datos de especies -->  
+
+
+    </div>
+ <!-- / Datos de especies -->
 <!-- / about us close -->
 <!-- Parallax
     ================================================== -->
@@ -123,17 +124,17 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-pills" role="tablist">
-                    <li role="presentation" class="active">
-                        <a href="#Nicaragua" aria-controls="Nicaragua" role="tab" data-toggle="tab">Nicaragua</a>
-                    </li>
-                    <li role="presentation">
-                        <a href="#India" aria-controls="India" role="tab" data-toggle="tab">India</a>
-                    </li>
+                    {% for k in dicc.keys %}
+                      <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
+                          <a href="#{{k.id}}" aria-controls="{{k.id}}" role="tab" data-toggle="tab">{{k}}</a>
+                      </li>
+                    {% endfor %}
                 </ul>
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="Nicaragua">
+                  {% for k,v in dicc.items %}
+                    <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{k.id}}">
                         <div class="team-carousel-control">
                             <a class="left" href="#team-carousel" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
                         </div>
@@ -143,114 +144,22 @@
                                     <div class="carousel-inner">
                                         <div class="item active">
                                             <div class="row">
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">JENNIFER ALEXA</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">JOHN SMITH</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">THOMAS HANS</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">LISA NANCY</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">JENNIFER ALEXA</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">JOHN SMITH</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">THOMAS HANS</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">LISA NANCY</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                              {% for obj in v %}
+                                              <div class="col-sm-3">
+                                                  <div class="member">
+                                                    <a href="{% url 'cientifico-detalle' obj.slug %}">
+                                                      <div class="info">
+                                                          <h4 class="name">{{obj.nombre}}</h4>
+                                                          <span class="designation">{{obj.cargo}}</span>
+                                                          <ul class="datamember">
+                                                              <p><span class="fa fa-envelope"></span> {{obj.correo}}</p>
+                                                              <p><span class="fa fa-phone"> {{obj.telefono}}</span></p>
+                                                          </ul>
+                                                      </div>
+                                                      </a>
+                                                  </div>
+                                              </div>
+                                              {% endfor %}
                                             </div>
                                         </div>
                                     </div>
@@ -260,133 +169,7 @@
                         </div>
 
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="India">
-                        <div class="team-carousel-control">
-                            <a class="left" href="#team-carousel2" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel2" data-slide="next"><i class="fa fa-angle-right"></i></a>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div id="team-carousel2" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="item active">
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">JENNIFER ALEXA</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">JOHN SMITH</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">THOMAS HANS</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">LISA NANCY</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <div class="row">
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">JENNIFER ALEXA</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">JOHN SMITH</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">THOMAS HANS</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-3">
-                                                    <div class="member">
-                                                        <div class="info">
-                                                            <h4 class="name">LISA NANCY</h4>
-                                                            <span class="designation">CARGO ACTUAL</span>
-                                                            <ul class="datamember">
-                                                                <p><span class="fa fa-envelope"></span> correodeprueba@corrreo.og.ni</p>
-                                                                <p><span class="fa fa-phone"> (505) 8888-8888</span></p>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
+                  {% endfor %}
                 </div>
             </div>
             <div>
@@ -396,63 +179,54 @@
             <div role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-pills" role="tablist">
-                    <li role="presentation" class="active">
-                        <a href="#orgint" aria-controls="orgint" role="tab" data-toggle="tab">Internacionales</a>
+                  {% for key in orgs.keys %}
+                    <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
+                        <a href="#org{{key.id}}" aria-controls="org{{key.id}}" role="tab" data-toggle="tab">{{key}}</a>
                     </li>
-                    <li role="presentation">
-                        <a href="#orgnicaragua" aria-controls="orgnicaragua" role="tab" data-toggle="tab">Nicaragua</a>
-                    </li>
+                  {% endfor %}
                 </ul>
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="orgint">
-                        <div class="socio">
-                            <div class="container">
-                                <div class="row">
-
-                                    <a href="#" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-
-                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                                <img src="images/cgiar.png" alt="">
-                                            </div>
-                                            <div class="siglas col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                                <p>A Global Agricultural Research Partnership</p>
-                                            </div>
-
-
-                                    </a>
-                                    <a href="#" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-
-                                            <div class="socio-logo col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                                <img src="http://placehold.it/70x70" alt="">
-                                            </div>
-                                            <div class="siglas col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                                <p>Lorem ipsum dolor sit amet, consectetur.</p>
-                                            </div>
-
-
-                                    </a>
-                                    <a href="#" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-
-                                            <div class="socio-logo col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                                <img src="http://placehold.it/70x70" alt="">
-                                            </div>
-                                            <div class="siglas col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                                <p>Lorem ipsum dolor sit amet, consectetur.</p>
-                                            </div>
-
-
-                                    </a>
-
-
-
-
-                                </div>
-                            </div>
-                        </div>
+                  {% for key,value in orgs.items %}
+                  <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="org{{key.id}}">
+                    <div class="team-carousel-control">
+                        <a class="left" href="#team-carousel1" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel1" data-slide="next"><i class="fa fa-angle-right"></i></a>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="orgnicaragua">...</div>
+                      <div class="socio">
+                          <div class="container">
+                              <div class="row">
+                                <div id="team-carousel1" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <div class="row">
+                                              {% for obj in value %}
+                                              <div class="col-sm-3">
+                                                <a href="{% url 'org-detalle' obj.slug %}">
+                                                  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                    {% if obj.logo %}
+                                                      {% thumbnail obj.logo "70x70" crop="center" as img %}
+                                                         <img src="/media/{{img}}" alt="">
+                                                      {% endthumbnail %}
+                                                    {% else %}
+                                                      <img src="http://placehold.it/70x70" alt="">
+                                                    {% endif %}
+                                                  </div>
+                                                  <div class="siglas col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                                      <p>{{obj.nombre}}</p>
+                                                  </div>
+                                                </a>
+                                              </div>
+                                              {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
                 </div>
             </div>
         </div>
@@ -549,110 +323,31 @@
         <div class="carousel-inner">
           <div class="item active">
             <div class="row">
-              <div class="col-sm-4">
-                <div class="post-item">
-                  <div class="post-headre">
-                    <div class="post-seam">
-                      <div class="date"> <span>10</span> FEB </div>
+              {% for obj in proyectos %}
+                <div class="col-sm-4">
+                  <div class="post-item">
+                    <div class="post-headre">
+                      <div class="post-seam">
+                        <div class="date"> <span>{{obj.fecha.day}}</span> {{obj.fecha|date:"M"}} </div>
+                      </div>
+                      <div class="post-image">
+                        <a href="{% url 'proyecto-detalle' obj.slug %}"><i class="fa fa-search"></i></a>
+                        {% if obj.imagen %}
+                          {% thumbnail obj.imagen "740x450" crop="center" as img %}
+        							       <img src="/media/{{img}}" alt="">
+            							{% endthumbnail %}
+                        {% else %}
+                          <img src="http://placehold.it/740x450" alt="" />
+                        {% endif %}
+                      </div>
                     </div>
-                    <div class="post-image"> <a href="#"><i class="fa fa-search"></i></a> <img src="http://placehold.it/740x450" alt="" /></div>
-                  </div>
-                  <div class="post-content">
-                    <h4>SUSPENDISSE NUNC SUSPE</h4>
-                    <p>Eed in pulvinar sollicitudin augul Suspend mauris tort
-                      posere semper eget cosngue eget arcu. Nam leo
-                      pharetra in blandit adg tincidunt</p>
+                    <div class="post-content">
+                      <h4>{{obj.titulo}}</h4>
+                      <p>{{obj.contenido|safe|striptags|truncatewords:20}}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="post-item">
-                  <div class="post-headre">
-                    <div class="post-seam">
-                      <div class="date"> <span>10</span> FEB </div>
-
-                    </div>
-                    <div class="post-image"> <a href="#"><i class="fa fa-search"></i></a> <img src="http://placehold.it/740x450" alt="" /></div>
-                  </div>
-                  <div class="post-content">
-                    <h4>SUSPENDISSE NUNC SUSPE</h4>
-                    <p>Eed in pulvinar sollicitudin augul Suspend mauris tort
-                      posere semper eget cosngue eget arcu. Nam leo
-                      pharetra in blandit adg tincidunt</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="post-item">
-                  <div class="post-headre">
-                    <div class="post-seam">
-                      <div class="date"> <span>10</span> FEB </div>
-
-                    </div>
-                    <div class="post-image"> <a href="#"><i class="fa fa-search"></i></a> <img src="http://placehold.it/740x450" alt="" /></div>
-                  </div>
-                  <div class="post-content">
-                    <h4>SUSPENDISSE NUNC SUSPE</h4>
-                    <p>Eed in pulvinar sollicitudin augul Suspend mauris tort
-                      posere semper eget cosngue eget arcu. Nam leo
-                      pharetra in blandit adg tincidunt</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="post-item">
-                  <div class="post-headre">
-                    <div class="post-seam">
-                      <div class="date"> <span>10</span> FEB </div>
-                    </div>
-                    <div class="post-image"> <a href="#"><i class="fa fa-search"></i></a> <img src="http://placehold.it/740x450" alt="" /></div>
-                  </div>
-                  <div class="post-content">
-                    <h4>SUSPENDISSE NUNC SUSPE</h4>
-                    <p>Eed in pulvinar sollicitudin augul Suspend mauris tort
-                      posere semper eget cosngue eget arcu. Nam leo
-                      pharetra in blandit adg tincidunt</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="post-item">
-                  <div class="post-headre">
-                    <div class="post-seam">
-                      <div class="date"> <span>10</span> FEB </div>
-
-                    </div>
-                    <div class="post-image"> <a href="#"><i class="fa fa-search"></i></a> <img src="http://placehold.it/740x450" alt="" /></div>
-                  </div>
-                  <div class="post-content">
-                    <h4>SUSPENDISSE NUNC SUSPE</h4>
-                    <p>Eed in pulvinar sollicitudin augul Suspend mauris tort
-                      posere semper eget cosngue eget arcu. Nam leo
-                      pharetra in blandit adg tincidunt</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="post-item">
-                  <div class="post-headre">
-                    <div class="post-seam">
-                      <div class="date"> <span>10</span> FEB </div>
-
-                    </div>
-                    <div class="post-image"> <a href="#"><i class="fa fa-search"></i></a> <img src="http://placehold.it/740x450" alt="" /></div>
-                  </div>
-                  <div class="post-content">
-                    <h4>SUSPENDISSE NUNC SUSPE</h4>
-                    <p>Eed in pulvinar sollicitudin augul Suspend mauris tort
-                      posere semper eget cosngue eget arcu. Nam leo
-                      pharetra in blandit adg tincidunt</p>
-                  </div>
-                </div>
-              </div>
+              {% endfor %}
             </div>
           </div>
         </div>
@@ -729,4 +424,3 @@
 	google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 {% endblock %}
-

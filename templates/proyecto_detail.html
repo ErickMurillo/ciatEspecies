@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block content %}
+{{object.titulo}}<br>
+{{object.fecha}}<br>
+{% if obj.imagen %}
+  {% thumbnail object.imagen "740x450" crop="center" as img %}
+     <img src="/media/{{img}}" alt="">
+  {% endthumbnail %}
+{% else %}
+  <img src="http://placehold.it/740x450" alt="" />
+{% endif %}<br>
+{{object.contenido|safe}}<br>
+{% endblock %}

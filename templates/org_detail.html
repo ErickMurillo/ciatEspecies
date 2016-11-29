@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block content %}
+{{object.nombre}}<br>
+{{object.pais}}<br>
+{{object.direccion}}<br>
+{{object.telefono}}<br>
+{{object.url}}<br>
+{% if obj.logo %}
+  {% thumbnail object.logo "740x450" crop="center" as img %}
+     <img src="/media/{{img}}" alt="">
+  {% endthumbnail %}
+{% else %}
+  <img src="http://placehold.it/740x450" alt="" />
+{% endif %}<br>
+{{object.descripcion|safe}}<br>
+{% endblock %}
