@@ -1,83 +1,138 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="consulta" id="consulta">
-  <div class="container">
-    <div class="head_section">
-      <h2>{{object.scientific_name}}</h2>
+<div class="menu-dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="salida-title">
+                    <h4>Perfil {{object.scientific_name}}</h4>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/filtros/">Explorar datos</a></li>
+                        <li><a href="/especies/perfil-especies/">Perfil de especies</a></li>
+                        <li class="active">Perfil {{object.scientific_name}}</li>
+                    </ol>
+                </div>
+                
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+<div class="consulta" id="consulta">
 
 <div class="contact_wrap">
   <div class="container">
-    <div class="row">
+  	<div class="row">
+  		<!-- START SALES BLOCK -->
+		<div class="panel panel-default panel-salidas">
+            <div class="panel-heading">
+                <div class="panel-title-box">
+                    <h3>{{object.scientific_name}}</h3>
+                    <span>Datos Generales</span>
+                    
+                </div>
+            </div>
+            <div class="panel-body">
+            	<div class="row p-especie">
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<p>Nombre del género: {{object.name_genus1}}</p>
+						<p>Nombre de la especie: {{object.name_species1}}</p>
+						<p>Nombre común: {{object.common_name}}</p>
+						<p>Grupo alimenticio: {{object.food_group}}</p>
+						<p>Orden de nombre: {{object.name_order}}</p>
+						
+						
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+						<p>Nombre de la familia: {{object.name_family}}</p>
+						<p>Cultivar: {% if object.cultivar == 1 %}Animal{% else %}Planta{% endif %}</p>
+						<p>{% if object.type_species %}Type species: {{object.type_species}}{% endif %}</p>
+						<p>Nombre científico: {% for x in scientific_name2 %}{{x}},{% endfor %}</p>
+						<p>Nombre en ingles: {% for x in english_name %}{{x}},{% endfor %}</p>
+						<p>Nombre en francés: {% for x in french_name %}{{x}},{% endfor %}</p>
+						
+					</div>
+					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 
-      Nombre del género: {{object.name_genus1}}<br>
-      Nombre de la especie: {{object.name_species1}}<br>
-      Nombre común: {{object.common_name}}<br>
-      Grupo alimenticio: {{object.food_group}}<br>
-      Orden de nombre: {{object.name_order}}<br>
-      Nombre de la familia: {{object.name_family}}<br>
-      Cultivar: {% if object.cultivar == 1 %}Animal{% else %}Planta{% endif %}<br>
-      {% if object.type_species %}Type species: {{object.type_species}}{% endif %}<br>
-      <hr>
-      Nombre científico: {% for x in scientific_name2 %}{{x}},{% endfor %}<br>
-      Nombre en ingles: {% for x in english_name %}{{x}},{% endfor %}<br>
-      Nombre en francés: {% for x in french_name %}{{x}},{% endfor %}<br>
-      Vernacular name: {% for x in vernacular_name %}{{x}},{% endfor %}<br>
-      <hr>
-      Paises: {% for x in country %}{{x.focus_groups.country}},{% endfor %}<br>
-      Pocentaje de paises: {{porcent_pais}}%<br>
-      Comunidades: {% for x in comunnity %}{{x.focus_groups.community}},{% endfor %}<br>
-      Pocentaje de comunidades: {{porcent_comunnity}}%<br>
-      <hr>
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Media</th>
-            <th>Hombres</th>
-            <th>Mujeres</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Producido</td>
-            {% for valor in produced %}
-            <td>{{valor.0}}</td>
-            <td>{{valor.1}}</td>
-            <td>{{valor.2}}</td>
-            {% endfor %}
-          </tr>
-          <tr>
-            <td>Vendido</td>
-            {% for valor in sold %}
-            <td>{{valor.0}}</td>
-            <td>{{valor.1}}</td>
-            <td>{{valor.2}}</td>
-            {% endfor %}
-          </tr>
-          <tr>
-            <td>Comprado</td>
-            {% for valor in purchased %}
-            <td>{{valor.0}}</td>
-            <td>{{valor.1}}</td>
-            <td>{{valor.2}}</td>
-            {% endfor %}
-          </tr>
-          <tr>
-            <td>Consumido</td>
-            {% for valor in consumed %}
-            <td>{{valor.0}}</td>
-            <td>{{valor.1}}</td>
-            <td>{{valor.2}}</td>
-            {% endfor %}
-          </tr>
-        </tbody>
-      </table>
-    </div>
+						<p>Vernacular name: {% for x in vernacular_name %}{{x}},{% endfor %}</p>
+						<p>Paises: {% for x in country %}{{x.focus_groups.country}},{% endfor %}</p>
+						<p>Pocentaje de paises: {{porcent_pais}}%</p>
+						<p>Comunidades: {% for x in comunnity %}{{x.focus_groups.community}},{% endfor %}</p>
+						<p>Pocentaje de comunidades: {{porcent_comunnity}}%</p>
+						<p></p>
+					</div>
 
-    </div>
+
+				</div>
+            </div>
+        </div>
+        <!-- END SALES BLOCK -->
+	</div>
+	<div class="row">
+		<!-- START SALES BLOCK -->
+		<div class="panel panel-default panel-salidas">
+            <div class="panel-heading">
+                <div class="panel-title-box">
+                    <h3>Perfil de especie</h3>
+                    <span>Datos</span>
+                    
+                </div>
+            </div>
+            <div class="panel-body">
+            	<div class="table-responsive">                             
+					<table class="table table-bordered table-hover">
+						<thead>
+						  <tr>
+							<th></th>
+							<th>Media</th>
+							<th>Hombres</th>
+							<th>Mujeres</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<td>Producido</td>
+							{% for valor in produced %}
+							<td>{{valor.0}}</td>
+							<td>{{valor.1}}</td>
+							<td>{{valor.2}}</td>
+							{% endfor %}
+						  </tr>
+						  <tr>
+							<td>Vendido</td>
+							{% for valor in sold %}
+							<td>{{valor.0}}</td>
+							<td>{{valor.1}}</td>
+							<td>{{valor.2}}</td>
+							{% endfor %}
+						  </tr>
+						  <tr>
+							<td>Comprado</td>
+							{% for valor in purchased %}
+							<td>{{valor.0}}</td>
+							<td>{{valor.1}}</td>
+							<td>{{valor.2}}</td>
+							{% endfor %}
+						  </tr>
+						  <tr>
+							<td>Consumido</td>
+							{% for valor in consumed %}
+							<td>{{valor.0}}</td>
+							<td>{{valor.1}}</td>
+							<td>{{valor.2}}</td>
+							{% endfor %}
+						  </tr>
+						</tbody>
+					</table>
+				</div>                
+            </div>
+        </div>
+        <!-- END SALES BLOCK -->
+			
+	</div>
+
+	</div>
   </div>
 </div>
 {% endblock %}

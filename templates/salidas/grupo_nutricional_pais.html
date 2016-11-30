@@ -1,114 +1,136 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="consulta" id="consulta">
-    <div class="container">
-        <div class="head_section">
-            <h2>Grupos nutricionales por país</h2>
+<div class="menu-dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <div class="salida-title">
+                    <h4>Grupos nutricionales por páis</h4>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/filtros/">Explorar datos</a></li>
+                        <li class="active">Grupos nutricionales por páis</li>
+                    </ol>
+                </div>
+                
+            </div>
         </div>
     </div>
+</div>
+<div class="consulta">
+
+    
 
     <div class="contact_wrap">
         <div class="container">
             <div class="row">
-                <div>
-
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-primary">Seleccione el páis</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="dw-s">
+                            {% for key in pais.keys|slice:"1" %}{{key}}{% endfor %}
+                            <span class="caret"></span>
+                        </span>
+                    </button>
+                    <div class="dropdown-menu">
                         {% for key in pais.keys %}
-                        <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}"><a href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a></li>
-                        {% endfor %}
-                    </ul>
-
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        {% for key,values in pais.items %}
-                        <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
-
-                            <!-- START SALES BLOCK -->
-                            <div class="panel panel-default panel-salidas">
-                                <div class="panel-heading">
-                                    <div class="panel-title-box">
-                                        <h3>Número de especies por grupo nutricional</h3>
-                                        <span>Gráfico Frecuencia</span>
-                                        
-                                    </div>
-                                </div>
-                                <div class="panel-body">                                    
-                                    <div class="row stacked">
-                                        <div id="container{{forloop.counter}}" width='100%'></div>
-                                    </div>                                    
-                                </div>
-                            </div>
-                            <!-- END SALES BLOCK -->
-
-                            <!-- START SALES BLOCK -->
-                            <div class="panel panel-default panel-salidas">
-                                <div class="panel-heading">
-                                    <div class="panel-title-box">
-                                        <h3>Número de especies por grupo nutricional</h3>
-                                        <span>Gráfico Frecuencia</span>
-                                        
-                                    </div>
-                                    <div class="btn-group pull-right">
-                                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Exportar Datos</button>
-                                        <ul class="dropdown-menu">
-
-                                            <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="panel-body">                                    
-                                    <div class="table-responsive" id="modalidad{{forloop.counter}}">
-                                        <table class="table table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th colspan="2">Cultivado</th>
-                                                    <th colspan="2">Vendido</th>
-                                                    <th colspan="2">Comprado</th>
-                                                    <th colspan="2">Consumido</th>
-                                                </tr>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>Hombres</th>
-                                                    <th>Mujeres</th>
-                                                    <th>Hombres</th>
-                                                    <th>Mujeres</th>
-                                                    <th>Hombres</th>
-                                                    <th>Mujeres</th>
-                                                    <th>Hombres</th>
-                                                    <th>Mujeres</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {% for k,v in values.1.items %}
-                                                <tr>
-                                                    <td>{{k|safe}}</td>
-                                                    {% for x in v %}
-                                                    <td>{{x.0}}</td>
-                                                    <td>{{x.1}}</td>
-                                                    <td>{{x.2}}</td>
-                                                    <td>{{x.3}}</td>
-                                                    {% endfor %}
-                                                </tr>
-                                                {% endfor %}
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>                                   
-                                </div>
-                            </div>
-                            <!-- END SALES BLOCK -->
-
-                            
-                        </div>
+                        <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
+                            <a class="drop" href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a>
+                        </li>
                         {% endfor %}
                     </div>
-
                 </div>
+            </div>
+            <div class="row">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    {% for key,values in pais.items %}
+                    <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
+
+                        <!-- START SALES BLOCK -->
+                        <div class="panel panel-default panel-salidas">
+                            <div class="panel-heading">
+                                <div class="panel-title-box">
+                                    <h3>Número de especies por grupo nutricional</h3>
+                                    <span>Gráfico Frecuencia</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="panel-body">                                    
+                                <div class="row stacked">
+                                    <div id="container{{forloop.counter}}" width='100%'></div>
+                                </div>                                    
+                            </div>
+                        </div>
+                        <!-- END SALES BLOCK -->
+
+                        <!-- START SALES BLOCK -->
+                        <div class="panel panel-default panel-salidas">
+                            <div class="panel-heading">
+                                <div class="panel-title-box">
+                                    <h3>Número de especies por grupo nutricional</h3>
+                                    <span>Gráfico Frecuencia</span>
+                                    
+                                </div>
+                                <div class="btn-group pull-right">
+                                    <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Exportar Datos</button>
+                                    <ul class="dropdown-menu">
+
+                                        <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panel-body">                                    
+                                <div class="table-responsive" id="modalidad{{forloop.counter}}">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th colspan="2">Cultivado</th>
+                                                <th colspan="2">Vendido</th>
+                                                <th colspan="2">Comprado</th>
+                                                <th colspan="2">Consumido</th>
+                                            </tr>
+                                            <tr>
+                                                <th></th>
+                                                <th>Hombres</th>
+                                                <th>Mujeres</th>
+                                                <th>Hombres</th>
+                                                <th>Mujeres</th>
+                                                <th>Hombres</th>
+                                                <th>Mujeres</th>
+                                                <th>Hombres</th>
+                                                <th>Mujeres</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for k,v in values.1.items %}
+                                            <tr>
+                                                <td>{{k|safe}}</td>
+                                                {% for x in v %}
+                                                <td>{{x.0}}</td>
+                                                <td>{{x.1}}</td>
+                                                <td>{{x.2}}</td>
+                                                <td>{{x.3}}</td>
+                                                {% endfor %}
+                                            </tr>
+                                            {% endfor %}
+
+
+                                        </tbody>
+                                    </table>
+                                </div>                                   
+                            </div>
+                        </div>
+                        <!-- END SALES BLOCK -->
+
+                        
+                    </div>
+                    {% endfor %}
+                </div>
+
 
             </div>
         </div>
@@ -118,6 +140,16 @@
 
 {% block extra_js %}
 <script type="text/javascript">
+
+    $(".drop").click(function(){
+        $('.drop').parent().removeClass("active");
+        var content = $(this).text();
+        $(".dw-s").text(content+" ");
+        $(".dw-s").append("<span class='caret'></span>")
+    })
+
+</script>
+<script type="text/javascript">
 $(function () {
   {% for values in pais.values %}
     $('#container{{forloop.counter}}').highcharts({
@@ -125,7 +157,7 @@ $(function () {
             type: 'column'
         },
         title: {
-            text: 'Número de especies por grupo nutricional'
+            text: ''
         },
         xAxis: {
             categories: ['Mujeres', 'Hombres']
