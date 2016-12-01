@@ -3,306 +3,353 @@
 
 {% block content %}
 <!-- Header
-    ================================================== -->
+	================================================== -->
 <div id="home">
-    <div class="banner" style="background-image:url(/static/images/1.jpg);">
-        <h2 class="sltext">Red de datos globales<br>
-        ABD</h2>
-    </div>
+	<div class="banner" style="background-image:url(/static/images/1.jpg);">
+		<h2 class="sltext">Red de datos globales<br>
+		ABD</h2>
+	</div>
 
 </div>
 <!-- /Header Close -->
 <!-- About Us Section
-    ================================================== -->
-    <div class="aboutus" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="choos_us">
-                        <h3  class="about_title">Introducción general</h3>
-                        <div class="whchoise">
-                            <p>Fusce velit est, blandit quis, scelerisque nec, faucibus quis ips Fusce in nisl ut elit ultrices hendrerit.</p>
-                            <p>
-                                Suspendisse lobortis ante accumsan est. Vivamus scelerisqu accumsan dolor.Aenean diam felis, pulvinar at, pellentes qued sed aliquet vel tellus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus quas officiis veniam ad qui accusantium, porro unde. Inventore, iusto, nobis. Quo fugit maxime eaque aliquam fuga sint officiis ipsum placeat.
-                            </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum neque mollitia nemo maxime cum vitae minima nesciunt explicabo, deserunt, blanditiis distinctio aut impedit non, molestiae sit aliquid doloribus ipsam perferendis!. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium nesciunt recusandae, in maxime assumenda! Labore doloremque commodi deserunt sapiente nulla! Dolores impedit accusamus possimus, quis eveniet excepturi vero, praesentium veritatis!
-                            </p>
+	================================================== -->
+	<div class="aboutus" id="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="choos_us">
+						<div class="head_section">
+							<h2>OBJETIVO</h2>
+						</div>
+						<div class="whchoise">
+							<p>
+							El objetivo general es comprender los patrones y los motores del uso de ABD e identificar oportunidades para mejorar el ingreso y la nutrición de los hogares a través del uso de la agrobiodiversidad. El método de cuatro células se desarrolló para la evaluación rápida del uso total de ABD en la comunidad y se ha aplicado en varias acciones de Humidtropics sitio. Estos datos se utilizarán en combinación con otros datos de diagnóstico de hogares y agroecosistemas para identificar intervenciones clave para la mejora del sistema en diferentes tipologías de fincas. Un paso esencial es transformar los conjuntos de datos ABD en un formato de interpretación y discusión con los hogares agrícolas y las organizaciones locales que es conducente a la identificación de intervenciones clave de ABD. El objetivo específico es desarrollar métodos para analizar y diseñar para presentar datos ABD complejos. Aquí se usan datos del territorio cafetero del sitio de acción del Norte de Nicaragua para ilustrar los métodos potenciales para analizar y presentar los perfiles ABD de la comunidad.
+							</p>
 
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="choos_us">
-                        <h3  class="about_title">Como funciona esta plataforma</h3>
-                        <div class="whchoise">
-                            <p>Class aptent taciti sociosqu ad litora torquent per conubia nos aper inceptos himenaeos. Vivamus eget risus. </p>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae cumque voluptate autem hic assumenda quaerat veritatis eum cupiditate ad ratione, cum maxime, quibusdam accusamus atque inventore maiores saepe. Consectetur, suscipit. Consectetur adipisicing elit. Minima illum, recusandae dolores, deserunt autem quos facilis quasi iusto soluta voluptas cum possimus dolorum voluptatem similique aliquam molestias tempora praesentium deleniti.
-                            </p>
+						</div>
+					</div>
+				</div>
 
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <a href="/filtros/" class="btndatos pull-right">Explorar datos</a>
-        </div>
-    </div>
+			</div>
+			<a href="/filtros/" class="btndatos pull-right">Explorar datos</a>
+		</div>
+	</div>
 <!--Datos de especies
-    ================================================== -->
+	================================================== -->
+	<div class="container">
+		<div class="row">
 
-    <div class="datos-especie">
-        <div class="head_section">
-            <h2>RESUMEN DE DATOS</h2>
-        </div>
-        <div class="row">
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="circle">
-                    {{paises}}
-                </div>
-                <h6 class="text-circle">Paises</h6>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="circle">
-                    {{comunidades}}
-                </div>
-                <h6 class="text-circle">Comunidades</h6>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="circle">
-                    {{species}}
-                </div>
-                <h6 class="text-circle">Especies</h6>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="circle">
-                    {{focus_groups}}
-                </div>
-                <h6 class="text-circle">Grupos</h6>
-            </div>
-        </div>
+			<div class="col-md-8">
+				<div class="choos_us">
+					<h3 class="about_title">Mapa de localidades</h3>
+					<div class="whchoise">
+						<div id="map-canvas" style="width:100%; height:400px"></div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="choos_us">
+		          	<h3 class="about_title">Datos Generales</h3>
+		          	<div class="whchoise">
+						<ul class="timeline">
+			              <li>
+			                <div class="timeline-badge">{{paises}}</div>
+			                <div class="timeline-panel">
+			                  <h4>Paises<br>
+			                    en el mundo</h4>
+			                </div>
+			              </li>
+			              <li class="timeline-inverted">
+			                <div class="timeline-badge">{{comunidades}}</div>
+			                <div class="timeline-panel">
+			                  <h4>Comunidades <br>
+			                    Monitoriadas</h4>
+			                </div>
+			              </li>
+			              <li>
+			                <div class="timeline-badge">{{species}}</div>
+			                <div class="timeline-panel">
+			                  <h4>Especies <br>
+			                    Investigadas</h4>
+			                </div>
+			              </li>
+			              <li class="timeline-inverted">
+			                <div class="timeline-badge">{{focus_groups}}</div>
+			                <div class="timeline-panel">
+			                  <h4>Grupos <br>
+			                    Focales</h4>
+			                </div>
+			              </li>
+			            </ul>
+			        </div>
+			    </div>
+				<!-- <div class="the_process">
+					<h3 class="about_title">Datos Generales</h3>
+					<div>
+						<div class="circle">
+							
+						</div>
+						<h6 class="text-circle">Paises</h6>
+					</div>
+					<div>
+						<div class="circle">
+							{{comunidades}}
+						</div>
+						<h6 class="text-circle">Comunidades</h6>
+					</div>
+
+				</div> -->
+			</div>
+		</div>
+	</div>
+<!-- <div class="datos-especie">
+	<div class="head_section">
+		<h2>RESUMEN DE DATOS</h2>
+	</div>
+	<div class="row">
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			<div class="circle">
+				{{species}}
+			</div>
+			<h6 class="text-circle">Especies</h6>
+		</div>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			<div class="circle">
+				{{focus_groups}}
+			</div>
+			<h6 class="text-circle">Grupos</h6>
+		</div>
+	</div>
 
 
-    </div>
+</div> -->
  <!-- / Datos de especies -->
 <!-- / about us close -->
 <!-- Parallax
-    ================================================== -->
-<div class="mapeo">
-    <div class="head_section">
-        <h2>MAPA DE LOCALIDADES</h2>
-    </div>
-    <div class="mapa-especies">
-      <div id="map-canvas" style="width:100%; height:400px"></div>
-    </div>
-</div>
+	================================================== -->
+<!-- <div class="mapeo">
+	<div class="head_section">
+		<h2>MAPA DE LOCALIDADES</h2>
+	</div>
+	<div class="mapa-especies">
+	  
+	</div>
+</div> -->
 <!-- / Parallax Close Close -->
 <!-- Parallax
-    ================================================== -->
+	================================================== -->
 <div class="parallax parallax_a" id="metodologia">
   <div class="container">
-    <h2>METODOLOGÍA</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto quos, modi, mollitia nemo earum architecto placeat autem ea asperiores, nisi saepe nam molestiae ipsam voluptate qui perspiciatis quisquam libero excepturi!. Eligendi minus, nostrum recusandae ea consequuntur quo. Consequuntur quisquam, quaerat distinctio ratione. Optio excepturi, amet dolor nobis non est impedit sapiente sequi.</p>
-    <a href="#" class="plink">Leer más...</a> </div>
+	<h2>METODOLOGÍA</h2>
+	<p>Colección Inicial de Datos ABD</p>
+	<p>Análisis de cuatro celdas: Se utilizaron los métodos de cuatro células para el análisis de ABD desarrollados por Bellon y Raneri (2014) para recopilar datos sobre producción, consumo, venta y compra de especies. Se recolectaron datos sobre cultivos básicos, animales, frutas, hortalizas, árboles, animales y plantas recolectados y otros productos procesados.</p>
+	<a href="/metodologia" class="plink">Leer más...</a> </div>
 </div>
 <!-- / Parallax Close Close -->
 
 <!-- Organizaciones Section
-    ================================================== -->
-    <div class="ourteam" id="team">
-        <div class="container">
-            <div class="head_section">
-                <h2>CONTRIBUYENTES</h2>
-            </div>
+	================================================== -->
+	<div class="ourteam" id="team">
+		<div class="container">
+			<div class="head_section">
+				<h2>CONTRIBUYENTES</h2>
+			</div>
 
-            <div>
-                <h4 style="text-align:center;">Científicos</h4>
+			<div>
+				<h4 style="text-align:center;">Científicos</h4>
 
-            </div>
-            <div role="tabpanel">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs nav-pills" role="tablist">
-                    {% for k in dicc.keys %}
-                      <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
-                          <a href="#{{k.id}}" aria-controls="{{k.id}}" role="tab" data-toggle="tab">{{k}}</a>
-                      </li>
-                    {% endfor %}
-                </ul>
+			</div>
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs nav-pills" role="tablist">
+					{% for k in dicc.keys %}
+					  <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
+						  <a href="#{{k.id}}" aria-controls="{{k.id}}" role="tab" data-toggle="tab">{{k}}</a>
+					  </li>
+					{% endfor %}
+				</ul>
 
-                <!-- Tab panes -->
-                <div class="tab-content">
-                  {% for k,v in dicc.items %}
-                    <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{k.id}}">
-                        <div class="team-carousel-control">
-                            <a class="left" href="#team-carousel" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div id="team-carousel" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="item active">
-                                            <div class="row">
-                                              {% for obj in v %}
-                                              <div class="col-sm-3">
-                                                  <div class="member">
-                                                    <a href="{% url 'cientifico-detalle' obj.slug %}">
-                                                      <div class="info">
-                                                          <h4 class="name">{{obj.nombre}}</h4>
-                                                          <span class="designation">{{obj.cargo}}</span>
-                                                          <ul class="datamember">
-                                                              <p><span class="fa fa-envelope"></span> {{obj.correo}}</p>
-                                                              <p><span class="fa fa-phone"> {{obj.telefono}}</span></p>
-                                                          </ul>
-                                                      </div>
-                                                      </a>
-                                                  </div>
-                                              </div>
-                                              {% endfor %}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+				<!-- Tab panes -->
+				<div class="tab-content">
+				  {% for k,v in dicc.items %}
+					<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{k.id}}">
+						<div class="team-carousel-control">
+							<a class="left" href="#team-carousel" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div id="team-carousel" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="item active">
+											<div class="row">
+											  {% for obj in v %}
+											  <div class="col-sm-3">
+												  <div class="member">
+													<a href="{% url 'cientifico-detalle' obj.slug %}">
+													  <div class="info">
+														  <h4 class="name">{{obj.nombre}}</h4>
+														  <span class="designation">{{obj.cargo}}</span>
+														  <ul class="datamember">
+															  <p><span class="fa fa-envelope"></span> {{obj.correo}}</p>
+															  <p><span class="fa fa-phone"> {{obj.telefono}}</span></p>
+														  </ul>
+													  </div>
+													  </a>
+												  </div>
+											  </div>
+											  {% endfor %}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 
-                        </div>
+						</div>
 
-                    </div>
-                  {% endfor %}
-                </div>
-            </div>
-            <div>
-                <h4 style="text-align:center;">Organizaciones</h4>
+					</div>
+				  {% endfor %}
+				</div>
+			</div>
+			<div>
+				<h4 style="text-align:center;">Organizaciones</h4>
 
-            </div>
-            <div role="tabpanel">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs nav-pills" role="tablist">
-                  {% for key in orgs.keys %}
-                    <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
-                        <a href="#org{{key.id}}" aria-controls="org{{key.id}}" role="tab" data-toggle="tab">{{key}}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
+			</div>
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs nav-pills" role="tablist">
+				  {% for key in orgs.keys %}
+					<li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
+						<a href="#org{{key.id}}" aria-controls="org{{key.id}}" role="tab" data-toggle="tab">{{key}}</a>
+					</li>
+				  {% endfor %}
+				</ul>
 
-                <!-- Tab panes -->
-                <div class="tab-content">
-                  {% for key,value in orgs.items %}
-                  <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="org{{key.id}}">
-                    <div class="team-carousel-control">
-                        <a class="left" href="#team-carousel1" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel1" data-slide="next"><i class="fa fa-angle-right"></i></a>
-                    </div>
-                      <div class="socio">
-                          <div class="container">
-                              <div class="row">
-                                <div id="team-carousel1" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="item active">
-                                            <div class="row">
-                                              {% for obj in value %}
-                                              <div class="col-sm-3">
-                                                <a href="{% url 'org-detalle' obj.slug %}">
-                                                  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                                    {% if obj.logo %}
-                                                      {% thumbnail obj.logo "70x70" crop="center" as img %}
-                                                         <img src="/media/{{img}}" alt="">
-                                                      {% endthumbnail %}
-                                                    {% else %}
-                                                      <img src="http://placehold.it/70x70" alt="">
-                                                    {% endif %}
-                                                  </div>
-                                                  <div class="siglas col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                                      <p>{{obj.nombre}}</p>
-                                                  </div>
-                                                </a>
-                                              </div>
-                                              {% endfor %}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
+				<!-- Tab panes -->
+				<div class="tab-content">
+				  {% for key,value in orgs.items %}
+				  <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="org{{key.id}}">
+					<div class="team-carousel-control">
+						<a class="left" href="#team-carousel1" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel1" data-slide="next"><i class="fa fa-angle-right"></i></a>
+					</div>
+					  <div class="socio">
+						  <div class="container">
+							  <div class="row">
+								<div id="team-carousel1" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="item active">
+											<div class="row">
+											  {% for obj in value %}
+											  <div class="col-sm-3">
+												<a href="{% url 'org-detalle' obj.slug %}">
+												  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+													{% if obj.logo %}
+													  {% thumbnail obj.logo "70x70" crop="center" as img %}
+														 <img src="/media/{{img}}" alt="">
+													  {% endthumbnail %}
+													{% else %}
+													  <img src="http://placehold.it/70x70" alt="">
+													{% endif %}
+												  </div>
+												  <div class="siglas col-xs-8 col-sm-8 col-md-8 col-lg-8">
+													  <p>{{obj.nombre}}</p>
+												  </div>
+												</a>
+											  </div>
+											  {% endfor %}
+											</div>
+										</div>
+									</div>
+								</div>
+							  </div>
+						  </div>
+					  </div>
+				  </div>
+				  {% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
 
 <!-- / Organizaciones Close -->
 <div class="clearfix"></div>
 
 <!-- Parallax 04
-    ================================================== -->
+	================================================== -->
 <div class="parallax parallax_d" id="afiliase">
   <div class="container">
-    <h2>AFILIARSE</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto quos, modi, mollitia nemo earum architecto placeat autem ea asperiores, nisi saepe nam molestiae ipsam voluptate qui perspiciatis quisquam libero excepturi!. Eligendi minus, nostrum recusandae ea consequuntur quo. Consequuntur quisquam, quaerat distinctio ratione. Optio excepturi, amet dolor nobis non est impedit sapiente sequi.</p>
+	<h2>AFILIARSE</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto quos, modi, mollitia nemo earum architecto placeat autem ea asperiores, nisi saepe nam molestiae ipsam voluptate qui perspiciatis quisquam libero excepturi!. Eligendi minus, nostrum recusandae ea consequuntur quo. Consequuntur quisquam, quaerat distinctio ratione. Optio excepturi, amet dolor nobis non est impedit sapiente sequi.</p>
 
-    <div class="clearfix"></div>
-    <a href="#" class="plink">AFILIARSE AHORA</a> </div>
+	<div class="clearfix"></div>
+	<a href="#" class="plink">AFILIARSE AHORA</a> </div>
 </div>
 <!-- / Parallax Close Close -->
 <div class="clearfix"></div>
 <!-- CONTACT Section
-    ==================================================
+	==================================================
 <div class="contact" id="contact">
   <div class="container">
-    <div class="head_section">
-      <h2>SOLICITAR DATOS</h2>
-      <p>VIVAMUS QUIS RISUS UT TURPIS SAGITTIS VENENATIS. ALIQUAM ENIM SEM PRETIUM VITAE, POSUERE AC MATTIS VITAE ARCU</p>
-    </div>
+	<div class="head_section">
+	  <h2>SOLICITAR DATOS</h2>
+	  <p>VIVAMUS QUIS RISUS UT TURPIS SAGITTIS VENENATIS. ALIQUAM ENIM SEM PRETIUM VITAE, POSUERE AC MATTIS VITAE ARCU</p>
+	</div>
   </div>
   <div class="contact_wrap">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="query politicas">
-            <h3>POLITICA DE SOLICITUD DE DATOS</h3>
-            <div class="terminos">
-                <p>
-                    Urna a aliquet pid phasellus integer nunc nunc rhoncus duis, et ac a mattis sed pellentesque dictumst massa enim augue in nec a? Lundium et dignissim sed nunc? In phasellus penatibus pulvinar duis rhoncus amet adipiscing et nec vel magnis, cursus ridiculus, tortor augue, magnis platea elit elementum, etiam! Cras enim etiam vel ultricies proin urna integer, et dapibus cum dis tempor aliquam dignissim urna? Lectus, est? Tristique! Urna velit, urna elementum! Habitasse in? Ultricies. Elementum ultricies a. Dolor dolor, ut! Sed dignissim adipiscing, aliquet? Dignissim platea placerat! In sed? Porttitor aliquet. Et placerat porta integer cum urna ultricies, dis! Dis tristique habitasse nunc aenean? Integer parturient habitasse, hac eu. Augue, tincidunt augue parturient, vel elementum ut magna nunc placerat.
-                </p>
-                <p>
-                    Auctor. Turpis nascetur ut parturient, porttitor lectus sed proin! Elit auctor. Lorem et porta! In porta rhoncus in placerat, mattis dolor. Pid! Hac, augue porttitor proin nec, dis integer odio dictumst sit et, natoque sit pulvinar phasellus dignissim phasellus. Arcu nisi tempor pulvinar, nisi velit amet ut. Mus! Vut, aliquet, ut penatibus? Duis ac a vel, tortor auctor tristique, mid dis elementum urna montes dignissim turpis integer vut? Facilisis tempor tincidunt, pulvinar porttitor, urna cursus. Placerat magnis! Tincidunt porta! Dictumst? Tincidunt non adipiscing tristique, cursus pellentesque et in cum? Augue scelerisque placerat proin ultricies integer! Turpis, dapibus purus. Ultricies! Sociis odio adipiscing enim aliquet? Proin auctor ut rhoncus integer arcu augue? Auctor amet, nascetur nisi penatibus turpis, odio integer.
-                </p>
-            </div>
+	<div class="row">
+	  <div class="col-sm-6">
+		<div class="query politicas">
+			<h3>POLITICA DE SOLICITUD DE DATOS</h3>
+			<div class="terminos">
+				<p>
+					Urna a aliquet pid phasellus integer nunc nunc rhoncus duis, et ac a mattis sed pellentesque dictumst massa enim augue in nec a? Lundium et dignissim sed nunc? In phasellus penatibus pulvinar duis rhoncus amet adipiscing et nec vel magnis, cursus ridiculus, tortor augue, magnis platea elit elementum, etiam! Cras enim etiam vel ultricies proin urna integer, et dapibus cum dis tempor aliquam dignissim urna? Lectus, est? Tristique! Urna velit, urna elementum! Habitasse in? Ultricies. Elementum ultricies a. Dolor dolor, ut! Sed dignissim adipiscing, aliquet? Dignissim platea placerat! In sed? Porttitor aliquet. Et placerat porta integer cum urna ultricies, dis! Dis tristique habitasse nunc aenean? Integer parturient habitasse, hac eu. Augue, tincidunt augue parturient, vel elementum ut magna nunc placerat.
+				</p>
+				<p>
+					Auctor. Turpis nascetur ut parturient, porttitor lectus sed proin! Elit auctor. Lorem et porta! In porta rhoncus in placerat, mattis dolor. Pid! Hac, augue porttitor proin nec, dis integer odio dictumst sit et, natoque sit pulvinar phasellus dignissim phasellus. Arcu nisi tempor pulvinar, nisi velit amet ut. Mus! Vut, aliquet, ut penatibus? Duis ac a vel, tortor auctor tristique, mid dis elementum urna montes dignissim turpis integer vut? Facilisis tempor tincidunt, pulvinar porttitor, urna cursus. Placerat magnis! Tincidunt porta! Dictumst? Tincidunt non adipiscing tristique, cursus pellentesque et in cum? Augue scelerisque placerat proin ultricies integer! Turpis, dapibus purus. Ultricies! Sociis odio adipiscing enim aliquet? Proin auctor ut rhoncus integer arcu augue? Auctor amet, nascetur nisi penatibus turpis, odio integer.
+				</p>
+			</div>
 
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="query">
-          <h3>FORMULARIO DE SOLICITUD</h3>
-          <form name="mailform" id="mailform" method="post" enctype="multipart/form-data" >
-            <div class="form-group">
-              <input type="text" class="form-control textfild" name="name" id="name" placeholder="Nombre">
-            </div>
-            <div class="form-group">
-              <input type="email" name="email" id="email" class="form-control textfild" placeholder="Correo">
-            </div>
-            <div class="form-group">
-              <input type="text" name="subject" id="subject" class="form-control textfild" placeholder="Projecto">
-            </div>
-            <div class="form-group">
-              <textarea name="textarea" id="textarea" class="form-control textareafild" placeholder="Descripción breve"></textarea>
-            </div>
-            <div class="checkbox checkbox-success">
-                <input id="checkbox3" type="checkbox">
-                <label for="checkbox3">
-                    Acepto los terminimos y condiciones.
-                </label>
-            </div>
+		</div>
+	  </div>
+	  <div class="col-sm-6">
+		<div class="query">
+		  <h3>FORMULARIO DE SOLICITUD</h3>
+		  <form name="mailform" id="mailform" method="post" enctype="multipart/form-data" >
+			<div class="form-group">
+			  <input type="text" class="form-control textfild" name="name" id="name" placeholder="Nombre">
+			</div>
+			<div class="form-group">
+			  <input type="email" name="email" id="email" class="form-control textfild" placeholder="Correo">
+			</div>
+			<div class="form-group">
+			  <input type="text" name="subject" id="subject" class="form-control textfild" placeholder="Projecto">
+			</div>
+			<div class="form-group">
+			  <textarea name="textarea" id="textarea" class="form-control textareafild" placeholder="Descripción breve"></textarea>
+			</div>
+			<div class="checkbox checkbox-success">
+				<input id="checkbox3" type="checkbox">
+				<label for="checkbox3">
+					Acepto los terminimos y condiciones.
+				</label>
+			</div>
 
 
-            <div class="error"></div>
-            <input type="button" value="SOLICITAR" class="submit-btn" onClick="ValiDate()">
-          </form>
-          <div class="mailSuccessDiv"> Your Message Sent Successfully!!! </div>
-        </div>
-      </div>
-    </div>
+			<div class="error"></div>
+			<input type="button" value="SOLICITAR" class="submit-btn" onClick="ValiDate()">
+		  </form>
+		  <div class="mailSuccessDiv"> Your Message Sent Successfully!!! </div>
+		</div>
+	  </div>
+	</div>
   </div>
 </div>
 <div class="clearfix"></div>
@@ -311,48 +358,48 @@
 
 
 <!--BLOG Section
-    ================================================== -->
+	================================================== -->
 <div class="blog" id="blog">
   <div class="container">
-    <div class="head_section">
-      <h2>PROYECTOS Y PUBLICACIONES</h2>
-      <div class="blog-carousel-control"> <a class="left fa fa-angle-left" href="#blogCarousel" data-slide="prev"></a> <a class="right fa fa-angle-right" href="#blogCarousel" data-slide="next"></a> </div>
-    </div>
-    <div class="row">
-      <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="item active">
-            <div class="row">
-              {% for obj in proyectos %}
-                <div class="col-sm-4">
-                  <div class="post-item">
-                    <div class="post-headre">
-                      <div class="post-seam">
-                        <div class="date"> <span>{{obj.fecha.day}}</span> {{obj.fecha|date:"M"}} </div>
-                      </div>
-                      <div class="post-image">
-                        <a href="{% url 'proyecto-detalle' obj.slug %}"><i class="fa fa-search"></i></a>
-                        {% if obj.imagen %}
-                          {% thumbnail obj.imagen "740x450" crop="center" as img %}
-        							       <img src="/media/{{img}}" alt="">
-            							{% endthumbnail %}
-                        {% else %}
-                          <img src="http://placehold.it/740x450" alt="" />
-                        {% endif %}
-                      </div>
-                    </div>
-                    <div class="post-content">
-                      <h4>{{obj.titulo}}</h4>
-                      <p>{{obj.contenido|safe|striptags|truncatewords:20}}</p>
-                    </div>
-                  </div>
-                </div>
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+	<div class="head_section">
+	  <h2>PROYECTOS Y PUBLICACIONES</h2>
+	  <div class="blog-carousel-control"> <a class="left fa fa-angle-left" href="#blogCarousel" data-slide="prev"></a> <a class="right fa fa-angle-right" href="#blogCarousel" data-slide="next"></a> </div>
+	</div>
+	<div class="row">
+	  <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+		  <div class="item active">
+			<div class="row">
+			  {% for obj in proyectos %}
+				<div class="col-sm-4">
+				  <div class="post-item">
+					<div class="post-headre">
+					  <div class="post-seam">
+						<div class="date"> <span>{{obj.fecha.day}}</span> {{obj.fecha|date:"M"}} </div>
+					  </div>
+					  <div class="post-image">
+						<a href="{% url 'proyecto-detalle' obj.slug %}"><i class="fa fa-search"></i></a>
+						{% if obj.imagen %}
+						  {% thumbnail obj.imagen "740x450" crop="center" as img %}
+										   <img src="/media/{{img}}" alt="">
+										{% endthumbnail %}
+						{% else %}
+						  <img src="http://placehold.it/740x450" alt="" />
+						{% endif %}
+					  </div>
+					</div>
+					<div class="post-content">
+					  <h4>{{obj.titulo}}</h4>
+					  <p>{{obj.contenido|safe|striptags|truncatewords:20}}</p>
+					</div>
+				  </div>
+				</div>
+			  {% endfor %}
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
   </div>
 </div>
 <!-- / blog Close -->
@@ -361,16 +408,16 @@
 {% endblock content %}
 
 {% block extra_js %}
-    <script type="text/javascript">
-        $(function () {
-            var menu= $(".page-header").height() + 50;
-            $(" #miLink").click(function (e) {
-                e.preventDefault();
-                $('html,body').animate({
-                    scrollTop: $("#monitoreo").offset().top -menu}, 2000);
-            });
-        })
-    </script>
+	<script type="text/javascript">
+		$(function () {
+			var menu= $(".page-header").height() + 50;
+			$(" #miLink").click(function (e) {
+				e.preventDefault();
+				$('html,body').animate({
+					scrollTop: $("#monitoreo").offset().top -menu}, 2000);
+			});
+		})
+	</script>
 
 
 <!--<script src="https://maps.googleapis.com/maps/api/js" type="text/javascript"></script>-->
