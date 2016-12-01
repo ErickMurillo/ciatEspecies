@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'sorl.thumbnail',
+    'el_pagination',
 
     #otras apps
     'informacion',
@@ -145,3 +146,5 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
 SITE_ID = 1
+
+EL_PAGINATION_PER_PAGE = 3

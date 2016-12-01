@@ -43,9 +43,12 @@ urlpatterns = [
     # url(r'^export-focusgroup/$', export_focusgroup_csv, name='export-focusgroup-csv'),
     # url(r'^export-species/$', export_species_csv, name='export-species-csv'),
 
-    url(r'^proyecto-o-publicacion/(?P<slug>[\w-]+)/$', ProyectoDetailView.as_view(), name='proyecto-detalle'),
+    url(r'^publicacion/(?P<slug>[\w-]+)/$', ProyectoDetailView.as_view(), name='proyecto-detalle'),
     url(r'^organizacion/(?P<slug>[\w-]+)/$', OrganizacionDetailView.as_view(), name='org-detalle'),
     url(r'^cientifico/(?P<slug>[\w-]+)/$', CientificoDetailView.as_view(), name='cientifico-detalle'),
+    url(r'^lista-publicacion/$', PublicacionListView.as_view(), name='publicaciones-detalle'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 urlpatterns += staticfiles_urlpatterns()

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load el_pagination_tags %}
+{% block content %}
+<div class="metodologia">
+	<div class="container">
+		<div class="head_section">
+		  <h2>PROYECTOS Y PUBLICACIONES</h2>
+		
+		</div>
+		{% paginate object_list %}
+		{% for obj in object_list %}
+			<div class="col-sm-4">
+							  <div class="post-item">
+								<div class="post-headre">
+								  <div class="post-seam">
+									<div class="date"> <span>{{obj.fecha.day}}</span> {{obj.fecha|date:"M"}} </div>
+								  </div>
+								  <div class="post-image">
+									<a href="{% url 'proyecto-detalle' obj.slug %}"><i class="fa fa-search"></i></a>
+									{% if obj.imagen %}
+									  {% thumbnail obj.imagen "740x450" crop="center" as img %}
+													   <img src="/media/{{img}}" alt="">
+													{% endthumbnail %}
+									{% else %}
+									  <img src="http://placehold.it/740x450" alt="" />
+									{% endif %}
+								  </div>
+								</div>
+								<div class="post-content">
+								  <h4>{{obj.titulo}}</h4>
+								  <p>{{obj.contenido|safe|striptags|truncatewords:20}}</p>
+								</div>
+							  </div>
+							</div>
+		
+		{% endfor %}
+
+<!-- pagination box -->
+   <div class="pagination-box">
+     <ul class="pagination-list">
+       {% show_pages %}
+     </ul>
+     <p>{% show_current_number %} de {% get_pages %}{{ pages|length }} paginas.</p>
+   </div>
+   <!-- End Pagination box -->
+	</div>
+</div>
+{% endblock content %}
