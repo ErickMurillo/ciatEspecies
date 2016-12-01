@@ -7,82 +7,49 @@
 
 {% block content %}
 <div class="menu-dashboard">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <ul class="nav">
-                <!-- <li>
-                    <a href="">VER FILTRO</a>
-                </li> -->
-                <li class="dropdown">
-                    <a href="#" data-toggle="dropdown">VER INDICADORES</a>
-                    <div class="dropdown-menu multi-column">
-                        <div class="container-fluid">
-                            <div class="row-fluid">
-                                <div class="span6">
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="/especies/grupo-nutricional-comunidad/" role="button">especies por grupo nutricional por comunidad</a>
-                                        </li>
-                                        <li>
-                                            <a href="/especies/grupo-nutricional-pais/" role="button">especies por grupo nutricional por pais</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="span6">
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                           <a href="/especies/numero-especies/" role="button">especies total</a> 
-                                        </li>
-                                        <li>
-                                            <a href="/especies/numero-especies-comunidad/" role="button">números promedios de especies por comunidad</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="span6">
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                           <a href="/especies/perfil-especies/" role="button">Perfil especies</a> 
-                                        </li>
-                                        <li>
-                                            <a href="/especies/perfil-focus-groups/" role="button">Perfil focus groups</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">COMUNIDADES<span class="caret"></span></a>
-                    <!-- <ul class="dropdown-menu">
-                        {% for key in comu.keys %}
-                        <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}"><a href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a></li>
-                        {% endfor %}
-                    </ul> -->
-                </li>
-            </ul>
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <div class="salida-title">
+                    <h4>Grupos nutricionales por comunidad</h4>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/filtros/">Explorar datos</a></li>
+                        <li class="active">Grupos nutricionales por comunidad</li>
+                    </ol>
+                </div>
+                
+            </div>
         </div>
     </div>
 </div>
+    
 
-<div class="dashboard" id="consulta">
-    <div class="container">
-        <div class="head_section">
-            <h2>Grupos nutricionales por comunidad</h2>
-        </div>
-    </div>
+
+<div class="consulta">
+
 
     <div class="contact_wrap">
         <div class="container">
             <div class="row">
-                <div>
-
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-primary">Seleccione la comunidad</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="dw-s">
+                            {% for key in comu.keys|slice:"1" %}{{key}}{% endfor %}
+                            <span class="caret"></span>
+                        </span>
+                    </button>
+                    <div class="dropdown-menu">
                         {% for key in comu.keys %}
-                        <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}"><a href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a></li>
+                        <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
+                            <a class="drop" href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a>
+                        </li>
                         {% endfor %}
-                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
 
                     <!-- Tab panes -->
                     <div class="tab-content">
@@ -175,7 +142,6 @@
                         {% endfor %}
                     </div>
 
-                </div>
 
             </div>
         </div>
@@ -187,7 +153,16 @@
 <!-- 
 <script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/static/js/dataTables.bootstrap4.min.js"></script> -->
+<script type="text/javascript">
 
+    $(".drop").click(function(){
+        $('.drop').parent().removeClass("active");
+        var content = $(this).text();
+        $(".dw-s").text(content+" ");
+        $(".dw-s").append("<span class='caret'></span>")
+    })
+
+</script>
 <script type="text/javascript">
 
 // $(document).ready(function(){

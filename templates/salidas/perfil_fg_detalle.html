@@ -1,53 +1,126 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="consulta" id="consulta">
-  <div class="container">
-    <div class="head_section">
-      <h2>Perfil</h2>
+<div class="menu-dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <div class="salida-title">
+                    <h4>Perfil del grupo focal</h4>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/filtros/">Explorar datos</a></li>
+                        <li><a href="/especies/perfil-focus-groups/">Lista grupo focal</a></li>
+                        <li class="active">Perfil del grupo focal</li>
+                    </ol>
+                </div>
+                
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+<div class="consulta" id="consulta">
 
   <div class="contact_wrap">
     <div class="container">
       <div class="row">
-        Región: {{object.country.get_region_display}} <br>
-        Pais: {{object.country}} <br>
-        Provincia: {{object.province}} <br>
-        Comunidad: {{object.community}} <br>
-        {% if object.date %}Fecha: {{object.date}}<br>{% endif %}
-        Científico: {{object.scientist}} <br>
-        Organización: {{object.organization}} <br>
-        Crp: {{object.crp}} <br>
+      <!-- START SALES BLOCK -->
+        <div class="panel panel-default panel-salidas">
+            <div class="panel-heading">
+                <div class="panel-title-box">
+                    <h3>Grupo focal</h3>
+                    <span>Datos Generales</span>
+                    
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row p-especie">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <p>Región: {{object.country.get_region_display}}</p>
+                        <p>Pais: {{object.country}} </p>
+                        <p>Provincia: {{object.province}}</p>
+                        <p>Comunidad: {{object.community}}</p>
+                        <p>{% if object.date %}Fecha: {{object.date}}<br>{% endif %}</p>
+                        <p>Científico: {{object.scientist}}</p>
+                        <p>Organización: {{object.organization}}</p>
+                        <p>Crp: {{object.crp}}</p>
+                        <p>
+                            {% if object.ethnic_group %}
+                                Grupo étnico :
+                                    {% for eg in object.ethnic_group.all %}
+                                        {{ eg }}{% if not forloop.last %},{% endif %}
+                                    {% endfor %} <br>
+                            {% endif %}
+                        </p>
+                        <p>
+                            {% if object.language %}
+                                Lenguaje: {% for language in object.language.all %}
+                                    {{ language }}{% if not forloop.last %},{% endif %}
+                                {% endfor %} <br>
+                            {% endif %}
+                        </p>
+                        
+                        
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        
+                        
+                        <p>{% if object.hh %}HH: {{object.hh}} <br>{% endif %}</p>
+                        <p>{% if object.area %}Área: {{object.area}} <br>{% endif %}</p>
+                        <p>{% if object.frecuency %}Frecuencia: {{object.frecuency}} <br>{% endif %}</p>
+                        <p>{% if object.year_round %}Todo el año: {{object.year_round}} <br>{% endif %}</p>
+                        <p>{% if object.lean_season %}Temporada de escasez: {{object.lean_season}} <br>{% endif %}</p>
+                        <p>{% if object.climate_zone %}Zona climática: {{object.climate_zone}} <br>{% endif %}</p>
+                        <p>{% if object.annual_mean_temperature %}Temperatura media: {{object.annual_mean_temperature}} <br>{% endif %}</p>
+                        <p>{% if object.rainfall %}Lluvia: {{object.rainfall}} <br>{% endif %}</p>
+                        <p>{% if object.precipitation %}Precipitación: {{object.precipitation}} <br>{% endif %}</p>
+                        
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 
-        {% if object.ethnic_group %}
-        Grupo étnico :
-        {% for eg in object.ethnic_group.all %}
-        {{ eg }}{% if not forloop.last %},{% endif %}
-        {% endfor %} <br>
-        {% endif %}
+                        
+                        <p>{% if object.altitude %}Altitud: {{object.altitude}} <br>{% endif %}</p>
+                        <p>{% if object.population %}Población: {{object.population}} <br>{% endif %}</p>
+                        <p>{% if object.market_distance %}Distancia de mercado: {{object.market_distance}} <br>{% endif %}</p>
+                        <p>{% if object.population %}Población: {{object.population}} <br>{% endif %}</p>
+                        <p>{% if object.gender %}Genero: {{object.get_gender_display}} <br>{% endif %}</p>
+                        <p>{% if object.method_observations %}Metodo de observación: {{object.method_observations}} <br>{% endif %}</p>
+                        
+                    </div>
 
-        {% if object.language %}
-        Lenguaje: {% for language in object.language.all %}
-        {{ language }}{% if not forloop.last %},{% endif %}
-        {% endfor %} <br>
-        {% endif %}
 
-        {% if object.hh %}HH: {{object.hh}} <br>{% endif %}
-        {% if object.area %}Área: {{object.area}} <br>{% endif %}
-        {% if object.frecuency %}Frecuencia: {{object.frecuency}} <br>{% endif %}
-        {% if object.year_round %}Todo el año: {{object.year_round}} <br>{% endif %}
-        {% if object.lean_season %}Temporada de escasez: {{object.lean_season}} <br>{% endif %}
-        {% if object.climate_zone %}Zona climática: {{object.climate_zone}} <br>{% endif %}
-        {% if object.annual_mean_temperature %}Temperatura media: {{object.annual_mean_temperature}} <br>{% endif %}
-        {% if object.rainfall %}Lluvia: {{object.rainfall}} <br>{% endif %}
-        {% if object.precipitation %}Precipitación: {{object.precipitation}} <br>{% endif %}
-        {% if object.altitude %}Altitud: {{object.altitude}} <br>{% endif %}
-        {% if object.population %}Población: {{object.population}} <br>{% endif %}
-        {% if object.market_distance %}Distancia de mercado: {{object.market_distance}} <br>{% endif %}
-        {% if object.population %}Población: {{object.population}} <br>{% endif %}
-        {% if object.gender %}Genero: {{object.get_gender_display}} <br>{% endif %}
-        {% if object.method_observations %}Metodo de observación: {{object.method_observations}} <br>{% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- END SALES BLOCK -->
+         <br>
+        <br>
+         <br>
+         <br>
+        
+         <br>
+         <br>
+         <br>
+
+        
+
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
       </div>
     </div>

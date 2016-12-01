@@ -1,54 +1,92 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="consulta" id="consulta">
-  <div class="container">
-    <div class="head_section">
-      <h2>Perfil Focus Groups</h2>
-    </div>
-  </div>
-
-  <div class="contact_wrap">
-    <div class="container">
-      <div class="row">
-        <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;">Exportar</a>
-        <div class="table-responsive" id="modalidad{{forloop.counter}}">
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th colspan="9">Focus groups</th>
-              </tr>
-              <tr>
-                <th>ID</th>
-                <th>Región</th>
-                <th>Pais</th>
-                <th>Provincia</th>
-                <th>Comunidad</th>
-                <th>Organización</th>
-                <th>Fecha</th>
-                <th>Género</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for value in focus_groups %}
-              <tr>
-                <td><a href="{% url 'perfil-focus-groups-detail' value.id %}">{{value.id}}</a></td>
-                <td>{{value.country.get_region_display}}</td>
-                <td>{{value.country}}</td>
-                <td>{{value.province}}</td>
-                <td>{{value.community}}</td>
-                <td>{{value.organization}}</td>
-                <td>{{value.date}}</td>
-                <td>{{value.get_gender_display}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+<div class="menu-dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            	<div class="salida-title">
+            		<h4>Grupos Focales</h4>
+	               	<ol class="breadcrumb">
+						<li><a href="/">Inicio</a></li>
+						<li><a href="/filtros/">Explorar datos</a></li>
+						<li class="active">Grupos Focales</li>
+					</ol>
+            	</div>
+               	
+            </div>
         </div>
-
-      </div>
     </div>
-  </div>
+</div>
+
+
+<div class="consulta" id="consulta">
+<!-- 	<div class="container">
+		<div class="head_section">
+			<h2>Perfil Focus Groups</h2>
+		</div>
+	</div> -->
+
+	<div class="contact_wrap">
+		<div class="container">
+			<div class="row">
+				<!-- START SALES BLOCK -->
+				<div class="panel panel-default panel-salidas">
+                    <div class="panel-heading">
+                        <div class="panel-title-box">
+                            <h3>Grupo Focal</h3>
+                            <span>Listado</span>
+                            
+                        </div>
+                        <div class="btn-group pull-right">
+                            <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Exportar Datos</button>
+                            <ul class="dropdown-menu">
+
+                                <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body">                                    
+                        <div class="table-responsive" id="modalidad{{forloop.counter}}">
+							<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Región</th>
+										<th>Pais</th>
+										<th>Provincia</th>
+										<th>Comunidad</th>
+										<th>Organización</th>
+										<th>Fecha</th>
+										<th>Género</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for value in focus_groups %}
+									<tr>
+										<td><a href="{% url 'perfil-focus-groups-detail' value.id %}">{{value.id}}</a></td>
+										<td>{{value.country.get_region_display}}</td>
+										<td>{{value.country}}</td>
+										<td>{{value.province}}</td>
+										<td>{{value.community}}</td>
+										<td>{{value.organization}}</td>
+										<td>{{value.date}}</td>
+										<td>{{value.get_gender_display}}</td>
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>                                   
+                    </div>
+                </div>
+                <!-- END SALES BLOCK -->
+
+				
+
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock %}
 

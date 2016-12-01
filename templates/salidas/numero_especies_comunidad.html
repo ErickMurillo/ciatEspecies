@@ -1,201 +1,296 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="consulta" id="consulta">
-  <div class="container">
-    <div class="head_section">
-      <h2>Salida 4</h2>
-    </div>
-  </div>
-
-  <div class="contact_wrap">
-    <div class="container">
-      <div class="row">
-        <div>
-
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs" role="tablist">
-            {% for key in comu.keys %}
-            <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}"><a href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a></li>
-            {% endfor %}
-          </ul>
-
-          <!-- Tab panes -->
-          <div class="tab-content">
-            {% for key,values in comu.items %}
-            <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
-              <div id="container{{forloop.counter}}" style="width: 1000px; height: 400px; margin: 0 auto"></div>
-              <div id="areas{{forloop.counter}}" style="width: 1000px; height: 400px; margin: 0 auto"></div>
+<div class="menu-dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <div class="salida-title">
+                    <h4>Especies promedio por comunidad</h4>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/filtros/">Explorar datos</a></li>
+                        <li class="active">Especies promedio por comunidad</li>
+                    </ol>
+                </div>
+                
             </div>
-            {% endfor %}
-            <div id="rain" style="width: 1000px; height: 400px; margin: 0 auto"></div>
-            <div id="temp" style="width: 1000px; height: 400px; margin: 0 auto"></div>
-          </div>
-
         </div>
-
-      </div>
     </div>
-  </div>
+</div>
+<div class="consulta" id="consulta">
+
+	<div class="contact_wrap">
+		<div class="container">
+			<div class="row">
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-primary">Seleccione la comunidad</button>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="dw-s">
+                            {% for key in comu.keys|slice:"1" %}{{key}}{% endfor %}
+                            <span class="caret"></span>
+                        </span>
+                    </button>
+                    <div class="dropdown-menu">
+                        {% for key in comu.keys %}
+                        <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
+                            <a class="drop" href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a>
+                        </li>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+			<div class="row">
+
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+						{% for key,values in comu.items %}
+						<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
+							<!-- START SALES BLOCK -->
+							<div class="panel panel-default panel-salidas">
+                                <div class="panel-heading">
+                                    <div class="panel-title-box">
+                                        <h3>Distancia a mercado</h3>
+                                        <span>Gráfico promedio</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="panel-body">                                    
+                                    <div class="row stacked">
+                                        <div id="container{{forloop.counter}}" width='100%'></div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <!-- END SALES BLOCK -->
+                            <!-- START SALES BLOCK -->
+							<div class="panel panel-default panel-salidas">
+                                <div class="panel-heading">
+                                    <div class="panel-title-box">
+                                        <h3>Tamaño de finca</h3>
+                                        <span>Gráfico promedio</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="panel-body">                                    
+                                    <div class="row stacked">
+                                        <div id="areas{{forloop.counter}}" width='100%'></div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <!-- END SALES BLOCK -->
+
+		
+					
+						</div>
+						{% endfor %}
+						 	<!-- START SALES BLOCK -->
+							<div class="panel panel-default panel-salidas">
+                                <div class="panel-heading">
+                                    <div class="panel-title-box">
+                                        <h3>Precipitación promedio</h3>
+                                        <span>Gráfico promedios</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="panel-body">                                    
+                                    <div class="row stacked">
+                                        <div id="rain" width='100%'></div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <!-- END SALES BLOCK -->
+                            <!-- START SALES BLOCK -->
+							<div class="panel panel-default panel-salidas">
+                                <div class="panel-heading">
+                                    <div class="panel-title-box">
+                                        <h3>Temperatura promedio</h3>
+                                        <span>Gráfico promedios</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="panel-body">                                    
+                                    <div class="row stacked">
+                                        <div id="temp" width='100%'></div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <!-- END SALES BLOCK -->
+					
+					</div>
+
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock %}
 
 {% block extra_js %}
 <script type="text/javascript">
+
+    $(".drop").click(function(){
+        $('.drop').parent().removeClass("active");
+        var content = $(this).text();
+        $(".dw-s").text(content+" ");
+        $(".dw-s").append("<span class='caret'></span>")
+    })
+
+</script>
+<script type="text/javascript">
 $(function () {
-  {% for values in comu.values %}
-  $('#container{{forloop.counter}}').highcharts({
-      chart: {
-          type: 'column'
-      },
-      title: {
-          text: 'Distancia a mercado'
-      },
-      xAxis: {
-          categories: ['Menor 10 km', '10-50 km', '> 50 km']
-      },
-      yAxis: {
-          title: {
-              text: 'Frecuencia'
-          }
-      },
-      credits: {
-          enabled: false
-      },
-      series: [
-        {% for k,v in values.0.items %}
-        {
-          name: '{{k}}',
-          data: [{% for x in v %}{{x}},{% endfor %}]
-        },
-        {% endfor %}
-      ]
-  });
+	{% for values in comu.values %}
+	$('#container{{forloop.counter}}').highcharts({
+			chart: {
+					type: 'column'
+			},
+			title: {
+					text: ''
+			},
+			xAxis: {
+					categories: ['Menor 10 km', '10-50 km', '> 50 km']
+			},
+			yAxis: {
+					title: {
+							text: 'Frecuencia'
+					}
+			},
+			credits: {
+					enabled: false
+			},
+			series: [
+				{% for k,v in values.0.items %}
+				{
+					name: '{{k}}',
+					data: [{% for x in v %}{{x}},{% endfor %}]
+				},
+				{% endfor %}
+			]
+	});
 
-  $('#areas{{forloop.counter}}').highcharts({
-      chart: {
-          type: 'column'
-      },
-      title: {
-          text: 'Tamaño de finca'
-      },
-      xAxis: {
-          categories: ['Menor 1 ha', '1-2.5 ha', '2.5-5 ha']
-      },
-      yAxis: {
-          title: {
-              text: 'Frecuencia'
-          }
-      },
-      credits: {
-          enabled: false
-      },
-      series: [
-        {% for k,v in values.1.items %}
-        {
-          name: '{{k}}',
-          data: [{% for x in v %}{{x}},{% endfor %}]
-        },
-        {% endfor %}
-      ]
-  });
-  {% endfor %}
+	$('#areas{{forloop.counter}}').highcharts({
+			chart: {
+					type: 'column'
+			},
+			title: {
+					text: ''
+			},
+			xAxis: {
+					categories: ['Menor 1 ha', '1-2.5 ha', '2.5-5 ha']
+			},
+			yAxis: {
+					title: {
+							text: 'Frecuencia'
+					}
+			},
+			credits: {
+					enabled: false
+			},
+			series: [
+				{% for k,v in values.1.items %}
+				{
+					name: '{{k}}',
+					data: [{% for x in v %}{{x}},{% endfor %}]
+				},
+				{% endfor %}
+			]
+	});
+	{% endfor %}
 
-  $('#rain').highcharts({
-       chart: {
-           type: 'column'
-       },
-       title: {
-           text: 'Precipitación promedio'
-       },
-       xAxis: {
-           type: 'category'
-       },
-       yAxis: {
-           title: {
-               text: 'Promedio'
-           }
+	$('#rain').highcharts({
+			 chart: {
+					 type: 'column'
+			 },
+			 title: {
+					 text: 'Precipitación promedio'
+			 },
+			 xAxis: {
+					 type: 'category'
+			 },
+			 yAxis: {
+					 title: {
+							 text: 'Promedio'
+					 }
 
-       },
-       legend: {
-           enabled: false
-       },
-       plotOptions: {
-           series: {
-               borderWidth: 0,
-               dataLabels: {
-                   enabled: true,
-                   format: '{point.y:.2f}'
-               }
-           }
-       },
+			 },
+			 legend: {
+					 enabled: false
+			 },
+			 plotOptions: {
+					 series: {
+							 borderWidth: 0,
+							 dataLabels: {
+									 enabled: true,
+									 format: '{point.y:.2f}'
+							 }
+					 }
+			 },
 
-       tooltip: {
-           headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-           pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}<br/>'
-       },
+			 tooltip: {
+					 headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+					 pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}<br/>'
+			 },
 
-       series: [{
-           name: 'Promedio',
-           colorByPoint: true,
-           data: [
-             {% for k,v in rainfall.items %}
-             {
-               name: '{{k}}',
-               y: {{v}},
-             },
-             {% endfor %}
-           ]
-       }],
-   });
+			 series: [{
+					 name: 'Promedio',
+					 colorByPoint: true,
+					 data: [
+						 {% for k,v in rainfall.items %}
+						 {
+							 name: '{{k}}',
+							 y: {{v}},
+						 },
+						 {% endfor %}
+					 ]
+			 }],
+	 });
 
-   $('#temp').highcharts({
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Temperatura promedio'
-        },
-        xAxis: {
-            type: 'category'
-        },
-        yAxis: {
-            title: {
-                text: 'Promedio'
-            }
+	 $('#temp').highcharts({
+				chart: {
+						type: 'column'
+				},
+				title: {
+						text: 'Temperatura promedio'
+				},
+				xAxis: {
+						type: 'category'
+				},
+				yAxis: {
+						title: {
+								text: 'Promedio'
+						}
 
-        },
-        legend: {
-            enabled: false
-        },
-        plotOptions: {
-            series: {
-                borderWidth: 0,
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.y:.2f}'
-                }
-            }
-        },
+				},
+				legend: {
+						enabled: false
+				},
+				plotOptions: {
+						series: {
+								borderWidth: 0,
+								dataLabels: {
+										enabled: true,
+										format: '{point.y:.2f}'
+								}
+						}
+				},
 
-        tooltip: {
-            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}<br/>'
-        },
+				tooltip: {
+						headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+						pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}<br/>'
+				},
 
-        series: [{
-            name: 'Promedio',
-            colorByPoint: true,
-            data: [
-              {% for k,v in temperature.items %}
-              {
-                name: '{{k}}',
-                y: {{v}},
-              },
-              {% endfor %}
-            ]
-        }],
-    });
+				series: [{
+						name: 'Promedio',
+						colorByPoint: true,
+						data: [
+							{% for k,v in temperature.items %}
+							{
+								name: '{{k}}',
+								y: {{v}},
+							},
+							{% endfor %}
+						]
+				}],
+		});
 
 });
 </script>
