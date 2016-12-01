@@ -7,6 +7,10 @@ from django.views.generic import DetailView
 
 # Create your views here.
 def index(request,template="index.html"):
+    paises = FocusGroup.objects.all().distinct('country__name').count()
+    comunidades = FocusGroup.objects.all().distinct('community__name').count()
+    species = FocusGroup.objects.all().distinct('fcacode__species').count()
+    focus_groups = FocusGroup.objects.all().count()
     proyectos = Proyectos.objects.all().order_by('-id')
 
     dicc = {}
