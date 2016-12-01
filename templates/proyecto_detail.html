@@ -4,7 +4,7 @@
 {% block content %}
 {{object.titulo}}<br>
 {{object.fecha}}<br>
-{% if obj.imagen %}
+{% if object.imagen %}
   {% thumbnail object.imagen "740x450" crop="center" as img %}
      <img src="/media/{{img}}" alt="">
   {% endthumbnail %}
@@ -12,4 +12,8 @@
   <img src="http://placehold.it/740x450" alt="" />
 {% endif %}<br>
 {{object.contenido|safe}}<br>
+
+{% for obj in object.archivos_set.all %}
+  <a href="/media/{{obj.archivo}}" target="_blank">{{obj.nombre_archivo}}</a><br>
+{% endfor %}
 {% endblock %}

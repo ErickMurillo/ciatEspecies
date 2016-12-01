@@ -7,7 +7,7 @@ from import_export.admin import ImportExportModelAdmin
 # admin.site.register(NameFamily)
 # admin.site.register(NameGenus)
 # admin.site.register(NameSpecies)
-admin.site.register(NameCultivar)
+#admin.site.register(NameCultivar)
 
 # import export
 class FoodGroupAdmin(ImportExportModelAdmin):
