@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import *
+from django import forms
 
 # Register your models here.
 class Archivos_Inline(admin.TabularInline):
@@ -14,3 +15,23 @@ class ProyectosAdmin(admin.ModelAdmin):
 admin.site.register(Proyectos,ProyectosAdmin)
 admin.site.register(Cientificos)
 admin.site.register(Organizaciones)
+
+#flatpages admin ckeditor begin-----------------------------------------------------
+from django.contrib.flatpages.models import FlatPage
+from django.contrib.flatpages.admin import FlatPageAdmin as FlatPageAdminOld
+from django.contrib.flatpages.forms import FlatpageForm as FlatpageFormOld
+
+from ckeditor.widgets import CKEditorWidget
+
+class FlatpageForm(FlatpageFormOld):
+	content = forms.CharField(widget=CKEditorWidget())
+	class Meta:
+		model = FlatPage
+		fields = '__all__'
+
+class FlatPageAdmin(FlatPageAdminOld):
+	form = FlatpageForm
+
+admin.site.unregister(FlatPage)
+admin.site.register(FlatPage, FlatPageAdmin)
+#flatpages admin ckeditor end-----------------------------------------------------

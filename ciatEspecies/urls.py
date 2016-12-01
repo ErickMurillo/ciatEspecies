@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^ajax/provinces/$', get_province, name='get-province'),
     url(r'^ajax/communities/$', get_community, name='get-community'),
     url(r'^xls/$', save_as_xls),
+    url(r'^pages/', include('django.contrib.flatpages.urls')),
     # url(r'^export-focusgroup/$', export_focusgroup_csv, name='export-focusgroup-csv'),
     # url(r'^export-species/$', export_species_csv, name='export-species-csv'),
 

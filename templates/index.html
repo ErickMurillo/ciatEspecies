@@ -103,9 +103,19 @@
     ================================================== -->
 <div class="parallax parallax_a" id="metodologia">
   <div class="container">
-    <h2>METODOLOGÍA</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto quos, modi, mollitia nemo earum architecto placeat autem ea asperiores, nisi saepe nam molestiae ipsam voluptate qui perspiciatis quisquam libero excepturi!. Eligendi minus, nostrum recusandae ea consequuntur quo. Consequuntur quisquam, quaerat distinctio ratione. Optio excepturi, amet dolor nobis non est impedit sapiente sequi.</p>
-    <a href="#" class="plink">Leer más...</a> </div>
+    {% load flatpages %}
+    {% get_flatpages as flatpages %}
+    {% for page in flatpages %}
+      {% if page.url == '/metodologia/' %}
+        <h2>{{page.title}}</h2>
+      <p>
+        {{ page.content|safe|truncatewords:130 }}
+      </p>
+      <a href="/metodologia/" class="plink">Leer más...</a> 
+      {% endif %}
+    {% endfor %}
+
+  </div>
 </div>
 <!-- / Parallax Close Close -->
 
