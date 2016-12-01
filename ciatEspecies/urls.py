@@ -42,7 +42,6 @@ urlpatterns = [
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     # url(r'^export-focusgroup/$', export_focusgroup_csv, name='export-focusgroup-csv'),
     # url(r'^export-species/$', export_species_csv, name='export-species-csv'),
-    url(r'^metodologia/$', TemplateView.as_view(template_name="metodologia.html")),
 
     url(r'^proyecto-o-publicacion/(?P<slug>[\w-]+)/$', ProyectoDetailView.as_view(), name='proyecto-detalle'),
     url(r'^organizacion/(?P<slug>[\w-]+)/$', OrganizacionDetailView.as_view(), name='org-detalle'),
