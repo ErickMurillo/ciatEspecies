@@ -13,13 +13,15 @@
                         <li class="active">Especies promedio por comunidad</li>
                     </ol>
                 </div>
-                
+
             </div>
         </div>
     </div>
 </div>
-<div class="consulta" id="consulta">
 
+{% include "salidas/select_filtros.html" %}
+
+<div class="consulta" id="consulta">
 	<div class="contact_wrap">
 		<div class="container">
 			<div class="row">
@@ -53,13 +55,13 @@
                                     <div class="panel-title-box">
                                         <h3>Distancia a mercado</h3>
                                         <span>Gráfico promedio</span>
-                                        
+
                                     </div>
                                 </div>
-                                <div class="panel-body">                                    
+                                <div class="panel-body">
                                     <div class="row stacked">
                                         <div id="container{{forloop.counter}}" width='100%'></div>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
                             <!-- END SALES BLOCK -->
@@ -69,19 +71,19 @@
                                     <div class="panel-title-box">
                                         <h3>Tamaño de finca</h3>
                                         <span>Gráfico promedio</span>
-                                        
+
                                     </div>
                                 </div>
-                                <div class="panel-body">                                    
+                                <div class="panel-body">
                                     <div class="row stacked">
                                         <div id="areas{{forloop.counter}}" width='100%'></div>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
                             <!-- END SALES BLOCK -->
 
-		
-					
+
+
 						</div>
 						{% endfor %}
 						 	<!-- START SALES BLOCK -->
@@ -90,13 +92,13 @@
                                     <div class="panel-title-box">
                                         <h3>Precipitación promedio</h3>
                                         <span>Gráfico promedios</span>
-                                        
+
                                     </div>
                                 </div>
-                                <div class="panel-body">                                    
+                                <div class="panel-body">
                                     <div class="row stacked">
                                         <div id="rain" width='100%'></div>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
                             <!-- END SALES BLOCK -->
@@ -106,17 +108,17 @@
                                     <div class="panel-title-box">
                                         <h3>Temperatura promedio</h3>
                                         <span>Gráfico promedios</span>
-                                        
+
                                     </div>
                                 </div>
-                                <div class="panel-body">                                    
+                                <div class="panel-body">
                                     <div class="row stacked">
                                         <div id="temp" width='100%'></div>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
                             <!-- END SALES BLOCK -->
-					
+
 					</div>
 
 			</div>
