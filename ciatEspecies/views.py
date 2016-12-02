@@ -55,3 +55,5 @@ def obtener_lista(request):
 
 		serializado = simplejson.dumps(lista)
 		return HttpResponse(serializado, content_type = 'application/json')
+def afiliarse(request, template="afiliarse.html"):
+    return render(request, template, locals())
