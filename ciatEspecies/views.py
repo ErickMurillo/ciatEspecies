@@ -11,7 +11,7 @@ def index(request,template="index.html"):
     comunidades = FocusGroup.objects.all().distinct('community__name').count()
     species = FocusGroup.objects.all().distinct('fcacode__species').count()
     focus_groups = FocusGroup.objects.all().count()
-    proyectos = Proyectos.objects.all().order_by('-id')
+    proyectos = Proyectos.objects.order_by('-id')
 
     dicc = {}
     orgs = {}
@@ -27,7 +27,7 @@ def index(request,template="index.html"):
     return render(request, template, locals())
 
 class ProyectoDetailView(DetailView):
-    model = Proyectos
+    queryset = Proyectos.objects.order_by('-id')
     template_name = "proyecto_detail.html"
 
 class OrganizacionDetailView(DetailView):
