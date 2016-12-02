@@ -16,11 +16,11 @@ def index(request,template="index.html"):
     dicc = {}
     orgs = {}
     for obj in Country.objects.all():
-        cientificos = Cientificos.objects.filter(pais = obj).order_by('-id')
+        cientificos = Scientists.objects.filter(pais = obj).order_by('-id')
         if cientificos:
             dicc[obj] = cientificos
 
-        organzaciones = Organizaciones.objects.filter(pais = obj).order_by('-id')
+        organzaciones = Organizations.objects.filter(pais = obj).order_by('-id')
         if organzaciones:
             orgs[obj] = organzaciones
 

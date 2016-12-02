@@ -13,8 +13,8 @@ class ProyectosAdmin(admin.ModelAdmin):
     date_hierarchy = 'fecha'
 
 admin.site.register(Proyectos,ProyectosAdmin)
-admin.site.register(Cientificos)
-admin.site.register(Organizaciones)
+#admin.site.register(Cientificos)
+#admin.site.register(Organizaciones)
 
 #flatpages admin ckeditor begin-----------------------------------------------------
 from django.contrib.flatpages.models import FlatPage
