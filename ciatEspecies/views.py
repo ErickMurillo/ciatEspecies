@@ -31,11 +31,11 @@ class ProyectoDetailView(DetailView):
     template_name = "proyecto_detail.html"
 
 class OrganizacionDetailView(DetailView):
-    model = Organizaciones
+    model = Organizations
     template_name = "org_detail.html"
 
 class CientificoDetailView(DetailView):
-    model = Cientificos
+    model = Scientists
     template_name = "cientificos_detail.html"
 
 class PublicacionListView(ListView):
