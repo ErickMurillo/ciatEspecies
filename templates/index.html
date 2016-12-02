@@ -392,7 +392,7 @@
 														{% endthumbnail %}
 													{% else %}
 													<div class="photo"> <img  src="http://placehold.it/178x178" alt="" class="img-circle"  /> </div>
-													% endif %
+													{% endif %}
 													  <div class="info">
 														  <h4 class="name">{{obj.name}}</h4>
 														  <span class="designation">{{obj.cargo}}</span>
@@ -439,35 +439,38 @@
 				<div class="tab-content">
 				  {% for key,value in orgs.items %}
 				  <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="org{{key.id}}">
-					<div class="team-carousel-control">
+<!-- 					<div class="team-carousel-control">
 						<a class="left" href="#team-carousel1" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel1" data-slide="next"><i class="fa fa-angle-right"></i></a>
-					</div>
+					</div> -->
 					  <div class="socio">
 						  <div class="container">
 							  <div class="row">
-								<div id="team-carousel1" class="carousel slide" data-ride="carousel">
+								<div id="team-carousel2" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="item active">
-											<div class="row">
-											  {% for obj in value %}
-											  <div class="col-sm-3">
-												<a href="{% url 'org-detalle' obj.slug %}">
-												  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-													{% if obj.logo %}
-													  {% thumbnail obj.logo "70x70" crop="center" as img %}
-														 <img src="/media/{{img}}" alt="">
-													  {% endthumbnail %}
-													{% else %}
-													  <img src="http://placehold.it/70x70" alt="">
-													{% endif %}
+											
+												<div class="row">
+												{% for obj in value|slice:"0:4" %}  
+												  <div class="col-sm-3">
+													<a href="{% url 'org-detalle' obj.slug %}">
+													  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+														{% if obj.logo %}
+														  {% thumbnail obj.logo "70x70" crop="center" as img %}
+															 <img src="/media/{{img}}" alt="">
+														  {% endthumbnail %}
+														{% else %}
+														  <img src="http://placehold.it/70x70" alt="">
+														{% endif %}
+													  </div>
+													  <div class="siglas col-xs-8 col-sm-8 col-md-8 col-lg-8">
+														  <p>{{obj.name}}</p>
+													  </div>
+													</a>
 												  </div>
-												  <div class="siglas col-xs-8 col-sm-8 col-md-8 col-lg-8">
-													  <p>{{obj.nombre}}</p>
-												  </div>
-												</a>
-											  </div>
-											  {% endfor %}
-											</div>
+												{% endfor %}  
+												</div>
+												</div>
+											
 										</div>
 									</div>
 								</div>
