@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import json as simplejson
 from focusgroups.models import *
 from informacion.models import *
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 # Create your views here.
 def index(request,template="index.html"):
@@ -38,6 +38,10 @@ class CientificoDetailView(DetailView):
     model = Cientificos
     template_name = "cientificos_detail.html"
 
+class PublicacionListView(ListView):
+    model = Proyectos
+    template_name = "publicacion-list.html"
+
 #obtener puntos en el mapa
 def obtener_lista(request):
 	if request.is_ajax():
@@ -51,3 +55,5 @@ def obtener_lista(request):
 
 		serializado = simplejson.dumps(lista)
 		return HttpResponse(serializado, content_type = 'application/json')
+def afiliarse(request, template="afiliarse.html"):
+    return render(request, template, locals())

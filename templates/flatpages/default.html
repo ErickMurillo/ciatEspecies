@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3 id="titulo">{{flatpage.title}}</h3>
-<p>{{flatpage.content|safe}}</p>
+<div class="metodologia">
+	<div class="container">
+		<div class="head_section">
+			<h2>{{flatpage.title}}</h2>
+		</div>
+		<div class="contenido">
+			<p>{{flatpage.content|safe}}</p>
+		</div>
+	</div>
+	
+</div>
+
 {% endblock %}

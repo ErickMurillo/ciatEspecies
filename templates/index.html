@@ -38,69 +38,71 @@
 	</div>
 <!--Datos de especies
 	================================================== -->
-	<div class="container">
-		<div class="row">
+	<div class="mapeo">
+		<div class="container">
+			<div class="row">
 
-			<div class="col-md-8">
-				<div class="choos_us">
-					<h3 class="about_title">Mapa de localidades</h3>
-					<div class="whchoise">
-						<div id="map-canvas" style="width:100%; height:400px"></div>
+				<div class="col-md-8">
+					<div class="choos_us">
+						<h3 class="about_title">Mapa de localidades</h3>
+						<div class="whchoise">
+							<div id="map-canvas" style="width:100%; height:400px"></div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="choos_us">
-		          	<h3 class="about_title">Datos Generales</h3>
-		          	<div class="whchoise">
-						<ul class="timeline">
-			              <li>
-			                <div class="timeline-badge">{{paises}}</div>
-			                <div class="timeline-panel">
-			                  <h4>Paises<br>
-			                    en el mundo</h4>
-			                </div>
-			              </li>
-			              <li class="timeline-inverted">
-			                <div class="timeline-badge">{{comunidades}}</div>
-			                <div class="timeline-panel">
-			                  <h4>Comunidades <br>
-			                    Monitoriadas</h4>
-			                </div>
-			              </li>
-			              <li>
-			                <div class="timeline-badge">{{species}}</div>
-			                <div class="timeline-panel">
-			                  <h4>Especies <br>
-			                    Investigadas</h4>
-			                </div>
-			              </li>
-			              <li class="timeline-inverted">
-			                <div class="timeline-badge">{{focus_groups}}</div>
-			                <div class="timeline-panel">
-			                  <h4>Grupos <br>
-			                    Focales</h4>
-			                </div>
-			              </li>
-			            </ul>
-			        </div>
-			    </div>
-				<!-- <div class="the_process">
-					<h3 class="about_title">Datos Generales</h3>
-					<div>
-						<div class="circle">
+				<div class="col-md-4">
+					<div class="choos_us">
+			          	<h3 class="about_title">Datos Generales</h3>
+			          	<div class="whchoise">
+							<ul class="timeline">
+				              <li>
+				                <div class="timeline-badge">{{paises}}</div>
+				                <div class="timeline-panel">
+				                  <h4>Paises<br>
+				                    en el mundo</h4>
+				                </div>
+				              </li>
+				              <li class="timeline-inverted">
+				                <div class="timeline-badge">{{comunidades}}</div>
+				                <div class="timeline-panel">
+				                  <h4>Comunidades <br>
+				                    Monitoriadas</h4>
+				                </div>
+				              </li>
+				              <li>
+				                <div class="timeline-badge">{{species}}</div>
+				                <div class="timeline-panel">
+				                  <h4>Especies <br>
+				                    Investigadas</h4>
+				                </div>
+				              </li>
+				              <li class="timeline-inverted">
+				                <div class="timeline-badge">{{focus_groups}}</div>
+				                <div class="timeline-panel">
+				                  <h4>Grupos <br>
+				                    Focales</h4>
+				                </div>
+				              </li>
+				            </ul>
+				        </div>
+				    </div>
+					<!-- <div class="the_process">
+						<h3 class="about_title">Datos Generales</h3>
+						<div>
+							<div class="circle">
 
+							</div>
+							<h6 class="text-circle">Paises</h6>
 						</div>
-						<h6 class="text-circle">Paises</h6>
-					</div>
-					<div>
-						<div class="circle">
-							{{comunidades}}
+						<div>
+							<div class="circle">
+								{{comunidades}}
+							</div>
+							<h6 class="text-circle">Comunidades</h6>
 						</div>
-						<h6 class="text-circle">Comunidades</h6>
-					</div>
 
-				</div> -->
+					</div> -->
+				</div>
 			</div>
 		</div>
 	</div>
@@ -154,7 +156,7 @@
       {% if page.url == '/metodologia/' %}
         <h2>{{page.title}}</h2>
       <p>
-        {{ page.content|safe|truncatewords:130 }}
+        {{ page.content|safe|truncatewords:100 }}
       </p>
       <a href="/metodologia/" class="plink">Leer más...</a>
       {% endif %}
@@ -162,131 +164,84 @@
   </div>
 </div>
 <!-- / Parallax Close Close -->
-
-<!-- Organizaciones Section
+<!--BLOG Section
 	================================================== -->
-	<div class="ourteam" id="team">
-		<div class="container">
-			<div class="head_section">
-				<h2>CONTRIBUYENTES</h2>
-			</div>
-
-			<div>
-				<h4 style="text-align:center;">Científicos</h4>
-
-			</div>
-			<div role="tabpanel">
-				<!-- Nav tabs -->
-				<ul class="nav nav-tabs nav-pills" role="tablist">
-					{% for k in dicc.keys %}
-					  <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
-						  <a href="#{{k.id}}" aria-controls="{{k.id}}" role="tab" data-toggle="tab">{{k}}</a>
-					  </li>
-					{% endfor %}
-				</ul>
-
-				<!-- Tab panes -->
-				<div class="tab-content">
-				  {% for k,v in dicc.items %}
-					<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{k.id}}">
-						<div class="team-carousel-control">
-							<a class="left" href="#team-carousel" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
-						</div>
-						<div class="container">
-							<div class="row">
-								<div id="team-carousel" class="carousel slide" data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="item active">
-											<div class="row">
-											  {% for obj in v %}
-											  <div class="col-sm-3">
-												  <div class="member">
-													<a href="{% url 'cientifico-detalle' obj.slug %}">
-													  <div class="info">
-														  <h4 class="name">{{obj.nombre}}</h4>
-														  <span class="designation">{{obj.cargo}}</span>
-														  <ul class="datamember">
-															  <p><span class="fa fa-envelope"></span> {{obj.correo}}</p>
-															  <p><span class="fa fa-phone"> {{obj.telefono}}</span></p>
-														  </ul>
-													  </div>
-													  </a>
-												  </div>
-											  </div>
-											  {% endfor %}
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-				  {% endfor %}
-				</div>
-			</div>
-			<div>
-				<h4 style="text-align:center;">Organizaciones</h4>
-
-			</div>
-			<div role="tabpanel">
-				<!-- Nav tabs -->
-				<ul class="nav nav-tabs nav-pills" role="tablist">
-				  {% for key in orgs.keys %}
-					<li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
-						<a href="#org{{key.id}}" aria-controls="org{{key.id}}" role="tab" data-toggle="tab">{{key}}</a>
-					</li>
-				  {% endfor %}
-				</ul>
-
-				<!-- Tab panes -->
-				<div class="tab-content">
-				  {% for key,value in orgs.items %}
-				  <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="org{{key.id}}">
-					<div class="team-carousel-control">
-						<a class="left" href="#team-carousel1" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel1" data-slide="next"><i class="fa fa-angle-right"></i></a>
-					</div>
-					  <div class="socio">
-						  <div class="container">
-							  <div class="row">
-								<div id="team-carousel1" class="carousel slide" data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="item active">
-											<div class="row">
-											  {% for obj in value %}
-											  <div class="col-sm-3">
-												<a href="{% url 'org-detalle' obj.slug %}">
-												  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-													{% if obj.logo %}
-													  {% thumbnail obj.logo "70x70" crop="center" as img %}
-														 <img src="/media/{{img}}" alt="">
-													  {% endthumbnail %}
-													{% else %}
-													  <img src="http://placehold.it/70x70" alt="">
-													{% endif %}
-												  </div>
-												  <div class="siglas col-xs-8 col-sm-8 col-md-8 col-lg-8">
-													  <p>{{obj.nombre}}</p>
-												  </div>
-												</a>
-											  </div>
-											  {% endfor %}
-											</div>
-										</div>
-									</div>
-								</div>
-							  </div>
-						  </div>
-					  </div>
-				  </div>
-				  {% endfor %}
-				</div>
-			</div>
-		</div>
+<div class="blog" id="blog">
+  <div class="container">
+	<div class="head_section">
+	  <h2>PROYECTOS Y PUBLICACIONES</h2>
+	  <div class="blog-carousel-control"> <a class="left fa fa-angle-left" href="#blogCarousel" data-slide="prev"></a> <a class="right fa fa-angle-right" href="#blogCarousel" data-slide="next"></a> </div>
 	</div>
 
-<!-- / Organizaciones Close -->
+	<div class="row">
+	  <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+		  <div class="item active">
+			<div class="row">
+			  {% for obj in proyectos|slice:":3" %}
+				<div class="col-sm-4">
+				  <div class="post-item">
+					<div class="post-headre">
+					  <div class="post-seam">
+						<div class="date"> <span>{{obj.fecha.day}}</span> {{obj.fecha|date:"M"}} </div>
+					  </div>
+					  <div class="post-image">
+						<a href="{% url 'proyecto-detalle' obj.slug %}"><i class="fa fa-search"></i></a>
+						{% if obj.imagen %}
+						  {% thumbnail obj.imagen "740x450" crop="center" as img %}
+										   <img src="/media/{{img}}" alt="">
+										{% endthumbnail %}
+						{% else %}
+						  <img src="http://placehold.it/740x450" alt="" />
+						{% endif %}
+					  </div>
+					</div>
+					<div class="post-content">
+					  <h4>{{obj.titulo}}</h4>
+					  <p>{{obj.contenido|safe|striptags|truncatewords:20}}</p>
+					</div>
+				  </div>
+				</div>
+			  {% endfor %}
+			</div>
+		  </div>
+		  <div class="item">
+			<div class="row">
+			  {% for obj in proyectos|slice:"3:6" %}
+				<div class="col-sm-4">
+				  <div class="post-item">
+					<div class="post-headre">
+					  <div class="post-seam">
+						<div class="date"> <span>{{obj.fecha.day}}</span> {{obj.fecha|date:"M"}} </div>
+					  </div>
+					  <div class="post-image">
+						<a href="{% url 'proyecto-detalle' obj.slug %}"><i class="fa fa-search"></i></a>
+						{% if obj.imagen %}
+						  {% thumbnail obj.imagen "740x450" crop="center" as img %}
+										   <img src="/media/{{img}}" alt="">
+										{% endthumbnail %}
+						{% else %}
+						  <img src="http://placehold.it/740x450" alt="" />
+						{% endif %}
+					  </div>
+					</div>
+					<div class="post-content">
+					  <h4>{{obj.titulo}}</h4>
+					  <p>{{obj.contenido|safe|striptags|truncatewords:20}}</p>
+					</div>
+				  </div>
+				</div>
+			  {% endfor %}
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<a href="/lista-publicacion/" class="btndatos pull-right">Ver publicaciones</a>
+  </div>
+</div>
+<!-- / blog Close -->
+
 <div class="clearfix"></div>
 
 <!-- Parallax 04
@@ -297,7 +252,7 @@
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto quos, modi, mollitia nemo earum architecto placeat autem ea asperiores, nisi saepe nam molestiae ipsam voluptate qui perspiciatis quisquam libero excepturi!. Eligendi minus, nostrum recusandae ea consequuntur quo. Consequuntur quisquam, quaerat distinctio ratione. Optio excepturi, amet dolor nobis non est impedit sapiente sequi.</p>
 
 	<div class="clearfix"></div>
-	<a href="#" class="plink">AFILIARSE AHORA</a> </div>
+	<a href="/afiliarse" class="plink">AFILIARSE AHORA</a> </div>
 </div>
 <!-- / Parallax Close Close -->
 <div class="clearfix"></div>
@@ -362,74 +317,185 @@
 <div class="clearfix"></div>
 / contact Close -->
 
-
-
-<!--BLOG Section
+<!-- Organizaciones Section
 	================================================== -->
-<div class="blog" id="blog">
-  <div class="container">
-	<div class="head_section">
-	  <h2>PROYECTOS Y PUBLICACIONES</h2>
-	  <div class="blog-carousel-control"> <a class="left fa fa-angle-left" href="#blogCarousel" data-slide="prev"></a> <a class="right fa fa-angle-right" href="#blogCarousel" data-slide="next"></a> </div>
-	</div>
-	<div class="row">
-	  <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner">
-		  <div class="item active">
-			<div class="row">
-			  {% for obj in proyectos %}
-				<div class="col-sm-4">
-				  <div class="post-item">
-					<div class="post-headre">
-					  <div class="post-seam">
-						<div class="date"> <span>{{obj.fecha.day}}</span> {{obj.fecha|date:"M"}} </div>
-					  </div>
-					  <div class="post-image">
-						<a href="{% url 'proyecto-detalle' obj.slug %}"><i class="fa fa-search"></i></a>
-						{% if obj.imagen %}
-						  {% thumbnail obj.imagen "740x450" crop="center" as img %}
-										   <img src="/media/{{img}}" alt="">
-										{% endthumbnail %}
-						{% else %}
-						  <img src="http://placehold.it/740x450" alt="" />
-						{% endif %}
-					  </div>
-					</div>
-					<div class="post-content">
-					  <h4>{{obj.titulo}}</h4>
-					  <p>{{obj.contenido|safe|striptags|truncatewords:20}}</p>
-					</div>
-				  </div>
-				</div>
-			  {% endfor %}
+	<div class="ourteam" id="team">
+		<div class="container">
+			<div class="head_section">
+				<h2>CONTRIBUYENTES</h2>
 			</div>
-		  </div>
+
+			<div class="title-link">
+				<a href="/lista-cientificos"><h4 style="text-align:center;">Científicos Participantes</h4></a>
+
+			</div>
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs nav-pills" role="tablist">
+					{% for k in dicc.keys %}
+					  <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
+						  <a href="#{{k.id}}" aria-controls="{{k.id}}" role="tab" data-toggle="tab">{{k}}</a>
+					  </li>
+					{% endfor %}
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+				  {% for k,v in dicc.items %}
+					<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{k.id}}">
+						<div class="team-carousel-control">
+							<a class="left" href="#team-carousel" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div id="team-carousel" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="item active">
+											<div class="row">
+											  {% for obj in v|slice:"0:4" %}
+											  <div class="col-sm-3">
+												  <div class="member">
+													<a href="{% url 'cientifico-detalle' obj.slug %}">
+													{% if obj.foto %}
+													  	{% thumbnail obj.foto "178x178" crop="center" as img %}
+														<div class="photo"> <img  src="/media/{{img}}" alt="" class="img-circle"  /> </div>
+														{% endthumbnail %}
+													{% else %}
+													  <div class="photo"> <img  src="http://placehold.it/178x178" alt="" class="img-circle"  /> </div>
+													{% endif %}
+													
+													  <div class="info">
+														  <h4 class="name">{{obj.name}}</h4>
+														  <span class="designation">{{obj.cargo}}</span>
+														  <ul class="datamember">
+															  <p><span class="fa fa-envelope"></span> {{obj.correo}}</p>
+															  <p><span class="fa fa-phone"> {{obj.telefono}}</span></p>
+														  </ul>
+													  </div>
+													  </a>
+												  </div>
+											  </div>
+											  {% endfor %}
+
+
+											</div>
+										</div>
+										<div class="item">
+											<div class="row">
+											  {% for obj in v|slice:"4:7" %}
+											  <div class="col-sm-3">
+												  <div class="member">
+													<a href="{% url 'cientifico-detalle' obj.slug %}">
+													{% if obj.foto %}
+													  	{% thumbnail obj.foto "178x178" crop="center" as img %}
+														<div class="photo"> <img  src="/media/{{img}}" alt="" class="img-circle"  /> </div>
+														{% endthumbnail %}
+													{% else %}
+													<div class="photo"> <img  src="http://placehold.it/178x178" alt="" class="img-circle"  /> </div>
+													% endif %
+													  <div class="info">
+														  <h4 class="name">{{obj.name}}</h4>
+														  <span class="designation">{{obj.cargo}}</span>
+														  <ul class="datamember">
+															  <p><span class="fa fa-envelope"></span> {{obj.correo}}</p>
+															  <p><span class="fa fa-phone"> {{obj.telefono}}</span></p>
+														  </ul>
+													  </div>
+													  </a>
+												  </div>
+											  </div>
+											  {% endfor %}
+											  
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				  {% endfor %}
+				</div>
+			</div>
+
+<div class="clearfix"></div>
+			<div>
+				<h4 style="text-align:center;">Organizaciones</h4>
+
+			</div>
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs nav-pills" role="tablist">
+				  {% for key in orgs.keys %}
+					<li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
+						<a href="#org{{key.id}}" aria-controls="org{{key.id}}" role="tab" data-toggle="tab">{{key}}</a>
+					</li>
+				  {% endfor %}
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+				  {% for key,value in orgs.items %}
+				  <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="org{{key.id}}">
+					<div class="team-carousel-control">
+						<a class="left" href="#team-carousel1" data-slide="prev"><i class=" fa fa-angle-left"></i></a> <a class="right" href="#team-carousel1" data-slide="next"><i class="fa fa-angle-right"></i></a>
+					</div>
+					  <div class="socio">
+						  <div class="container">
+							  <div class="row">
+								<div id="team-carousel1" class="carousel slide" data-ride="carousel">
+									<div class="carousel-inner">
+										<div class="item active">
+											<div class="row">
+											  {% for obj in value %}
+											  <div class="col-sm-3">
+												<a href="{% url 'org-detalle' obj.slug %}">
+												  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+													{% if obj.logo %}
+													  {% thumbnail obj.logo "70x70" crop="center" as img %}
+														 <img src="/media/{{img}}" alt="">
+													  {% endthumbnail %}
+													{% else %}
+													  <img src="http://placehold.it/70x70" alt="">
+													{% endif %}
+												  </div>
+												  <div class="siglas col-xs-8 col-sm-8 col-md-8 col-lg-8">
+													  <p>{{obj.nombre}}</p>
+												  </div>
+												</a>
+											  </div>
+											  {% endfor %}
+											</div>
+										</div>
+									</div>
+								</div>
+							  </div>
+						  </div>
+					  </div>
+				  </div>
+				  {% endfor %}
+				</div>
+			</div>
 		</div>
-	  </div>
 	</div>
-  </div>
-</div>
-<!-- / blog Close -->
+
+<!-- / Organizaciones Close -->
+
+
 <div class="clearfix"></div>
 
 {% endblock content %}
 
 {% block extra_js %}
-	<script type="text/javascript">
-		$(function () {
-			var menu= $(".page-header").height() + 50;
-			$(" #miLink").click(function (e) {
-				e.preventDefault();
-				$('html,body').animate({
-					scrollTop: $("#monitoreo").offset().top -menu}, 2000);
-			});
-		})
-	</script>
 
 
 <!--<script src="https://maps.googleapis.com/maps/api/js" type="text/javascript"></script>-->
 <script type="text/javascript" src="/static/js/markerclusterer.js"></script>
 <script>
+
+
 	var markers = [];
 	function initialize()
 	{
