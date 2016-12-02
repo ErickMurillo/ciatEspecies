@@ -21,7 +21,7 @@ class Proyectos(models.Model):
         super(Proyectos, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.titulo
+        return self.titulo.encode('utf-8')
 
     class Meta:
         verbose_name = "Proyecto/Publicación"
@@ -51,7 +51,7 @@ class Cientificos(models.Model):
         super(Cientificos, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.nombre
+        return self.nombre.encode('utf-8')
 
     class Meta:
         verbose_name = "Científico"
@@ -72,7 +72,7 @@ class Organizaciones(models.Model):
         super(Organizaciones, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.nombre
+        return self.nombre.encode('utf-8')
 
     class Meta:
         verbose_name = "Organización"
