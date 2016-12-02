@@ -14,13 +14,15 @@
                         <li class="active">Perfil {{object.scientific_name}}</li>
                     </ol>
                 </div>
-                
+
             </div>
         </div>
     </div>
 </div>
-<div class="consulta" id="consulta">
 
+{% include "salidas/select_filtros.html" %}
+
+<div class="consulta" id="consulta">
 <div class="contact_wrap">
   <div class="container">
   	<div class="row">
@@ -30,7 +32,7 @@
                 <div class="panel-title-box">
                     <h3>{{object.scientific_name}}</h3>
                     <span>Datos Generales</span>
-                    
+
                 </div>
             </div>
             <div class="panel-body">
@@ -41,8 +43,8 @@
 						<p>Nombre común: {{object.common_name}}</p>
 						<p>Grupo alimenticio: {{object.food_group}}</p>
 						<p>Orden de nombre: {{object.name_order}}</p>
-						
-						
+
+
 					</div>
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 						<p>Nombre de la familia: {{object.name_family}}</p>
@@ -51,7 +53,7 @@
 						<p>Nombre científico: {% for x in scientific_name2 %}{{x}},{% endfor %}</p>
 						<p>Nombre en ingles: {% for x in english_name %}{{x}},{% endfor %}</p>
 						<p>Nombre en francés: {% for x in french_name %}{{x}},{% endfor %}</p>
-						
+
 					</div>
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 
@@ -76,11 +78,11 @@
                 <div class="panel-title-box">
                     <h3>Perfil de especie</h3>
                     <span>Datos</span>
-                    
+
                 </div>
             </div>
             <div class="panel-body">
-            	<div class="table-responsive">                             
+            	<div class="table-responsive">
 					<table class="table table-bordered table-hover">
 						<thead>
 						  <tr>
@@ -125,11 +127,11 @@
 						  </tr>
 						</tbody>
 					</table>
-				</div>                
+				</div>
             </div>
         </div>
         <!-- END SALES BLOCK -->
-			
+
 	</div>
 
 	</div>

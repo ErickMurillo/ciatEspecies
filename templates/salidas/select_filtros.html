@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="region">
+      Región:
+      {% if request.session.region == '1' %}
+      APAC
+      {% elif request.session.region == '2' %}
+      LatAm
+      {% elif request.session.region == '3' %}
+      South Asia
+      {% elif request.session.region == '4' %}
+      Asia
+      {% elif request.session.region == '5' %}
+      Africa
+      {% endif %}
+    </div>
+
+    <div class="pais">
+      Paises:
+      {% for pais in request.session.country %}
+        {{pais}}{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="province">
+      Provincias:
+      {% for province in request.session.province %}
+        {{province}}{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="community">
+      Comunidades:
+      {% for community in request.session.community %}
+        {{community}}{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

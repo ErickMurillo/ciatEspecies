@@ -14,13 +14,15 @@
                         <li class="active">Perfil del grupo focal</li>
                     </ol>
                 </div>
-                
+
             </div>
         </div>
     </div>
 </div>
-<div class="consulta" id="consulta">
 
+{% include "salidas/select_filtros.html" %}
+
+<div class="consulta" id="consulta">
   <div class="contact_wrap">
     <div class="container">
       <div class="row">
@@ -30,7 +32,7 @@
                 <div class="panel-title-box">
                     <h3>Grupo focal</h3>
                     <span>Datos Generales</span>
-                    
+
                 </div>
             </div>
             <div class="panel-body">
@@ -59,12 +61,12 @@
                                 {% endfor %} <br>
                             {% endif %}
                         </p>
-                        
-                        
+
+
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        
-                        
+
+
                         <p>{% if object.hh %}HH: {{object.hh}} <br>{% endif %}</p>
                         <p>{% if object.area %}Área: {{object.area}} <br>{% endif %}</p>
                         <p>{% if object.frecuency %}Frecuencia: {{object.frecuency}} <br>{% endif %}</p>
@@ -74,18 +76,18 @@
                         <p>{% if object.annual_mean_temperature %}Temperatura media: {{object.annual_mean_temperature}} <br>{% endif %}</p>
                         <p>{% if object.rainfall %}Lluvia: {{object.rainfall}} <br>{% endif %}</p>
                         <p>{% if object.precipitation %}Precipitación: {{object.precipitation}} <br>{% endif %}</p>
-                        
+
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 
-                        
+
                         <p>{% if object.altitude %}Altitud: {{object.altitude}} <br>{% endif %}</p>
                         <p>{% if object.population %}Población: {{object.population}} <br>{% endif %}</p>
                         <p>{% if object.market_distance %}Distancia de mercado: {{object.market_distance}} <br>{% endif %}</p>
                         <p>{% if object.population %}Población: {{object.population}} <br>{% endif %}</p>
                         <p>{% if object.gender %}Genero: {{object.get_gender_display}} <br>{% endif %}</p>
                         <p>{% if object.method_observations %}Metodo de observación: {{object.method_observations}} <br>{% endif %}</p>
-                        
+
                     </div>
 
 
@@ -97,30 +99,30 @@
         <br>
          <br>
          <br>
-        
+
          <br>
          <br>
          <br>
 
-        
 
-        
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       </div>
     </div>

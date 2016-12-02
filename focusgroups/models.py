@@ -3,6 +3,10 @@ from __future__ import unicode_literals
 
 from django.db import models
 from species.models import Species
+from django.template.defaultfilters import slugify
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+from sorl.thumbnail import ImageField
 
 # Create your models here.
 
@@ -90,16 +94,41 @@ class Scientists(models.Model):
 	# country = models.ForeignKey(Country)
 	name = models.CharField(max_length = 250)
 	# gender = models.IntegerField(choices=CHOICE_GENDER)
+	foto = ImageField(upload_to='cientificos/')
+	slug = models.SlugField(editable=False, max_length=450)
+	cargo = models.CharField(max_length=200)
+	correo = models.EmailField()
+	telefono = models.CharField(max_length=200)
+	pais = models.ForeignKey(Country)
+	perfil = RichTextUploadingField()
+
+	def save(self, *args, **kwargs):
+		self.slug = (slugify(self.name))
+		super(Scientists, self).save(*args, **kwargs)
 
 	def __str__(self):
-		return self.name
+		return self.name.encode('utf-8')
 
+	class Meta:
+		verbose_name = "Scientific"
+		verbose_name_plural = "Scientists"
 
 class Organizations(models.Model):
 	name = models.CharField(max_length = 250)
+	logo = ImageField(upload_to='organizaciones/',blank=True, null=True)
+	direccion = models.CharField(max_length=450,blank=True, null=True)
+	telefono = models.CharField(max_length=200,blank=True, null=True)
+	slug = models.SlugField(editable=False, max_length=450)
+	url = models.URLField(blank=True, null=True)
+	pais = models.ForeignKey(Country)
+	descripcion = RichTextUploadingField(blank=True, null=True)
+
+	def save(self, *args, **kwargs):
+		self.slug = (slugify(self.name))
+		super(Organizations, self).save(*args, **kwargs)
 
 	def __str__(self):
-		return self.name
+		return self.name.encode('utf-8')
 
 
 class CRP(models.Model):
