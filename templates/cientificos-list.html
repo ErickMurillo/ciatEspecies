@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load el_pagination_tags %}
+{% block content %}
+<div class="metodologia">
+	<div class="container">
+		<div class="head_section">
+		  <h2>PROYECTOS Y PUBLICACIONES</h2>
+		
+		</div>
+		<div class="row">
+			{% paginate 1 object_list %}
+			{% for obj in object_list %}
+
+			<div class="col-sm-3">
+			  <div class="member">
+				<a href="{% url 'cientifico-detalle' obj.slug %}">
+				{% if obj.foto %}
+				  	{% thumbnail obj.foto "178x178" crop="center" as img %}
+					<div class="photo"> <img  src="/media/{{img}}" alt="" class="img-circle"  /> </div>
+					{% endthumbnail %}
+				{% else %}
+				<div class="photo"> <img  src="http://placehold.it/178x178" alt="" class="img-circle"  /> </div>
+				{% endif %}
+				  <div class="info">
+					  <h4 class="name">{{obj.name}}</h4>
+					  <span class="designation">{{obj.cargo}}</span>
+					  <ul class="datamember">
+						  <p><span class="fa fa-envelope"></span> {{obj.correo}}</p>
+						  <p><span class="fa fa-phone"> {{obj.telefono}}</span></p>
+					  </ul>
+				  </div>
+				  </a>
+			  </div>
+		  	</div>
+			
+			{% endfor %}
+		</div>
+
+<!-- pagination box -->
+   <div class="pagination-box">
+     <ul class="pagination-list">
+       {% show_pages %}
+     </ul>
+     <p>{% show_current_number %} de {% get_pages %}{{ pages|length }} paginas.</p>
+   </div>
+   <!-- End Pagination box -->
+	</div>
+</div>
+{% endblock %}

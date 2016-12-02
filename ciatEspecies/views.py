@@ -42,6 +42,10 @@ class PublicacionListView(ListView):
     model = Proyectos
     template_name = "publicacion-list.html"
 
+class CientificosListView(ListView):
+    queryset = Scientists.objects.order_by('-id')
+    template_name = "cientificos-list.html"
+
 #obtener puntos en el mapa
 def obtener_lista(request):
 	if request.is_ajax():
