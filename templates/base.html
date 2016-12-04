@@ -40,7 +40,7 @@
 				<span class="caret"></span>
 			</div>
 
-			<ul class="dropdown-menu">
+			<ul class="dropdown-menu lenguage">
 				<li><a class="idioma" href="#"><img src="/static/images/eeuu.jpg" alt="ingles"> Ingles</a></li>
 				<li class="active"><a class="idioma" href="#"><img src="/static/images/spanish.jpg" alt="espanol"> Español</a></li>
 
@@ -104,7 +104,7 @@
 
 <script type="text/javascript">
 
-	var texto = $("li.active a").text();
+	var texto = $(".lenguage li.active a").text();
 	$(".ln").text(texto+" ");
 
 	$(".idioma").click(function(){
