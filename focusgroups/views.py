@@ -99,7 +99,8 @@ def grupo_nutricional_comunidad(request,template="salidas/grupo_nutricional.html
             for gender in GENDER_CHOICES:
                 #grafica
                 conteo = filtro.filter(fcacode__species__food_group = x,community = obj,gender = gender[0]).distinct('fcacode__species').count()
-                lista.append(conteo)
+                if conteo != 0:
+                    lista.append(conteo)
 
                 #tabla
                 produced = filtro.filter(fcacode__species__food_group = x,community = obj,gender = gender[0],fcacode__presence_cultivated = 1).distinct('fcacode__species').count()
@@ -260,7 +261,8 @@ def numero_especies_comunidad(request,template="salidas/numero_especies_comunida
 
         #precipitacion
         rain = filtro.filter(community = obj).aggregate(avg = Avg('rainfall'))['avg']
-        rainfall[obj] = rain
+        species = filtro.filter(community = obj).distinct('fcacode__species').count()
+        rainfall[obj] = (rain,species)
 
         #temperatura
         temp = filtro.filter(community = obj).aggregate(avg = Avg('annual_mean_temperature'))['avg']
@@ -277,7 +279,7 @@ def perfil_especies(request,template="salidas/perfil_especies.html"):
 
     esp = OrderedDict()
     for obj in filtro:
-        especies = Species.objects.filter(fcacode__focus_groups = obj).values_list('id','scientific_name')
+        especies = Species.objects.filter(fcacode__focus_groups = obj).values_list('id','scientific_name','food_group__name')
         for especie in especies:
             lista = []
             scientific_name2 = FcaCode.objects.filter(focus_groups = obj,species = especie[0]).distinct('scientific_name2').values_list('scientific_name2', flat = True)
@@ -287,7 +289,7 @@ def perfil_especies(request,template="salidas/perfil_especies.html"):
 
             lista.append((scientific_name2,english_name,french_name,vernacular_name))
 
-            esp[especie[1],especie[0]] = lista
+            esp[especie[1],especie[0],especie[2]] = lista
 
     return render(request, template, locals())
 
