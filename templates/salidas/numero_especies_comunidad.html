@@ -130,6 +130,15 @@
                                     <div class="row stacked">
                                         <div id="container" width='100%'></div>
                                     </div>
+                                    <div class="row stacked">
+                                        <div id="vendidas" width='100%'></div>
+                                    </div>
+                                    <div class="row stacked">
+                                        <div id="compradas" width='100%'></div>
+                                    </div>
+                                    <div class="row stacked">
+                                        <div id="consumidas" width='100%'></div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- END SALES BLOCK -->
@@ -241,7 +250,7 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'Precipitación vs Especies'
+            text: 'Precipitación vs Especies cultivadas'
         },
         xAxis: {
             title: {
@@ -283,6 +292,174 @@ $(function () {
         },
         series: [
           {% for k,v in rainfall.items %}
+                {
+                  name: '{{k}}',
+                  data: [ [{{v.0}}, {{v.1}}],]
+              },
+          {% endfor %}
+            ]
+    });
+
+    Highcharts.chart('vendidas', {
+        chart: {
+            type: 'scatter',
+            zoomType: 'xy'
+        },
+        title: {
+            text: 'Precipitación vs Especies vendidas'
+        },
+        xAxis: {
+            title: {
+                enabled: true,
+                text: 'Precipitación'
+            },
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true
+        },
+        yAxis: {
+            title: {
+                text: 'Especies'
+            }
+        },
+        plotOptions: {
+            scatter: {
+                marker: {
+                    radius: 7,
+                    states: {
+                        hover: {
+                            enabled: true,
+                            lineColor: 'rgb(100,100,100)'
+                        }
+                    }
+                },
+                states: {
+                    hover: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.y} especies | {point.x}'
+                }
+            }
+        },
+        series: [
+          {% for k,v in rainfall_sold.items %}
+                {
+                  name: '{{k}}',
+                  data: [ [{{v.0}}, {{v.1}}],]
+              },
+          {% endfor %}
+            ]
+    });
+
+    Highcharts.chart('compradas', {
+        chart: {
+            type: 'scatter',
+            zoomType: 'xy'
+        },
+        title: {
+            text: 'Precipitación vs Especies compradas'
+        },
+        xAxis: {
+            title: {
+                enabled: true,
+                text: 'Precipitación'
+            },
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true
+        },
+        yAxis: {
+            title: {
+                text: 'Especies'
+            }
+        },
+        plotOptions: {
+            scatter: {
+                marker: {
+                    radius: 7,
+                    states: {
+                        hover: {
+                            enabled: true,
+                            lineColor: 'rgb(100,100,100)'
+                        }
+                    }
+                },
+                states: {
+                    hover: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.y} especies | {point.x}'
+                }
+            }
+        },
+        series: [
+          {% for k,v in rainfall_purchased.items %}
+                {
+                  name: '{{k}}',
+                  data: [ [{{v.0}}, {{v.1}}],]
+              },
+          {% endfor %}
+            ]
+    });
+
+    Highcharts.chart('consumidas', {
+        chart: {
+            type: 'scatter',
+            zoomType: 'xy'
+        },
+        title: {
+            text: 'Precipitación vs Especies consumidas'
+        },
+        xAxis: {
+            title: {
+                enabled: true,
+                text: 'Precipitación'
+            },
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true
+        },
+        yAxis: {
+            title: {
+                text: 'Especies'
+            }
+        },
+        plotOptions: {
+            scatter: {
+                marker: {
+                    radius: 7,
+                    states: {
+                        hover: {
+                            enabled: true,
+                            lineColor: 'rgb(100,100,100)'
+                        }
+                    }
+                },
+                states: {
+                    hover: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.y} especies | {point.x}'
+                }
+            }
+        },
+        series: [
+          {% for k,v in rainfall_consumed.items %}
                 {
                   name: '{{k}}',
                   data: [ [{{v.0}}, {{v.1}}],]
