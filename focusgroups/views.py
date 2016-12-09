@@ -245,43 +245,52 @@ def numero_especies_comunidad(request,template="salidas/numero_especies_comunida
     rainfall_purchased = {}
     rainfall_consumed = {}
     temperature = {}
+    temperature_sold = {}
+    temperature_purchased = {}
+    temperature_consumed = {}
+    area = {}
+    area_sold = {}
+    area_purchased = {}
+    area_consumed = {}
     for obj in community:
-        distancia_mercado = {}
-        areas = {}
-        for x in GENDER_CHOICES:
-            menor_10 = filtro.filter(community = obj,gender = x[0],market_distance__range = (0,10)).count()
-            entre_10_50 = filtro.filter(community = obj,gender = x[0],market_distance__range = (10.01,50)).count()
-            mayor_50 = filtro.filter(community = obj,gender = x[0],market_distance__range = (50.01,1000)).count()
-            distancia_mercado[x[1]] = (menor_10,entre_10_50,mayor_50)
-
-            #areas
-            hectarea_1 = filtro.filter(community = obj,gender = x[0],area__range = (0,1)).count()
-            entre_1_2 = filtro.filter(community = obj,gender = x[0],area__range = (1.01,2.5)).count()
-            entre_2_5 = filtro.filter(community = obj,gender = x[0],area__range = (2.51,5)).count()
-            areas[x[1]] = (hectarea_1,entre_1_2,entre_2_5)
-
-        comu[obj] = (distancia_mercado,areas)
-
-        #precipitacion cultivado
-        rain = filtro.filter(community = obj).aggregate(avg = Avg('rainfall'))['avg']
+        # species
         species = filtro.filter(community = obj,fcacode__presence_cultivated = 1).distinct('fcacode__species').count()
-        rainfall[obj] = (rain,species)
-
-        #precipitacion sold
         species_sold = filtro.filter(community = obj,fcacode__presence_sold = 1).distinct('fcacode__species').count()
+        species_purchased = filtro.filter(community = obj,fcacode__presence_purchased = 1).distinct('fcacode__species').count()
+        species_consumed = filtro.filter(community = obj,fcacode__presence_consumed = 1).distinct('fcacode__species').count()
+
+        #precipitacion ----------------------------------------------------------------
+        rain = filtro.filter(community = obj).aggregate(avg = Avg('rainfall'))['avg']
+        #precipitacion cultivado
+        rainfall[obj] = (rain,species)
+        #precipitacion sold
         rainfall_sold[obj] = (rain,species_sold)
-
         #precipitacion purchased
-        species_purchased = filtro.filter(community = obj,fcacode__presence_purchased= 1).distinct('fcacode__species').count()
         rainfall_purchased[obj] = (rain,species_purchased)
-
         #precipitacion purchased
-        species_consumed = filtro.filter(community = obj,fcacode__presence_consumed= 1).distinct('fcacode__species').count()
         rainfall_consumed[obj] = (rain,species_consumed)
 
-        #temperatura
+        #temperatura -------------------------------------------------------------------------
         temp = filtro.filter(community = obj).aggregate(avg = Avg('annual_mean_temperature'))['avg']
-        temperature[obj] = temp
+        #temp cultivado
+        temperature[obj] = (temp,species)
+        #temp sold
+        temperature_sold[obj] = (temp,species_sold)
+        #temp purchased
+        temperature_purchased[obj] = (temp,species_purchased)
+        #temp consumed
+        temperature_consumed[obj] = (temp,species_consumed)
+
+        #area----------------------------------------------------------------------------
+        areas = filtro.filter(community = obj).aggregate(avg = Avg('area'))['avg']
+        #areas cultivado
+        area[obj] = (areas,species)
+        #areas sold
+        area_sold[obj] = (areas,species_sold)
+        #areas purchased
+        area_purchased[obj] = (areas,species_purchased)
+        #areas consumed
+        area_consumed[obj] = (areas,species_consumed)
 
     return render(request, template, locals())
 

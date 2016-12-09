@@ -56,110 +56,198 @@
 	<div class="contact_wrap">
 		<div class="container">
 			<div class="row">
-                <div class="btn-group pull-right">
-                    <button type="button" class="btn btn-primary">Seleccione la comunidad</button>
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="dw-s">
-                            {% for key in comu.keys|slice:"1" %}{{key}}{% endfor %}
-                            <span class="caret"></span>
-                        </span>
-                    </button>
-                    <div class="dropdown-menu">
-                        {% for key in comu.keys %}
-                        <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
-                            <a class="drop" href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a>
-                        </li>
-                        {% endfor %}
+            <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#cultiva" aria-controls="cultiva" role="tab" data-toggle="tab">Cultivado</a></li>
+            <li role="presentation"><a href="#vendido" aria-controls="vendido" role="tab" data-toggle="tab">Vendido</a></li>
+            <li role="presentation"><a href="#comprado" aria-controls="comprado" role="tab" data-toggle="tab">Comprado</a></li>
+            <li role="presentation"><a href="#consumido" aria-controls="consumido" role="tab" data-toggle="tab">Consumido</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="cultiva">
+              <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Precipitación promedio</h3>
+                        <span>Gráfico promedios</span>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="container" width='100%'></div>
                     </div>
                 </div>
             </div>
-			<div class="row">
+            <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Temperatura promedio</h3>
+                        <span>Gráfico promedios</span>
 
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="temp" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Áreas promedio</h3>
+                        <span>Gráfico promedios</span>
 
-					<!-- Tab panes -->
-					<div class="tab-content">
-						{% for key,values in comu.items %}
-						<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
-							<!-- START SALES BLOCK -->
-							<div class="panel panel-default panel-salidas">
-                                <div class="panel-heading">
-                                    <div class="panel-title-box">
-                                        <h3>Distancia a mercado</h3>
-                                        <span>Gráfico promedio</span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="area" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="vendido">
+              <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Precipitación promedio</h3>
+                        <span>Gráfico promedios</span>
 
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row stacked">
-                                        <div id="container{{forloop.counter}}" width='100%'></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END SALES BLOCK -->
-                            <!-- START SALES BLOCK -->
-							<div class="panel panel-default panel-salidas">
-                                <div class="panel-heading">
-                                    <div class="panel-title-box">
-                                        <h3>Tamaño de finca</h3>
-                                        <span>Gráfico promedio</span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="vendidas" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Temperatura promedio</h3>
+                        <span>Gráfico promedios</span>
 
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row stacked">
-                                        <div id="areas{{forloop.counter}}" width='100%'></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END SALES BLOCK -->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="temp_sold" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Áreas promedio</h3>
+                        <span>Gráfico promedios</span>
 
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="area_sold" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="comprado">
+              <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Precipitación promedio</h3>
+                        <span>Gráfico promedios</span>
 
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="compradas" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Temperatura promedio</h3>
+                        <span>Gráfico promedios</span>
 
-						</div>
-						{% endfor %}
-						 	<!-- START SALES BLOCK -->
-							<div class="panel panel-default panel-salidas">
-                                <div class="panel-heading">
-                                    <div class="panel-title-box">
-                                        <h3>Precipitación promedio</h3>
-                                        <span>Gráfico promedios</span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="temp_purchased" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Áreas promedio</h3>
+                        <span>Gráfico promedios</span>
 
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row stacked">
-                                        <div id="container" width='100%'></div>
-                                    </div>
-                                    <div class="row stacked">
-                                        <div id="vendidas" width='100%'></div>
-                                    </div>
-                                    <div class="row stacked">
-                                        <div id="compradas" width='100%'></div>
-                                    </div>
-                                    <div class="row stacked">
-                                        <div id="consumidas" width='100%'></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END SALES BLOCK -->
-                            <!-- START SALES BLOCK -->
-							<div class="panel panel-default panel-salidas">
-                                <div class="panel-heading">
-                                    <div class="panel-title-box">
-                                        <h3>Temperatura promedio</h3>
-                                        <span>Gráfico promedios</span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="area_purchased" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="consumido">
+              <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Precipitación promedio</h3>
+                        <span>Gráfico promedios</span>
 
-                                    </div>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row stacked">
-                                        <div id="temp" width='100%'></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END SALES BLOCK -->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="consumidas" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Temperatura promedio</h3>
+                        <span>Gráfico promedios</span>
 
-					</div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="temp_consumed" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Áreas0.
+                           promedio</h3>
+                        <span>Gráfico promedios</span>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="area_consumed" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+
+            </div>
+
 
 			</div>
 		</div>
@@ -185,65 +273,6 @@ $(function () {
 			thousandsSep: ','
 		}
 	});
-
-	{% for values in comu.values %}
-	$('#container{{forloop.counter}}').highcharts({
-			chart: {
-					type: 'column'
-			},
-			title: {
-					text: ''
-			},
-			xAxis: {
-					categories: ['Menor 10 km', '10-50 km', '> 50 km']
-			},
-			yAxis: {
-					title: {
-							text: 'Frecuencia'
-					}
-			},
-			credits: {
-					enabled: false
-			},
-			series: [
-				{% for k,v in values.0.items %}
-				{
-					name: '{{k}}',
-					data: [{% for x in v %}{{x}},{% endfor %}]
-				},
-				{% endfor %}
-			]
-	});
-
-	$('#areas{{forloop.counter}}').highcharts({
-			chart: {
-					type: 'column'
-			},
-			title: {
-					text: ''
-			},
-			xAxis: {
-					categories: ['Menor 1 ha', '1-2.5 ha', '2.5-5 ha']
-			},
-			yAxis: {
-					title: {
-							text: 'Frecuencia'
-					}
-			},
-			credits: {
-					enabled: false
-			},
-			series: [
-				{% for k,v in values.1.items %}
-				{
-					name: '{{k}}',
-					data: [{% for x in v %}{{x}},{% endfor %}]
-				},
-				{% endfor %}
-			]
-	});
-	{% endfor %}
-
     Highcharts.chart('container', {
         chart: {
             type: 'scatter',
@@ -517,53 +546,455 @@ $(function () {
 			 }],
 	 });
 
-	 $('#temp').highcharts({
-				chart: {
-						type: 'column'
-				},
-				title: {
-						text: 'Temperatura promedio'
-				},
-				xAxis: {
-						type: 'category'
-				},
-				yAxis: {
-						title: {
-								text: 'Promedio'
-						}
+  //  temperatura ---------------------------------
+   Highcharts.chart('temp', {
+       chart: {
+           type: 'scatter',
+           zoomType: 'xy'
+       },
+       title: {
+           text: 'Temperatura vs Especies cultivadas'
+       },
+       xAxis: {
+           title: {
+               enabled: true,
+               text: 'Temperatura'
+           },
+           startOnTick: true,
+           endOnTick: true,
+           showLastLabel: true
+       },
+       yAxis: {
+           title: {
+               text: 'Especies'
+           }
+       },
+       plotOptions: {
+           scatter: {
+               marker: {
+                   radius: 7,
+                   states: {
+                       hover: {
+                           enabled: true,
+                           lineColor: 'rgb(100,100,100)'
+                       }
+                   }
+               },
+               states: {
+                   hover: {
+                       marker: {
+                           enabled: false
+                       }
+                   }
+               },
+               tooltip: {
+                   headerFormat: '<b>{series.name}</b><br>',
+                   pointFormat: '{point.y} especies | {point.x} C°'
+               }
+           }
+       },
+       series: [
+         {% for k,v in temperature.items %}
+               {
+                 name: '{{k}}',
+                 data: [ [{{v.0}}, {{v.1}}],]
+             },
+         {% endfor %}
+           ]
+   });
 
-				},
-				legend: {
-						enabled: false
-				},
-				plotOptions: {
-						series: {
-								borderWidth: 0,
-								dataLabels: {
-										enabled: true,
-										format: '{point.y:.2f}'
-								}
-						}
-				},
+   Highcharts.chart('temp_sold', {
+       chart: {
+           type: 'scatter',
+           zoomType: 'xy'
+       },
+       title: {
+           text: 'Temperatura vs Especies vendidas'
+       },
+       xAxis: {
+           title: {
+               enabled: true,
+               text: 'Temperatura'
+           },
+           startOnTick: true,
+           endOnTick: true,
+           showLastLabel: true
+       },
+       yAxis: {
+           title: {
+               text: 'Especies'
+           }
+       },
+       plotOptions: {
+           scatter: {
+               marker: {
+                   radius: 7,
+                   states: {
+                       hover: {
+                           enabled: true,
+                           lineColor: 'rgb(100,100,100)'
+                       }
+                   }
+               },
+               states: {
+                   hover: {
+                       marker: {
+                           enabled: false
+                       }
+                   }
+               },
+               tooltip: {
+                   headerFormat: '<b>{series.name}</b><br>',
+                   pointFormat: '{point.y} especies | {point.x} C°'
+               }
+           }
+       },
+       series: [
+         {% for k,v in temperature_sold.items %}
+               {
+                 name: '{{k}}',
+                 data: [ [{{v.0}}, {{v.1}}],]
+             },
+         {% endfor %}
+           ]
+   });
 
-				tooltip: {
-						headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-						pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}<br/>'
-				},
+   Highcharts.chart('temp_purchased', {
+       chart: {
+           type: 'scatter',
+           zoomType: 'xy'
+       },
+       title: {
+           text: 'Temperatura vs Especies compradas'
+       },
+       xAxis: {
+           title: {
+               enabled: true,
+               text: 'Temperatura'
+           },
+           startOnTick: true,
+           endOnTick: true,
+           showLastLabel: true
+       },
+       yAxis: {
+           title: {
+               text: 'Especies'
+           }
+       },
+       plotOptions: {
+           scatter: {
+               marker: {
+                   radius: 7,
+                   states: {
+                       hover: {
+                           enabled: true,
+                           lineColor: 'rgb(100,100,100)'
+                       }
+                   }
+               },
+               states: {
+                   hover: {
+                       marker: {
+                           enabled: false
+                       }
+                   }
+               },
+               tooltip: {
+                   headerFormat: '<b>{series.name}</b><br>',
+                   pointFormat: '{point.y} especies | {point.x} C°'
+               }
+           }
+       },
+       series: [
+         {% for k,v in temperature_purchased.items %}
+               {
+                 name: '{{k}}',
+                 data: [ [{{v.0}}, {{v.1}}],]
+             },
+         {% endfor %}
+           ]
+   });
 
-				series: [{
-						name: 'Promedio',
-						colorByPoint: true,
-						data: [
-							{% for k,v in temperature.items %}
-							{
-								name: '{{k}}',
-								y: {{v}},
-							},
-							{% endfor %}
-						]
-				}],
-		});
+   Highcharts.chart('temp_consumed', {
+       chart: {
+           type: 'scatter',
+           zoomType: 'xy'
+       },
+       title: {
+           text: 'Temperatura vs Especies consumidas'
+       },
+       xAxis: {
+           title: {
+               enabled: true,
+               text: 'Temperatura'
+           },
+           startOnTick: true,
+           endOnTick: true,
+           showLastLabel: true
+       },
+       yAxis: {
+           title: {
+               text: 'Especies'
+           }
+       },
+       plotOptions: {
+           scatter: {
+               marker: {
+                   radius: 7,
+                   states: {
+                       hover: {
+                           enabled: true,
+                           lineColor: 'rgb(100,100,100)'
+                       }
+                   }
+               },
+               states: {
+                   hover: {
+                       marker: {
+                           enabled: false
+                       }
+                   }
+               },
+               tooltip: {
+                   headerFormat: '<b>{series.name}</b><br>',
+                   pointFormat: '{point.y} especies | {point.x} C°'
+               }
+           }
+       },
+       series: [
+         {% for k,v in temperature_consumed.items %}
+               {
+                 name: '{{k}}',
+                 data: [ [{{v.0}}, {{v.1}}],]
+             },
+         {% endfor %}
+           ]
+   });
+
+   //  areas ---------------------------------
+    Highcharts.chart('area', {
+        chart: {
+            type: 'scatter',
+            zoomType: 'xy'
+        },
+        title: {
+            text: 'Áreas vs Especies cultivadas'
+        },
+        xAxis: {
+            title: {
+                enabled: true,
+                text: 'Área'
+            },
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true
+        },
+        yAxis: {
+            title: {
+                text: 'Especies'
+            }
+        },
+        plotOptions: {
+            scatter: {
+                marker: {
+                    radius: 7,
+                    states: {
+                        hover: {
+                            enabled: true,
+                            lineColor: 'rgb(100,100,100)'
+                        }
+                    }
+                },
+                states: {
+                    hover: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.y} especies | {point.x} C°'
+                }
+            }
+        },
+        series: [
+          {% for k,v in area.items %}
+                {
+                  name: '{{k}}',
+                  data: [ [{{v.0}}, {{v.1}}],]
+              },
+          {% endfor %}
+            ]
+    });
+
+    Highcharts.chart('area_sold', {
+        chart: {
+            type: 'scatter',
+            zoomType: 'xy'
+        },
+        title: {
+            text: 'Áreas vs Especies vendidas'
+        },
+        xAxis: {
+            title: {
+                enabled: true,
+                text: 'Área'
+            },
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true
+        },
+        yAxis: {
+            title: {
+                text: 'Especies'
+            }
+        },
+        plotOptions: {
+            scatter: {
+                marker: {
+                    radius: 7,
+                    states: {
+                        hover: {
+                            enabled: true,
+                            lineColor: 'rgb(100,100,100)'
+                        }
+                    }
+                },
+                states: {
+                    hover: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.y} especies | {point.x} C°'
+                }
+            }
+        },
+        series: [
+          {% for k,v in area_sold.items %}
+                {
+                  name: '{{k}}',
+                  data: [ [{{v.0}}, {{v.1}}],]
+              },
+          {% endfor %}
+            ]
+    });
+
+    Highcharts.chart('area_purchased', {
+        chart: {
+            type: 'scatter',
+            zoomType: 'xy'
+        },
+        title: {
+            text: 'Áreas vs Especies compradas'
+        },
+        xAxis: {
+            title: {
+                enabled: true,
+                text: 'Área'
+            },
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true
+        },
+        yAxis: {
+            title: {
+                text: 'Especies'
+            }
+        },
+        plotOptions: {
+            scatter: {
+                marker: {
+                    radius: 7,
+                    states: {
+                        hover: {
+                            enabled: true,
+                            lineColor: 'rgb(100,100,100)'
+                        }
+                    }
+                },
+                states: {
+                    hover: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.y} especies | {point.x} C°'
+                }
+            }
+        },
+        series: [
+          {% for k,v in area_purchased.items %}
+                {
+                  name: '{{k}}',
+                  data: [ [{{v.0}}, {{v.1}}],]
+              },
+          {% endfor %}
+            ]
+    });
+
+    Highcharts.chart('area_consumed', {
+        chart: {
+            type: 'scatter',
+            zoomType: 'xy'
+        },
+        title: {
+            text: 'Áreas vs Especies consumidas'
+        },
+        xAxis: {
+            title: {
+                enabled: true,
+                text: 'Área'
+            },
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: true
+        },
+        yAxis: {
+            title: {
+                text: 'Especies'
+            }
+        },
+        plotOptions: {
+            scatter: {
+                marker: {
+                    radius: 7,
+                    states: {
+                        hover: {
+                            enabled: true,
+                            lineColor: 'rgb(100,100,100)'
+                        }
+                    }
+                },
+                states: {
+                    hover: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.y} especies | {point.x} C°'
+                }
+            }
+        },
+        series: [
+          {% for k,v in area_consumed.items %}
+                {
+                  name: '{{k}}',
+                  data: [ [{{v.0}}, {{v.1}}],]
+              },
+          {% endfor %}
+            ]
+    });
 
 });
 </script>
