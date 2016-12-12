@@ -71,7 +71,7 @@
               <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Precipitación promedio</h3>
+                        <h3>LLuvia promedio</h3>
                         <span>Gráfico promedios</span>
 
                     </div>
@@ -99,14 +99,28 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Áreas promedio</h3>
+                        <h3>Precipitación promedio</h3>
                         <span>Gráfico promedios</span>
 
                     </div>
                 </div>
                 <div class="panel-body">
                     <div class="row stacked">
-                        <div id="area" width='100%'></div>
+                        <div id="precipitation" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Altitud promedio</h3>
+                        <span>Gráfico promedios</span>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="altitude" width='100%'></div>
                     </div>
                 </div>
             </div>
@@ -115,7 +129,7 @@
               <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Precipitación promedio</h3>
+                        <h3>LLuvia promedio</h3>
                         <span>Gráfico promedios</span>
 
                     </div>
@@ -143,14 +157,28 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Áreas promedio</h3>
+                        <h3>Precipitación promedio</h3>
                         <span>Gráfico promedios</span>
 
                     </div>
                 </div>
                 <div class="panel-body">
                     <div class="row stacked">
-                        <div id="area_sold" width='100%'></div>
+                        <div id="precipitation_sold" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Altitud promedio</h3>
+                        <span>Gráfico promedios</span>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="altitude_sold" width='100%'></div>
                     </div>
                 </div>
             </div>
@@ -159,7 +187,7 @@
               <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Precipitación promedio</h3>
+                        <h3>LLuvia promedio</h3>
                         <span>Gráfico promedios</span>
 
                     </div>
@@ -187,14 +215,28 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Áreas promedio</h3>
+                        <h3>Precipitación promedio</h3>
                         <span>Gráfico promedios</span>
 
                     </div>
                 </div>
                 <div class="panel-body">
                     <div class="row stacked">
-                        <div id="area_purchased" width='100%'></div>
+                        <div id="precipitation_purchased" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Altitud promedio</h3>
+                        <span>Gráfico promedios</span>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="altitude_purchased" width='100%'></div>
                     </div>
                 </div>
             </div>
@@ -203,7 +245,7 @@
               <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Precipitación promedio</h3>
+                        <h3>LLuvia promedio</h3>
                         <span>Gráfico promedios</span>
 
                     </div>
@@ -231,15 +273,28 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Áreas0.
-                           promedio</h3>
+                        <h3>Precipitación promedio</h3>
                         <span>Gráfico promedios</span>
 
                     </div>
                 </div>
                 <div class="panel-body">
                     <div class="row stacked">
-                        <div id="area_consumed" width='100%'></div>
+                        <div id="precipitation_consumed" width='100%'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default panel-salidas">
+                <div class="panel-heading">
+                    <div class="panel-title-box">
+                        <h3>Altitud promedio</h3>
+                        <span>Gráfico promedios</span>
+
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row stacked">
+                        <div id="altitude_consumed" width='100%'></div>
                     </div>
                 </div>
             </div>
@@ -279,12 +334,12 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'Precipitación vs Especies cultivadas'
+            text: 'LLuvia vs Especies cultivadas'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'Precipitación'
+                text: 'LLuvia'
             },
             startOnTick: true,
             endOnTick: true,
@@ -335,12 +390,12 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'Precipitación vs Especies vendidas'
+            text: 'LLuvia vs Especies vendidas'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'Precipitación'
+                text: 'LLuvia'
             },
             startOnTick: true,
             endOnTick: true,
@@ -391,12 +446,12 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'Precipitación vs Especies compradas'
+            text: 'LLuvia vs Especies compradas'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'Precipitación'
+                text: 'LLuvia'
             },
             startOnTick: true,
             endOnTick: true,
@@ -447,12 +502,12 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'Precipitación vs Especies consumidas'
+            text: 'LLuvia vs Especies consumidas'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'Precipitación'
+                text: 'LLuvia'
             },
             startOnTick: true,
             endOnTick: true,
@@ -503,7 +558,7 @@ $(function () {
 					 type: 'column'
 			 },
 			 title: {
-					 text: 'Precipitación promedio'
+					 text: 'LLuvia promedio'
 			 },
 			 xAxis: {
 					 type: 'category'
@@ -771,19 +826,19 @@ $(function () {
            ]
    });
 
-   //  areas ---------------------------------
-    Highcharts.chart('area', {
+   //  precipitacion ---------------------------------
+    Highcharts.chart('precipitation', {
         chart: {
             type: 'scatter',
             zoomType: 'xy'
         },
         title: {
-            text: 'Áreas vs Especies cultivadas'
+            text: 'Precipitación vs Especies cultivadas'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'Área'
+                text: 'Precipitación'
             },
             startOnTick: true,
             endOnTick: true,
@@ -814,12 +869,12 @@ $(function () {
                 },
                 tooltip: {
                     headerFormat: '<b>{series.name}</b><br>',
-                    pointFormat: '{point.y} especies | {point.x} C°'
+                    pointFormat: '{point.y} especies | {point.x}'
                 }
             }
         },
         series: [
-          {% for k,v in area.items %}
+          {% for k,v in precipitation.items %}
                 {
                   name: '{{k}}',
                   data: [ [{{v.0}}, {{v.1}}],]
@@ -828,18 +883,18 @@ $(function () {
             ]
     });
 
-    Highcharts.chart('area_sold', {
+    Highcharts.chart('precipitation_sold', {
         chart: {
             type: 'scatter',
             zoomType: 'xy'
         },
         title: {
-            text: 'Áreas vs Especies vendidas'
+            text: 'Precipitación vs Especies vendidas'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'Área'
+                text: 'Precipitación'
             },
             startOnTick: true,
             endOnTick: true,
@@ -870,12 +925,12 @@ $(function () {
                 },
                 tooltip: {
                     headerFormat: '<b>{series.name}</b><br>',
-                    pointFormat: '{point.y} especies | {point.x} C°'
+                    pointFormat: '{point.y} especies | {point.x}'
                 }
             }
         },
         series: [
-          {% for k,v in area_sold.items %}
+          {% for k,v in precipitation_sold.items %}
                 {
                   name: '{{k}}',
                   data: [ [{{v.0}}, {{v.1}}],]
@@ -884,18 +939,18 @@ $(function () {
             ]
     });
 
-    Highcharts.chart('area_purchased', {
+    Highcharts.chart('precipitation_purchased', {
         chart: {
             type: 'scatter',
             zoomType: 'xy'
         },
         title: {
-            text: 'Áreas vs Especies compradas'
+            text: 'Precipitación vs Especies compradas'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'Área'
+                text: 'Precipitación'
             },
             startOnTick: true,
             endOnTick: true,
@@ -926,12 +981,12 @@ $(function () {
                 },
                 tooltip: {
                     headerFormat: '<b>{series.name}</b><br>',
-                    pointFormat: '{point.y} especies | {point.x} C°'
+                    pointFormat: '{point.y} especies | {point.x}'
                 }
             }
         },
         series: [
-          {% for k,v in area_purchased.items %}
+          {% for k,v in precipitation_purchased.items %}
                 {
                   name: '{{k}}',
                   data: [ [{{v.0}}, {{v.1}}],]
@@ -940,18 +995,18 @@ $(function () {
             ]
     });
 
-    Highcharts.chart('area_consumed', {
+    Highcharts.chart('precipitation_consumed', {
         chart: {
             type: 'scatter',
             zoomType: 'xy'
         },
         title: {
-            text: 'Áreas vs Especies consumidas'
+            text: 'Precipitación vs Especies consumidas'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'Área'
+                text: 'Precipitación'
             },
             startOnTick: true,
             endOnTick: true,
@@ -982,12 +1037,12 @@ $(function () {
                 },
                 tooltip: {
                     headerFormat: '<b>{series.name}</b><br>',
-                    pointFormat: '{point.y} especies | {point.x} C°'
+                    pointFormat: '{point.y} especies | {point.x}'
                 }
             }
         },
         series: [
-          {% for k,v in area_consumed.items %}
+          {% for k,v in precipitation_consumed.items %}
                 {
                   name: '{{k}}',
                   data: [ [{{v.0}}, {{v.1}}],]
@@ -995,6 +1050,230 @@ $(function () {
           {% endfor %}
             ]
     });
+    //  altitude ---------------------------------
+     Highcharts.chart('altitude', {
+         chart: {
+             type: 'scatter',
+             zoomType: 'xy'
+         },
+         title: {
+             text: 'Altitud vs Especies cultivadas'
+         },
+         xAxis: {
+             title: {
+                 enabled: true,
+                 text: 'Altitud'
+             },
+             startOnTick: true,
+             endOnTick: true,
+             showLastLabel: true
+         },
+         yAxis: {
+             title: {
+                 text: 'Especies'
+             }
+         },
+         plotOptions: {
+             scatter: {
+                 marker: {
+                     radius: 7,
+                     states: {
+                         hover: {
+                             enabled: true,
+                             lineColor: 'rgb(100,100,100)'
+                         }
+                     }
+                 },
+                 states: {
+                     hover: {
+                         marker: {
+                             enabled: false
+                         }
+                     }
+                 },
+                 tooltip: {
+                     headerFormat: '<b>{series.name}</b><br>',
+                     pointFormat: '{point.y} especies | {point.x}'
+                 }
+             }
+         },
+         series: [
+           {% for k,v in altitude.items %}
+                 {
+                   name: '{{k}}',
+                   data: [ [{{v.0}}, {{v.1}}],]
+               },
+           {% endfor %}
+             ]
+     });
+
+     Highcharts.chart('altitude_sold', {
+         chart: {
+             type: 'scatter',
+             zoomType: 'xy'
+         },
+         title: {
+             text: 'Altitud vs Especies vendidas'
+         },
+         xAxis: {
+             title: {
+                 enabled: true,
+                 text: 'Altitud'
+             },
+             startOnTick: true,
+             endOnTick: true,
+             showLastLabel: true
+         },
+         yAxis: {
+             title: {
+                 text: 'Especies'
+             }
+         },
+         plotOptions: {
+             scatter: {
+                 marker: {
+                     radius: 7,
+                     states: {
+                         hover: {
+                             enabled: true,
+                             lineColor: 'rgb(100,100,100)'
+                         }
+                     }
+                 },
+                 states: {
+                     hover: {
+                         marker: {
+                             enabled: false
+                         }
+                     }
+                 },
+                 tooltip: {
+                     headerFormat: '<b>{series.name}</b><br>',
+                     pointFormat: '{point.y} especies | {point.x}'
+                 }
+             }
+         },
+         series: [
+           {% for k,v in altitude_sold.items %}
+                 {
+                   name: '{{k}}',
+                   data: [ [{{v.0}}, {{v.1}}],]
+               },
+           {% endfor %}
+             ]
+     });
+
+     Highcharts.chart('altitude_purchased', {
+         chart: {
+             type: 'scatter',
+             zoomType: 'xy'
+         },
+         title: {
+             text: 'Altitud vs Especies compradas'
+         },
+         xAxis: {
+             title: {
+                 enabled: true,
+                 text: 'Altitud'
+             },
+             startOnTick: true,
+             endOnTick: true,
+             showLastLabel: true
+         },
+         yAxis: {
+             title: {
+                 text: 'Especies'
+             }
+         },
+         plotOptions: {
+             scatter: {
+                 marker: {
+                     radius: 7,
+                     states: {
+                         hover: {
+                             enabled: true,
+                             lineColor: 'rgb(100,100,100)'
+                         }
+                     }
+                 },
+                 states: {
+                     hover: {
+                         marker: {
+                             enabled: false
+                         }
+                     }
+                 },
+                 tooltip: {
+                     headerFormat: '<b>{series.name}</b><br>',
+                     pointFormat: '{point.y} especies | {point.x}'
+                 }
+             }
+         },
+         series: [
+           {% for k,v in altitude_purchased.items %}
+                 {
+                   name: '{{k}}',
+                   data: [ [{{v.0}}, {{v.1}}],]
+               },
+           {% endfor %}
+             ]
+     });
+
+     Highcharts.chart('altitude_consumed', {
+         chart: {
+             type: 'scatter',
+             zoomType: 'xy'
+         },
+         title: {
+             text: 'Altitud vs Especies consumidas'
+         },
+         xAxis: {
+             title: {
+                 enabled: true,
+                 text: 'Altitud'
+             },
+             startOnTick: true,
+             endOnTick: true,
+             showLastLabel: true
+         },
+         yAxis: {
+             title: {
+                 text: 'Especies'
+             }
+         },
+         plotOptions: {
+             scatter: {
+                 marker: {
+                     radius: 7,
+                     states: {
+                         hover: {
+                             enabled: true,
+                             lineColor: 'rgb(100,100,100)'
+                         }
+                     }
+                 },
+                 states: {
+                     hover: {
+                         marker: {
+                             enabled: false
+                         }
+                     }
+                 },
+                 tooltip: {
+                     headerFormat: '<b>{series.name}</b><br>',
+                     pointFormat: '{point.y} especies | {point.x}'
+                 }
+             }
+         },
+         series: [
+           {% for k,v in altitude_consumed.items %}
+                 {
+                   name: '{{k}}',
+                   data: [ [{{v.0}}, {{v.1}}],]
+               },
+           {% endfor %}
+             ]
+     });
 
 });
 </script>

@@ -67,10 +67,15 @@ class EthnicGroupAdmin(ImportExportModelAdmin):
 
 admin.site.register(EthnicGroup,EthnicGroupAdmin)
 
+class FotosInline(admin.TabularInline):
+    model = FotosGroups
+    extra = 1
+
 class FocusGroupAdmin(ImportExportModelAdmin):
     model = FocusGroup
     empty_value_display = '-empty-'
     list_display = ('id','community','date','scientist','organization')
+    inlines = [FotosInline,]
 
 admin.site.register(FocusGroup,FocusGroupAdmin)
 

@@ -96,6 +96,7 @@ def grupo_nutricional_comunidad(request,template="salidas/grupo_nutricional.html
         for x in FoodGroup.objects.all():
             lista = []
             tabla = []
+            count_both = filtro.filter(fcacode__species__food_group = x,community = obj).distinct('fcacode__species').count()
             for gender in GENDER_CHOICES:
                 #grafica
                 conteo = filtro.filter(fcacode__species__food_group = x,community = obj,gender = gender[0]).distinct('fcacode__species').count()
@@ -109,6 +110,7 @@ def grupo_nutricional_comunidad(request,template="salidas/grupo_nutricional.html
                 consumed = filtro.filter(fcacode__species__food_group = x,community = obj,gender = gender[0],fcacode__presence_consumed = 1).distinct('fcacode__species').count()
                 tabla.append((produced,sold,purchased,consumed))
 
+            lista.append(count_both)
             food[x] = lista
             food_tabla[x] = tabla
         comu[obj] = (food,food_tabla)
@@ -128,6 +130,7 @@ def grupo_nutricional_pais(request,template="salidas/grupo_nutricional_pais.html
         for x in FoodGroup.objects.all():
             lista = []
             tabla = []
+            count_both = filtro.filter(fcacode__species__food_group = x,country = obj).distinct('fcacode__species').count()
             for gender in GENDER_CHOICES:
                 #grafica
                 conteo = filtro.filter(fcacode__species__food_group = x,country = obj,gender = gender[0]).distinct('fcacode__species').count()
@@ -140,6 +143,7 @@ def grupo_nutricional_pais(request,template="salidas/grupo_nutricional_pais.html
                 consumed = filtro.filter(fcacode__species__food_group = x,country = obj,gender = gender[0],fcacode__presence_consumed = 1).distinct('fcacode__species').count()
                 tabla.append((produced,sold,purchased,consumed))
 
+            lista.append(count_both)
             food[x] = lista
             food_tabla[x] = tabla
         pais[obj] = (food,food_tabla)
@@ -185,8 +189,8 @@ def numero_especies(request,template="salidas/numero_especies.html"):
 
         #total
         total = []
-        total_hombres = produced_hombres + sold_hombres + purchased_hombres + consumed_hombres
-        total_mujeres = produced_mujeres + sold_mujeres + purchased_mujeres + consumed_mujeres
+        total_hombres = filtro.filter(community = obj,gender = '2').distinct('fcacode__species').count()
+        total_mujeres = filtro.filter(community = obj,gender = '1').distinct('fcacode__species').count()
         total_media = (total_hombres + total_mujeres) / float(2)
         total.append((total_media,total_hombres,total_mujeres))
 
@@ -225,8 +229,8 @@ def numero_especies(request,template="salidas/numero_especies.html"):
 
         #total
         country_total = []
-        country_total_hombres = country_produced_hombres + country_sold_hombres + country_purchased_hombres + country_consumed_hombres
-        country_total_mujeres = country_produced_mujeres + country_sold_mujeres + country_purchased_mujeres + country_consumed_mujeres
+        country_total_hombres = filtro.filter(country = obj,gender = '2').distinct('fcacode__species').count()
+        country_total_mujeres = filtro.filter(country = obj,gender = '1').distinct('fcacode__species').count()
         country_total_media = (country_total_hombres + country_total_mujeres) / float(2)
         country_total.append((country_total_media,country_total_hombres,country_total_mujeres))
         pais[obj] = (country_total,country_produced,country_sold,country_purchased,country_consumed)
@@ -248,10 +252,14 @@ def numero_especies_comunidad(request,template="salidas/numero_especies_comunida
     temperature_sold = {}
     temperature_purchased = {}
     temperature_consumed = {}
-    area = {}
-    area_sold = {}
-    area_purchased = {}
-    area_consumed = {}
+    precipitation = {}
+    precipitation_sold = {}
+    precipitation_purchased = {}
+    precipitation_consumed = {}
+    altitude = {}
+    altitude_sold = {}
+    altitude_purchased = {}
+    altitude_consumed = {}
     for obj in community:
         # species
         species = filtro.filter(community = obj,fcacode__presence_cultivated = 1).distinct('fcacode__species').count()
@@ -259,15 +267,15 @@ def numero_especies_comunidad(request,template="salidas/numero_especies_comunida
         species_purchased = filtro.filter(community = obj,fcacode__presence_purchased = 1).distinct('fcacode__species').count()
         species_consumed = filtro.filter(community = obj,fcacode__presence_consumed = 1).distinct('fcacode__species').count()
 
-        #precipitacion ----------------------------------------------------------------
+        #rainfll ----------------------------------------------------------------
         rain = filtro.filter(community = obj).aggregate(avg = Avg('rainfall'))['avg']
-        #precipitacion cultivado
+        #rainfll cultivado
         rainfall[obj] = (rain,species)
-        #precipitacion sold
+        #rainfll sold
         rainfall_sold[obj] = (rain,species_sold)
-        #precipitacion purchased
+        #rainfll purchased
         rainfall_purchased[obj] = (rain,species_purchased)
-        #precipitacion purchased
+        #rainfll purchased
         rainfall_consumed[obj] = (rain,species_consumed)
 
         #temperatura -------------------------------------------------------------------------
@@ -281,16 +289,27 @@ def numero_especies_comunidad(request,template="salidas/numero_especies_comunida
         #temp consumed
         temperature_consumed[obj] = (temp,species_consumed)
 
-        #area----------------------------------------------------------------------------
-        areas = filtro.filter(community = obj).aggregate(avg = Avg('area'))['avg']
-        #areas cultivado
-        area[obj] = (areas,species)
-        #areas sold
-        area_sold[obj] = (areas,species_sold)
-        #areas purchased
-        area_purchased[obj] = (areas,species_purchased)
-        #areas consumed
-        area_consumed[obj] = (areas,species_consumed)
+        #precipitacion----------------------------------------------------------------------------
+        precitations = filtro.filter(community = obj).aggregate(avg = Avg('precipitation'))['avg']
+        #precipitacion cultivado
+        precipitation[obj] = (precitations,species)
+        #precipitacion sold
+        precipitation_sold[obj] = (precitations,species_sold)
+        #precipitacion purchased
+        precipitation_purchased[obj] = (precitations,species_purchased)
+        #precipitacion consumed
+        precipitation_consumed[obj] = (precitations,species_consumed)
+
+        #altitude----------------------------------------------------------------------------
+        altitud = filtro.filter(community = obj).aggregate(avg = Avg('altitude'))['avg']
+        #altitude cultivado
+        altitude[obj] = (altitud,species)
+        #altitude sold
+        altitude_sold[obj] = (altitud,species_sold)
+        #altitude purchased
+        altitude_purchased[obj] = (altitud,species_purchased)
+        #altitude consumed
+        altitude_consumed[obj] = (altitud,species_consumed)
 
     return render(request, template, locals())
 
@@ -334,9 +353,14 @@ def perfil_especies_detalle(request,id = None):
     conteo_pais = country.count()
     porcent_pais = saca_porcentajes(conteo_pais,paises,False)
 
-    comunnity = FcaCode.objects.filter(species = object).distinct('focus_groups__country')
+    comunnity = FcaCode.objects.filter(species = object).distinct('focus_groups__community')
     conteo_comunnity = comunnity.count()
     porcent_comunnity = saca_porcentajes(conteo_comunnity,comunidades,False)
+
+    dicc = {}
+    for obj in country:
+        comu = FcaCode.objects.filter(species = object,focus_groups__country = obj.focus_groups.country).distinct('focus_groups__community').values_list('focus_groups__community__name', flat=True)
+        dicc[obj.focus_groups.country] = comu
 
     ########################
     #produced
@@ -378,6 +402,26 @@ def perfil_focus_groups(request,template="salidas/perfil_focus_groups.html"):
 def perfil_focus_groups_detail(request,id = None):
     template = "salidas/perfil_fg_detalle.html"
     object = FocusGroup.objects.get(id = id)
+    species = FcaCode.objects.filter(focus_groups = object.id).distinct('species').values_list(
+                        'species__common_name','fca_cultivated','fca_sold','fca_purchased','fca_consumed')
+    produce = {}
+    buy = {}
+    list_1 = []
+    list_2 = []
+    for sp in species:
+        # print sp[0],sp[1],sp[2],sp[3],sp[4]
+        if (sp[1] == 1 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 1 or sp[4] == 3):
+            list_1.append(sp[0])
+
+        if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
+            list_2.append(sp[0])
+
+
+    buy['Few or none buy'] = list_1
+    buy['Most buy'] = list_2
+
+    produce['Most Produce or widely available in community'] = buy
+    print produce
 
     return render(request, template, locals())
 

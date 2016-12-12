@@ -88,11 +88,24 @@
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 
 						<p>Vernacular name: {% for x in vernacular_name %}{{x}}, {% endfor %}</p>
-						<p>Paises: {% for x in country %}{{x.focus_groups.country}}, {% endfor %}</p>
 						<p>Pocentaje de paises: {{porcent_pais}}%</p>
-						<p>Comunidades: {% for x in comunnity %}{{x.focus_groups.community}}, {% endfor %}</p>
 						<p>Pocentaje de comunidades: {{porcent_comunnity}}%</p>
-						<p></p>
+						  <table class="table table-bordered table-hover">
+                <thead>
+    						  <tr>
+      							<th>Paises</th>
+      							<th>Comunidades</th>
+    						  </tr>
+    						</thead>
+                <tbody>
+                  {% for k,v in dicc.items %}
+                  <tr>
+                    <td>{{k}}</td>
+                    <td>{% for x in v %} {{x}}{% if not forloop.last %},{% endif %}{% endfor %}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+						  </table>
 					</div>
 
 

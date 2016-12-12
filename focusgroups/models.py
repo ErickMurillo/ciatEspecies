@@ -94,13 +94,13 @@ class Scientists(models.Model):
 	# country = models.ForeignKey(Country)
 	name = models.CharField(max_length = 250)
 	# gender = models.IntegerField(choices=CHOICE_GENDER)
-	foto = ImageField(upload_to='cientificos/')
+	foto = ImageField(upload_to='cientificos/',blank=True, null=True)
 	slug = models.SlugField(editable=False, max_length=450)
-	cargo = models.CharField(max_length=200)
-	correo = models.EmailField()
-	telefono = models.CharField(max_length=200)
+	cargo = models.CharField(max_length=200,blank=True, null=True)
+	correo = models.EmailField(blank=True, null=True)
+	telefono = models.CharField(max_length=200,blank=True, null=True)
 	pais = models.ForeignKey(Country)
-	perfil = RichTextUploadingField()
+	perfil = RichTextUploadingField(blank=True, null=True)
 
 	def save(self, *args, **kwargs):
 		self.slug = (slugify(self.name))
@@ -200,6 +200,9 @@ CHOICE_SOURCE = ((1, 'Cultivated/Reared'),(2, 'Wild'),(3, 'Mixed/Both'))
 CHOICE_SEASON = (('L', 'Lean'),('A', 'All year'))
 CHOICE_OFF_SEASON = ((0, 'No'),(1, 'Yes'))
 
+class FotosGroups(models.Model):
+	fotos = ImageField(upload_to='focus_groups/')
+	focus_groups = models.ForeignKey(FocusGroup)
 
 class PartUsed(models.Model):
 	name = models.CharField(max_length=250)

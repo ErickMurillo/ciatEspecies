@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from globalconfigs.models import *
+from sorl.thumbnail import ImageField
 
 # Create your models here.
 
@@ -52,6 +53,10 @@ class Species(models.Model):
 #                         (3, 'Fresh'),
 #                         (4, 'Dried'),
 #                     )
+
+class FotosSpecies(models.Model):
+	fotos = ImageField(upload_to='species/')
+	species = models.ForeignKey(Species)
 
 class CookingMethod(models.Model):
     name = models.CharField(max_length = 250)

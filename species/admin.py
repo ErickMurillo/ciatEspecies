@@ -2,6 +2,11 @@ from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 from .models import Species, FctEspecies, CookingMethod
 from import_export import resources
+from species.models import *
+
+class FotosSpeciesInline(admin.TabularInline):
+    model = FotosSpecies
+    extra = 1
 
 class SpeciesAdmin(ImportExportModelAdmin):
     empty_value_display = '-empty-'
@@ -9,6 +14,7 @@ class SpeciesAdmin(ImportExportModelAdmin):
     list_display_links = ('scientific_name', 'food_group')
     list_filter = ('cultivar', 'type_species')
     search_fields = ['scientific_name', 'common_name']
+    inlines = [FotosSpeciesInline,]
 
 # Register your models here.
 admin.site.register(Species, SpeciesAdmin)
