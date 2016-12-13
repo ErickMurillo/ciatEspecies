@@ -403,25 +403,81 @@ def perfil_focus_groups_detail(request,id = None):
     template = "salidas/perfil_fg_detalle.html"
     object = FocusGroup.objects.get(id = id)
     species = FcaCode.objects.filter(focus_groups = object.id).distinct('species').values_list(
-                        'species__common_name','fca_cultivated','fca_sold','fca_purchased','fca_consumed')
+                        'species_vernacular_name','fca_cultivated','fca_sold','fca_purchased','fca_consumed','species__food_group')
+
+    lista = []
+    for x in species:
+        if x[5] != None:
+            lista.append(x[5])
+    lista = list(set(lista))
+
+    food_groups = FoodGroup.objects.filter(id__in = lista).values_list('id','name')
+
+    consume = {}
     produce = {}
+    produce_1 = {}
     buy = {}
+    buy_1 = {}
+    buy_2 = {}
+    buy_3 = {}
+    buy_4 = {}
+    buy_5 = {}
+    buy_6 = {}
     list_1 = []
     list_2 = []
+    list_3 = []
+    list_4 = []
+    list_5 = []
+    list_6 = []
+    list_7 = []
+    list_8 = []
     for sp in species:
         # print sp[0],sp[1],sp[2],sp[3],sp[4]
         if (sp[1] == 1 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 1 or sp[4] == 3):
-            list_1.append(sp[0])
+            list_1.append((sp[0],sp[5]))
 
         if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
-            list_2.append(sp[0])
+            list_2.append((sp[0],sp[5]))
+
+        if (sp[1] == 4) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 1 or sp[4] == 3):
+            list_3.append((sp[0],sp[5]))
+
+        if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
+            list_4.append((sp[0],sp[5]))
+
+        if (sp[1] == 0 or sp[1] == None) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
+            list_5.append((sp[0],sp[5]))
+
+        if (sp[1] == 1 or sp[1] == 3) and (sp[4] == 4):
+            list_6.append((sp[0],sp[5]))
+
+        if (sp[1] == 4 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 4):
+            list_7.append((sp[0],sp[5]))
+
+        if (sp[1] == 0 or sp[1] == None) and (sp[3] == 2 or sp[3] == 4) and (sp[4] == 2 or sp[4] == 4):
+            list_8.append((sp[0],sp[5]))
 
 
     buy['Few or none buy'] = list_1
     buy['Most buy'] = list_2
+    buy_1['Few buy'] = list_3
+    buy_2['Most buy'] = list_4
+    buy_3['Most buy'] = list_5
+    buy_4['Few or none buy'] = list_6
+    buy_5['Few buy'] = list_7
+    buy_6['Few buy'] = list_8
 
     produce['Most Produce or widely available in community'] = buy
-    print produce
+    produce['Few Produce or available in small areas in community'] = buy_1
+    produce['Few Produce or available in small and large areas in community'] = buy_2
+    produce['Not Produced in Community'] = buy_3
+    produce_1['Most Produce or widely available in community'] = buy_4
+    produce_1['Few Produce or available in small areas in community'] = buy_5
+    produce_1['Not Produced in Community'] = buy_6
+
+    consume['Most consume/frequent'] = produce
+    consume['Few consume/infrequent'] = produce_1
+
 
     return render(request, template, locals())
 
