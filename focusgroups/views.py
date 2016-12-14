@@ -434,28 +434,28 @@ def perfil_focus_groups_detail(request,id = None):
     for sp in species:
         # print sp[0],sp[1],sp[2],sp[3],sp[4]
         if (sp[1] == 1 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 1 or sp[4] == 3):
-            list_1.append((sp[0],sp[5]))
+            list_1.append(sp[0])
 
         if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
-            list_2.append((sp[0],sp[5]))
+            list_2.append(sp[0])
 
         if (sp[1] == 4) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 1 or sp[4] == 3):
-            list_3.append((sp[0],sp[5]))
+            list_3.append(sp[0])
 
         if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
-            list_4.append((sp[0],sp[5]))
+            list_4.append(sp[0])
 
         if (sp[1] == 0 or sp[1] == None) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
-            list_5.append((sp[0],sp[5]))
+            list_5.append(sp[0])
 
         if (sp[1] == 1 or sp[1] == 3) and (sp[4] == 4):
-            list_6.append((sp[0],sp[5]))
+            list_6.append(sp[0])
 
         if (sp[1] == 4 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 4):
-            list_7.append((sp[0],sp[5]))
+            list_7.append(sp[0])
 
         if (sp[1] == 0 or sp[1] == None) and (sp[3] == 2 or sp[3] == 4) and (sp[4] == 2 or sp[4] == 4):
-            list_8.append((sp[0],sp[5]))
+            list_8.append(sp[0])
 
 
     buy['Few or none buy'] = list_1

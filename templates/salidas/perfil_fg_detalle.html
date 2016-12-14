@@ -144,9 +144,33 @@
                 </tr>
                 {% for k,v in values.items %}
                   <tr>
-                    <td>{{k}}</td>
-                      <td>{% for x in v.keys %}{{x}}{% if not forloop.last %}<hr/>{% endif %}<br>{% endfor %}</td>
-                      <td>{% for y in v.values %}{% for z in y %} {{z.0}}{% if not forloop.last %},{% endif %}{% endfor %}{% if not forloop.last %}<br><hr/>{% endif %}{% endfor %}</td>
+                    <td colspan="1">{{k}}</td>
+                      <td>
+                        {% for x,y in v.items %}
+                        <table class="table">
+                            <tbody>
+                              <tr>
+                                <th>{{x}}</th>
+                              </tr>
+                            </tbody>
+                        </table>
+                        {% endfor %}
+                      </td>
+                      <td>
+                        {% for y in v.values %}
+                        <table class="table">
+                          <tbody>
+                            <tr>
+                              <td>
+                                {% for z in y %}
+                                  {{z}}{% if not forloop.last %},{% endif %}
+                                {% endfor %}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        {% endfor %}
+                      </td>
                   </tr>
                 {% endfor %}
               {% endfor %}
