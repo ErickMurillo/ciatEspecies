@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="menu-dashboard">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+        <div class="salida-title">
+          <h4>Perfil ABD</h4>
+          <ol class="breadcrumb">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/filtros/">Explorar datos</a></li>
+            <li><a href="/especies/perfil-abd/">Perfil ABD</a></li>
+          </ol>
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+        <ul class="nav nav-tabs menu-fs pull-right" role="tablist">
+
+          <li role="presentation" class="active">
+
+            <a href="#filtro" aria-controls="filtro" role="tab" data-toggle="tab">
+              <div class="f-icon"><i class="fa fa-filter fa-2x"></i></div>
+              <h6>filtro</h6>
+            </a>
+          </li>
+          <li role="presentation">
+            <a href="#indicadores" aria-controls="indicadores" role="tab" data-toggle="tab">
+              <div class="f-icon"><i class="fa fa-bar-chart fa-2x"></i></div>
+              <h6>indicadores</h6>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div role="tabpanel">
+  <!-- Tab panes -->
+  <div class="tab-content filtro-indicador">
+    <div role="tabpanel" class="tab-pane active" id="filtro">
+      {% include "salidas/select_filtros.html" %}
+    </div>
+    <div role="tabpanel" class="tab-pane" id="indicadores">
+      {% include "indicadores.html" %}
+    </div>
+  </div>
+</div>
+
+<div class="consulta" id="consulta">
+  <div class="contact_wrap">
+    <div class="container">
+      <div class="row">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-primary">Seleccione la comunidad</button>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="dw-s">
+                    {% for key in comu.keys|slice:"1" %}{{key}}{% endfor %}
+                    <span class="caret"></span>
+                </span>
+            </button>
+            <div class="dropdown-menu">
+                {% for key in comu.keys %}
+                <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
+                    <a class="drop" href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a>
+                </li>
+                {% endfor %}
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+
+    $(".drop").click(function(){
+        $('.drop').parent().removeClass("active");
+        var content = $(this).text();
+        $(".dw-s").text(content+" ");
+        $(".dw-s").append("<span class='caret'></span>")
+    })
+    $(".drop2").click(function(){
+        $('.drop2').parent().removeClass("active");
+        var content = $(this).text();
+        $(".dw-s2").text(content+" ");
+        $(".dw-s2").append("<span class='caret'></span>")
+    })
+
+</script>
+{% endblock %}

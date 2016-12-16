@@ -576,6 +576,187 @@ def perfil_focus_groups_detail(request,id = None):
 
     return render(request, template, locals())
 
+def perfil_abd(request,template = "salidas/perfil_abd.html"):
+    filtro = _queryset_filtrado(request)
+    community = request.session['community']
+
+    comu = {}
+    for obj in community:
+        species = filtro.filter().distinct('fcacode__species').values_list(
+                            'fcacode__species_vernacular_name','fcacode__fca_cultivated','fcacode__fca_sold','fcacode__fca_purchased','fcacode__fca_consumed','fcacode__species__food_group')
+
+        lista = []
+        for x in species:
+            if x[5] != None:
+                lista.append(x[5])
+        lista = list(set(lista))
+
+        food_groups = FoodGroup.objects.filter(id__in = lista).values_list('id','name')
+
+        # #consumo
+        consume = collections.OrderedDict()
+        produce = collections.OrderedDict()
+        produce_1 = collections.OrderedDict()
+        buy,buy_0,buy_1,buy_2,buy_3,buy_4,buy_5,buy_6 = {},{},{},{},{},{},{},{}
+        fgd,fgd_1,fgd_2,fgd_3,fgd_4,fgd_5,fgd_6,fgd_7 = {},{},{},{},{},{},{},{}
+
+        # #venta
+        venta = collections.OrderedDict()
+        venta_produce = collections.OrderedDict()
+        venta_produce_1 = collections.OrderedDict()
+        fgdv,fgdv_1,fgdv_2,fgdv_3,fgdv_4,fgdv_5,fgdv_6,fgdv_7 = {},{},{},{},{},{},{},{}
+        v_buy,v_buy_0,v_buy_1,v_buy_2,v_buy_3,v_buy_4,v_buy_5,v_buy_6 = {},{},{},{},{},{},{},{}
+
+        for x in food_groups:
+        #     # listas consumo
+            list_1,list_2,list_3,list_4,list_5,list_6,list_7,list_8 = [],[],[],[],[],[],[],[]
+        #     # listas venta
+            ventalist_1,ventalist_2,ventalist_3,ventalist_4,ventalist_5,ventalist_6,ventalist_7,ventalist_8 = [],[],[],[],[],[],[],[]
+            for sp in species:
+                # tabla 1 consumo ---------------------------------------------------------------
+                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 1 or sp[4] == 3):
+                    if x[0] == sp[5]:
+                        list_1.append(sp[0])
+
+                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
+                    if x[0] == sp[5]:
+                        list_2.append(sp[0])
+
+                if (sp[1] == 4) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 1 or sp[4] == 3):
+                    if x[0] == sp[5]:
+                        list_3.append(sp[0])
+
+                if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
+                    if x[0] == sp[5]:
+                        list_4.append(sp[0])
+
+                if (sp[1] == 0 or sp[1] == None) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
+                    if x[0] == sp[5]:
+                        list_5.append(sp[0])
+
+                if (sp[1] == 1 or sp[1] == 3) and (sp[4] == 4):
+                    if x[0] == sp[5]:
+                        list_6.append(sp[0])
+
+                if (sp[1] == 4 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 4):
+                    if x[0] == sp[5]:
+                        list_7.append(sp[0])
+
+                if (sp[1] == 0 or sp[1] == None) and (sp[3] == 2 or sp[3] == 4) and (sp[4] == 2 or sp[4] == 4):
+                    if x[0] == sp[5]:
+                        list_8.append(sp[0])
+
+        #         # tabla 2 venta ------------------------------------------------------------------
+                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 2 or sp[3] == 4) and (sp[2] == 1 or sp[2] == 3):
+                    if x[0] == sp[5]:
+                        ventalist_1.append(sp[0])
+
+                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 1 or sp[3] == 3) and (sp[2] == 1 or sp[2] == 3):
+                    if x[0] == sp[5]:
+                        ventalist_2.append(sp[0])
+
+                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 1 or sp[3] == 3) and (sp[2] == 2 or sp[2] == 4):
+                    if x[0] == sp[5]:
+                        ventalist_3.append(sp[0])
+
+                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 2 or sp[3] == 4) and (sp[2] == 2 or sp[2] == 4):
+                    if x[0] == sp[5]:
+                        ventalist_4.append(sp[0])
+
+                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 0 or sp[3] == None) and (sp[2] == 2 or sp[2] == 4):
+                    if x[0] == sp[5]:
+                        ventalist_5.append(sp[0])
+
+                if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 0 or sp[3] == None) and (sp[2] == 2 or sp[2] == 4):
+                    if x[0] == sp[5]:
+                        ventalist_6.append(sp[0])
+
+                if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 2 or sp[3] == 4) and (sp[2] == 2 or sp[2] == 4):
+                    if x[0] == sp[5]:
+                        ventalist_7.append(sp[0])
+
+                if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 1 or sp[3] == 3) and (sp[2] == 2 or sp[2] == 4):
+                    if x[0] == sp[5]:
+                        ventalist_8.append(sp[0])
+
+        #     # tabla 1 consumo
+            if list_1:
+                fgd[x[1]] = list_1
+            if list_2:
+                fgd_1[x[1]] = list_2
+            if list_3:
+                fgd_2[x[1]] = list_3
+            if list_4:
+                fgd_3[x[1]] = list_4
+            if list_5:
+                fgd_4[x[1]] = list_5
+            if list_6:
+                fgd_5[x[1]] = list_6
+            if list_7:
+                fgd_6[x[1]] = list_7
+            if list_8:
+                fgd_7[x[1]] = list_8
+
+            # tabla 2 venta
+            if ventalist_1:
+                fgdv[x[1]] = ventalist_1
+            if ventalist_2:
+                fgdv_1[x[1]] = ventalist_2
+            if ventalist_3:
+                fgdv_2[x[1]] = ventalist_3
+            if ventalist_4:
+                fgdv_3[x[1]] = ventalist_4
+            if ventalist_5:
+                fgdv_4[x[1]] = ventalist_5
+            if ventalist_6:
+                fgdv_5[x[1]] = ventalist_6
+            if ventalist_7:
+                fgdv_6[x[1]] = ventalist_7
+            if ventalist_8:
+                fgdv_7[x[1]] = ventalist_8
+
+        # #consumo
+        buy['Few or none buy'] = fgd
+        buy['Most buy'] = fgd_1
+        buy_1['Few buy'] = fgd_2
+        buy_2['Most buy'] = fgd_3
+        buy_3['Most buy'] = fgd_4
+        buy_4['Few or none buy'] = fgd_5
+        buy_5['Few buy'] = fgd_6
+        buy_6['Few buy'] = fgd_7
+
+        produce['Most Produce or widely available in community'] = buy
+        produce['Few Produce or available in small areas in community'] = buy_1
+        produce['Few Produce or available in small and large areas in community'] = buy_2
+        produce['Not Produced in Community'] = buy_3
+        produce_1['Most Produce or widely available in community'] = buy_4
+        produce_1['Few Produce or available in small areas in community'] = buy_5
+        produce_1['Not Produced in Community'] = buy_6
+
+        consume['Most consume/frequent'] = produce
+        consume['Few consume/infrequent'] = produce_1
+
+        #venta
+        v_buy['Few or none buy'] = fgdv
+        v_buy['Most buy'] = fgdv_1
+        v_buy_0['Most buy'] = fgdv_2
+        v_buy_0['Few buy'] = fgdv_3
+        v_buy_0['None buy'] = fgdv_4
+        v_buy_1['None buy'] = fgdv_5
+        v_buy_1['Few buy'] = fgdv_6
+        v_buy_1['Many buy'] = fgdv_7
+
+        venta_produce['Most Produce'] = v_buy
+        venta_produce_1['Most Produce'] = v_buy_0
+        venta_produce_1['Few produce'] = v_buy_1
+
+        venta['Sold by Most'] = venta_produce
+        venta['Sold by few'] = venta_produce_1
+
+        comu[obj] = consume
+
+    return render(request, template, locals())
+
 def crear_rangos(request, lista, start=0, stop=0, step=0):
     dict_algo = OrderedDict()
     rangos = []
