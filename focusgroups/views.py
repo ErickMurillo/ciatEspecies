@@ -754,8 +754,7 @@ def perfil_abd(request,template = "salidas/perfil_abd.html"):
         venta['Sold by Most'] = venta_produce
         venta['Sold by few'] = venta_produce_1
 
-        comu[obj] = consume
-    print asd
+        comu[obj] = (consume,venta)
 
     return render(request, template, locals())
 
