@@ -69,6 +69,96 @@
                 {% endfor %}
             </div>
         </div>
+
+        <div class="tab-content">
+					{% for key,values in comu.items %}
+					<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
+            <table class="table table-bordered table-hover">
+              <caption>ABD profile of species and products consumed by the focus group {{forloop.counter}}</caption>
+              <thead>
+                <tr>
+                  <th>Consume</th>
+                  <th>Produce</th>
+                  <th>Compra</th>
+                  <th>Especies</th>
+                  <!--{% for obj in food_groups %}<th>{{obj.1}}</th>{% endfor %}-->
+                </tr>
+              </thead>
+              <tbody>
+                {% for kkey,val in values.items %}
+                  <tr>
+                    <td rowspan="{% if forloop.counter == 1 %}7{% else %}4{% endif %}">{{kkey}}</td>
+                  </tr>
+                  {% for k,v in val.items %}
+                    <tr>
+                      {% if kkey == 'Most consume/frequent' and k == 'Most Produce or widely available in community' %}
+                      <td rowspan="3" width="20%">{{k}}</td>
+                      {% for x in v.keys %}
+                        <tr>
+                          <td width="10%">{{x}}</td>
+                          <td>
+                            {% for z,y in v.items %}
+                            {% if z == x %}
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  {% for val in y.keys %}
+                                    <th>{{val}}</th>
+                                  {% endfor %}
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  {% for val in y.values %}
+                                    <td>{% for va in val %} {{va}},{% endfor %}</td>
+                                  {% endfor %}
+                                </tr>
+                              </tbody>
+                            </table>
+                            {% endif %}
+                            {% endfor %}
+                          </td>
+                        </tr>
+
+                      {% endfor %}
+
+
+                      {% else %}
+                      <td colspan="1" width="20%">{{k}}</td>
+                      <td width="10%">
+                        {% for x,y in v.items %}
+                          {{x}}
+                        {% endfor %}
+                      </td>
+                      <td>
+                        {% for y in v.values %}
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              {% for val in y.keys %}
+                                <th>{{val}}</th>
+                              {% endfor %}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              {% for val in y.values %}
+                                <td>{% for va in val %} {{va}},{% endfor %}</td>
+                              {% endfor %}
+                            </tr>
+                          </tbody>
+                        </table>
+                        {% endfor %}
+                      </td>
+                      {% endif %}
+                    </tr>
+                  {% endfor %}
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% endfor %}
+      </div>
       </div>
     </div>
   </div>

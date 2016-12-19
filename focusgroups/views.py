@@ -581,10 +581,11 @@ def perfil_abd(request,template = "salidas/perfil_abd.html"):
     community = request.session['community']
 
     comu = {}
+    asd = {}
     for obj in community:
-        species = filtro.filter().distinct('fcacode__species').values_list(
+        species = filtro.filter(community = obj).distinct('fcacode__species').values_list(
                             'fcacode__species_vernacular_name','fcacode__fca_cultivated','fcacode__fca_sold','fcacode__fca_purchased','fcacode__fca_consumed','fcacode__species__food_group')
-
+        asd[obj] = species
         lista = []
         for x in species:
             if x[5] != None:
@@ -754,6 +755,7 @@ def perfil_abd(request,template = "salidas/perfil_abd.html"):
         venta['Sold by few'] = venta_produce_1
 
         comu[obj] = consume
+    print asd
 
     return render(request, template, locals())
 
