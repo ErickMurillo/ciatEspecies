@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="/static/css/bootstrap-multiselect.css" type="text/css"/>
@@ -28,14 +29,14 @@
 				<div class="col-md-3 col-sm-6">
 					<a href="/especies/grupo-nutricional-comunidad/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>especies por grupo nutricional por comunidad</h2>
+						<h2>{% trans "Especies por Grupo nutricional por Comunidad" %}</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-6">
 					<a href="/especies/grupo-nutricional-pais/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>especies por grupo nutricional por pais</h2>
+						<h2>Especies por Grupo nutricional por País</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
@@ -43,28 +44,28 @@
 
 					<a href="/especies/numero-especies/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>especies total</h2>
+						<h2>Total de Especies</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-6">
 					<a href="/especies/numero-especies-comunidad/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>números promedios de especies por comunidad</h2>
+						<h2>Números promedios de Especies por Comunidad</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-6">
 					<a href="/especies/perfil-especies/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>Perfil especies</h2>
+						<h2>Perfil de Especies</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-6">
 					<a href="/especies/perfil-focus-groups/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>Perfil focus groups</h2>
+						<h2>Perfil de Grupos Focales</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
@@ -302,13 +303,13 @@ $(document).ready(function() {
 	$('#id_country').multiselect({
 		buttonWidth: '100%',
 		includeSelectAllOption: true,
-		selectAllText: 'Seleccionar todos',
+		selectAllText: '{% trans "Seleccionar todos" %}',
 		buttonText: function(options, select) {
 			if (options.length === 0) {
-				return 'Sin selección ...';
+				return '{% trans "Sin selección ..." %}';
 			}
 			else if (options.length > 3) {
-				return 'Varias opciones seleccionadas!';
+				return '{% trans "Varias opciones seleccionadas!" %}';
 			}
 			else {
 				var labels = [];
@@ -328,13 +329,13 @@ $(document).ready(function() {
 	$('#id_province').multiselect({
 		buttonWidth: '100%',
 		includeSelectAllOption: true,
-		selectAllText: 'Seleccionar todos',
+		selectAllText: '{% trans "Seleccionar todos" %}',
 		buttonText: function(options, select) {
 			if (options.length === 0) {
-				return 'Sin selección ...';
+				return '{% trans "Sin selección ..." %}';
 			}
 			else if (options.length > 3) {
-				return 'Varias opciones seleccionadas!';
+				return '{% trans "Varias opciones seleccionadas!" %}';
 			}
 			else {
 				var labels = [];
@@ -354,13 +355,13 @@ $(document).ready(function() {
 	$('#id_county').multiselect({
 		buttonWidth: '100%',
 		includeSelectAllOption: true,
-		selectAllText: 'Seleccionar todos',
+		selectAllText: '{% trans "Seleccionar todos" %}',
 		buttonText: function(options, select) {
 			if (options.length === 0) {
-				return 'Sin selección ...';
+				return '{% trans "Sin selección ..." %}';
 			}
 			else if (options.length > 3) {
-				return 'Varias opciones seleccionadas!';
+				return '{% trans "Varias opciones seleccionadas!" %}';
 			}
 			else {
 				var labels = [];
@@ -380,13 +381,13 @@ $(document).ready(function() {
 	$('#id_community').multiselect({
 		buttonWidth: '100%',
 		includeSelectAllOption: true,
-		selectAllText: 'Seleccionar todos',
+		selectAllText: '{% trans "Seleccionar todos" %}',
 		buttonText: function(options, select) {
 			if (options.length === 0) {
-				return 'Sin selección ...';
+				return '{% trans "Sin selección ..." %}';
 			}
 			else if (options.length > 3) {
-				return 'Varias opciones seleccionadas!';
+				return '{% trans "Varias opciones seleccionadas!" %}';
 			}
 			else {
 				var labels = [];

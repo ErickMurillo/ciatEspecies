@@ -1,3 +1,5 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,7 @@
 <!-- Mobile Specific -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 <link rel="shortcut icon" href="images/favicon.png">
-<title>Sistema ABD</title>
+<title>{% trans "Sistema ABD" %}</title>
 <!-- Bootstrap core CSS -->
 <link href="/static/css/bootstrap.min.css" rel="stylesheet">
 <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -36,13 +38,13 @@
 
 		<div class="dropdown">
 			<div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				Idioma: <span class="ln"></span>
+				{% trans "Idioma" %}: <span class="ln"></span>
 				<span class="caret"></span>
 			</div>
 
 			<ul class="dropdown-menu lenguage">
-				<li><a class="idioma" href="#"><img src="/static/images/eeuu.jpg" alt="ingles"> Ingles</a></li>
-				<li class="active"><a class="idioma" href="#"><img src="/static/images/spanish.jpg" alt="espanol"> Español</a></li>
+				<li><a class="idioma" href="/lang/en/"><img src="/static/images/eeuu.jpg" alt="ingles"> {% trans "Ingles" %}</a></li>
+				<li class="activo"><a class="idioma" href="/lang/es/"><img src="/static/images/spanish.jpg" alt="espanol"> {% trans "Español" %}</a></li>
 
 			</ul>
 		</div>
@@ -55,12 +57,12 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="/">INICIO</a></li>
-					<li><a href="/filtros/">EXPLORAR DATOS</a></li>
-					<li><a href="/metodologia/">METODOLOGÍA</a></li>
-					<li><a href="/publicaciones">PUBLICACIONES</a></li>
-					<li><a href="/afiliase">AFILIARSE</a></li>
-					<li><a href="/admin">INICIAR SESIÓN</a></li>
+					<li><a href="/">{% trans "INICIO" %}</a></li>
+					<li><a href="/filtros/">{% trans "EXPLORAR DATOS" %}</a></li>
+					<li><a href="/metodologia/">{% trans "METODOLOGÍA" %}</a></li>
+					<li><a href="/publicaciones">{% trans "PUBLICACIONES" %}</a></li>
+					<li><a href="/afiliase">{% trans "AFILIARSE" %}</a></li>
+					<li><a href="/admin">{% trans "INICIAR SESIÓN" %}</a></li>
 
 				</ul>
 			</div>
@@ -82,7 +84,7 @@
 		<div class="qborder"></div>
 	  </div>
 	</div>
-	<p>© 2016 Bioversity Internacional, Todos los derechos reservados. Desarrollado por <span style="color:green;">SIMAS</span> El ingreso y actualización de la información es responsabilidad de Bioversity, así como el contenido de la misma.</p>
+	<p>© 2016 Bioversity Internacional, {% blocktrans %}Todos los derechos reservados. Desarrollado por{% endblocktrans %} <span style="color:green;">SIMAS</span>{% blocktrans %} El ingreso y actualización de la información es responsabilidad de Bioversity, así como el contenido de la misma.{% endblocktrans %}</p>
 
   </div>
 </div>

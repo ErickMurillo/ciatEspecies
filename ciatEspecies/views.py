@@ -1,11 +1,27 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.conf import settings
 import json as simplejson
 from focusgroups.models import *
 from informacion.models import *
 from django.views.generic import DetailView, ListView
 
 # Create your views here.
+def set_lang(request, lang_code):
+    if not lang_code in ['en', 'es']:
+        raise Http404
+
+    next = request.GET.get('next', '/')
+    if not next:
+        next = request.META.get('HTTP_REFERER', '/')
+    response = HttpResponseRedirect(next)
+
+    if hasattr(request, 'session'):
+        request.session['django_language'] = lang_code
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
+
+    return response
+
 def index(request,template="index.html"):
     paises = FocusGroup.objects.all().distinct('country__name').count()
     comunidades = FocusGroup.objects.all().distinct('community__name').count()

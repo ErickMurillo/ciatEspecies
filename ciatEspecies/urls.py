@@ -50,6 +50,8 @@ urlpatterns = [
     url(r'^lista-publicacion/$', PublicacionListView.as_view(), name='publicaciones-detalle'),
     url(r'^lista-cientificos/$', CientificosListView.as_view(), name='cientificos-detalle'),
 
+    url(r'^lang/(?P<lang_code>\w+)/$', set_lang, name='set_lang'),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

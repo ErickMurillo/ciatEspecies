@@ -1,19 +1,18 @@
 {% extends "base.html" %}
 {% load humanize %}
+{% load i18n %}
 
 {% block content %}
-
-
 <div class="menu-dashboard">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
                 <div class="salida-title">
-                    <h4>Especies promedio por comunidad</h4>
+                    <h4>{% trans "Especies por Comunidad" %}</h4>
                     <ol class="breadcrumb">
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="/filtros/">Explorar datos</a></li>
-                        <li class="active">Especies promedio por comunidad</li>
+                      <li><a href="/">{% trans "Inicio" %}</a></li>
+                      <li><a href="/filtros/">{% trans "Explorar datos" %}</a></li>
+                        <li class="active">{% trans "Especies por Comunidad" %}</li>
                     </ol>
                 </div>
 
@@ -25,13 +24,13 @@
 
                         <a href="#filtro" aria-controls="filtro" role="tab" data-toggle="tab">
                         <div class="f-icon"><i class="fa fa-filter fa-2x"></i></div>
-                        <h6>filtro</h6>
+                        <h6>{% trans "filtro" %}</h6>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#indicadores" aria-controls="indicadores" role="tab" data-toggle="tab">
                             <div class="f-icon"><i class="fa fa-bar-chart fa-2x"></i></div>
-                            <h6>indicadores</h6>
+                            <h6>{% trans "indicadores" %}</h6>
                         </a>
                     </li>
                 </ul>
@@ -59,10 +58,10 @@
             <div>
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#cultiva" aria-controls="cultiva" role="tab" data-toggle="tab">Cultivado</a></li>
-            <li role="presentation"><a href="#vendido" aria-controls="vendido" role="tab" data-toggle="tab">Vendido</a></li>
-            <li role="presentation"><a href="#comprado" aria-controls="comprado" role="tab" data-toggle="tab">Comprado</a></li>
-            <li role="presentation"><a href="#consumido" aria-controls="consumido" role="tab" data-toggle="tab">Consumido</a></li>
+            <li role="presentation" class="active"><a href="#cultiva" aria-controls="cultiva" role="tab" data-toggle="tab">{% trans "Cultivado" %}</a></li>
+            <li role="presentation"><a href="#vendido" aria-controls="vendido" role="tab" data-toggle="tab">{% trans "Vendido" %}</a></li>
+            <li role="presentation"><a href="#comprado" aria-controls="comprado" role="tab" data-toggle="tab">{% trans "Comprado" %}</a></li>
+            <li role="presentation"><a href="#consumido" aria-controls="consumido" role="tab" data-toggle="tab">{% trans "Consumido" %}</a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -71,8 +70,8 @@
               <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>LLuvia promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Lluvia promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -85,8 +84,8 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Temperatura promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Temperatura promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -99,8 +98,8 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Precipitación promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Precipitación promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -113,8 +112,8 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Altitud promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Altitud promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -129,8 +128,8 @@
               <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>LLuvia promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Lluvia promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -143,8 +142,8 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Temperatura promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Temperatura promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -157,8 +156,8 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Precipitación promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Precipitación promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -171,8 +170,8 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Altitud promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Altitud promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -187,8 +186,8 @@
               <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>LLuvia promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Lluvia promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -201,8 +200,8 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Temperatura promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Temperatura promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -215,8 +214,8 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Precipitación promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Precipitación promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -229,8 +228,8 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Altitud promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Altitud promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -245,8 +244,8 @@
               <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>LLuvia promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Lluvia promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -259,8 +258,8 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Temperatura promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Temperatura promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -273,8 +272,8 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Precipitación promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Precipitación promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -287,8 +286,8 @@
             <div class="panel panel-default panel-salidas">
                 <div class="panel-heading">
                     <div class="panel-title-box">
-                        <h3>Altitud promedio</h3>
-                        <span>Gráfico promedios</span>
+                        <h3>{% trans "Altitud promedio" %}</h3>
+                        <span>{% trans "Gráfico de promedios" %}</span>
 
                     </div>
                 </div>
@@ -334,12 +333,12 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'LLuvia vs Especies cultivadas'
+            text: '{% trans "Lluvia vs Especies cultivadas" %}'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'LLuvia'
+                text: '{% trans "Lluvia" %}'
             },
             startOnTick: true,
             endOnTick: true,
@@ -347,7 +346,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Especies'
+                text: '{% trans "Especies" %}'
             }
         },
         plotOptions: {
@@ -390,12 +389,12 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'LLuvia vs Especies vendidas'
+            text: '{% trans "Lluvia vs Especies vendidas" %}'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'LLuvia'
+                text: '{% trans "Lluvia" %}'
             },
             startOnTick: true,
             endOnTick: true,
@@ -403,7 +402,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Especies'
+                text: '{% trans "Especies" %}'
             }
         },
         plotOptions: {
@@ -446,12 +445,12 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'LLuvia vs Especies compradas'
+            text: '{% trans "Lluvia vs Especies compradas" %}'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'LLuvia'
+                text: '{% trans "Lluvia" %}'
             },
             startOnTick: true,
             endOnTick: true,
@@ -459,7 +458,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Especies'
+                text: '{% trans "Especies" %}'
             }
         },
         plotOptions: {
@@ -502,12 +501,12 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'LLuvia vs Especies consumidas'
+            text: '{% trans "Lluvia vs Especies consumidas" %}'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'LLuvia'
+                text: '{% trans "Lluvia" %}'
             },
             startOnTick: true,
             endOnTick: true,
@@ -515,7 +514,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Especies'
+                text: '{% trans "Especies" %}'
             }
         },
         plotOptions: {
@@ -558,14 +557,14 @@ $(function () {
 					 type: 'column'
 			 },
 			 title: {
-					 text: 'LLuvia promedio'
+					 text: '{% trans "Lluvia promedio" %}'
 			 },
 			 xAxis: {
 					 type: 'category'
 			 },
 			 yAxis: {
 					 title: {
-							 text: 'Promedio'
+							 text: '{% trans "Promedio" %}'
 					 }
 
 			 },
@@ -588,7 +587,7 @@ $(function () {
 			 },
 
 			 series: [{
-					 name: 'Promedio',
+					 name: '{% trans "Promedio" %}',
 					 colorByPoint: true,
 					 data: [
 						 {% for k,v in rainfall.items %}
@@ -608,12 +607,12 @@ $(function () {
            zoomType: 'xy'
        },
        title: {
-           text: 'Temperatura vs Especies cultivadas'
+           text: '{% trans "Temperatura vs Especies cultivadas" %}'
        },
        xAxis: {
            title: {
                enabled: true,
-               text: 'Temperatura'
+               text: '{% trans "Temperatura" %}'
            },
            startOnTick: true,
            endOnTick: true,
@@ -621,7 +620,7 @@ $(function () {
        },
        yAxis: {
            title: {
-               text: 'Especies'
+               text: '{% trans "Especies" %}'
            }
        },
        plotOptions: {
@@ -664,12 +663,12 @@ $(function () {
            zoomType: 'xy'
        },
        title: {
-           text: 'Temperatura vs Especies vendidas'
+           text: '{% trans "Temperatura vs Especies vendidas" %}'
        },
        xAxis: {
            title: {
                enabled: true,
-               text: 'Temperatura'
+               text: '{% trans "Temperatura" %}'
            },
            startOnTick: true,
            endOnTick: true,
@@ -677,7 +676,7 @@ $(function () {
        },
        yAxis: {
            title: {
-               text: 'Especies'
+               text: '{% trans "Especies" %}'
            }
        },
        plotOptions: {
@@ -720,12 +719,12 @@ $(function () {
            zoomType: 'xy'
        },
        title: {
-           text: 'Temperatura vs Especies compradas'
+           text: '{% trans "Temperatura vs Especies compradas" %}'
        },
        xAxis: {
            title: {
                enabled: true,
-               text: 'Temperatura'
+               text: '{% trans "Temperatura" %}'
            },
            startOnTick: true,
            endOnTick: true,
@@ -733,7 +732,7 @@ $(function () {
        },
        yAxis: {
            title: {
-               text: 'Especies'
+               text: '{% trans "Especies" %}'
            }
        },
        plotOptions: {
@@ -776,12 +775,12 @@ $(function () {
            zoomType: 'xy'
        },
        title: {
-           text: 'Temperatura vs Especies consumidas'
+           text: '{% trans "Temperatura vs Especies consumidas" %}'
        },
        xAxis: {
            title: {
                enabled: true,
-               text: 'Temperatura'
+               text: '{% trans "Temperatura" %}'
            },
            startOnTick: true,
            endOnTick: true,
@@ -789,7 +788,7 @@ $(function () {
        },
        yAxis: {
            title: {
-               text: 'Especies'
+               text: '{% trans "Especies" %}'
            }
        },
        plotOptions: {
@@ -833,12 +832,12 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'Precipitación vs Especies cultivadas'
+            text: '{% trans "Precipitación vs Especies cultivadas" %}'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'Precipitación'
+                text: '{% trans "Precipitación" %}'
             },
             startOnTick: true,
             endOnTick: true,
@@ -846,7 +845,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Especies'
+                text: '{% trans "Especies" %}'
             }
         },
         plotOptions: {
@@ -889,12 +888,12 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'Precipitación vs Especies vendidas'
+            text: '{% trans "Precipitación vs Especies vendidas" %}'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'Precipitación'
+                text: '{% trans "Precipitación" %}'
             },
             startOnTick: true,
             endOnTick: true,
@@ -902,7 +901,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Especies'
+                text: '{% trans "Especies" %}'
             }
         },
         plotOptions: {
@@ -945,12 +944,12 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'Precipitación vs Especies compradas'
+            text: '{% trans "Precipitación vs Especies compradas" %}'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'Precipitación'
+                text: '{% trans "Precipitación" %}'
             },
             startOnTick: true,
             endOnTick: true,
@@ -958,7 +957,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Especies'
+                text: '{% trans "Especies" %}'
             }
         },
         plotOptions: {
@@ -1001,12 +1000,12 @@ $(function () {
             zoomType: 'xy'
         },
         title: {
-            text: 'Precipitación vs Especies consumidas'
+            text: '{% trans "Precipitación vs Especies consumidas" %}'
         },
         xAxis: {
             title: {
                 enabled: true,
-                text: 'Precipitación'
+                text: '{% trans "Precipitación" %}'
             },
             startOnTick: true,
             endOnTick: true,
@@ -1014,7 +1013,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Especies'
+                text: '{% trans "Especies" %}'
             }
         },
         plotOptions: {
@@ -1057,12 +1056,12 @@ $(function () {
              zoomType: 'xy'
          },
          title: {
-             text: 'Altitud vs Especies cultivadas'
+             text: '{% trans "Altitud vs Especies cultivadas" %}'
          },
          xAxis: {
              title: {
                  enabled: true,
-                 text: 'Altitud'
+                 text: '{% trans "Altitud" %}'
              },
              startOnTick: true,
              endOnTick: true,
@@ -1070,7 +1069,7 @@ $(function () {
          },
          yAxis: {
              title: {
-                 text: 'Especies'
+                 text: '{% trans "Especies" %}'
              }
          },
          plotOptions: {
@@ -1113,12 +1112,12 @@ $(function () {
              zoomType: 'xy'
          },
          title: {
-             text: 'Altitud vs Especies vendidas'
+             text: '{% trans "Altitud vs Especies vendidas" %}'
          },
          xAxis: {
              title: {
                  enabled: true,
-                 text: 'Altitud'
+                 text: '{% trans "Altitud" %}'
              },
              startOnTick: true,
              endOnTick: true,
@@ -1126,7 +1125,7 @@ $(function () {
          },
          yAxis: {
              title: {
-                 text: 'Especies'
+                 text: '{% trans "Especies" %}'
              }
          },
          plotOptions: {
@@ -1169,12 +1168,12 @@ $(function () {
              zoomType: 'xy'
          },
          title: {
-             text: 'Altitud vs Especies compradas'
+             text: '{% trans "Altitud vs Especies compradas" %}'
          },
          xAxis: {
              title: {
                  enabled: true,
-                 text: 'Altitud'
+                 text: '{% trans "Altitud" %}'
              },
              startOnTick: true,
              endOnTick: true,
@@ -1182,7 +1181,7 @@ $(function () {
          },
          yAxis: {
              title: {
-                 text: 'Especies'
+                 text: '{% trans "Especies" %}'
              }
          },
          plotOptions: {
@@ -1225,12 +1224,12 @@ $(function () {
              zoomType: 'xy'
          },
          title: {
-             text: 'Altitud vs Especies consumidas'
+             text: '{% trans "Altitud vs Especies consumidas" %}'
          },
          xAxis: {
              title: {
                  enabled: true,
-                 text: 'Altitud'
+                 text: '{% trans "Altitud" %}'
              },
              startOnTick: true,
              endOnTick: true,
@@ -1238,7 +1237,7 @@ $(function () {
          },
          yAxis: {
              title: {
-                 text: 'Especies'
+                 text: '{% trans "Especies" %}'
              }
          },
          plotOptions: {

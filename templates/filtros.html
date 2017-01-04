@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block extra_css %}
   <link rel="stylesheet" href="/static/css/bootstrap-multiselect.css" type="text/css"/>
@@ -15,8 +16,8 @@
 <div class="container">
 	<!-- START BREADCRUMB -->
 		<ul class="breadcrumb">
-			<li><a href="/">Inicio</a></li>
-			<li><a href="/filtro/">Filtro</a></li>
+			<li><a href="/">{% trans "Inicio" %}</a></li>
+			<li><a href="/filtro/">{% trans "Filtro" %}</a></li>
 			<li class="active">Dashboard</li>
 		</ul>
 	<!-- END BREADCRUMB -->

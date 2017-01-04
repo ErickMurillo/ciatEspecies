@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% load thumbnail %}
+{% load i18n %}
 
 {% block content %}
 <!-- Header
 	================================================== -->
 <div id="home">
 	<div class="banner" style="background-image:url(/static/images/1.jpg);">
-		<h2 class="sltext">Red de datos globales<br>
+		<h2 class="sltext">{% trans "Red de datos globales" %}<br>
 		ABD</h2>
 	</div>
 
@@ -20,20 +21,18 @@
 				<div class="col-md-12">
 					<div class="choos_us">
 						<div class="head_section">
-							<h2>OBJETIVO</h2>
+							<h2>{% trans "OBJETIVO" %}</h2>
 						</div>
 						<div class="whchoise">
 							<p>
-							El objetivo general es comprender los patrones y los motores del uso de ABD e identificar oportunidades para mejorar el ingreso y la nutrición de los hogares a través del uso de la agrobiodiversidad. El método de cuatro células se desarrolló para la evaluación rápida del uso total de ABD en la comunidad y se ha aplicado en varias acciones de Humidtropics sitio. Estos datos se utilizarán en combinación con otros datos de diagnóstico de hogares y agroecosistemas para identificar intervenciones clave para la mejora del sistema en diferentes tipologías de fincas. Un paso esencial es transformar los conjuntos de datos ABD en un formato de interpretación y discusión con los hogares agrícolas y las organizaciones locales que es conducente a la identificación de intervenciones clave de ABD. El objetivo específico es desarrollar métodos para analizar y diseñar para presentar datos ABD complejos. Aquí se usan datos del territorio cafetero del sitio de acción del Norte de Nicaragua para ilustrar los métodos potenciales para analizar y presentar los perfiles ABD de la comunidad.
+							{% blocktrans %}El objetivo general es comprender los patrones y los motores del uso de ABD e identificar oportunidades para mejorar el ingreso y la nutrición de los hogares a través del uso de la agrobiodiversidad. El método de cuatro células se desarrolló para la evaluación rápida del uso total de ABD en la comunidad y se ha aplicado en varias acciones de Humidtropics sitio. Estos datos se utilizarán en combinación con otros datos de diagnóstico de hogares y agroecosistemas para identificar intervenciones clave para la mejora del sistema en diferentes tipologías de fincas. Un paso esencial es transformar los conjuntos de datos ABD en un formato de interpretación y discusión con los hogares agrícolas y las organizaciones locales que es conducente a la identificación de intervenciones clave de ABD. El objetivo específico es desarrollar métodos para analizar y diseñar para presentar datos ABD complejos. Aquí se usan datos del territorio cafetero del sitio de acción del Norte de Nicaragua para ilustrar los métodos potenciales para analizar y presentar los perfiles ABD de la comunidad{% endblocktrans %}.
 							</p>
-
-
 						</div>
 					</div>
 				</div>
 
 			</div>
-			<a href="/filtros/" class="btndatos pull-right">Explorar datos</a>
+			<a href="/filtros/" class="btndatos pull-right">{% trans "Explorar datos" %}</a>
 		</div>
 	</div>
 <!--Datos de especies
@@ -44,7 +43,7 @@
 
 				<div class="col-md-8">
 					<div class="choos_us">
-						<h3 class="about_title">Mapa de localidades</h3>
+						<h3 class="about_title">{% trans "Mapa de localidades" %}</h3>
 						<div class="whchoise">
 							<div id="map-canvas" style="width:100%; height:400px"></div>
 						</div>
@@ -52,7 +51,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="choos_us">
-			          	<h3 class="about_title">Datos Generales</h3>
+			          	<h3 class="about_title">{% trans "Datos Generales" %}</h3>
 			          	<div class="whchoise">
 							<ul class="timeline">
 				              <li>
@@ -158,7 +157,7 @@
       <p>
         {{ page.content|safe|truncatewords:100 }}
       </p>
-      <a href="/metodologia/" class="plink">Leer más...</a>
+      <a href="/metodologia/" class="plink">{% trans "Leer más..." %}</a>
       {% endif %}
     {% endfor %}
   </div>
@@ -169,7 +168,7 @@
 <div class="blog" id="blog">
   <div class="container">
 	<div class="head_section">
-	  <h2>PROYECTOS Y PUBLICACIONES</h2>
+	  <h2>{% trans "PROYECTOS Y PUBLICACIONES" %}</h2>
 	  <div class="blog-carousel-control"> <a class="left fa fa-angle-left" href="#blogCarousel" data-slide="prev"></a> <a class="right fa fa-angle-right" href="#blogCarousel" data-slide="next"></a> </div>
 	</div>
 
@@ -237,7 +236,7 @@
 		</div>
 	  </div>
 	</div>
-	<a href="/lista-publicacion/" class="btndatos pull-right">Ver publicaciones</a>
+	<a href="/lista-publicacion/" class="btndatos pull-right">{% trans "Ver publicaciones" %}</a>
   </div>
 </div>
 <!-- / blog Close -->
@@ -248,11 +247,11 @@
 	================================================== -->
 <div class="parallax parallax_d" id="afiliase">
   <div class="container">
-	<h2>AFILIARSE</h2>
+	<h2>{% trans "AFILIARSE" %}</h2>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto quos, modi, mollitia nemo earum architecto placeat autem ea asperiores, nisi saepe nam molestiae ipsam voluptate qui perspiciatis quisquam libero excepturi!. Eligendi minus, nostrum recusandae ea consequuntur quo. Consequuntur quisquam, quaerat distinctio ratione. Optio excepturi, amet dolor nobis non est impedit sapiente sequi.</p>
 
 	<div class="clearfix"></div>
-	<a href="/afiliarse" class="plink">AFILIARSE AHORA</a> </div>
+	<a href="/afiliarse" class="plink">{% trans "AFILIARSE AHORA" %}</a> </div>
 </div>
 <!-- / Parallax Close Close -->
 <div class="clearfix"></div>
@@ -322,11 +321,11 @@
 	<div class="ourteam" id="team">
 		<div class="container">
 			<div class="head_section">
-				<h2>CONTRIBUYENTES</h2>
+				<h2>{% trans "CONTRIBUYENTES" %}</h2>
 			</div>
 
 			<div class="title-link">
-				<a href="/lista-cientificos"><h4 style="text-align:center;">Científicos Participantes</h4></a>
+				<a href="/lista-cientificos"><h4 style="text-align:center;">{% trans "Científicos Participantes" %}</h4></a>
 
 			</div>
 			<div role="tabpanel">
@@ -420,7 +419,7 @@
 
 <div class="clearfix"></div>
 			<div>
-				<h4 style="text-align:center;">Organizaciones</h4>
+				<h4 style="text-align:center;">{% trans "Organizaciones" %}</h4>
 
 			</div>
 			<div role="tabpanel">
@@ -446,9 +445,9 @@
 								<div id="team-carousel2" class="carousel slide" data-ride="carousel">
 									<div class="carousel-inner">
 										<div class="item active">
-											
+
 												<div class="row">
-												{% for obj in value|slice:"0:4" %}  
+												{% for obj in value|slice:"0:4" %}
 												  <div class="col-sm-3">
 													<a href="{% url 'org-detalle' obj.slug %}">
 													  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -465,10 +464,10 @@
 													  </div>
 													</a>
 												  </div>
-												{% endfor %}  
+												{% endfor %}
 												</div>
 												</div>
-											
+
 										</div>
 									</div>
 								</div>
