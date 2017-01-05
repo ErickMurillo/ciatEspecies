@@ -1,17 +1,17 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
-
 <div class="menu-dashboard">
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
                 <div class="salida-title">
-                    <h4>Número de especies</h4>
+                    <h4>{% trans "Total de Especies" %}</h4>
                     <ol class="breadcrumb">
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="/filtros/">Explorar datos</a></li>
-                        <li class="active">Número de especies</li>
+                        <li><a href="/">{% trans "Inicio" %}</a></li>
+                        <li><a href="/filtros/">{% trans "Explorar datos" %}</a></li>
+                        <li class="active">{% trans "Total de Especies" %}</li>
                     </ol>
                 </div>
 
@@ -23,13 +23,13 @@
 
                         <a href="#filtro" aria-controls="filtro" role="tab" data-toggle="tab">
                         <div class="f-icon"><i class="fa fa-filter fa-2x"></i></div>
-                        <h6>filtro</h6>
+                        <h6>{% trans "filtro" %}</h6>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#indicadores" aria-controls="indicadores" role="tab" data-toggle="tab">
                             <div class="f-icon"><i class="fa fa-bar-chart fa-2x"></i></div>
-                            <h6>indicadores</h6>
+                            <h6>{% trans "indicadores" %}</h6>
                         </a>
                     </li>
                 </ul>
@@ -56,7 +56,7 @@
 
 			<div class="row">
                 <div class="btn-group pull-right">
-                    <button type="button" class="btn btn-primary">Seleccione la comunidad</button>
+                    <button type="button" class="btn btn-primary">{% trans "Seleccione la comunidad" %}</button>
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="dw-s">
                             {% for key in comu.keys|slice:"1" %}{{key}}{% endfor %}
@@ -83,8 +83,8 @@
                             <div class="panel panel-default panel-salidas">
                                 <div class="panel-heading">
                                     <div class="panel-title-box">
-                                        <h3>Número de especies por comunidad</h3>
-                                        <span>Tabla de valores</span>
+                                        <h3>{% trans "Número de especies por comunidad" %}</h3>
+                                        <span>{% trans "Tabla de valores" %}</span>
 
                                     </div>
                                     <div class="btn-group pull-right">
@@ -102,19 +102,19 @@
 											<thead>
 												<tr>
 													<th></th>
-													<th colspan="4">Numero de especies</th>
+													<th colspan="4">{% trans "Número de especies" %}</th>
 												</tr>
 												<tr>
 													<th></th>
-													<th>Media</th>
-													<th>Hombres</th>
-													<th>Mujeres</th>
+													<th>{% trans "Media" %}</th>
+													<th>{% trans "Hombres" %}</th>
+													<th>{% trans "Mujeres" %}</th>
 												</tr>
 											</thead>
 											<tbody>
 												{% for v in values.0 %}
 												<tr>
-													<td>Total</td>
+													<td>{% trans "Total" %}</td>
 													<td>{{v.0}}</td>
 													<td>{{v.1}}</td>
 													<td>{{v.2}}</td>
@@ -122,7 +122,7 @@
 												{% endfor %}
 												{% for v in values.1 %}
 												<tr>
-													<td>Produced</td>
+													<td>{% trans "Producido" %}</td>
 													<td>{{v.0}}</td>
 													<td>{{v.1}}</td>
 													<td>{{v.2}}</td>
@@ -130,7 +130,7 @@
 												{% endfor %}
 												{% for v in values.2 %}
 												<tr>
-													<td>Sold</td>
+													<td>{% trans "Vendido" %}</td>
 													<td>{{v.0}}</td>
 													<td>{{v.1}}</td>
 													<td>{{v.2}}</td>
@@ -138,7 +138,7 @@
 												{% endfor %}
 												{% for v in values.3 %}
 												<tr>
-													<td>Purchased</td>
+													<td>{% trans "Comprado" %}</td>
 													<td>{{v.0}}</td>
 													<td>{{v.1}}</td>
 													<td>{{v.2}}</td>
@@ -146,7 +146,7 @@
 												{% endfor %}
 												{% for v in values.4 %}
 												<tr>
-													<td>Consumed</td>
+													<td>{% trans "Consumido" %}</td>
 													<td>{{v.0}}</td>
 													<td>{{v.1}}</td>
 													<td>{{v.2}}</td>
@@ -167,7 +167,7 @@
             </div>
             <div class="row">
                 <div class="btn-group pull-right">
-                    <button type="button" class="btn btn-primary">Seleccione el páis</button>
+                    <button type="button" class="btn btn-primary">{% trans "Seleccione el páis" %}</button>
                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="dw-s2">
                             {% for key in pais.keys|slice:"1" %}{{key}}{% endfor %}
@@ -193,8 +193,8 @@
                         <div class="panel panel-default panel-salidas">
                             <div class="panel-heading">
                                 <div class="panel-title-box">
-                                    <h3>Número de especies por pais</h3>
-                                    <span>Tabla de valores</span>
+                                    <h3>{% trans "Número de especies por pais" %}</h3>
+                                    <span>{% trans "Tabla de valores" %}</span>
 
                                 </div>
 
@@ -213,19 +213,19 @@
 										<thead>
 											<tr>
 												<th></th>
-												<th colspan="4">Numero de especies</th>
+												<th colspan="4">{% trans "Número de especies" %}</th>
 											</tr>
 											<tr>
 												<th></th>
-												<th>Media</th>
-												<th>Hombres</th>
-												<th>Mujeres</th>
+												<th>{% trans "Media" %}</th>
+												<th>{% trans "Hombres" %}</th>
+												<th>{% trans "Mujeres" %}</th>
 											</tr>
 										</thead>
 										<tbody>
 											{% for v in values.0 %}
 											<tr>
-												<td>Total</td>
+												<td>{% trans "Total" %}</td>
 												<td>{{v.0}}</td>
 												<td>{{v.1}}</td>
 												<td>{{v.2}}</td>
@@ -233,7 +233,7 @@
 											{% endfor %}
 											{% for v in values.1 %}
 											<tr>
-												<td>Cultivado</td>
+												<td>{% trans "Cultivado" %}</td>
 												<td>{{v.0}}</td>
 												<td>{{v.1}}</td>
 												<td>{{v.2}}</td>
@@ -241,7 +241,7 @@
 											{% endfor %}
 											{% for v in values.2 %}
 											<tr>
-												<td>Vendido</td>
+												<td>{% trans "Vendido" %}</td>
 												<td>{{v.0}}</td>
 												<td>{{v.1}}</td>
 												<td>{{v.2}}</td>
@@ -249,7 +249,7 @@
 											{% endfor %}
 											{% for v in values.3 %}
 											<tr>
-												<td>Comprado</td>
+												<td>{% trans "Comprado" %}</td>
 												<td>{{v.0}}</td>
 												<td>{{v.1}}</td>
 												<td>{{v.2}}</td>
@@ -257,7 +257,7 @@
 											{% endfor %}
 											{% for v in values.4 %}
 											<tr>
-												<td>Consumido</td>
+												<td>{% trans "Consumido" %}</td>
 												<td>{{v.0}}</td>
 												<td>{{v.1}}</td>
 												<td>{{v.2}}</td>

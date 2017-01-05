@@ -43,8 +43,8 @@
 			</div>
 
 			<ul class="dropdown-menu lenguage">
-				<li><a class="idioma" href="/lang/en/"><img src="/static/images/eeuu.jpg" alt="ingles"> {% trans "Ingles" %}</a></li>
-				<li class="activo"><a class="idioma" href="/lang/es/"><img src="/static/images/spanish.jpg" alt="espanol"> {% trans "Español" %}</a></li>
+				<li class="{% if LANGUAGE_CODE == 'en' %}active{% endif %}"><a class="idioma" href="/lang/en/"><img src="/static/images/eeuu.jpg" alt="ingles"> {% trans "Ingles" %}</a></li>
+				<li class="{% if LANGUAGE_CODE == 'es' %}active{% endif %}"><a class="idioma" href="/lang/es/"><img src="/static/images/spanish.jpg" alt="espanol"> {% trans "Español" %}</a></li>
 
 			</ul>
 		</div>

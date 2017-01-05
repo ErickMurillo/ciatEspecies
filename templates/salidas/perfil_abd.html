@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 <style media="screen">
@@ -20,11 +21,11 @@
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
         <div class="salida-title">
-          <h4>Perfil ABD</h4>
+          <h4>{% trans "Perfil ABD" %}</h4>
           <ol class="breadcrumb">
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/filtros/">Explorar datos</a></li>
-            <li><a href="/especies/perfil-abd/">Perfil ABD</a></li>
+            <li><a href="/">{% trans "Inicio" %}</a></li>
+            <li><a href="/filtros/">{% trans "Explorar datos" %}</a></li>
+            <li><a href="/especies/perfil-abd/">{% trans "Perfil ABD" %}</a></li>
           </ol>
         </div>
 
@@ -36,13 +37,13 @@
 
             <a href="#filtro" aria-controls="filtro" role="tab" data-toggle="tab">
               <div class="f-icon"><i class="fa fa-filter fa-2x"></i></div>
-              <h6>filtro</h6>
+              <h6>{% trans "filtro" %}</h6>
             </a>
           </li>
           <li role="presentation">
             <a href="#indicadores" aria-controls="indicadores" role="tab" data-toggle="tab">
               <div class="f-icon"><i class="fa fa-bar-chart fa-2x"></i></div>
-              <h6>indicadores</h6>
+              <h6>{% trans "indicadores" %}</h6>
             </a>
           </li>
         </ul>
@@ -68,7 +69,7 @@
     <div class="container">
       <div class="row">
         <div class="btn-group pull-right">
-            <button type="button" class="btn btn-primary">Seleccione la comunidad</button>
+            <button type="button" class="btn btn-primary">{% trans "Seleccione la comunidad" %}</button>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="dw-s">
                     {% for key in comu.keys|slice:"1" %}{{key}}{% endfor %}
@@ -88,13 +89,13 @@
 					{% for key,values in comu.items %}
 					<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
             <table class="table table-bordered">
-              <caption>ABD profile of species and products consumed by the focus group</caption>
+              <caption>{% blocktrans %}Perfil ABD de especies y productos consumidos por el grupo focal{% endblocktrans %}</caption>
               <thead>
                 <tr>
-                  <th>Consume</th>
-                  <th>Produce</th>
-                  <th>Compra</th>
-                  <th>Especies</th>
+                  <th>{% trans "Consumido" %}</th>
+                  <th>{% trans "Producido" %}</th>
+                  <th>{% trans "Comprado" %}</th>
+                  <th>{% trans "Especies" %}</th>
                   <!--{% for obj in food_groups %}<th>{{obj.1}}</th>{% endfor %}-->
                 </tr>
               </thead>
@@ -177,13 +178,13 @@
             <br>
 
             <table class="table table-bordered table-hover">
-              <caption>ABD profile of species used for income generation for the focus group</caption>
+              <caption>{% blocktrans %}Perfil ABD de las especies utilizadas para la generación de ingresos para el grupo focal{% endblocktrans %}</caption>
               <thead>
                 <tr>
-                  <th>Sold</th>
-                  <th>Produce</th>
-                  <th>Compra</th>
-                  <th>Especies</th>
+                  <th>{% trans "Vendido" %}</th>
+                  <th>{% trans "Producido" %}</th>
+                  <th>{% trans "Comprado" %}</th>
+                  <th>{% trans "Especies" %}</th>
                 </tr>
               </thead>
               <tbody>

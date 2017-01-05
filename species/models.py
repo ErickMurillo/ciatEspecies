@@ -9,6 +9,8 @@ from sorl.thumbnail import ImageField
 CHOICES_CULTIVAR = (
                         (1, 'Animal'),
                         (2, 'Plant'),
+                        (3, 'Fungi'),
+                        (4, 'Chromista'),
                     )
 
 CHOICES_TYPE_SPECIES = (
@@ -29,11 +31,12 @@ class Species(models.Model):
     name_family = models.ForeignKey(NameFamily, null=True, blank=True)
     # name_genus = models.ForeignKey(NameGenus, null=True, blank=True)
     # name_species = models.ForeignKey(NameSpecies, null=True, blank=True)
-    cultivar = models.IntegerField(choices=CHOICES_CULTIVAR, null=True, blank=True)
+    cultivar2 = models.IntegerField( null=True, blank=True)
+    cultivar = models.IntegerField(choices=CHOICES_CULTIVAR, null=True, blank=True,verbose_name='Kingdom')
     type_species = models.IntegerField(choices=CHOICES_TYPE_SPECIES, null=True, blank=True)
 
-    def __str__(self):
-        return self.scientific_name
+    # def __str__(self):
+    #     return self.scientific_name
 
     class Meta:
         verbose_name = 'Species'

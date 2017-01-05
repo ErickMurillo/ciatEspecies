@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block extra_css %}
   <link rel="stylesheet" href="/static/css/dataTables.bootstrap4.min.css" type="text/css"/>
 {% endblock %}
@@ -8,11 +9,11 @@
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
                 <div class="salida-title">
-                    <h4>Perfil de especies</h4>
+                    <h4>{% trans "Perfil de Especies" %}</h4>
                     <ol class="breadcrumb">
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="/filtros/">Explorar datos</a></li>
-                        <li class="active">Perfil de especies</li>
+                        <li><a href="/">{% trans "Inicio" %}</a></li>
+                        <li><a href="/filtros/">{% trans "Explorar datos" %}</a></li>
+                        <li class="active">{% trans "Perfil de Especies" %}</li>
                     </ol>
                 </div>
 
@@ -24,13 +25,13 @@
 
                         <a href="#filtro" aria-controls="filtro" role="tab" data-toggle="tab">
                         <div class="f-icon"><i class="fa fa-filter fa-2x"></i></div>
-                        <h6>filtro</h6>
+                        <h6>{% trans "filtro" %}</h6>
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="#indicadores" aria-controls="indicadores" role="tab" data-toggle="tab">
                             <div class="f-icon"><i class="fa fa-bar-chart fa-2x"></i></div>
-                            <h6>indicadores</h6>
+                            <h6>{% trans "indicadores" %}</h6>
                         </a>
                     </li>
                 </ul>
@@ -59,8 +60,8 @@
 				<div class="panel panel-default panel-salidas">
                     <div class="panel-heading">
                         <div class="panel-title-box">
-                            <h3>Perfil de especie</h3>
-                            <span>Lista de especies</span>
+                            <h3>{% trans "Perfil de especie" %}</h3>
+                            <span>{% trans "Lista de especies" %}</span>
 
                         </div>
                     </div>
@@ -69,12 +70,12 @@
 							<table class="table table-bordered table-hover">
 								<thead>
 									<tr>
-										<th>Nombre científico</th>
-										<th>Nombre científico 2</th>
-										<th>Nombre en ingles</th>
-										<th>Nombre en francés</th>
-										<th>Vernacular Name</th>
-                    <th>Grupo nutricional</th>
+										<th>{% trans "Nombre científico" %}</th>
+										<th>{% trans "Nombre científico 2" %}</th>
+										<th>{% trans "Nombre en ingles" %}</th>
+										<th>{% trans "Nombre en francés" %}</th>
+										<th>{% trans "Nombre vernáculo" %}</th>
+                    <th>{% trans "Grupo nutricional" %}</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -133,18 +134,18 @@
 $(document).ready(function(){
 	$('.table').DataTable({
 		"language": {
-						"lengthMenu": "Mostrar _MENU_ registros por pagina",
-						"zeroRecords": "Ningún registro encontrado",
-						"info": "Mostrando pagina _PAGE_ of _PAGES_",
-						"infoEmpty": "No existen registros disponibles",
-						"infoFiltered": "(filtrado de _MAX_ total de registros)",
+						"lengthMenu": "{% trans 'Mostrar' %} _MENU_ {% trans 'registros por pagina' %}",
+						"zeroRecords": "{% trans 'Ningún registro encontrado' %}",
+						"info": "{% trans 'Mostrando pagina' %} _PAGE_ of _PAGES_",
+						"infoEmpty": "{% trans 'No existen registros disponibles' %}",
+						"infoFiltered": "({% trans 'filtrado de' %} _MAX_ {% trans 'total de registros' %})",
 						"paginate": {
-								"first":"Primero",
-								"last":"Último",
-								"next":"Siguiente",
-								"previous":"Anterior"
+								"first":"{% trans 'Primero' %}",
+								"last":"{% trans 'Último' %}",
+								"next":"{% trans 'Siguiente' %}",
+								"previous":"{% trans 'Anterior' %}"
 						},
-						"search":"Buscar:",
+						"search":"{% trans 'Buscar' %}:",
 				}
 	});
 });
