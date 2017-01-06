@@ -1,13 +1,14 @@
+{% load i18n %}
 <div class="container-fluid">
   <div class="row">
     <ul class="filtro-select">
         <li class="title-f">
-           <p>Filtros <br>
-            seleccionados:</p> 
+           <p>{% trans "Filtros" %} <br>
+            {% trans "seleccionados" %}:</p>
         </li>
         <li>
             <p>
-            <strong>Región: </strong>
+            <strong>{% trans "Región" %}: </strong>
               {% if request.session.region == '1' %}
               APAC
               {% elif request.session.region == '2' %}
@@ -21,8 +22,8 @@
               {% endif %}
           </p>
           <p>
-              
-              <strong>Paises: </strong>
+
+              <strong>{% trans "Paises" %}: </strong>
               {% for pais in request.session.country %}
                 {{pais}}{% if not forloop.last %},{% endif %}
               {% endfor %}
@@ -30,13 +31,13 @@
         </li>
         <li>
             <p>
-                <strong>Provincias: </strong>
+                <strong>{% trans "Provincias" %}: </strong>
                 {% for province in request.session.province %}
                     {{province}}{% if not forloop.last %},{% endif %}
                 {% endfor %}
             </p>
             <p>
-                <strong>Comunidades: </strong>
+                <strong>{% trans "Comunidades" %}: </strong>
                 {% for community in request.session.community %}
                     {{community}}{% if not forloop.last %},{% endif %}
                 {% endfor %}

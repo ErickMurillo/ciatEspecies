@@ -597,6 +597,7 @@ def perfil_focus_groups_detail(request,id = None):
 
         venta['Sold by Most'] = venta_produce
         venta['Sold by few'] = venta_produce_1
+
     elif cur_language == 'es':
         #consumo
         buy['Pocos o ninguno compra'] = fgd
@@ -608,12 +609,12 @@ def perfil_focus_groups_detail(request,id = None):
         buy_5['Pocos compran'] = fgd_6
         buy_6['Pocos compran'] = fgd_7
 
-        produce['La mayoría de los productos o ampliamente disponibles en la comunidad'] = buy
+        produce['La mayoría produce o ampliamente disponibles en la comunidad'] = buy
         produce['Pocos productos o disponibles en pequeñas áreas en la comunidad'] = buy_1
         produce['Pocos productos o disponibles en áreas pequeñas y grandes en la comunidad'] = buy_2
         produce['No producido en la comunidad'] = buy_3
-        produce_1['La mayoría de los productos o ampliamente disponibles en la comunidad'] = buy_4
-        produce_1['Pocos productos o disponibles en pequeñas áreas en la comunidad'] = buy_5
+        produce_1['La mayoría produce o ampliamente disponibles en la comunidad'] = buy_4
+        produce_1['Pocos producen o disponibles en pequeñas áreas en la comunidad'] = buy_5
         produce_1['No producido en la comunidad'] = buy_6
 
         consume['La mayoría consume/con frecuencia'] = produce
@@ -635,7 +636,6 @@ def perfil_focus_groups_detail(request,id = None):
 
         venta['Muchos venden'] = venta_produce
         venta['Pocos venden'] = venta_produce_1
-
 
     return render(request, template, locals())
 

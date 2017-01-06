@@ -1,18 +1,31 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
-
+<style media="screen">
+#consume-most {background-color: #ffd966;}
+#consume-few {background-color: #fff2cc}
+#many-produce,#few-produce12 {background-color: #70ad47}
+#few-produce2,#few-produce22 {background-color: #a9d08e}
+#few-produce3,#few-produce32 {background-color: #C6ECAB}
+#few-produce4 {background-color: #c6e0b4}
+#few1 {background-color: #f9cbad}
+#few2 {background-color: #f4b084}
+#few3 {background-color: #ffa467}
+#td-especies {background-color: #ffd966}
+#td-especies2 {background-color: #ffe699}
+#td-especies3 {background-color: #fff2cc}
+</style>
 <div class="menu-dashboard">
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
         <div class="salida-title">
-          <h4>Perfil del grupo focal</h4>
+          <h4>{% trans "Perfil del grupo focal" %}</h4>
           <ol class="breadcrumb">
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/filtros/">Explorar datos</a></li>
-            <li><a href="/especies/perfil-focus-groups/">Lista grupo focal</a></li>
-            <li class="active">Perfil del grupo focal</li>
+            <li><a href="/">{% trans "Inicio" %}</a></li>
+            <li><a href="/filtros/">{% trans "Explorar datos" %}</a></li>
+            <li><a href="/especies/perfil-focus-groups/">{% trans "Lista grupo focal" %}</a></li>
+            <li class="active">{% trans "Perfil del grupo focal" %}</li>
           </ol>
         </div>
 
@@ -24,13 +37,13 @@
 
             <a href="#filtro" aria-controls="filtro" role="tab" data-toggle="tab">
               <div class="f-icon"><i class="fa fa-filter fa-2x"></i></div>
-              <h6>filtro</h6>
+              <h6>{% trans "filtro" %}</h6>
             </a>
           </li>
           <li role="presentation">
             <a href="#indicadores" aria-controls="indicadores" role="tab" data-toggle="tab">
               <div class="f-icon"><i class="fa fa-bar-chart fa-2x"></i></div>
-              <h6>indicadores</h6>
+              <h6>{% trans "indicadores" %}</h6>
             </a>
           </li>
         </ul>
@@ -58,25 +71,25 @@
         <div class="panel panel-default panel-salidas">
           <div class="panel-heading">
             <div class="panel-title-box">
-              <h3>Grupo focal</h3>
-              <span>Datos Generales</span>
+              <h3>{% trans "Grupo focal" %}</h3>
+              <span>{% trans "Datos Generales" %}</span>
 
             </div>
           </div>
           <div class="panel-body">
             <div class="row p-especie">
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <p>Región: {{object.country.get_region_display}}</p>
-                <p>Pais: {{object.country}} </p>
-                <p>Provincia: {{object.province}}</p>
-                <p>Comunidad: {{object.community}}</p>
-                <p>{% if object.date %}Fecha: {{object.date}}<br>{% endif %}</p>
-                <p>Científico: {{object.scientist}}</p>
-                <p>Organización: {{object.organization}}</p>
+                <p>{% trans "Región" %}: {{object.country.get_region_display}}</p>
+                <p>{% trans "Pais" %}: {{object.country}} </p>
+                <p>{% trans "Provincia" %}: {{object.province}}</p>
+                <p>{% trans "Comunidad" %}: {{object.community}}</p>
+                <p>{% if object.date %}{% trans "Fecha" %}: {{object.date}}<br>{% endif %}</p>
+                <p>{% trans "Científico" %}: {{object.scientist}}</p>
+                <p>{% trans "Organización" %}: {{object.organization}}</p>
                 <p>Crp: {{object.crp}}</p>
                 <p>
                   {% if object.ethnic_group %}
-                  Grupo étnico :
+                  {% trans "Grupo étnico" %}:
                   {% for eg in object.ethnic_group.all %}
                   {{ eg }}{% if not forloop.last %}, {% endif %}
                   {% endfor %} <br>
@@ -84,7 +97,7 @@
                 </p>
                 <p>
                   {% if object.language %}
-                  Lenguaje: {% for language in object.language.all %}
+                  {% trans "Lenguaje" %}: {% for language in object.language.all %}
                   {{ language }}{% if not forloop.last %}, {% endif %}
                   {% endfor %} <br>
                   {% endif %}
@@ -96,25 +109,25 @@
 
 
                 <p>{% if object.hh %}HH: {{object.hh}} <br>{% endif %}</p>
-                <p>{% if object.area %}Área: {{object.area}} <br>{% endif %}</p>
-                <p>{% if object.frecuency %}Frecuencia: {{object.frecuency}} <br>{% endif %}</p>
-                <p>{% if object.year_round %}Todo el año: {{object.year_round}} <br>{% endif %}</p>
-                <p>{% if object.lean_season %}Temporada de escasez: {{object.lean_season}} <br>{% endif %}</p>
-                <p>{% if object.climate_zone %}Zona climática: {{object.climate_zone}} <br>{% endif %}</p>
-                <p>{% if object.annual_mean_temperature %}Temperatura media: {{object.annual_mean_temperature}} <br>{% endif %}</p>
-                <p>{% if object.rainfall %}Lluvia: {{object.rainfall}} <br>{% endif %}</p>
-                <p>{% if object.precipitation %}Precipitación: {{object.precipitation}} <br>{% endif %}</p>
+                <p>{% if object.area %}{% trans "Área" %}: {{object.area}} <br>{% endif %}</p>
+                <p>{% if object.frecuency %}{% trans "Frecuencia" %}: {{object.frecuency}} <br>{% endif %}</p>
+                <p>{% if object.year_round %}{% trans "Todo el año" %}: {{object.year_round}} <br>{% endif %}</p>
+                <p>{% if object.lean_season %}{% trans "Temporada de escasez" %}: {{object.lean_season}} <br>{% endif %}</p>
+                <p>{% if object.climate_zone %}{% trans "Zona climática" %}: {{object.climate_zone}} <br>{% endif %}</p>
+                <p>{% if object.annual_mean_temperature %}{% trans "Temperatura media" %}: {{object.annual_mean_temperature}} <br>{% endif %}</p>
+                <p>{% if object.rainfall %}{% trans "Lluvia" %}: {{object.rainfall}} <br>{% endif %}</p>
+                <p>{% if object.precipitation %}{% trans "Precipitación" %}: {{object.precipitation}} <br>{% endif %}</p>
 
               </div>
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 
 
-                <p>{% if object.altitude %}Altitud: {{object.altitude}} <br>{% endif %}</p>
-                <p>{% if object.population %}Población: {{object.population}} <br>{% endif %}</p>
-                <p>{% if object.market_distance %}Distancia de mercado: {{object.market_distance}} <br>{% endif %}</p>
-                <p>{% if object.population %}Población: {{object.population}} <br>{% endif %}</p>
-                <p>{% if object.gender %}Genero: {{object.get_gender_display}} <br>{% endif %}</p>
-                <p>{% if object.method_observations %}Metodo de observación: {{object.method_observations}} <br>{% endif %}</p>
+                <p>{% if object.altitude %}{% trans "Altitud" %}: {{object.altitude}} <br>{% endif %}</p>
+                <p>{% if object.population %}{% trans "Población" %}: {{object.population}} <br>{% endif %}</p>
+                <p>{% if object.market_distance %}{% trans "Distancia de mercado" %}: {{object.market_distance}} <br>{% endif %}</p>
+                <p>{% if object.population %}{% trans "Población" %}: {{object.population}} <br>{% endif %}</p>
+                <p>{% if object.gender %}{% trans "Género" %}: {{object.get_gender_display}} <br>{% endif %}</p>
+                <p>{% if object.method_observations %}{% trans "Metodo de observación" %}: {{object.method_observations}} <br>{% endif %}</p>
 
               </div>
 
@@ -127,32 +140,31 @@
         <br>
         <div class="">
           <table class="table table-bordered table-hover">
-            <caption>ABD profile of species and products consumed by the focus group</caption>
+            <caption>{% blocktrans %}Perfil ABD de especies y productos consumidos por el grupo focal{% endblocktrans %}</caption>
             <thead>
               <tr>
-                <th>Consume</th>
-                <th>Produce</th>
-                <th>Compra</th>
-                <th>Especies</th>
-                <!--{% for obj in food_groups %}<th>{{obj.1}}</th>{% endfor %}-->
+                <th>{% trans "Cnsumido" %}</th>
+                <th>{% trans "Producido" %}</th>
+                <th>{% trans "Comprado" %}</th>
+                <th>{% trans "Especies" %}</th>
               </tr>
             </thead>
             <tbody>
               {% for key,values in consume.items %}
                 <tr>
-                  <td rowspan="{% if forloop.counter == 1 %}7{% else %}4{% endif %}">{{key}}</td>
+                  <td id="{% if forloop.counter == 1 %}consume-most{% else %}consume-few{% endif %}" rowspan="{% if forloop.counter == 1 %}7{% else %}4{% endif %}">{{key}}</td>
                 </tr>
                 {% for k,v in values.items %}
                   <tr>
-                    {% if key == 'Most consume/frequent' and k == 'Most Produce or widely available in community' %}
-                    <td rowspan="3" width="20%">{{k}}</td>
+                    {% if key == 'Most consume/frequent' and k == 'Most Produce or widely available in community' or key == 'La mayoría consume/con frecuencia' and k == 'La mayoría produce o ampliamente disponibles en la comunidad' %}
+                    <td rowspan="3" id="many-produce" width="20%">{{k}}</td>
                     {% for x in v.keys %}
                       <tr>
-                        <td width="10%">{{x}}</td>
-                        <td>
+                        <td width="10%" id="{% if forloop.counter|divisibleby:'2' %}few2{% else %}few1{% endif %}">{{x}}</td>
+                        <td id="consume-most">
                           {% for z,y in v.items %}
                           {% if z == x %}
-                          <table class="table">
+                          <table class="table" id="consume-most">
                             <thead>
                               <tr>
                                 {% for val in y.keys %}
@@ -177,15 +189,15 @@
 
 
                     {% else %}
-                    <td colspan="1" width="20%">{{k}}</td>
-                    <td width="10%">
+                    <td colspan="1" id="few-produce{% if forloop.counter <= 4 and key == 'Most consume/frequent' or key == 'La mayoría consume/con frecuencia' %}{{forloop.counter}}{% else %}{{forloop.counter}}2{% endif %}" width="20%">{{k}}</td>
+                    <td width="10%" id="{% if forloop.counter|divisibleby:'2' and key == 'Most consume/frequent' or key == 'La mayoría consume/con frecuencia' %}few1{% else %}few2{% endif %}">
                       {% for x,y in v.items %}
                         {{x}}
                       {% endfor %}
                     </td>
-                    <td>
+                    <td id="{% if key == 'Most consume/frequent' or key == 'La mayoría consume/con frecuencia' %}td-especies2{% else %}td-especies3{% endif %}">
                       {% for y in v.values %}
-                      <table class="table">
+                      <table class="table" id="{% if key == 'Most consume/frequent' or key == 'La mayoría consume/con frecuencia' %}td-especies2{% else %}td-especies3{% endif %}">
                         <thead>
                           <tr>
                             {% for val in y.keys %}
@@ -216,31 +228,31 @@
         <!-- tabla venta -->
         <div class="">
           <table class="table table-bordered table-hover">
-            <caption>ABD profile of species used for income generation for the focus group</caption>
+            <caption>{% blocktrans %}Perfil ABD de las especies utilizadas para la generación de ingresos para el grupo focal{% endblocktrans %}</caption>
             <thead>
               <tr>
-                <th>Sold</th>
-                <th>Produce</th>
-                <th>Compra</th>
-                <th>Especies</th>
+                <th>{% trans "Vendido" %}</th>
+                <th>{% trans "Producido" %}</th>
+                <th>{% trans "Comprado" %}</th>
+                <th>{% trans "Especies" %}</th>
               </tr>
             </thead>
             <tbody>
               {% for key,values in venta.items %}
                 <tr>
-                  <td rowspan="{% if forloop.counter == 1 %}4{% else %}9{% endif %}">{{key}}</td>
+                  <td id="{% if forloop.counter == 1 %}consume-most{% else %}consume-few{% endif %}" rowspan="{% if forloop.counter == 1 %}4{% else %}9{% endif %}">{{key}}</td>
                 </tr>
                 {% for k,v in values.items %}
                   <tr>
-                    {% if key == 'Sold by Most' or key == 'Sold by few' %}
-                    <td rowspan="4" width="20%">{{k}}</td>
+                    {% if key == 'Sold by Most' or key == 'Sold by few' or key == 'Muchos venden' or key == 'Pocos venden' %}
+                    <td rowspan="4" width="20%" id="{% if k == 'Most Produce' %}many-produce{% else %}few-produce2{% endif %}">{{k}}</td>
                     {% for x in v.keys %}
                       <tr>
-                        <td width="10%">{{x}}</td>
-                        <td>
+                        <td width="10%" id="{% if x == 'Most buy' %}few2{% elif x == 'Few buy' or x == 'Few or none buy' %}few1{% elif x == 'None buy' %}td-especies3{% else %}few3{% endif %}">{{x}}</td>
+                        <td id="{% if key == 'Sold by Most' %}consume-most{% else %}consume-few{% endif %}">
                           {% for z,y in v.items %}
                           {% if z == x %}
-                          <table class="table">
+                          <table class="table" id="{% if key == 'Sold by Most' %}consume-most{% else %}consume-few{% endif %}">
                             <thead>
                               <tr>
                                 {% for val in y.keys %}
