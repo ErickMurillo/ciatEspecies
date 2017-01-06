@@ -609,7 +609,7 @@ def perfil_focus_groups_detail(request,id = None):
         buy_5['Pocos compran'] = fgd_6
         buy_6['Pocos compran'] = fgd_7
 
-        produce['La mayoría produce o ampliamente disponibles en la comunidad'] = buy
+        produce['La mayoria produce o ampliamente disponibles en la comunidad'] = buy
         produce['Pocos productos o disponibles en pequeñas áreas en la comunidad'] = buy_1
         produce['Pocos productos o disponibles en áreas pequeñas y grandes en la comunidad'] = buy_2
         produce['No producido en la comunidad'] = buy_3
@@ -617,7 +617,7 @@ def perfil_focus_groups_detail(request,id = None):
         produce_1['Pocos producen o disponibles en pequeñas áreas en la comunidad'] = buy_5
         produce_1['No producido en la comunidad'] = buy_6
 
-        consume['La mayoría consume/con frecuencia'] = produce
+        consume['La mayoria consume/con frecuencia'] = produce
         consume['Pocos consumen/poco frecuentes'] = produce_1
 
         #venta
