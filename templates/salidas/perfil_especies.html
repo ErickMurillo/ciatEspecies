@@ -76,6 +76,7 @@
 										<th>{% trans "Nombre en francés" %}</th>
 										<th>{% trans "Nombre vernáculo" %}</th>
                     <th>{% trans "Grupo nutricional" %}</th>
+                    <th>{% trans "Tipo" %}</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -111,6 +112,8 @@
 											{% endfor %}
 										</td>
                     <td>{{k.2}}</td>
+                    <td>{% if k.3 == 1 %}Animal{% elif k.3 == 2 %}{% trans "Planta" %}
+                        {% elif k.3 == 3 %}Fungi{% elif k.3 == 4 %}Chromista{% endif %}</td>
 									</tr>
 									{% endfor %}
 								</tbody>

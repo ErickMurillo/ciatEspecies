@@ -7,6 +7,10 @@
             {% trans "seleccionados" %}:</p>
         </li>
         <li>
+            {% if request.session.year %}
+            <p>{% trans "Año" %}: {{request.session.year}}</p>
+            {% endif %}
+
             <p>
             <strong>{% trans "Región" %}: </strong>
               {% if request.session.region == '1' %}

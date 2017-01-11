@@ -11,7 +11,7 @@
 <div class="metodologia" id="consulta">
 	<div class="container">
 		<div class="head_section">
-			<h2>EXPLORAR DATOS</h2>
+			<h2>{% trans "EXPLORAR DATOS" %}</h2>
 
 		</div>
 	</div>
@@ -29,14 +29,14 @@
 				<div class="col-md-3 col-sm-6">
 					<a href="/especies/grupo-nutricional-comunidad/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>{% trans "Especies por Grupo nutricional por Comunidad" %}</h2>
+						<h2>{% trans "Especies por Grupo Nutricionales por Comunidad" %}</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-6">
 					<a href="/especies/grupo-nutricional-pais/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>Especies por Grupo nutricional por País</h2>
+						<h2>{% trans "Especies por Grupo Nutricional por País" %}</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
@@ -44,35 +44,35 @@
 
 					<a href="/especies/numero-especies/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>Total de Especies</h2>
+						<h2>{% trans "Total de Especies" %}</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-6">
 					<a href="/especies/numero-especies-comunidad/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>Números promedios de Especies por Comunidad</h2>
+						<h2>{% trans "Relación entre número especies, factores ambientales y económicos" %}</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-6">
 					<a href="/especies/perfil-especies/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>Perfil de Especies</h2>
+						<h2>{% trans "Perfil de Especies" %}</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-6">
 					<a href="/especies/perfil-focus-groups/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>Perfil de Grupos Focales</h2>
+						<h2>{% trans "Perfil de Grupos Focales" %}</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
 				<div class="col-md-3 col-sm-6">
 					<a href="/especies/perfil-abd/" class="service_tiem">
 						<!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-						<h2>Perfil ABD</h2>
+						<h2>{% trans "Perfil ABD" %}</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit saepe.</p>
 					</a>
 				</div>
@@ -80,26 +80,15 @@
 		</div>
 
 	</div>
-	<!-- / Services Close -->
-<!-- 		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<a class="btn btn-default" href="/especies/grupo-nutricional-comunidad/" role="button">especies por grupo nutricional por comunidad</a>
-					<a class="btn btn-default" href="/especies/grupo-nutricional-pais/" role="button">especies por grupo nutricional por pais</a>
-					<a class="btn btn-default" href="/especies/numero-especies/" role="button">especies total</a>
-					<a class="btn btn-default" href="/especies/numero-especies-comunidad/" role="button">números promedios de especies por comunidad</a>
-					<a class="btn btn-default" href="/especies/perfil-especies/" role="button">Perfil especies</a>
-					<a class="btn btn-default" href="/especies/perfil-focus-groups/" role="button">Perfil focus groups</a>
-				</div>
-			</div>
-		</div> -->
+
 		{% endif %}
 
 		<div class="container cerrar">
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="query form-consulta">
-						<h3>FILTRO DE DATOS</h3>
+						<h3>{% trans "FILTRO DE DATOS" %}</h3>
+						<p class="text-danger">{% trans "Los campos con (*) son requeridos" %}</p>
 						<form name="mailform" id="mailform" action="." method="post" enctype="multipart/form-data" >{% csrf_token %}
 <!--               <div class="form-group row">
 								<label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
@@ -125,7 +114,7 @@
 							</div> -->
 							<div class="form-group row">
 								<label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-									Región Geográfico*
+									{% trans "Región Geográfica" %} *
 								</label>
 								<div class="col-sm-12 col-lg-8">
 									{{form.region}}
@@ -133,7 +122,7 @@
 							</div>
 							<div class="form-group row">
 								<label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-									País*
+									{% trans "País" %} *
 								</label>
 								<div class="col-sm-12 col-lg-8">
 									{{form.country}}
@@ -141,7 +130,7 @@
 							</div>
 							<div class="form-group row">
 								<label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-									Provincia*
+									{% trans "Provincia" %} *
 								</label>
 								<div class="col-sm-12 col-lg-8">
 									{{form.province}}
@@ -157,12 +146,21 @@
 				</div>-->
 				<div class="form-group row">
 					<label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-						Comunidad*
+						{% trans "Comunidad" %} *
 					</label>
 					<div class="col-sm-12 col-lg-8">
 						{{form.community}}
 					</div>
 				</div>
+
+				<!--<div class="form-group row">
+					<label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+						{% trans "Año" %}
+					</label>
+					<div class="col-sm-12 col-lg-8">
+						{{form.year}}
+					</div>
+				</div>-->
 				<!--<div class="form-group row">
 					<label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
 						Género
@@ -172,7 +170,7 @@
 					</div>
 				</div>-->
 				<div class="error"></div>
-				<input type="submit" name="consulta" value="CONSULTAR" class="submit-btn" onClick="ValiDate()">
+				<input type="submit" name="consulta" value="{% trans 'CONSULTAR' %}" class="submit-btn" onClick="ValiDate()">
 			</form>
 			<div class="mailSuccessDiv"> Your Message Sent Successfully!!! </div>
 		</div>
@@ -299,6 +297,7 @@
 $(document).ready(function() {
 	$('#id_region').addClass('form-control');
 	$('#id_gender').addClass('form-control');
+	$('#id_year').addClass('form-control');
 
 	$('#id_country').multiselect({
 		buttonWidth: '100%',

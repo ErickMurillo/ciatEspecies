@@ -1,0 +1,934 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-11 15:14-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ciatEspecies/settings.py:117 templates/base.html:47
+msgid "Español"
+msgstr "Spanish"
+
+#: ciatEspecies/settings.py:118
+msgid "English"
+msgstr "Ingles"
+
+#: templates/afiliarse.html:8 templates/base.html:64 templates/index.html:249
+msgid "AFILIARSE"
+msgstr "AFFILIATE"
+
+#: templates/afiliarse.html:14
+msgid "POLITICA DE SOLICITUD DE DATOS"
+msgstr "DATA APPLICATION POLICY"
+
+#: templates/afiliarse.html:26
+msgid "FORMULARIO DE SOLICITUD"
+msgstr "APPLICATION FORM"
+
+#: templates/afiliarse.html:43
+msgid "Acepto los terminimos y condiciones"
+msgstr "I accept the terms and conditions"
+
+#: templates/base.html:10
+msgid "Sistema ABD"
+msgstr "ABD System"
+
+#: templates/base.html:41
+msgid "Idioma"
+msgstr "Language"
+
+#: templates/base.html:46
+msgid "Ingles"
+msgstr "English"
+
+#: templates/base.html:60
+msgid "INICIO"
+msgstr "HOME"
+
+#: templates/base.html:61 templates/consulta.html:14
+msgid "EXPLORAR DATOS"
+msgstr "EXPLORE DATA"
+
+#: templates/base.html:62
+msgid "METODOLOGÍA"
+msgstr "METHODOLOGY"
+
+#: templates/base.html:63
+msgid "PUBLICACIONES"
+msgstr "PUBLICATIONS"
+
+#: templates/base.html:65
+msgid "INICIAR SESIÓN"
+msgstr "LOG IN"
+
+#: templates/base.html:87
+msgid "Todos los derechos reservados. Desarrollado por"
+msgstr "All rights reserved. Developed by"
+
+#: templates/base.html:87
+msgid ""
+" El ingreso y actualización de la información es responsabilidad de "
+"Bioversity, así como el contenido de la misma."
+msgstr ""
+" The input and update of the information is the responsibility of "
+"Bioversity, as well as the content of it"
+
+#: templates/consulta.html:32 templates/indicadores.html:6
+#: templates/salidas/grupo_nutricional.html:15
+#: templates/salidas/grupo_nutricional.html:19
+msgid "Especies por Grupo Nutricionales por Comunidad"
+msgstr "Species by Nutritional Groups by Community"
+
+#: templates/consulta.html:39 templates/indicadores.html:9
+#: templates/salidas/grupo_nutricional_pais.html:11
+#: templates/salidas/grupo_nutricional_pais.html:15
+msgid "Especies por Grupo Nutricional por País"
+msgstr "Species by Nutritional Groups by Country"
+
+#: templates/consulta.html:47 templates/indicadores.html:12
+#: templates/salidas/numero_especies.html:10
+#: templates/salidas/numero_especies.html:14
+msgid "Total de Especies"
+msgstr "Total Species"
+
+#: templates/consulta.html:54 templates/indicadores.html:15
+#: templates/salidas/numero_especies_comunidad.html:11
+#: templates/salidas/numero_especies_comunidad.html:15
+msgid "Relación entre número especies, factores ambientales y económicos"
+msgstr ""
+"Relationship between number of species, environmental and economic factors"
+
+#: templates/consulta.html:61 templates/indicadores.html:18
+#: templates/salidas/perfil_especies.html:12
+#: templates/salidas/perfil_especies.html:16
+#: templates/salidas/perfil_especies_detalle.html:13
+msgid "Perfil de Especies"
+msgstr "Species Profile"
+
+#: templates/consulta.html:68 templates/indicadores.html:21
+#: templates/salidas/perfil_focus_groups.html:14
+#: templates/salidas/perfil_focus_groups.html:18
+msgid "Perfil de Grupos Focales"
+msgstr "Focus Groups Profile"
+
+#: templates/consulta.html:75 templates/indicadores.html:24
+#: templates/salidas/perfil_abd.html:30 templates/salidas/perfil_abd.html:34
+msgid "Perfil ABD"
+msgstr "ABD Profile"
+
+#: templates/consulta.html:90
+msgid "FILTRO DE DATOS"
+msgstr "DATA FILTER"
+
+#: templates/consulta.html:91
+msgid "Los campos con (*) son requeridos"
+msgstr "Fields with (*) are required"
+
+#: templates/consulta.html:117
+msgid "Región Geográfica"
+msgstr "Geographical Region"
+
+#: templates/consulta.html:125
+msgid "País"
+msgstr "Country"
+
+#: templates/consulta.html:133 templates/salidas/perfil_fg_detalle.html:90
+#: templates/salidas/perfil_focus_groups.html:92
+msgid "Provincia"
+msgstr "Province"
+
+#: templates/consulta.html:149 templates/salidas/perfil_fg_detalle.html:91
+#: templates/salidas/perfil_focus_groups.html:93
+msgid "Comunidad"
+msgstr "Community"
+
+#: templates/consulta.html:158 templates/salidas/select_filtros.html:11
+msgid "Año"
+msgstr "Year"
+
+#: templates/consulta.html:173
+msgid "CONSULTAR"
+msgstr "QUERY"
+
+#: templates/consulta.html:305 templates/consulta.html:331
+#: templates/consulta.html:357 templates/consulta.html:383
+msgid "Seleccionar todos"
+msgstr "Select all"
+
+#: templates/consulta.html:308 templates/consulta.html:334
+#: templates/consulta.html:360 templates/consulta.html:386
+msgid "Sin selección ..."
+msgstr "No selection ..."
+
+#: templates/consulta.html:311 templates/consulta.html:337
+#: templates/consulta.html:363 templates/consulta.html:389
+msgid "Varias opciones seleccionadas!"
+msgstr "Several options selected!"
+
+#: templates/filtros.html:19 templates/salidas/grupo_nutricional.html:17
+#: templates/salidas/grupo_nutricional_pais.html:13
+#: templates/salidas/grupo_nutricional_pais.html:27
+#: templates/salidas/numero_especies.html:12
+#: templates/salidas/numero_especies_comunidad.html:13
+#: templates/salidas/perfil_abd.html:32
+#: templates/salidas/perfil_especies.html:14
+#: templates/salidas/perfil_especies_detalle.html:11
+#: templates/salidas/perfil_fg_detalle.html:31
+#: templates/salidas/perfil_focus_groups.html:16
+msgid "Inicio"
+msgstr "Home"
+
+#: templates/filtros.html:20
+msgid "Filtro"
+msgstr "Filter"
+
+#: templates/index.html:10
+msgid "Red de datos globales"
+msgstr "Global data network"
+
+#: templates/index.html:24
+msgid "OBJETIVO"
+msgstr "OBJECTIVE"
+
+#: templates/index.html:28
+msgid ""
+"El objetivo general es comprender los patrones y los motores del uso de ABD "
+"e identificar oportunidades para mejorar el ingreso y la nutrición de los "
+"hogares a través del uso de la agrobiodiversidad. El método de cuatro "
+"células se desarrolló para la evaluación rápida del uso total de ABD en la "
+"comunidad y se ha aplicado en varias acciones de Humidtropics sitio. Estos "
+"datos se utilizarán en combinación con otros datos de diagnóstico de hogares "
+"y agroecosistemas para identificar intervenciones clave para la mejora del "
+"sistema en diferentes tipologías de fincas. Un paso esencial es transformar "
+"los conjuntos de datos ABD en un formato de interpretación y discusión con "
+"los hogares agrícolas y las organizaciones locales que es conducente a la "
+"identificación de intervenciones clave de ABD. El objetivo específico es "
+"desarrollar métodos para analizar y diseñar para presentar datos ABD "
+"complejos. Aquí se usan datos del territorio cafetero del sitio de acción "
+"del Norte de Nicaragua para ilustrar los métodos potenciales para analizar y "
+"presentar los perfiles ABD de la comunidad"
+msgstr ""
+"The broad objective is to understand patterns and drivers of ABD use and to "
+"identify opportunities to improve household income and nutrition through "
+"agrobiodiversity use. The four-cell method was developed for rapid "
+"assessment of total community ABD use and has been applied in various "
+"Humidtropics actions site. This data will be used in combination with other "
+"household and agroecosystem diagnostic data to identify key interventions "
+"for system improvement in different farm typologies. An essential step is to "
+"transform the ABD datasets into a format for interpretation and discussion "
+"with farming households and local organizations that is conducive to the "
+"identification of key ABD interventions. The specific objective is to "
+"develop methods to analyze and designs to present complex ABD data. Here we "
+"use data from the coffee territory of the Northern Nicaragua action site to "
+"illustrate the potential methods for analyzing and presenting the community "
+"ABD profiles."
+
+#: templates/index.html:35 templates/salidas/grupo_nutricional.html:18
+#: templates/salidas/grupo_nutricional_pais.html:14
+#: templates/salidas/numero_especies.html:13
+#: templates/salidas/numero_especies_comunidad.html:14
+#: templates/salidas/perfil_abd.html:33
+#: templates/salidas/perfil_especies.html:15
+#: templates/salidas/perfil_especies_detalle.html:12
+#: templates/salidas/perfil_fg_detalle.html:32
+#: templates/salidas/perfil_focus_groups.html:17
+msgid "Explorar datos"
+msgstr "Explore data"
+
+#: templates/index.html:46
+msgid "Mapa de localidades"
+msgstr "Map of localities"
+
+#: templates/index.html:54 templates/salidas/perfil_especies_detalle.html:62
+#: templates/salidas/perfil_fg_detalle.html:81
+msgid "Datos Generales"
+msgstr "General Data"
+
+#: templates/index.html:159
+msgid "Leer más..."
+msgstr "Read more..."
+
+#: templates/index.html:170
+msgid "PROYECTOS Y PUBLICACIONES"
+msgstr "PROJECTS AND PUBLICATIONS"
+
+#: templates/index.html:238
+msgid "Ver publicaciones"
+msgstr "View posts"
+
+#: templates/index.html:253
+msgid "AFILIARSE AHORA"
+msgstr "AFFILIATE NOW"
+
+#: templates/index.html:323
+msgid "CONTRIBUYENTES"
+msgstr "CONTRIBUTORS"
+
+#: templates/index.html:327
+msgid "Científicos Participantes"
+msgstr "Participating Scientists"
+
+#: templates/index.html:421
+msgid "Organizaciones"
+msgstr "Organitations"
+
+#: templates/salidas/grupo_nutricional.html:31
+#: templates/salidas/numero_especies.html:26
+#: templates/salidas/numero_especies_comunidad.html:27
+#: templates/salidas/perfil_abd.html:46
+#: templates/salidas/perfil_especies.html:28
+#: templates/salidas/perfil_especies_detalle.html:26
+#: templates/salidas/perfil_fg_detalle.html:46
+#: templates/salidas/perfil_focus_groups.html:30
+msgid "filtro"
+msgstr "filter"
+
+#: templates/salidas/grupo_nutricional.html:37
+#: templates/salidas/grupo_nutricional_pais.html:33
+#: templates/salidas/numero_especies.html:32
+#: templates/salidas/numero_especies_comunidad.html:33
+#: templates/salidas/perfil_abd.html:52
+#: templates/salidas/perfil_especies.html:34
+#: templates/salidas/perfil_especies_detalle.html:32
+#: templates/salidas/perfil_fg_detalle.html:52
+#: templates/salidas/perfil_focus_groups.html:36
+msgid "indicadores"
+msgstr "indicators"
+
+#: templates/salidas/grupo_nutricional.html:66
+#: templates/salidas/numero_especies.html:59
+#: templates/salidas/perfil_abd.html:78
+#, fuzzy
+#| msgid "Seleccionar todos"
+msgid "Seleccione la comunidad"
+msgstr "Select all"
+
+#: templates/salidas/grupo_nutricional.html:93
+#: templates/salidas/grupo_nutricional.html:109
+#: templates/salidas/grupo_nutricional_pais.html:86
+#: templates/salidas/grupo_nutricional_pais.html:103
+msgid "Número de especies por grupo nutricional"
+msgstr "Number of species by nutritional group"
+
+#: templates/salidas/grupo_nutricional.html:94
+#: templates/salidas/grupo_nutricional_pais.html:87
+#: templates/salidas/grupo_nutricional_pais.html:104
+msgid "Gráfico Frecuencia"
+msgstr "Graphic Frequency"
+
+#: templates/salidas/grupo_nutricional.html:110
+#: templates/salidas/numero_especies.html:87
+#: templates/salidas/numero_especies.html:197
+msgid "Tabla de valores"
+msgstr "Value table"
+
+#: templates/salidas/grupo_nutricional.html:114
+#: templates/salidas/grupo_nutricional_pais.html:108
+msgid "Exportar Datos"
+msgstr "Export Data"
+
+#: templates/salidas/grupo_nutricional.html:129
+#: templates/salidas/grupo_nutricional_pais.html:122
+#: templates/salidas/numero_especies.html:236
+#: templates/salidas/numero_especies_comunidad.html:61
+msgid "Cultivado"
+msgstr "Cultivated"
+
+#: templates/salidas/grupo_nutricional.html:130
+#: templates/salidas/grupo_nutricional_pais.html:123
+#: templates/salidas/numero_especies.html:133
+#: templates/salidas/numero_especies.html:244
+#: templates/salidas/numero_especies_comunidad.html:62
+#: templates/salidas/perfil_abd.html:191
+#: templates/salidas/perfil_especies_detalle.html:146
+#: templates/salidas/perfil_fg_detalle.html:242
+msgid "Vendido"
+msgstr "Sold"
+
+#: templates/salidas/grupo_nutricional.html:131
+#: templates/salidas/grupo_nutricional_pais.html:124
+#: templates/salidas/numero_especies.html:141
+#: templates/salidas/numero_especies.html:252
+#: templates/salidas/numero_especies_comunidad.html:63
+#: templates/salidas/perfil_abd.html:104 templates/salidas/perfil_abd.html:193
+#: templates/salidas/perfil_especies_detalle.html:154
+#: templates/salidas/perfil_fg_detalle.html:155
+#: templates/salidas/perfil_fg_detalle.html:244
+msgid "Comprado"
+msgstr "Purchased"
+
+#: templates/salidas/grupo_nutricional.html:132
+#: templates/salidas/grupo_nutricional_pais.html:125
+#: templates/salidas/numero_especies.html:149
+#: templates/salidas/numero_especies.html:260
+#: templates/salidas/numero_especies_comunidad.html:64
+#: templates/salidas/perfil_abd.html:102
+#: templates/salidas/perfil_especies_detalle.html:162
+msgid "Consumido"
+msgstr "Consumed"
+
+#: templates/salidas/grupo_nutricional.html:136
+#: templates/salidas/grupo_nutricional.html:138
+#: templates/salidas/grupo_nutricional.html:140
+#: templates/salidas/grupo_nutricional.html:142
+#: templates/salidas/grupo_nutricional.html:229
+#: templates/salidas/grupo_nutricional_pais.html:129
+#: templates/salidas/grupo_nutricional_pais.html:131
+#: templates/salidas/grupo_nutricional_pais.html:133
+#: templates/salidas/grupo_nutricional_pais.html:135
+#: templates/salidas/grupo_nutricional_pais.html:194
+#: templates/salidas/numero_especies.html:110
+#: templates/salidas/numero_especies.html:221
+#: templates/salidas/perfil_especies_detalle.html:132
+msgid "Hombres"
+msgstr "Men"
+
+#: templates/salidas/grupo_nutricional.html:137
+#: templates/salidas/grupo_nutricional.html:139
+#: templates/salidas/grupo_nutricional.html:141
+#: templates/salidas/grupo_nutricional.html:143
+#: templates/salidas/grupo_nutricional.html:229
+#: templates/salidas/grupo_nutricional_pais.html:130
+#: templates/salidas/grupo_nutricional_pais.html:132
+#: templates/salidas/grupo_nutricional_pais.html:134
+#: templates/salidas/grupo_nutricional_pais.html:136
+#: templates/salidas/grupo_nutricional_pais.html:194
+#: templates/salidas/numero_especies.html:111
+#: templates/salidas/numero_especies.html:222
+#: templates/salidas/perfil_especies_detalle.html:133
+msgid "Mujeres"
+msgstr "Women"
+
+#: templates/salidas/grupo_nutricional.html:229
+#: templates/salidas/grupo_nutricional_pais.html:194
+msgid "Ambos"
+msgstr "Both"
+
+#: templates/salidas/grupo_nutricional.html:236
+#: templates/salidas/perfil_fg_detalle.html:119
+msgid "Frecuencia"
+msgstr "Frecuency"
+
+#: templates/salidas/grupo_nutricional_pais.html:60
+#, fuzzy
+#| msgid "Seleccionar todos"
+msgid "Seleccione el país"
+msgstr "Select all"
+
+#: templates/salidas/numero_especies.html:86
+msgid "Número de especies por comunidad"
+msgstr "Number of species by communiTy"
+
+#: templates/salidas/numero_especies.html:105
+#: templates/salidas/numero_especies.html:216
+msgid "Número de especies"
+msgstr "Numbre of species"
+
+#: templates/salidas/numero_especies.html:109
+#: templates/salidas/numero_especies.html:220
+#: templates/salidas/perfil_especies_detalle.html:131
+msgid "Media"
+msgstr "Mean"
+
+#: templates/salidas/numero_especies.html:117
+#: templates/salidas/numero_especies.html:228
+msgid "Total"
+msgstr "Total"
+
+#: templates/salidas/numero_especies.html:125
+#: templates/salidas/perfil_abd.html:103 templates/salidas/perfil_abd.html:192
+#: templates/salidas/perfil_especies_detalle.html:138
+#: templates/salidas/perfil_fg_detalle.html:154
+#: templates/salidas/perfil_fg_detalle.html:243
+msgid "Producido"
+msgstr "Produced"
+
+#: templates/salidas/numero_especies.html:170
+#, fuzzy
+#| msgid "Seleccionar todos"
+msgid "Seleccione el páis"
+msgstr "Select all"
+
+#: templates/salidas/numero_especies.html:196
+msgid "Número de especies por pais"
+msgstr "Number of species by country"
+
+#: templates/salidas/numero_especies_comunidad.html:73
+#: templates/salidas/numero_especies_comunidad.html:131
+#: templates/salidas/numero_especies_comunidad.html:189
+#: templates/salidas/numero_especies_comunidad.html:247
+#: templates/salidas/numero_especies_comunidad.html:560
+msgid "Lluvia promedio"
+msgstr "Average rainfall"
+
+#: templates/salidas/numero_especies_comunidad.html:74
+#: templates/salidas/numero_especies_comunidad.html:88
+#: templates/salidas/numero_especies_comunidad.html:102
+#: templates/salidas/numero_especies_comunidad.html:116
+#: templates/salidas/numero_especies_comunidad.html:132
+#: templates/salidas/numero_especies_comunidad.html:146
+#: templates/salidas/numero_especies_comunidad.html:160
+#: templates/salidas/numero_especies_comunidad.html:174
+#: templates/salidas/numero_especies_comunidad.html:190
+#: templates/salidas/numero_especies_comunidad.html:204
+#: templates/salidas/numero_especies_comunidad.html:218
+#: templates/salidas/numero_especies_comunidad.html:232
+#: templates/salidas/numero_especies_comunidad.html:248
+#: templates/salidas/numero_especies_comunidad.html:262
+#: templates/salidas/numero_especies_comunidad.html:276
+#: templates/salidas/numero_especies_comunidad.html:290
+msgid "Gráfico de promedios"
+msgstr "Graph of averages"
+
+#: templates/salidas/numero_especies_comunidad.html:87
+#: templates/salidas/numero_especies_comunidad.html:145
+#: templates/salidas/numero_especies_comunidad.html:203
+#: templates/salidas/numero_especies_comunidad.html:261
+msgid "Temperatura promedio"
+msgstr "Average temperature"
+
+#: templates/salidas/numero_especies_comunidad.html:101
+#: templates/salidas/numero_especies_comunidad.html:159
+#: templates/salidas/numero_especies_comunidad.html:217
+#: templates/salidas/numero_especies_comunidad.html:275
+msgid "Precipitación promedio"
+msgstr "Average precipitation"
+
+#: templates/salidas/numero_especies_comunidad.html:115
+#: templates/salidas/numero_especies_comunidad.html:173
+#: templates/salidas/numero_especies_comunidad.html:231
+#: templates/salidas/numero_especies_comunidad.html:289
+msgid "Altitud promedio"
+msgstr "Average altitude"
+
+#: templates/salidas/numero_especies_comunidad.html:336
+msgid "Lluvia vs Especies cultivadas"
+msgstr "Rain vs. Cultivated Species"
+
+#: templates/salidas/numero_especies_comunidad.html:341
+#: templates/salidas/numero_especies_comunidad.html:397
+#: templates/salidas/numero_especies_comunidad.html:453
+#: templates/salidas/numero_especies_comunidad.html:509
+#: templates/salidas/perfil_fg_detalle.html:124
+msgid "Lluvia"
+msgstr "Rain"
+
+#: templates/salidas/numero_especies_comunidad.html:349
+#: templates/salidas/numero_especies_comunidad.html:405
+#: templates/salidas/numero_especies_comunidad.html:461
+#: templates/salidas/numero_especies_comunidad.html:517
+#: templates/salidas/numero_especies_comunidad.html:623
+#: templates/salidas/numero_especies_comunidad.html:679
+#: templates/salidas/numero_especies_comunidad.html:735
+#: templates/salidas/numero_especies_comunidad.html:791
+#: templates/salidas/numero_especies_comunidad.html:848
+#: templates/salidas/numero_especies_comunidad.html:904
+#: templates/salidas/numero_especies_comunidad.html:960
+#: templates/salidas/numero_especies_comunidad.html:1016
+#: templates/salidas/numero_especies_comunidad.html:1072
+#: templates/salidas/numero_especies_comunidad.html:1128
+#: templates/salidas/numero_especies_comunidad.html:1184
+#: templates/salidas/numero_especies_comunidad.html:1240
+#: templates/salidas/perfil_abd.html:105 templates/salidas/perfil_abd.html:194
+#: templates/salidas/perfil_fg_detalle.html:156
+#: templates/salidas/perfil_fg_detalle.html:245
+msgid "Especies"
+msgstr "Species"
+
+#: templates/salidas/numero_especies_comunidad.html:392
+msgid "Lluvia vs Especies vendidas"
+msgstr "Rain vs Species sold"
+
+#: templates/salidas/numero_especies_comunidad.html:448
+msgid "Lluvia vs Especies compradas"
+msgstr "Rain vs Species purchased"
+
+#: templates/salidas/numero_especies_comunidad.html:504
+msgid "Lluvia vs Especies consumidas"
+msgstr "Rain vs Species consumed"
+
+#: templates/salidas/numero_especies_comunidad.html:567
+#: templates/salidas/numero_especies_comunidad.html:590
+msgid "Promedio"
+msgstr "Average"
+
+#: templates/salidas/numero_especies_comunidad.html:610
+msgid "Temperatura vs Especies cultivadas"
+msgstr "Temperature vs Sepecies cultivated"
+
+#: templates/salidas/numero_especies_comunidad.html:615
+#: templates/salidas/numero_especies_comunidad.html:671
+#: templates/salidas/numero_especies_comunidad.html:727
+#: templates/salidas/numero_especies_comunidad.html:783
+msgid "Temperatura"
+msgstr "Temperature"
+
+#: templates/salidas/numero_especies_comunidad.html:666
+msgid "Temperatura vs Especies vendidas"
+msgstr "Temperature vs Sepecies sold"
+
+#: templates/salidas/numero_especies_comunidad.html:722
+msgid "Temperatura vs Especies compradas"
+msgstr "Temperature vs Sepecies purchased"
+
+#: templates/salidas/numero_especies_comunidad.html:778
+msgid "Temperatura vs Especies consumidas"
+msgstr "Temperature vs Sepecies consumed"
+
+#: templates/salidas/numero_especies_comunidad.html:835
+msgid "Precipitación vs Especies cultivadas"
+msgstr "Precipitation vs Species cultivated"
+
+#: templates/salidas/numero_especies_comunidad.html:840
+#: templates/salidas/numero_especies_comunidad.html:896
+#: templates/salidas/numero_especies_comunidad.html:952
+#: templates/salidas/numero_especies_comunidad.html:1008
+#: templates/salidas/perfil_fg_detalle.html:125
+msgid "Precipitación"
+msgstr "Precipitation"
+
+#: templates/salidas/numero_especies_comunidad.html:891
+msgid "Precipitación vs Especies vendidas"
+msgstr "Precipitation"
+
+#: templates/salidas/numero_especies_comunidad.html:947
+msgid "Precipitación vs Especies compradas"
+msgstr "Precipitation vs Species purchased"
+
+#: templates/salidas/numero_especies_comunidad.html:1003
+msgid "Precipitación vs Especies consumidas"
+msgstr "Precipitation vs Species consumed"
+
+#: templates/salidas/numero_especies_comunidad.html:1059
+msgid "Altitud vs Especies cultivadas"
+msgstr "Altitude vs Species cultivated"
+
+#: templates/salidas/numero_especies_comunidad.html:1064
+#: templates/salidas/numero_especies_comunidad.html:1120
+#: templates/salidas/numero_especies_comunidad.html:1176
+#: templates/salidas/numero_especies_comunidad.html:1232
+#: templates/salidas/perfil_fg_detalle.html:131
+msgid "Altitud"
+msgstr "Altitude"
+
+#: templates/salidas/numero_especies_comunidad.html:1115
+msgid "Altitud vs Especies vendidas"
+msgstr "Altitude vs Species sold"
+
+#: templates/salidas/numero_especies_comunidad.html:1171
+msgid "Altitud vs Especies compradas"
+msgstr "Altitude vs Species purchased"
+
+#: templates/salidas/numero_especies_comunidad.html:1227
+msgid "Altitud vs Especies consumidas"
+msgstr "Altitude vs Species consumed"
+
+#: templates/salidas/perfil_abd.html:99
+#: templates/salidas/perfil_fg_detalle.html:150
+msgid "Perfil ABD de especies y productos consumidos por el grupo focal"
+msgstr "ABD profile of species and products consumed by the focus group"
+
+#: templates/salidas/perfil_abd.html:188
+#: templates/salidas/perfil_fg_detalle.html:239
+msgid ""
+"Perfil ABD de las especies utilizadas para la generación de ingresos para el "
+"grupo focal"
+msgstr "ABD profile of species used for income generation for the focus group"
+
+#: templates/salidas/perfil_especies.html:63
+msgid "Perfil de especie"
+msgstr "Species profile"
+
+#: templates/salidas/perfil_especies.html:64
+msgid "Lista de especies"
+msgstr "List of species"
+
+#: templates/salidas/perfil_especies.html:73
+#: templates/salidas/perfil_especies_detalle.html:81
+msgid "Nombre científico"
+msgstr "Scientific name"
+
+#: templates/salidas/perfil_especies.html:74
+msgid "Nombre científico 2"
+msgstr "Scientific name 2"
+
+#: templates/salidas/perfil_especies.html:75
+#: templates/salidas/perfil_especies_detalle.html:82
+msgid "Nombre en ingles"
+msgstr "English name"
+
+#: templates/salidas/perfil_especies.html:76
+#: templates/salidas/perfil_especies_detalle.html:83
+msgid "Nombre en francés"
+msgstr "French name"
+
+#: templates/salidas/perfil_especies.html:77
+#: templates/salidas/perfil_especies_detalle.html:88
+msgid "Nombre vernáculo"
+msgstr "Vernacular name"
+
+#: templates/salidas/perfil_especies.html:78
+msgid "Grupo nutricional"
+msgstr "Food group"
+
+#: templates/salidas/perfil_especies.html:79
+msgid "Tipo"
+msgstr "Type"
+
+#: templates/salidas/perfil_especies.html:115
+#: templates/salidas/perfil_especies_detalle.html:79
+msgid "Planta"
+msgstr "Plant"
+
+#: templates/salidas/perfil_especies.html:140
+#: templates/salidas/perfil_focus_groups.html:134
+msgid "Mostrar"
+msgstr "Show"
+
+#: templates/salidas/perfil_especies.html:140
+#: templates/salidas/perfil_focus_groups.html:134
+msgid "registros por pagina"
+msgstr "records per page"
+
+#: templates/salidas/perfil_especies.html:141
+#: templates/salidas/perfil_focus_groups.html:135
+msgid "Ningún registro encontrado"
+msgstr "No records found"
+
+#: templates/salidas/perfil_especies.html:142
+#: templates/salidas/perfil_focus_groups.html:136
+msgid "Mostrando pagina"
+msgstr "Showing page"
+
+#: templates/salidas/perfil_especies.html:143
+#: templates/salidas/perfil_focus_groups.html:137
+msgid "No existen registros disponibles"
+msgstr "No records available"
+
+#: templates/salidas/perfil_especies.html:144
+#: templates/salidas/perfil_focus_groups.html:138
+msgid "filtrado de"
+msgstr "filtrate"
+
+#: templates/salidas/perfil_especies.html:144
+#: templates/salidas/perfil_focus_groups.html:138
+msgid "total de registros"
+msgstr "total records"
+
+#: templates/salidas/perfil_especies.html:146
+#: templates/salidas/perfil_focus_groups.html:140
+msgid "Primero"
+msgstr "First"
+
+#: templates/salidas/perfil_especies.html:147
+#: templates/salidas/perfil_focus_groups.html:141
+msgid "Último"
+msgstr "Last"
+
+#: templates/salidas/perfil_especies.html:148
+#: templates/salidas/perfil_focus_groups.html:142
+msgid "Siguiente"
+msgstr "Next"
+
+#: templates/salidas/perfil_especies.html:149
+#: templates/salidas/perfil_focus_groups.html:143
+msgid "Anterior"
+msgstr "Previous"
+
+#: templates/salidas/perfil_especies.html:151
+#: templates/salidas/perfil_focus_groups.html:145
+msgid "Buscar"
+msgstr "Search"
+
+#: templates/salidas/perfil_especies_detalle.html:9
+#: templates/salidas/perfil_especies_detalle.html:14
+msgid "Perfil"
+msgstr "Profile"
+
+#: templates/salidas/perfil_especies_detalle.html:69
+msgid "Nombre del género"
+msgstr "Name of the genus"
+
+#: templates/salidas/perfil_especies_detalle.html:70
+msgid "Nombre de la especie"
+msgstr "Specie name"
+
+#: templates/salidas/perfil_especies_detalle.html:71
+msgid "Nombre común"
+msgstr "Common name"
+
+#: templates/salidas/perfil_especies_detalle.html:72
+msgid "Grupo alimenticio"
+msgstr "Food group"
+
+#: templates/salidas/perfil_especies_detalle.html:73
+msgid "Orden de nombre"
+msgstr "Order name"
+
+#: templates/salidas/perfil_especies_detalle.html:78
+msgid "Nombre de la familia"
+msgstr "Family name"
+
+#: templates/salidas/perfil_especies_detalle.html:79
+#, fuzzy
+#| msgid "Cultivado"
+msgid "Cultivar"
+msgstr "Cultivated"
+
+#: templates/salidas/perfil_especies_detalle.html:79
+msgid "Animal"
+msgstr "Animal"
+
+#: templates/salidas/perfil_especies_detalle.html:80
+msgid "Tipo de especie"
+msgstr "Type of specie"
+
+#: templates/salidas/perfil_especies_detalle.html:89
+msgid "Porcentaje de paises"
+msgstr "Percentage of countries"
+
+#: templates/salidas/perfil_especies_detalle.html:90
+msgid "Porcentaje de comunidades"
+msgstr "Percentage of communities"
+
+#: templates/salidas/perfil_especies_detalle.html:94
+#: templates/salidas/select_filtros.html:30
+msgid "Paises"
+msgstr "Countries"
+
+#: templates/salidas/perfil_especies_detalle.html:95
+#: templates/salidas/select_filtros.html:44
+msgid "Comunidades"
+msgstr "Communities"
+
+#: templates/salidas/perfil_especies_detalle.html:120
+msgid "Perfil de la especie"
+msgstr "Specie profile"
+
+#: templates/salidas/perfil_especies_detalle.html:121
+msgid "Datos"
+msgstr "Data"
+
+#: templates/salidas/perfil_fg_detalle.html:29
+#: templates/salidas/perfil_fg_detalle.html:34
+msgid "Perfil del grupo focal"
+msgstr "Focus group profile"
+
+#: templates/salidas/perfil_fg_detalle.html:33
+msgid "Lista grupo focal"
+msgstr "Focus group list"
+
+#: templates/salidas/perfil_fg_detalle.html:80
+msgid "Grupo focal"
+msgstr "Focus group"
+
+#: templates/salidas/perfil_fg_detalle.html:88
+#: templates/salidas/perfil_focus_groups.html:90
+#: templates/salidas/select_filtros.html:15
+msgid "Región"
+msgstr "Region"
+
+#: templates/salidas/perfil_fg_detalle.html:89
+#: templates/salidas/perfil_focus_groups.html:91
+msgid "Pais"
+msgstr "Country"
+
+#: templates/salidas/perfil_fg_detalle.html:92
+#: templates/salidas/perfil_focus_groups.html:95
+msgid "Fecha"
+msgstr "Date"
+
+#: templates/salidas/perfil_fg_detalle.html:93
+msgid "Científico"
+msgstr "Scientific"
+
+#: templates/salidas/perfil_fg_detalle.html:94
+#: templates/salidas/perfil_focus_groups.html:94
+msgid "Organización"
+msgstr "Organitation"
+
+#: templates/salidas/perfil_fg_detalle.html:98
+msgid "Grupo étnico"
+msgstr "Ethnic group"
+
+#: templates/salidas/perfil_fg_detalle.html:106
+msgid "Lenguaje"
+msgstr "Languaje"
+
+#: templates/salidas/perfil_fg_detalle.html:118
+msgid "Área"
+msgstr "Area"
+
+#: templates/salidas/perfil_fg_detalle.html:120
+msgid "Todo el año"
+msgstr "All year"
+
+#: templates/salidas/perfil_fg_detalle.html:121
+msgid "Temporada de escasez"
+msgstr "Shortage season"
+
+#: templates/salidas/perfil_fg_detalle.html:122
+msgid "Zona climática"
+msgstr "Climate zone"
+
+#: templates/salidas/perfil_fg_detalle.html:123
+msgid "Temperatura media"
+msgstr "Mean temperature"
+
+#: templates/salidas/perfil_fg_detalle.html:132
+#: templates/salidas/perfil_fg_detalle.html:134
+msgid "Población"
+msgstr "Population"
+
+#: templates/salidas/perfil_fg_detalle.html:133
+msgid "Distancia de mercado"
+msgstr "Market distance"
+
+#: templates/salidas/perfil_fg_detalle.html:135
+#: templates/salidas/perfil_focus_groups.html:96
+msgid "Género"
+msgstr "Gender"
+
+#: templates/salidas/perfil_fg_detalle.html:136
+msgid "Metodo de observación"
+msgstr "Observation method"
+
+#: templates/salidas/perfil_fg_detalle.html:153
+#, fuzzy
+#| msgid "Consumido"
+msgid "Cnsumido"
+msgstr "Consumed"
+
+#: templates/salidas/perfil_focus_groups.html:71
+msgid "Grupo Focal"
+msgstr "Focus group"
+
+#: templates/salidas/perfil_focus_groups.html:72
+msgid "Listado"
+msgstr "List"
+
+#: templates/salidas/select_filtros.html:6
+msgid "Filtros"
+msgstr "Filters"
+
+#: templates/salidas/select_filtros.html:7
+#, fuzzy
+#| msgid "Seleccionar todos"
+msgid "seleccionados"
+msgstr "Select all"
+
+#: templates/salidas/select_filtros.html:38
+msgid "Provincias"
+msgstr "Provinces"

@@ -57,29 +57,28 @@
 				              <li>
 				                <div class="timeline-badge">{{paises}}</div>
 				                <div class="timeline-panel">
-				                  <h4>Paises<br>
-				                    en el mundo</h4>
+				                  <h4>{% if LANGUAGE_CODE == 'es' %}Paises<br>en el mundo{% else %}Countries{% endif %}</h4>
 				                </div>
 				              </li>
 				              <li class="timeline-inverted">
 				                <div class="timeline-badge">{{comunidades}}</div>
 				                <div class="timeline-panel">
-				                  <h4>Comunidades <br>
-				                    Monitoriadas</h4>
+				                  <h4>{% if LANGUAGE_CODE == 'es' %}Comunidades <br>
+				                    Monitoriadas{% else %}Communities{% endif %}</h4>
 				                </div>
 				              </li>
 				              <li>
 				                <div class="timeline-badge">{{species}}</div>
 				                <div class="timeline-panel">
-				                  <h4>Especies <br>
-				                    Investigadas</h4>
+				                  <h4>{% if LANGUAGE_CODE == 'es' %}Especies <br>
+				                    Investigadas{% else %}Species{% endif %}</h4>
 				                </div>
 				              </li>
 				              <li class="timeline-inverted">
 				                <div class="timeline-badge">{{focus_groups}}</div>
 				                <div class="timeline-panel">
-				                  <h4>Grupos <br>
-				                    Focales</h4>
+				                  <h4>{% if LANGUAGE_CODE == 'es' %}Grupos <br>
+													Focales{% else %}Focus <br> Groups{% endif %}</h4>
 				                </div>
 				              </li>
 				            </ul>

@@ -32,6 +32,9 @@ def _queryset_filtrado(request):
     if request.session['community']:
         params['community__in'] = request.session['community']
 
+    # if request.session['year']:
+        # params['year'] = request.session['year']
+
         # if request.session['gender']:
         #     params['gender'] = request.session['gender']
 
@@ -56,6 +59,7 @@ def filtros(request,template="consulta.html"):
             # request.session['county'] = form.cleaned_data['county']
             request.session['community'] = form.cleaned_data['community']
             #request.session['gender'] = form.cleaned_data['gender']
+            # request.session['year'] = form.cleaned_data['year']
 
             mensaje = "Todas las variables estan correctamente :)"
             request.session['activo'] = True
@@ -75,6 +79,7 @@ def filtros(request,template="consulta.html"):
             # del request.session['county']
             del request.session['community']
             #del request.session['gender']
+            # del request.session['year']
         except:
             pass
 
@@ -339,9 +344,9 @@ def perfil_especies(request,template="salidas/perfil_especies.html"):
     esp = OrderedDict()
     for obj in filtro:
         if cur_language == 'en':
-            especies = Species.objects.filter(fcacode__focus_groups = obj).values_list('id','scientific_name','food_group__name')
+            especies = Species.objects.filter(fcacode__focus_groups = obj).values_list('id','scientific_name','food_group__name','cultivar')
         elif cur_language == 'es':
-            especies = Species.objects.filter(fcacode__focus_groups = obj).values_list('id','scientific_name','food_group__es_name')
+            especies = Species.objects.filter(fcacode__focus_groups = obj).values_list('id','scientific_name','food_group__es_name','cultivar')
 
         for especie in especies:
             lista = []
@@ -352,7 +357,7 @@ def perfil_especies(request,template="salidas/perfil_especies.html"):
 
             lista.append((scientific_name2,english_name,french_name,vernacular_name))
 
-            esp[especie[1],especie[0],especie[2]] = lista
+            esp[especie[1],especie[0],especie[2],especie[3]] = lista
 
     return render(request, template, locals())
 
@@ -603,8 +608,8 @@ def perfil_focus_groups_detail(request,id = None):
         buy['Pocos o ninguno compra'] = fgd
         buy['La mayoría compra'] = fgd_1
         buy_1['Pocos compran'] = fgd_2
-        buy_2['La mayoría compra'] = fgd_3
-        buy_3['La mayoría compra'] = fgd_4
+        buy_2['La mayoria compra'] = fgd_3
+        buy_3['La mayoria compra'] = fgd_4
         buy_4['Pocos o ninguno compra'] = fgd_5
         buy_5['Pocos compran'] = fgd_6
         buy_6['Pocos compran'] = fgd_7
@@ -623,15 +628,15 @@ def perfil_focus_groups_detail(request,id = None):
         #venta
         v_buy['Pocos o ninguno compra'] = fgdv
         v_buy['La mayoría compra'] = fgdv_1
-        v_buy_0['La mayoría compra'] = fgdv_2
+        v_buy_0['La mayoria compra'] = fgdv_2
         v_buy_0['Pocos compran'] = fgdv_3
         v_buy_0['Ninguno compra'] = fgdv_4
         v_buy_1['Ninguno compra'] = fgdv_5
         v_buy_1['Pocos compran'] = fgdv_6
         v_buy_1['Muchos compran'] = fgdv_7
 
-        venta_produce['La mayoría produce'] = v_buy
-        venta_produce_1['La mayoría produce'] = v_buy_0
+        venta_produce['La mayoria produce'] = v_buy
+        venta_produce_1['La mayoria produce'] = v_buy_0
         venta_produce_1['Pocos producen'] = v_buy_1
 
         venta['Muchos venden'] = venta_produce
@@ -641,6 +646,7 @@ def perfil_focus_groups_detail(request,id = None):
 
 def perfil_abd(request,template = "salidas/perfil_abd.html"):
     filtro = _queryset_filtrado(request)
+    cur_language = translation.get_language()
     community = request.session['community']
 
     comu = {}
@@ -655,7 +661,10 @@ def perfil_abd(request,template = "salidas/perfil_abd.html"):
                 lista.append(x[5])
         lista = list(set(lista))
 
-        food_groups = FoodGroup.objects.filter(id__in = lista).values_list('id','name')
+        if cur_language == 'en':
+            food_groups = FoodGroup.objects.filter(id__in = lista).values_list('id','name')
+        elif cur_language == 'es':
+            food_groups = FoodGroup.objects.filter(id__in = lista).values_list('id','es_name')
 
         # #consumo
         consume = collections.OrderedDict()
@@ -780,42 +789,83 @@ def perfil_abd(request,template = "salidas/perfil_abd.html"):
                 fgdv_7[x[1]] = ventalist_8
 
         # #consumo
-        buy['Few or none buy'] = fgd
-        buy['Most buy'] = fgd_1
-        buy_1['Few buy'] = fgd_2
-        buy_2['Most buy'] = fgd_3
-        buy_3['Most buy'] = fgd_4
-        buy_4['Few or none buy'] = fgd_5
-        buy_5['Few buy'] = fgd_6
-        buy_6['Few buy'] = fgd_7
+        if cur_language == 'en':
+            #consumo
+            buy['Few or none buy'] = fgd
+            buy['Most buy'] = fgd_1
+            buy_1['Few buy'] = fgd_2
+            buy_2['Most buy'] = fgd_3
+            buy_3['Most buy'] = fgd_4
+            buy_4['Few or none buy'] = fgd_5
+            buy_5['Few buy'] = fgd_6
+            buy_6['Few buy'] = fgd_7
 
-        produce['Most Produce or widely available in community'] = buy
-        produce['Few Produce or available in small areas in community'] = buy_1
-        produce['Few Produce or available in small and large areas in community'] = buy_2
-        produce['Not Produced in Community'] = buy_3
-        produce_1['Most Produce or widely available in community'] = buy_4
-        produce_1['Few Produce or available in small areas in community'] = buy_5
-        produce_1['Not Produced in Community'] = buy_6
+            produce['Most Produce or widely available in community'] = buy
+            produce['Few Produce or available in small areas in community'] = buy_1
+            produce['Few Produce or available in small and large areas in community'] = buy_2
+            produce['Not Produced in Community'] = buy_3
+            produce_1['Most Produce or widely available in community'] = buy_4
+            produce_1['Few Produce or available in small areas in community'] = buy_5
+            produce_1['Not Produced in Community'] = buy_6
 
-        consume['Most consume/frequent'] = produce
-        consume['Few consume/infrequent'] = produce_1
+            consume['Most consume/frequent'] = produce
+            consume['Few consume/infrequent'] = produce_1
 
-        #venta
-        v_buy['Few or none buy'] = fgdv
-        v_buy['Most buy'] = fgdv_1
-        v_buy_0['Most buy'] = fgdv_2
-        v_buy_0['Few buy'] = fgdv_3
-        v_buy_0['None buy'] = fgdv_4
-        v_buy_1['None buy'] = fgdv_5
-        v_buy_1['Few buy'] = fgdv_6
-        v_buy_1['Many buy'] = fgdv_7
+            #venta
+            v_buy['Few or none buy'] = fgdv
+            v_buy['Most buy'] = fgdv_1
+            v_buy_0['Most buy'] = fgdv_2
+            v_buy_0['Few buy'] = fgdv_3
+            v_buy_0['None buy'] = fgdv_4
+            v_buy_1['None buy'] = fgdv_5
+            v_buy_1['Few buy'] = fgdv_6
+            v_buy_1['Many buy'] = fgdv_7
 
-        venta_produce['Most Produce'] = v_buy
-        venta_produce_1['Most Produce'] = v_buy_0
-        venta_produce_1['Few produce'] = v_buy_1
+            venta_produce['Most Produce'] = v_buy
+            venta_produce_1['Most Produce'] = v_buy_0
+            venta_produce_1['Few produce'] = v_buy_1
 
-        venta['Sold by Most'] = venta_produce
-        venta['Sold by few'] = venta_produce_1
+            venta['Sold by Most'] = venta_produce
+            venta['Sold by few'] = venta_produce_1
+
+        elif cur_language == 'es':
+            #consumo
+            buy['Pocos o ninguno compra'] = fgd
+            buy['La mayoria compra'] = fgd_1
+            buy_1['Pocos compran'] = fgd_2
+            buy_2['La mayoria compra'] = fgd_3
+            buy_3['La mayoria compra'] = fgd_4
+            buy_4['Pocos o ninguno compra'] = fgd_5
+            buy_5['Pocos compran'] = fgd_6
+            buy_6['Pocos compran'] = fgd_7
+
+            produce['La mayoria produce o ampliamente disponibles en la comunidad'] = buy
+            produce['Pocos productos o disponibles en pequeñas áreas en la comunidad'] = buy_1
+            produce['Pocos productos o disponibles en áreas pequeñas y grandes en la comunidad'] = buy_2
+            produce['No producido en la comunidad'] = buy_3
+            produce_1['La mayoria produce o ampliamente disponibles en la comunidad'] = buy_4
+            produce_1['Pocos producen o disponibles en pequeñas áreas en la comunidad'] = buy_5
+            produce_1['No producido en la comunidad'] = buy_6
+
+            consume['La mayoria consume/con frecuencia'] = produce
+            consume['Pocos consumen/poco frecuentes'] = produce_1
+
+            #venta
+            v_buy['Pocos o ninguno compra'] = fgdv
+            v_buy['La mayoria compra'] = fgdv_1
+            v_buy_0['La mayoria compra'] = fgdv_2
+            v_buy_0['Pocos compran'] = fgdv_3
+            v_buy_0['Ninguno compra'] = fgdv_4
+            v_buy_1['Ninguno compra'] = fgdv_5
+            v_buy_1['Pocos compran'] = fgdv_6
+            v_buy_1['Muchos compran'] = fgdv_7
+
+            venta_produce['La mayoria produce'] = v_buy
+            venta_produce_1['La mayoria produce'] = v_buy_0
+            venta_produce_1['Pocos producen'] = v_buy_1
+
+            venta['Muchos venden'] = venta_produce
+            venta['Pocos venden'] = venta_produce_1
 
         comu[obj] = (consume,venta)
 

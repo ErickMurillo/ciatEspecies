@@ -15,6 +15,12 @@
 #td-especies {background-color: #ffd966}
 #td-especies2 {background-color: #ffe699}
 #td-especies3 {background-color: #fff2cc}
+.table-responsive {
+  margin-top: 20px;
+  height: 600px !important;
+  overflow: scroll;
+  width: 100% !important
+}
 </style>
 <div class="menu-dashboard">
   <div class="container-fluid">
@@ -88,6 +94,7 @@
         <div class="tab-content">
 					{% for key,values in comu.items %}
 					<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
+            <div class="table-responsive">
             <table class="table table-bordered">
               <caption>{% blocktrans %}Perfil ABD de especies y productos consumidos por el grupo focal{% endblocktrans %}</caption>
               <thead>
@@ -108,7 +115,7 @@
                   </tr>
                   {% for k,v in val.items %}
                     <tr>
-                      {% if kkey == 'Most consume/frequent' and k == 'Most Produce or widely available in community' %}
+                      {% if kkey == 'Most consume/frequent' and k == 'Most Produce or widely available in community' or kkey == 'La mayoria consume/con frecuencia' and k == 'La mayoria produce o ampliamente disponibles en la comunidad' %}
                       <td rowspan="3" id="many-produce" width="20%">{{k}}</td>
                       {% for x in v.keys %}
                         <tr>
@@ -141,15 +148,15 @@
 
 
                       {% else %}
-                      <td colspan="1" id="few-produce{% if forloop.counter <= 4 and kkey == 'Most consume/frequent' %}{{forloop.counter}}{% else %}{{forloop.counter}}2{% endif %}" width="20%">{{k}}</td>
-                      <td width="10%" id="{% if forloop.counter|divisibleby:'2' and kkey == 'Most consume/frequent' %}few1{% else %}few2{% endif %}">
+                      <td colspan="1" id="few-produce{% if forloop.counter <= 4 and kkey == 'Most consume/frequent' or kkey == 'La mayoría consume/con frecuencia' %}{{forloop.counter}}{% else %}{{forloop.counter}}2{% endif %}" width="20%">{{k}}</td>
+                      <td width="10%" id="{% if forloop.counter|divisibleby:'2' and kkey == 'Most consume/frequent' or kkey == 'La mayoría consume/con frecuencia' %}few1{% else %}few2{% endif %}">
                         {% for x,y in v.items %}
                           {{x}}
                         {% endfor %}
                       </td>
-                      <td id="{% if kkey == 'Most consume/frequent' %}td-especies2{% else %}td-especies3{% endif %}">
+                      <td id="{% if kkey == 'Most consume/frequent' or kkey == 'La mayoría consume/con frecuencia' %}td-especies2{% else %}td-especies3{% endif %}">
                         {% for y in v.values %}
-                        <table class="table" id="{% if kkey == 'Most consume/frequent' %}td-especies2{% else %}td-especies3{% endif %}">
+                        <table class="table" id="{% if kkey == 'Most consume/frequent' or key == 'La mayoría consume/con frecuencia' %}td-especies2{% else %}td-especies3{% endif %}">
                           <thead>
                             <tr>
                               {% for val in y.keys %}
@@ -173,7 +180,7 @@
                 {% endfor %}
               </tbody>
             </table>
-
+            </div>
             <hr>
             <br>
 
@@ -194,15 +201,15 @@
                   </tr>
                   {% for k,v in values.items %}
                     <tr>
-                      {% if key == 'Sold by Most' or key == 'Sold by few' %}
-                      <td rowspan="4" width="10%" id="{% if k == 'Most Produce' %}many-produce{% else %}few-produce2{% endif %}">{{k}}</td>
+                      {% if key == 'Sold by Most' or key == 'Sold by few' or key == 'Muchos venden' or key == 'Pocos venden' %}
+                      <td rowspan="4" width="10%" id="{% if k == 'Most Produce' or k == 'La mayoria produce' %}many-produce{% else %}few-produce2{% endif %}">{{k}}</td>
                       {% for x in v.keys %}
                         <tr>
-                          <td width="10%" id="{% if x == 'Most buy' %}few2{% elif x == 'Few buy' or x == 'Few or none buy' %}few1{% elif x == 'None buy' %}td-especies3{% else %}few3{% endif %}">{{x}}</td>
-                          <td id="{% if key == 'Sold by Most' %}consume-most{% else %}consume-few{% endif %}">
+                          <td width="10%" id="{% if x == 'Most buy' or key == 'La mayoria compra' %}few2{% elif x == 'Few buy' or x == 'Few or none buy' or x == 'Pocos compran' or x == 'Pocos o ninguno compra' %}few1{% elif x == 'None buy' or x == 'Ninguno compra' %}td-especies3{% else %}few3{% endif %}">{{x}}</td>
+                          <td id="{% if key == 'Sold by Most' or key == 'Muchos venden' %}consume-most{% else %}consume-few{% endif %}">
                             {% for z,y in v.items %}
                             {% if z == x %}
-                            <table class="table" id="{% if key == 'Sold by Most' %}consume-most{% else %}consume-few{% endif %}">
+                            <table class="table" id="{% if key == 'Sold by Most' or key == 'Muchos venden' %}consume-most{% else %}consume-few{% endif %}">
                               <thead>
                                 <tr>
                                   {% for val in y.keys %}
@@ -232,7 +239,7 @@
             </table>
           </div>
         {% endfor %}
-      </div>
+        </div>
       </div>
     </div>
   </div>

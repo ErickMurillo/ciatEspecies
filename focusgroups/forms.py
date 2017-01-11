@@ -7,6 +7,12 @@ CHOICE_REGION = (('','-------'),(1, 'APAC'),(2, 'LatAm'),(3, 'South Asia'),(4, '
 
 GENDER_CHOICES = (('','-------'),(1,'Female'),(2, 'Male'),(3,'Both'))
 
+def fecha_choice():
+    years = []
+    for en in FocusGroup.objects.order_by('year').values_list('year', flat=True):
+        years.append((en,en))
+    return list(sorted(set(years)))
+
 def country():
     foo = FocusGroup.objects.all().order_by('country__name').distinct().values_list('country__id', flat=True)
     return Country.objects.filter(id__in=foo)
@@ -20,3 +26,4 @@ class FocusGroupForm(forms.Form):
         # self.fields['county'] = forms.ModelMultipleChoiceField(queryset=County.objects.all(), required=False)
         self.fields['community'] = forms.ModelMultipleChoiceField(queryset=Community.objects.all(),required=True)
         self.fields['gender'] = forms.ChoiceField(choices=GENDER_CHOICES,required=False,label=u'Género')
+        self.fields['year'] = forms.ChoiceField(choices=fecha_choice(),required=False,label=u'Año')
