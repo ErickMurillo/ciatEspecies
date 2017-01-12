@@ -22,7 +22,7 @@ admin.site.register(Species, SpeciesAdmin)
 class FctEspeciesAdmin(ImportExportModelAdmin):
     model = FctEspecies
     empty_value_display = '-empty-'
-    list_display = ('id','specie','cooking_method')
+    list_display = ('id','specie')
 
 admin.site.register(FctEspecies,FctEspeciesAdmin)
 

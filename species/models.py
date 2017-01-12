@@ -35,8 +35,8 @@ class Species(models.Model):
     cultivar = models.IntegerField(choices=CHOICES_CULTIVAR, null=True, blank=True,verbose_name='Kingdom')
     type_species = models.IntegerField(choices=CHOICES_TYPE_SPECIES, null=True, blank=True)
 
-    # def __str__(self):
-    #     return self.scientific_name
+    def __str__(self):
+        return self.scientific_name
 
     class Meta:
         verbose_name = 'Species'
@@ -47,8 +47,6 @@ class Species(models.Model):
     def save(self, *args, **kwargs):
 		self.scientific_name = self.name_genus1 + ' ' + self.name_species1
 		super(Species, self).save(*args, **kwargs)
-
-
 
 # CHOICES_COOKING_METHOD = (
 #                         (1, 'Raw'),
@@ -69,7 +67,7 @@ class CookingMethod(models.Model):
 
 class FctEspecies(models.Model):
     specie = models.ForeignKey(Species)
-    cooking_method = models.ForeignKey(CookingMethod,null=True, blank=True)
+    cooking_method = models.ManyToManyField(CookingMethod, blank=True)
     optifood_group = models.FloatField(null=True, blank=True)
     optifood_sub_group = models.FloatField(null=True, blank=True)
     dry = models.FloatField(null=True, blank=True)
@@ -87,7 +85,7 @@ class FctEspecies(models.Model):
     mg = models.FloatField(null=True, blank=True)
     na = models.FloatField(null=True, blank=True)
     zn = models.FloatField(null=True, blank=True)
-    vit_c = models.FloatField(null=True, blank=True)
+    vit_c = models.CharField(max_length=150,null=True, blank=True)
     b1 = models.FloatField(null=True, blank=True)
     b2 = models.FloatField(null=True, blank=True)
     b3 = models.FloatField(null=True, blank=True)
@@ -98,12 +96,12 @@ class FctEspecies(models.Model):
     folac = models.FloatField(null=True, blank=True)
     b12 = models.FloatField(null=True, blank=True)
     va_re = models.FloatField(null=True, blank=True)
-    va_rae = models.FloatField(null=True, blank=True)
+    va_rae = models.CharField(max_length=150,null=True, blank=True)
     retinol = models.FloatField(null=True, blank=True)
-    alcar = models.FloatField(null=True, blank=True)
-    becar = models.FloatField(null=True, blank=True)
-    becry = models.FloatField(null=True, blank=True)
-    phy = models.FloatField(null=True, blank=True)
+    alcar = models.CharField(max_length=150,null=True, blank=True)
+    becar = models.CharField(max_length=150,null=True, blank=True)
+    becry = models.CharField(max_length=150,null=True, blank=True)
+    phy = models.CharField(max_length=150,null=True, blank=True)
     lodine = models.FloatField(null=True, blank=True)
     fe_heme = models.FloatField(null=True, blank=True)
     fe_non_heme = models.FloatField(null=True, blank=True)
@@ -112,7 +110,7 @@ class FctEspecies(models.Model):
     fct_source_code = models.CharField(max_length=150,null=True, blank=True)
     fct_source_descr = models.CharField(max_length=150,null=True, blank=True)
     vol_wt_source = models.CharField(max_length=150,null=True, blank=True)
-    vol_wt_descr_1 = models.FloatField(null=True, blank=True)
+    vol_wt_descr_1 = models.CharField(max_length=150,null=True, blank=True)
     vol_wt_calc_1 = models.FloatField(null=True, blank=True)
     vol_wt_source_2 = models.FloatField(null=True, blank=True)
     vol_wt_descr_2 = models.FloatField(null=True, blank=True)
@@ -120,5 +118,5 @@ class FctEspecies(models.Model):
     ret_code = models.FloatField(null=True, blank=True)
     ret_descr = models.FloatField(null=True, blank=True)
 
-    # def __str__(self):
-    #     return self.specie
+    def __str__(self):
+        return self.specie
