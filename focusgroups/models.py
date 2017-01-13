@@ -211,19 +211,19 @@ class PartUsed(models.Model):
 	name = models.CharField(max_length=250)
 
 	def __str__(self):
-		return self.name
+		return self.name.encode('ASCII', 'ignore')
 
 class Uses(models.Model):
 	name = models.CharField(max_length=250)
 
 	def __str__(self):
-		return self.name
+		return self.name.encode('ASCII', 'ignore')
 
 class CookingMethod(models.Model):
 	name = models.CharField(max_length=250)
 
 	def __str__(self):
-		return self.name
+		return self.name.encode('ASCII', 'ignore')
 
 class FcaCode(models.Model):
 	focus_groups = models.ForeignKey(FocusGroup)

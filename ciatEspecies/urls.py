@@ -47,7 +47,7 @@ urlpatterns = [
     url(r'^publicacion/(?P<slug>[\w-]+)/$', ProyectoDetailView.as_view(), name='proyecto-detalle'),
     url(r'^organizacion/(?P<slug>[\w-]+)/$', OrganizacionDetailView.as_view(), name='org-detalle'),
     url(r'^cientifico/(?P<slug>[\w-]+)/$', CientificoDetailView.as_view(), name='cientifico-detalle'),
-    url(r'^lista-publicacion/$', PublicacionListView.as_view(), name='publicaciones-detalle'),
+    url(r'^list-publicaciones/$', PublicacionListView.as_view(), name='publicaciones-detalle'),
     url(r'^lista-cientificos/$', CientificosListView.as_view(), name='cientificos-detalle'),
 
     url(r'^lang/(?P<lang_code>\w+)/$', set_lang, name='set_lang'),

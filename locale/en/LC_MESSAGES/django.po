@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-11 15:14-0600\n"
+"POT-Creation-Date: 2017-01-13 10:17-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,89 +91,89 @@ msgstr ""
 msgid "Especies por Grupo Nutricionales por Comunidad"
 msgstr "Species by Nutritional Groups by Community"
 
-#: templates/consulta.html:39 templates/indicadores.html:9
+#: templates/consulta.html:38 templates/indicadores.html:9
 #: templates/salidas/grupo_nutricional_pais.html:11
 #: templates/salidas/grupo_nutricional_pais.html:15
 msgid "Especies por Grupo Nutricional por País"
 msgstr "Species by Nutritional Groups by Country"
 
-#: templates/consulta.html:47 templates/indicadores.html:12
+#: templates/consulta.html:45 templates/indicadores.html:12
 #: templates/salidas/numero_especies.html:10
 #: templates/salidas/numero_especies.html:14
 msgid "Total de Especies"
 msgstr "Total Species"
 
-#: templates/consulta.html:54 templates/indicadores.html:15
+#: templates/consulta.html:51 templates/indicadores.html:15
 #: templates/salidas/numero_especies_comunidad.html:11
 #: templates/salidas/numero_especies_comunidad.html:15
 msgid "Relación entre número especies, factores ambientales y económicos"
 msgstr ""
 "Relationship between number of species, environmental and economic factors"
 
-#: templates/consulta.html:61 templates/indicadores.html:18
+#: templates/consulta.html:57 templates/indicadores.html:18
 #: templates/salidas/perfil_especies.html:12
 #: templates/salidas/perfil_especies.html:16
 #: templates/salidas/perfil_especies_detalle.html:13
 msgid "Perfil de Especies"
 msgstr "Species Profile"
 
-#: templates/consulta.html:68 templates/indicadores.html:21
+#: templates/consulta.html:63 templates/indicadores.html:21
 #: templates/salidas/perfil_focus_groups.html:14
 #: templates/salidas/perfil_focus_groups.html:18
 msgid "Perfil de Grupos Focales"
 msgstr "Focus Groups Profile"
 
-#: templates/consulta.html:75 templates/indicadores.html:24
+#: templates/consulta.html:69 templates/indicadores.html:24
 #: templates/salidas/perfil_abd.html:30 templates/salidas/perfil_abd.html:34
 msgid "Perfil ABD"
 msgstr "ABD Profile"
 
-#: templates/consulta.html:90
+#: templates/consulta.html:83
 msgid "FILTRO DE DATOS"
 msgstr "DATA FILTER"
 
-#: templates/consulta.html:91
+#: templates/consulta.html:84
 msgid "Los campos con (*) son requeridos"
 msgstr "Fields with (*) are required"
 
-#: templates/consulta.html:117
+#: templates/consulta.html:110
 msgid "Región Geográfica"
 msgstr "Geographical Region"
 
-#: templates/consulta.html:125
+#: templates/consulta.html:118
 msgid "País"
 msgstr "Country"
 
-#: templates/consulta.html:133 templates/salidas/perfil_fg_detalle.html:90
+#: templates/consulta.html:126 templates/salidas/perfil_fg_detalle.html:90
 #: templates/salidas/perfil_focus_groups.html:92
 msgid "Provincia"
 msgstr "Province"
 
-#: templates/consulta.html:149 templates/salidas/perfil_fg_detalle.html:91
+#: templates/consulta.html:142 templates/salidas/perfil_fg_detalle.html:91
 #: templates/salidas/perfil_focus_groups.html:93
 msgid "Comunidad"
 msgstr "Community"
 
-#: templates/consulta.html:158 templates/salidas/select_filtros.html:11
+#: templates/consulta.html:151 templates/salidas/select_filtros.html:11
 msgid "Año"
 msgstr "Year"
 
-#: templates/consulta.html:173
+#: templates/consulta.html:166
 msgid "CONSULTAR"
 msgstr "QUERY"
 
-#: templates/consulta.html:305 templates/consulta.html:331
-#: templates/consulta.html:357 templates/consulta.html:383
+#: templates/consulta.html:298 templates/consulta.html:324
+#: templates/consulta.html:350 templates/consulta.html:376
 msgid "Seleccionar todos"
 msgstr "Select all"
 
-#: templates/consulta.html:308 templates/consulta.html:334
-#: templates/consulta.html:360 templates/consulta.html:386
+#: templates/consulta.html:301 templates/consulta.html:327
+#: templates/consulta.html:353 templates/consulta.html:379
 msgid "Sin selección ..."
 msgstr "No selection ..."
 
-#: templates/consulta.html:311 templates/consulta.html:337
-#: templates/consulta.html:363 templates/consulta.html:389
+#: templates/consulta.html:304 templates/consulta.html:330
+#: templates/consulta.html:356 templates/consulta.html:382
 msgid "Varias opciones seleccionadas!"
 msgstr "Several options selected!"
 
@@ -352,7 +352,7 @@ msgstr "Cultivated"
 #: templates/salidas/numero_especies.html:244
 #: templates/salidas/numero_especies_comunidad.html:62
 #: templates/salidas/perfil_abd.html:191
-#: templates/salidas/perfil_especies_detalle.html:146
+#: templates/salidas/perfil_especies_detalle.html:147
 #: templates/salidas/perfil_fg_detalle.html:242
 msgid "Vendido"
 msgstr "Sold"
@@ -363,7 +363,7 @@ msgstr "Sold"
 #: templates/salidas/numero_especies.html:252
 #: templates/salidas/numero_especies_comunidad.html:63
 #: templates/salidas/perfil_abd.html:104 templates/salidas/perfil_abd.html:193
-#: templates/salidas/perfil_especies_detalle.html:154
+#: templates/salidas/perfil_especies_detalle.html:155
 #: templates/salidas/perfil_fg_detalle.html:155
 #: templates/salidas/perfil_fg_detalle.html:244
 msgid "Comprado"
@@ -375,7 +375,7 @@ msgstr "Purchased"
 #: templates/salidas/numero_especies.html:260
 #: templates/salidas/numero_especies_comunidad.html:64
 #: templates/salidas/perfil_abd.html:102
-#: templates/salidas/perfil_especies_detalle.html:162
+#: templates/salidas/perfil_especies_detalle.html:163
 msgid "Consumido"
 msgstr "Consumed"
 
@@ -391,7 +391,7 @@ msgstr "Consumed"
 #: templates/salidas/grupo_nutricional_pais.html:194
 #: templates/salidas/numero_especies.html:110
 #: templates/salidas/numero_especies.html:221
-#: templates/salidas/perfil_especies_detalle.html:132
+#: templates/salidas/perfil_especies_detalle.html:133
 msgid "Hombres"
 msgstr "Men"
 
@@ -407,7 +407,7 @@ msgstr "Men"
 #: templates/salidas/grupo_nutricional_pais.html:194
 #: templates/salidas/numero_especies.html:111
 #: templates/salidas/numero_especies.html:222
-#: templates/salidas/perfil_especies_detalle.html:133
+#: templates/salidas/perfil_especies_detalle.html:134
 msgid "Mujeres"
 msgstr "Women"
 
@@ -438,7 +438,7 @@ msgstr "Numbre of species"
 
 #: templates/salidas/numero_especies.html:109
 #: templates/salidas/numero_especies.html:220
-#: templates/salidas/perfil_especies_detalle.html:131
+#: templates/salidas/perfil_especies_detalle.html:132
 msgid "Media"
 msgstr "Mean"
 
@@ -449,7 +449,7 @@ msgstr "Total"
 
 #: templates/salidas/numero_especies.html:125
 #: templates/salidas/perfil_abd.html:103 templates/salidas/perfil_abd.html:192
-#: templates/salidas/perfil_especies_detalle.html:138
+#: templates/salidas/perfil_especies_detalle.html:139
 #: templates/salidas/perfil_fg_detalle.html:154
 #: templates/salidas/perfil_fg_detalle.html:243
 msgid "Producido"
@@ -675,7 +675,7 @@ msgid "Nombre en francés"
 msgstr "French name"
 
 #: templates/salidas/perfil_especies.html:77
-#: templates/salidas/perfil_especies_detalle.html:88
+#: templates/salidas/perfil_especies_detalle.html:89
 msgid "Nombre vernáculo"
 msgstr "Vernacular name"
 
@@ -795,29 +795,45 @@ msgstr "Animal"
 msgid "Tipo de especie"
 msgstr "Type of specie"
 
-#: templates/salidas/perfil_especies_detalle.html:89
+#: templates/salidas/perfil_especies_detalle.html:84
+msgid "Usos"
+msgstr "Uses"
+
+#: templates/salidas/perfil_especies_detalle.html:90
 msgid "Porcentaje de paises"
 msgstr "Percentage of countries"
 
 #: templates/salidas/perfil_especies_detalle.html:90
+#, fuzzy
+#| msgid "total de registros"
+msgid "Total de paises registrados"
+msgstr "Total of registered countries"
+
+#: templates/salidas/perfil_especies_detalle.html:91
 msgid "Porcentaje de comunidades"
 msgstr "Percentage of communities"
 
-#: templates/salidas/perfil_especies_detalle.html:94
+#: templates/salidas/perfil_especies_detalle.html:91
+#, fuzzy
+#| msgid "total de registros"
+msgid "Total de comunidades registradas"
+msgstr "Total of registered communities"
+
+#: templates/salidas/perfil_especies_detalle.html:95
 #: templates/salidas/select_filtros.html:30
 msgid "Paises"
 msgstr "Countries"
 
-#: templates/salidas/perfil_especies_detalle.html:95
+#: templates/salidas/perfil_especies_detalle.html:96
 #: templates/salidas/select_filtros.html:44
 msgid "Comunidades"
 msgstr "Communities"
 
-#: templates/salidas/perfil_especies_detalle.html:120
+#: templates/salidas/perfil_especies_detalle.html:121
 msgid "Perfil de la especie"
 msgstr "Specie profile"
 
-#: templates/salidas/perfil_especies_detalle.html:121
+#: templates/salidas/perfil_especies_detalle.html:122
 msgid "Datos"
 msgstr "Data"
 

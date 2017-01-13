@@ -36,7 +36,7 @@ class Species(models.Model):
     type_species = models.IntegerField(choices=CHOICES_TYPE_SPECIES, null=True, blank=True)
 
     def __str__(self):
-        return self.scientific_name
+        return self.scientific_name.encode('ASCII', 'ignore')
 
     class Meta:
         verbose_name = 'Species'

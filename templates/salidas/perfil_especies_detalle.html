@@ -1,181 +1,197 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load thumbnail %}
+
 {% block content %}
 <div class="menu-dashboard">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
-                <div class="salida-title">
-                    <h4>{% trans "Perfil" %} {{object.scientific_name}}</h4>
-                    <ol class="breadcrumb">
-                        <li><a href="/">{% trans "Inicio" %}</a></li>
-                        <li><a href="/filtros/">{% trans "Explorar datos" %}</a></li>
-                        <li class="active">{% trans "Perfil de Especies" %}</li>
-                        <li class="active">{% trans "Perfil" %} {{object.scientific_name}}</li>
-                    </ol>
-                </div>
-
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
-                <ul class="nav nav-tabs menu-fs pull-right" role="tablist">
-
-                    <li role="presentation" class="active">
-
-                        <a href="#filtro" aria-controls="filtro" role="tab" data-toggle="tab">
-                        <div class="f-icon"><i class="fa fa-filter fa-2x"></i></div>
-                        <h6>{% trans "filtro" %}</h6>
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a href="#indicadores" aria-controls="indicadores" role="tab" data-toggle="tab">
-                            <div class="f-icon"><i class="fa fa-bar-chart fa-2x"></i></div>
-                            <h6>{% trans "indicadores" %}</h6>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+        <div class="salida-title">
+          <h4>{% trans "Perfil" %} {{object.scientific_name}}</h4>
+          <ol class="breadcrumb">
+            <li><a href="/">{% trans "Inicio" %}</a></li>
+            <li><a href="/filtros/">{% trans "Explorar datos" %}</a></li>
+            <li class="active">{% trans "Perfil de Especies" %}</li>
+            <li class="active">{% trans "Perfil" %} {{object.scientific_name}}</li>
+          </ol>
         </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+        <ul class="nav nav-tabs menu-fs pull-right" role="tablist">
+
+          <li role="presentation" class="active">
+
+            <a href="#filtro" aria-controls="filtro" role="tab" data-toggle="tab">
+              <div class="f-icon"><i class="fa fa-filter fa-2x"></i></div>
+              <h6>{% trans "filtro" %}</h6>
+            </a>
+          </li>
+          <li role="presentation">
+            <a href="#indicadores" aria-controls="indicadores" role="tab" data-toggle="tab">
+              <div class="f-icon"><i class="fa fa-bar-chart fa-2x"></i></div>
+              <h6>{% trans "indicadores" %}</h6>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
 </div>
 <div role="tabpanel">
 
-    <!-- Tab panes -->
-    <div class="tab-content filtro-indicador">
-        <div role="tabpanel" class="tab-pane active" id="filtro">
-            {% include "salidas/select_filtros.html" %}
-        </div>
-        <div role="tabpanel" class="tab-pane" id="indicadores">
-            {% include "indicadores.html" %}
-        </div>
+  <!-- Tab panes -->
+  <div class="tab-content filtro-indicador">
+    <div role="tabpanel" class="tab-pane active" id="filtro">
+      {% include "salidas/select_filtros.html" %}
     </div>
+    <div role="tabpanel" class="tab-pane" id="indicadores">
+      {% include "indicadores.html" %}
+    </div>
+  </div>
 </div>
 
 <div class="consulta" id="consulta">
-<div class="contact_wrap">
-  <div class="container">
-  	<div class="row">
-  		<!-- START SALES BLOCK -->
-		<div class="panel panel-default panel-salidas">
-            <div class="panel-heading">
-                <div class="panel-title-box">
-                    <h3>{{object.scientific_name}}</h3>
-                    <span>{% trans "Datos Generales" %}</span>
+  <div class="contact_wrap">
+    <div class="container">
+      <div class="row">
+        <!-- START SALES BLOCK -->
+        <div class="panel panel-default panel-salidas">
+          <div class="panel-heading">
+            <div class="panel-title-box">
+              <h3>{{object.scientific_name}}</h3>
+              <span>{% trans "Datos Generales" %}</span>
 
-                </div>
             </div>
-            <div class="panel-body">
-            	<div class="row p-especie">
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<p>{% trans "Nombre del género" %}: {{object.name_genus1}}</p>
-						<p>{% trans "Nombre de la especie" %}: {{object.name_species1}}</p>
-						<p>{% trans "Nombre común" %}: {{object.common_name}}</p>
-						<p>{% trans "Grupo alimenticio" %}: {% if LANGUAGE_CODE == 'en' %}{{object.food_group}}{% elif LANGUAGE_CODE == 'es' %}{{object.food_group.es_name}}{% endif %}</p>
-						<p>{% trans "Orden de nombre" %}: {{object.name_order}}</p>
+          </div>
+          <div class="panel-body">
+            <div class="row p-especie">
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <p><b>{% trans "Nombre del género" %}:</b> {{object.name_genus1}}</p>
+                <p><b>{% trans "Nombre de la especie" %}:</b> {{object.name_species1}}</p>
+                <p><b>{% trans "Nombre común" %}:</b> {{object.common_name}}</p>
+                <p><b>{% trans "Grupo alimenticio" %}:</b> {% if LANGUAGE_CODE == 'en' %}{{object.food_group}}{% elif LANGUAGE_CODE == 'es' %}{{object.food_group.es_name}}{% endif %}</p>
+                <p><b>{% trans "Orden de nombre" %}:</b> {{object.name_order}}</p>
 
 
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<p>{% trans "Nombre de la familia" %}: {{object.name_family}}</p>
-						<p>{% trans "Cultivar" %}: {% if object.cultivar == 1 %}{% trans "Animal" %}{% else %}{% trans "Planta" %}{% endif %}</p>
-						<p>{% if object.type_species %}{% trans "Tipo de especie" %}: {{object.type_species}}{% endif %}</p>
-						<p>{% trans "Nombre científico" %}: {% for x in scientific_name2 %}{{x}}, {% endfor %}</p>
-						<p>{% trans "Nombre en ingles" %}: {% for x in english_name %}{{x}}, {% endfor %}</p>
-						<p>{% trans "Nombre en francés" %}: {% for x in french_name %}{{x}}, {% endfor %}</p>
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <p><b>{% trans "Nombre de la familia" %}:</b> {{object.name_family}}</p>
+                <p><b>{% trans "Cultivar" %}:</b> {% if object.cultivar == 1 %}{% trans "Animal" %}{% else %}{% trans "Planta" %}{% endif %}</p>
+                <p>{% if object.type_species %}<b>{% trans "Tipo de especie" %}:</b> {{object.type_species}}{% endif %}</p>
+                <p><b>{% trans "Nombre científico" %}:</b> {% for x in scientific_name2 %}{{x}}{% if not forloop.last %},{% endif %} {% endfor %}</p>
+                <p><b>{% trans "Nombre en ingles" %}:</b> {% for x in english_name %}{{x}}{% if not forloop.last %},{% endif %} {% endfor %}</p>
+                <p><b>{% trans "Nombre en francés" %}:</b> {% for x in french_name %}{{x}}{% if not forloop.last %},{% endif %} {% endfor %}</p>
+                <p><b>{% trans "Usos" %}:</b> {% for obj in uses %}{{obj}}{% if not forloop.last %},{% endif %} {% endfor %}</p>
 
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+              </div>
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 
-						<p>{% trans "Nombre vernáculo" %}: {% for x in vernacular_name %}{{x}}, {% endfor %}</p>
-						<p>{% trans "Porcentaje de paises" %}: {{porcent_pais}}%</p>
-						<p>{% trans "Porcentaje de comunidades" %}: {{porcent_comunnity}}%</p>
-						  <table class="table table-bordered table-hover">
+                <p><b>{% trans "Nombre vernáculo" %}:</b> {% for x in vernacular_name %}{{x}}, {% endfor %}</p>
+                <p><b>{% trans "Porcentaje de paises" %}:</b> {{porcent_pais}}% ({% trans "Total de paises registrados" %}: {{paises}})</p>
+                <p><b>{% trans "Porcentaje de comunidades" %}:</b> {{porcent_comunnity}}% ( {% trans "Total de comunidades registradas" %}: {{comunidades}})</p>
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>{% trans "Paises" %}</th>
+                      <th>{% trans "Comunidades" %}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for k,v in dicc.items %}
+                    <tr>
+                      <td>{{k}}</td>
+                      <td>{% for x in v %} {{x}}{% if not forloop.last %},{% endif %}{% endfor %}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
+              {% if fotos %}
+              <div class="images">
+                {% for obj in fotos %}
+        					{% thumbnail obj.fotos "270x210" crop="center" as img %}
+                    <div class="col-md-4">
+                      <img src="/media/{{img}}" alt="..." class="img-rounded">
+                    </div>
+        					{% endthumbnail %}
+                {% endfor %}
+              </div>
+              {% endif %}
+
+
+          </div>
+        </div>
+        <!-- END SALES BLOCK -->
+      </div>
+      <div class="row">
+        <!-- START SALES BLOCK -->
+        <div class="panel panel-default panel-salidas">
+          <div class="panel-heading">
+            <div class="panel-title-box">
+              <h3>{% trans "Perfil de la especie" %}</h3>
+              <span>{% trans "Datos" %}</span>
+
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
                 <thead>
-    						  <tr>
-      							<th>{% trans "Paises" %}</th>
-      							<th>{% trans "Comunidades" %}</th>
-    						  </tr>
-    						</thead>
-                <tbody>
-                  {% for k,v in dicc.items %}
                   <tr>
-                    <td>{{k}}</td>
-                    <td>{% for x in v %} {{x}}{% if not forloop.last %},{% endif %}{% endfor %}</td>
+                    <th></th>
+                    <th>{% trans "Media" %}</th>
+                    <th>{% trans "Hombres" %}</th>
+                    <th>{% trans "Mujeres" %}</th>
                   </tr>
-                  {% endfor %}
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{% trans "Producido" %}</td>
+                    {% for valor in produced %}
+                    <td>{{valor.0}}</td>
+                    <td>{{valor.1}}</td>
+                    <td>{{valor.2}}</td>
+                    {% endfor %}
+                  </tr>
+                  <tr>
+                    <td>{% trans "Vendido" %}</td>
+                    {% for valor in sold %}
+                    <td>{{valor.0}}</td>
+                    <td>{{valor.1}}</td>
+                    <td>{{valor.2}}</td>
+                    {% endfor %}
+                  </tr>
+                  <tr>
+                    <td>{% trans "Comprado" %}</td>
+                    {% for valor in purchased %}
+                    <td>{{valor.0}}</td>
+                    <td>{{valor.1}}</td>
+                    <td>{{valor.2}}</td>
+                    {% endfor %}
+                  </tr>
+                  <tr>
+                    <td>{% trans "Consumido" %}</td>
+                    {% for valor in consumed %}
+                    <td>{{valor.0}}</td>
+                    <td>{{valor.1}}</td>
+                    <td>{{valor.2}}</td>
+                    {% endfor %}
+                  </tr>
                 </tbody>
-						  </table>
-					</div>
-
-
-				</div>
+              </table>
             </div>
-        </div>
-        <!-- END SALES BLOCK -->
-	</div>
-	<div class="row">
-		<!-- START SALES BLOCK -->
-		<div class="panel panel-default panel-salidas">
-            <div class="panel-heading">
-                <div class="panel-title-box">
-                    <h3>{% trans "Perfil de la especie" %}</h3>
-                    <span>{% trans "Datos" %}</span>
-
-                </div>
-            </div>
-            <div class="panel-body">
-            	<div class="table-responsive">
-					<table class="table table-bordered table-hover">
-						<thead>
-						  <tr>
-							<th></th>
-							<th>{% trans "Media" %}</th>
-							<th>{% trans "Hombres" %}</th>
-							<th>{% trans "Mujeres" %}</th>
-						  </tr>
-						</thead>
-						<tbody>
-						  <tr>
-							<td>{% trans "Producido" %}</td>
-							{% for valor in produced %}
-							<td>{{valor.0}}</td>
-							<td>{{valor.1}}</td>
-							<td>{{valor.2}}</td>
-							{% endfor %}
-						  </tr>
-						  <tr>
-							<td>{% trans "Vendido" %}</td>
-							{% for valor in sold %}
-							<td>{{valor.0}}</td>
-							<td>{{valor.1}}</td>
-							<td>{{valor.2}}</td>
-							{% endfor %}
-						  </tr>
-						  <tr>
-							<td>{% trans "Comprado" %}</td>
-							{% for valor in purchased %}
-							<td>{{valor.0}}</td>
-							<td>{{valor.1}}</td>
-							<td>{{valor.2}}</td>
-							{% endfor %}
-						  </tr>
-						  <tr>
-							<td>{% trans "Consumido" %}</td>
-							{% for valor in consumed %}
-							<td>{{valor.0}}</td>
-							<td>{{valor.1}}</td>
-							<td>{{valor.2}}</td>
-							{% endfor %}
-						  </tr>
-						</tbody>
-					</table>
-				</div>
-            </div>
+          </div>
         </div>
         <!-- END SALES BLOCK -->
 
-	</div>
+      </div>
 
-	</div>
+    </div>
   </div>
 </div>
 {% endblock %}

@@ -70,7 +70,6 @@ def filtros(request,template="consulta.html"):
     else:
         form = FocusGroupForm()
         mensaje = "Existen alguno errores"
-        centinela = 0
         try:
             del request.session['region']
             del request.session['country']
@@ -373,7 +372,6 @@ def perfil_especies_detalle(request,id = None):
     english_name = FcaCode.objects.filter(species = object).distinct('species_english_name').values_list('species_english_name', flat = True)
     french_name = FcaCode.objects.filter(species = object).distinct('species_french_name').values_list('species_french_name', flat = True)
     vernacular_name = FcaCode.objects.filter(species = object).distinct('species_vernacular_name').values_list('species_vernacular_name', flat = True)
-
     country = FcaCode.objects.filter(species = object).distinct('focus_groups__country')
     conteo_pais = country.count()
     porcent_pais = saca_porcentajes(conteo_pais,paises,False)
@@ -387,6 +385,8 @@ def perfil_especies_detalle(request,id = None):
         comu = FcaCode.objects.filter(species = object,focus_groups__country = obj.focus_groups.country).distinct('focus_groups__community').values_list('focus_groups__community__name', flat=True)
         dicc[obj.focus_groups.country] = comu
 
+    uses = FcaCode.objects.filter(species = object).distinct('uses').values_list('uses', flat = True)
+    fotos = FotosSpecies.objects.filter(species = object)
     ########################
     #produced
     produced = []
