@@ -442,6 +442,7 @@ def perfil_focus_groups_detail(request,id = None):
     elif cur_language == 'es':
         food_groups = FoodGroup.objects.filter(id__in = lista).values_list('id','es_name')
 
+
     #consumo
     consume = collections.OrderedDict()
     produce = collections.OrderedDict()
@@ -462,6 +463,7 @@ def perfil_focus_groups_detail(request,id = None):
         # listas venta
         ventalist_1,ventalist_2,ventalist_3,ventalist_4,ventalist_5,ventalist_6,ventalist_7,ventalist_8 = [],[],[],[],[],[],[],[]
         for sp in species:
+            print sp[0]
             # tabla 1 consumo ---------------------------------------------------------------
             if (sp[1] == 1 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 1 or sp[4] == 3):
                 if x[0] == sp[5]:
