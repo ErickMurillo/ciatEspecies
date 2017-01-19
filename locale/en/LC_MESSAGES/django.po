@@ -54,10 +54,8 @@ msgid "Afilizarse"
 msgstr "Affiliate"
 
 #: focusgroups/forms.py:35 templates/afiliarse.html:69
-#, fuzzy
-#| msgid "Hombres"
 msgid "Nombre"
-msgstr "Men"
+msgstr "Name"
 
 #: focusgroups/forms.py:36 templates/afiliarse.html:72
 msgid "Correo"
