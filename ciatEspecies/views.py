@@ -92,16 +92,16 @@ def afiliarse(request, template="afiliarse.html"):
             message = form.cleaned_data['message']
         try:
             subject, from_email, to = 'ABD Species', 'noreply@abd-data.org', arreglo_mail
-            text_content = 'Nombre: ' + str(name) + ', <br>'  + \
-                            'Correo: ' + str(email) + ', <br>' + \
-                            'Proyecto: ' + str(project) + ', <br>' + \
-                            'Tipo: ' + str(tipo) + ', <br>' + \
+            text_content = 'Nombre: ' + str(name) + '<br>'  + \
+                            'Correo: ' + str(email) + '<br>' + \
+                            'Proyecto: ' + str(project) + '<br>' + \
+                            'Tipo: ' + str(tipo) + '<br>' + \
                             'Mensaje: ' + str(message)
 
-            html_content = 'Nombre: ' + str(name) + ', <br>'  + \
-                            'Correo: ' + str(email) + ', <br>' + \
-                            'Proyecto: ' + str(project) + ', <br>' + \
-                            'Tipo: ' + str(tipo) + ', <br>' + \
+            html_content = 'Nombre: ' + str(name) + '<br>'  + \
+                            'Correo: ' + str(email) + '<br>' + \
+                            'Proyecto: ' + str(project) + '<br>' + \
+                            'Tipo: ' + str(tipo) + '<br>' + \
                             'Mensaje: ' + str(message)
 
             msg = EmailMultiAlternatives(subject, text_content, from_email, arreglo_mail)
@@ -109,6 +109,7 @@ def afiliarse(request, template="afiliarse.html"):
             msg.send()
 
             enviado = 1
+            return http.HttpResponseRedirect('')
         except:
             pass
 
