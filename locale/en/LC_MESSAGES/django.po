@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-19 13:16-0600\n"
+"POT-Creation-Date: 2017-01-19 14:05-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,33 +25,13 @@ msgstr "Spanish"
 msgid "English"
 msgstr "Ingles"
 
-#: ciatEspecies/views.py:95 ciatEspecies/views.py:101
-msgid "Nombre: "
-msgstr "Name: "
-
-#: ciatEspecies/views.py:96 ciatEspecies/views.py:102
-msgid "Correo: "
-msgstr "Email: "
-
-#: ciatEspecies/views.py:97 ciatEspecies/views.py:103
-msgid "Proyecto: "
-msgstr "Project: "
-
-#: ciatEspecies/views.py:98 ciatEspecies/views.py:104
-msgid "Tipo: "
-msgstr "Type: "
-
-#: ciatEspecies/views.py:99 ciatEspecies/views.py:105
-msgid "Mensaje: "
-msgstr "Message: "
-
 #: focusgroups/forms.py:33
 msgid "Solicitar datos"
 msgstr "Request information"
 
 #: focusgroups/forms.py:33
-msgid "Afilizarse"
-msgstr "Affiliate"
+msgid "Unirse a la red de datos ABD"
+msgstr "Join ABD data network"
 
 #: focusgroups/forms.py:35 templates/afiliarse.html:69
 msgid "Nombre"
@@ -74,7 +54,7 @@ msgstr "Type"
 msgid "Descripción breve"
 msgstr "Brief description"
 
-#: templates/afiliarse.html:9 templates/base.html:64 templates/index.html:249
+#: templates/afiliarse.html:9 templates/base.html:64 templates/index.html:255
 msgid "AFILIARSE"
 msgstr "AFFILIATE"
 
@@ -95,8 +75,6 @@ msgid "Acepto los terminimos y condiciones"
 msgstr "I accept the terms and conditions"
 
 #: templates/afiliarse.html:54
-#, fuzzy
-#| msgid "EXPLORAR DATOS"
 msgid "SOLICITAR DATOS"
 msgstr "REQUEST INFORMATION"
 
@@ -262,43 +240,62 @@ msgid "Red de datos globales"
 msgstr "Global data network"
 
 #: templates/index.html:24
-msgid "OBJETIVO"
-msgstr "OBJECTIVE"
+msgid "INTRODUCCIÓN"
+msgstr "INTRODUCTION"
 
 #: templates/index.html:28
 msgid ""
-"El objetivo general es comprender los patrones y los motores del uso de ABD "
-"e identificar oportunidades para mejorar el ingreso y la nutrición de los "
-"hogares a través del uso de la agrobiodiversidad. El método de cuatro "
-"células se desarrolló para la evaluación rápida del uso total de ABD en la "
-"comunidad y se ha aplicado en varias acciones de Humidtropics sitio. Estos "
-"datos se utilizarán en combinación con otros datos de diagnóstico de hogares "
-"y agroecosistemas para identificar intervenciones clave para la mejora del "
-"sistema en diferentes tipologías de fincas. Un paso esencial es transformar "
-"los conjuntos de datos ABD en un formato de interpretación y discusión con "
-"los hogares agrícolas y las organizaciones locales que es conducente a la "
-"identificación de intervenciones clave de ABD. El objetivo específico es "
-"desarrollar métodos para analizar y diseñar para presentar datos ABD "
-"complejos. Aquí se usan datos del territorio cafetero del sitio de acción "
-"del Norte de Nicaragua para ilustrar los métodos potenciales para analizar y "
-"presentar los perfiles ABD de la comunidad"
+"Los trópicos son conocidos por los altos niveles de biodiversidad que se "
+"encuentran en estas áreas, pero se sabe poco sobre el uso de la "
+"agrobiodiversidad en los trópicos. La biodiversidad agrícola es la base para "
+"la producción sostenible en los agroecosistemas. También es la base para "
+"diversas dietas, que es una estrategia para mejorar las dietas ricas en "
+"nutrientes y saludables. El conocimiento sobre el uso de la biodiversidad "
+"agrícola permite identificar las necesidades y soluciones para mejorar la "
+"producción sostenible y la diversidad de la dieta en las comunidades rurales"
 msgstr ""
-"The broad objective is to understand patterns and drivers of ABD use and to "
-"identify opportunities to improve household income and nutrition through "
-"agrobiodiversity use. The four-cell method was developed for rapid "
-"assessment of total community ABD use and has been applied in various "
-"Humidtropics actions site. This data will be used in combination with other "
-"household and agroecosystem diagnostic data to identify key interventions "
-"for system improvement in different farm typologies. An essential step is to "
-"transform the ABD datasets into a format for interpretation and discussion "
-"with farming households and local organizations that is conducive to the "
-"identification of key ABD interventions. The specific objective is to "
-"develop methods to analyze and designs to present complex ABD data. Here we "
-"use data from the coffee territory of the Northern Nicaragua action site to "
-"illustrate the potential methods for analyzing and presenting the community "
-"ABD profiles."
+"The tropics are known for the high levels of biodiversity found in these "
+"areas, but little is known aboutthe use of agrobiodiversity in the tropics. "
+"Agricultural biodiversity is the basis for sustainableproduction in "
+"agroecosystems. It is also the basis for diverse diets, which is a strategy "
+"to enhancenutrition-rich and healthy diets. Knowledge on the use of "
+"agricultural biodiversity allows to identifyneeds and solutions to enhance "
+"sustainable production and diet diversity in rural communities"
 
-#: templates/index.html:35 templates/salidas/grupo_nutricional.html:18
+#: templates/index.html:31
+msgid ""
+"El portal de datos sobre agrobiodiversidad comparte conocimientos sobre el "
+"uso de la biodiversidad agrícola en las comunidades agrícolas de los "
+"trópicos. Los datos de cada comunidad se recogen con una metodología común: "
+"el enfoque de cuatro celdas. Esta metodología es una técnica de evaluación "
+"participativa y rápida que fue originalmente creada para evaluar la "
+"abundancia y distribución de la agrobiodiversidad en las comunidades "
+"agrícolas.Para cada comunidad agrícola incluida en la base de datos, el "
+"portal presenta la producción, consumo, compra y comercialización de la "
+"biodiversidad agrícola"
+msgstr ""
+"The agrobiodiversity data portal shares knowledge about the use of "
+"agricultural biodiversity in farmingcommunities in the tropics. Data for "
+"each community is collected with a common methodology: theFour-Cell "
+"Approach. This methodology is a participatory and rapid appraisal technique "
+"that wasoriginally created to assess the abundance and distribution of "
+"agrobiodiversity in farmingcommunities. For each farming community included "
+"in the database, the portal presents theproduction, consumption, purchase "
+"and marketing of agricultural biodiversity."
+
+#: templates/index.html:34
+msgid ""
+"Puede utilizar la información presentada para identificar las lagunas y "
+"opciones para la producción sostenible y la diversidad alimentaria en estas "
+"comunidades. Puede colaborar y utilizar el enfoque de cuatro celdas en las "
+"comunidades donde trabajan o viven, o ambos"
+msgstr ""
+"You can use the information presented to identifying gaps and options for "
+"sustainable production anddiet diversity in these communities. You can "
+"collaborate and use of the Four-Cell Approach in thecommunities where they "
+"work or live, or both."
+
+#: templates/index.html:41 templates/salidas/grupo_nutricional.html:18
 #: templates/salidas/grupo_nutricional_pais.html:14
 #: templates/salidas/numero_especies.html:13
 #: templates/salidas/numero_especies_comunidad.html:14
@@ -310,40 +307,40 @@ msgstr ""
 msgid "Explorar datos"
 msgstr "Explore data"
 
-#: templates/index.html:46
+#: templates/index.html:52
 msgid "Mapa de localidades"
 msgstr "Map of localities"
 
-#: templates/index.html:54 templates/salidas/perfil_especies_detalle.html:64
+#: templates/index.html:60 templates/salidas/perfil_especies_detalle.html:64
 #: templates/salidas/perfil_fg_detalle.html:81
 msgid "Datos Generales"
 msgstr "General Data"
 
-#: templates/index.html:159
+#: templates/index.html:165
 msgid "Leer más..."
 msgstr "Read more..."
 
-#: templates/index.html:170
+#: templates/index.html:176
 msgid "PROYECTOS Y PUBLICACIONES"
 msgstr "PROJECTS AND PUBLICATIONS"
 
-#: templates/index.html:238
+#: templates/index.html:244
 msgid "Ver publicaciones"
 msgstr "View posts"
 
-#: templates/index.html:253
+#: templates/index.html:259
 msgid "AFILIARSE AHORA"
 msgstr "AFFILIATE NOW"
 
-#: templates/index.html:323
+#: templates/index.html:329
 msgid "CONTRIBUYENTES"
 msgstr "CONTRIBUTORS"
 
-#: templates/index.html:327
+#: templates/index.html:333
 msgid "Científicos Participantes"
 msgstr "Participating Scientists"
 
-#: templates/index.html:421
+#: templates/index.html:427
 msgid "Organizaciones"
 msgstr "Organitations"
 
@@ -1007,3 +1004,57 @@ msgstr "Select all"
 #: templates/salidas/select_filtros.html:38
 msgid "Provincias"
 msgstr "Provinces"
+
+#~ msgid "Afilizarse"
+#~ msgstr "Affiliate"
+
+#~ msgid "Nombre: "
+#~ msgstr "Name: "
+
+#~ msgid "Correo: "
+#~ msgstr "Email: "
+
+#~ msgid "Proyecto: "
+#~ msgstr "Project: "
+
+#~ msgid "Tipo: "
+#~ msgstr "Type: "
+
+#~ msgid "Mensaje: "
+#~ msgstr "Message: "
+
+#~ msgid "OBJETIVO"
+#~ msgstr "OBJECTIVE"
+
+#~ msgid ""
+#~ "El objetivo general es comprender los patrones y los motores del uso de "
+#~ "ABD e identificar oportunidades para mejorar el ingreso y la nutrición de "
+#~ "los hogares a través del uso de la agrobiodiversidad. El método de cuatro "
+#~ "células se desarrolló para la evaluación rápida del uso total de ABD en "
+#~ "la comunidad y se ha aplicado en varias acciones de Humidtropics sitio. "
+#~ "Estos datos se utilizarán en combinación con otros datos de diagnóstico "
+#~ "de hogares y agroecosistemas para identificar intervenciones clave para "
+#~ "la mejora del sistema en diferentes tipologías de fincas. Un paso "
+#~ "esencial es transformar los conjuntos de datos ABD en un formato de "
+#~ "interpretación y discusión con los hogares agrícolas y las organizaciones "
+#~ "locales que es conducente a la identificación de intervenciones clave de "
+#~ "ABD. El objetivo específico es desarrollar métodos para analizar y "
+#~ "diseñar para presentar datos ABD complejos. Aquí se usan datos del "
+#~ "territorio cafetero del sitio de acción del Norte de Nicaragua para "
+#~ "ilustrar los métodos potenciales para analizar y presentar los perfiles "
+#~ "ABD de la comunidad"
+#~ msgstr ""
+#~ "The broad objective is to understand patterns and drivers of ABD use and "
+#~ "to identify opportunities to improve household income and nutrition "
+#~ "through agrobiodiversity use. The four-cell method was developed for "
+#~ "rapid assessment of total community ABD use and has been applied in "
+#~ "various Humidtropics actions site. This data will be used in combination "
+#~ "with other household and agroecosystem diagnostic data to identify key "
+#~ "interventions for system improvement in different farm typologies. An "
+#~ "essential step is to transform the ABD datasets into a format for "
+#~ "interpretation and discussion with farming households and local "
+#~ "organizations that is conducive to the identification of key ABD "
+#~ "interventions. The specific objective is to develop methods to analyze "
+#~ "and designs to present complex ABD data. Here we use data from the coffee "
+#~ "territory of the Northern Nicaragua action site to illustrate the "
+#~ "potential methods for analyzing and presenting the community ABD profiles."

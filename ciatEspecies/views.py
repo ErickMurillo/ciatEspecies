@@ -81,7 +81,7 @@ def obtener_lista(request):
 		return HttpResponse(serializado, content_type = 'application/json')
 
 def afiliarse(request, template="afiliarse.html"):
-    arreglo_mail = ['erickmurillo22@gmail.com',]
+    arreglo_mail = ['m.vanzonneveld@cgiar.org','j.raneri@cgiar.org']
     if request.method == 'POST':
         form = EmailForm(request.POST)
         if form.is_valid():

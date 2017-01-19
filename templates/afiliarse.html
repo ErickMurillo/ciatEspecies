@@ -44,12 +44,12 @@
 			<div class="form-group">
 				{{form.message}}
 			</div>
-			<div class="checkbox checkbox-success">
+			<!--<div class="checkbox checkbox-success">
 				<input id="checkbox3" type="checkbox">
 				<label for="checkbox3">
 					{% trans "Acepto los terminimos y condiciones" %}.
 				</label>
-			</div>
+			</div>-->
 			<div class="error"></div>
 			<input class="submit-btn" value="{% trans 'SOLICITAR DATOS' %}" type="submit" onClick="ValiDate()">
 		  </form>
@@ -80,5 +80,15 @@ $(document).ready(function(){
 	$('#id_message').addClass("form-control textareafild");
 	$('#id_message').attr("placeholder", "{% trans 'Descripción breve' %}");
 });
+
+{% if enviado == 1 %}
+$(document).ready(function(){
+  $('#id_name').val('');
+	$('#id_email').val('');
+	$('#id_project').val('');
+	$('#id_message').val('');
+});
+{% endif %}
+
 </script>
 {% endblock %}
