@@ -92,17 +92,17 @@ def afiliarse(request, template="afiliarse.html"):
             message = form.cleaned_data['message']
         try:
             subject, from_email, to = 'ABD Species', 'noreply@abd-data.org', arreglo_mail
-            text_content =  _('Nombre: ') + str(name) + ', '  + \
-                            _('\nCorreo: ') + str(email) + ', ' + \
-                            _('\nProyecto: ') + str(project) + ', ' + \
-                            _('\nTipo: ') + str(tipo) + ', ' + \
-                            _('\nMensaje: ') + str(message)
+            text_content =  _('Nombre: ') + str(name) + ', \n'  + \
+                            _('Correo: ') + str(email) + ', \n' + \
+                            _('Proyecto: ') + str(project) + ', \n' + \
+                            _('Tipo: ') + str(tipo) + ', \n' + \
+                            _('Mensaje: ') + str(message)
 
-            html_content = _('Nombre: ') + str(name) + ', '  + \
-                            _('\nCorreo: ') + str(email) + ', ' + \
-                            _('\nProyecto: ') + str(project) + ', ' + \
-                            _('\nTipo: ') + str(tipo) + ', ' + \
-                            _('\nMensaje: ') + str(message)
+            html_content = _('Nombre: ') + str(name) + ', \n'  + \
+                            _('Correo: ') + str(email) + ', \n' + \
+                            _('Proyecto: ') + str(project) + ', \n' + \
+                            _('Tipo: ') + str(tipo) + ', \n' + \
+                            _('Mensaje: ') + str(message)
 
             msg = EmailMultiAlternatives(subject, text_content, from_email, arreglo_mail)
             msg.attach_alternative(html_content, "text/html")

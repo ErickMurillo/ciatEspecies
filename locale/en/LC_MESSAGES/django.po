@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-19 11:52-0600\n"
+"POT-Creation-Date: 2017-01-19 13:16-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,48 +26,26 @@ msgid "English"
 msgstr "Ingles"
 
 #: ciatEspecies/views.py:95 ciatEspecies/views.py:101
-#, fuzzy
-#| msgid "Nombre común"
 msgid "Nombre: "
-msgstr "Common name"
+msgstr "Name: "
 
 #: ciatEspecies/views.py:96 ciatEspecies/views.py:102
-msgid ""
-"\n"
-"Correo: "
-msgstr ""
-"\n"
-"Email: "
+msgid "Correo: "
+msgstr "Email: "
 
 #: ciatEspecies/views.py:97 ciatEspecies/views.py:103
-msgid ""
-"\n"
-"Proyecto: "
-msgstr ""
-"\n"
-"Project: "
+msgid "Proyecto: "
+msgstr "Project: "
 
 #: ciatEspecies/views.py:98 ciatEspecies/views.py:104
-#, fuzzy
-#| msgid "Tipo"
-msgid ""
-"\n"
-"Tipo: "
-msgstr ""
-"\n"
-"Type: "
+msgid "Tipo: "
+msgstr "Type: "
 
 #: ciatEspecies/views.py:99 ciatEspecies/views.py:105
-msgid ""
-"\n"
-"Mensaje: "
-msgstr ""
-"\n"
-"Message: "
+msgid "Mensaje: "
+msgstr "Message: "
 
 #: focusgroups/forms.py:33
-#, fuzzy
-#| msgid "Explorar datos"
 msgid "Solicitar datos"
 msgstr "Request information"
 
