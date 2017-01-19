@@ -25,6 +25,9 @@
 	  <div class="col-sm-6">
 		<div class="query">
 		  <h3>{% trans "FORMULARIO DE SOLICITUD" %}</h3>
+			{% if enviado == 1 %}
+			<div class="text-success">{% trans "Su mensaje ha sido enviado correctamente!!!" %}</div>
+			{% endif %}
 		  <form name="mailform" id="mailform" method="post" enctype="multipart/form-data" >{% csrf_token %}
 			<div class="form-group">
 			  {{form.name}}
@@ -50,7 +53,6 @@
 			<div class="error"></div>
 			<input class="submit-btn" value="{% trans 'SOLICITAR DATOS' %}" type="submit" onClick="ValiDate()">
 		  </form>
-		  <div class="mailSuccessDiv"> Your Message Sent Successfully!!! </div>
 		</div>
 	  </div>
 	</div>

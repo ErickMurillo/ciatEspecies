@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-13 10:17-0600\n"
+"POT-Creation-Date: 2017-01-19 11:52-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,21 +25,108 @@ msgstr "Spanish"
 msgid "English"
 msgstr "Ingles"
 
-#: templates/afiliarse.html:8 templates/base.html:64 templates/index.html:249
+#: ciatEspecies/views.py:95 ciatEspecies/views.py:101
+#, fuzzy
+#| msgid "Nombre común"
+msgid "Nombre: "
+msgstr "Common name"
+
+#: ciatEspecies/views.py:96 ciatEspecies/views.py:102
+msgid ""
+"\n"
+"Correo: "
+msgstr ""
+"\n"
+"Email: "
+
+#: ciatEspecies/views.py:97 ciatEspecies/views.py:103
+msgid ""
+"\n"
+"Proyecto: "
+msgstr ""
+"\n"
+"Project: "
+
+#: ciatEspecies/views.py:98 ciatEspecies/views.py:104
+#, fuzzy
+#| msgid "Tipo"
+msgid ""
+"\n"
+"Tipo: "
+msgstr ""
+"\n"
+"Type: "
+
+#: ciatEspecies/views.py:99 ciatEspecies/views.py:105
+msgid ""
+"\n"
+"Mensaje: "
+msgstr ""
+"\n"
+"Message: "
+
+#: focusgroups/forms.py:33
+#, fuzzy
+#| msgid "Explorar datos"
+msgid "Solicitar datos"
+msgstr "Request information"
+
+#: focusgroups/forms.py:33
+msgid "Afilizarse"
+msgstr "Affiliate"
+
+#: focusgroups/forms.py:35 templates/afiliarse.html:69
+#, fuzzy
+#| msgid "Hombres"
+msgid "Nombre"
+msgstr "Men"
+
+#: focusgroups/forms.py:36 templates/afiliarse.html:72
+msgid "Correo"
+msgstr "Email"
+
+#: focusgroups/forms.py:37
+msgid "Proyecto"
+msgstr "Project"
+
+#: focusgroups/forms.py:38 templates/afiliarse.html:78
+#: templates/salidas/perfil_especies.html:79
+msgid "Tipo"
+msgstr "Type"
+
+#: focusgroups/forms.py:39 templates/afiliarse.html:81
+msgid "Descripción breve"
+msgstr "Brief description"
+
+#: templates/afiliarse.html:9 templates/base.html:64 templates/index.html:249
 msgid "AFILIARSE"
 msgstr "AFFILIATE"
 
-#: templates/afiliarse.html:14
+#: templates/afiliarse.html:15
 msgid "POLITICA DE SOLICITUD DE DATOS"
 msgstr "DATA APPLICATION POLICY"
 
-#: templates/afiliarse.html:26
+#: templates/afiliarse.html:27
 msgid "FORMULARIO DE SOLICITUD"
 msgstr "APPLICATION FORM"
 
-#: templates/afiliarse.html:43
+#: templates/afiliarse.html:29
+msgid "Su mensaje ha sido enviado correctamente!!!"
+msgstr "Your message has been sent successfully!!!"
+
+#: templates/afiliarse.html:50
 msgid "Acepto los terminimos y condiciones"
 msgstr "I accept the terms and conditions"
+
+#: templates/afiliarse.html:54
+#, fuzzy
+#| msgid "EXPLORAR DATOS"
+msgid "SOLICITAR DATOS"
+msgstr "REQUEST INFORMATION"
+
+#: templates/afiliarse.html:75
+msgid "Projecto"
+msgstr "Project"
 
 #: templates/base.html:10
 msgid "Sistema ABD"
@@ -113,7 +200,7 @@ msgstr ""
 #: templates/consulta.html:57 templates/indicadores.html:18
 #: templates/salidas/perfil_especies.html:12
 #: templates/salidas/perfil_especies.html:16
-#: templates/salidas/perfil_especies_detalle.html:13
+#: templates/salidas/perfil_especies_detalle.html:15
 msgid "Perfil de Especies"
 msgstr "Species Profile"
 
@@ -184,7 +271,7 @@ msgstr "Several options selected!"
 #: templates/salidas/numero_especies_comunidad.html:13
 #: templates/salidas/perfil_abd.html:32
 #: templates/salidas/perfil_especies.html:14
-#: templates/salidas/perfil_especies_detalle.html:11
+#: templates/salidas/perfil_especies_detalle.html:13
 #: templates/salidas/perfil_fg_detalle.html:31
 #: templates/salidas/perfil_focus_groups.html:16
 msgid "Inicio"
@@ -241,7 +328,7 @@ msgstr ""
 #: templates/salidas/numero_especies_comunidad.html:14
 #: templates/salidas/perfil_abd.html:33
 #: templates/salidas/perfil_especies.html:15
-#: templates/salidas/perfil_especies_detalle.html:12
+#: templates/salidas/perfil_especies_detalle.html:14
 #: templates/salidas/perfil_fg_detalle.html:32
 #: templates/salidas/perfil_focus_groups.html:17
 msgid "Explorar datos"
@@ -251,7 +338,7 @@ msgstr "Explore data"
 msgid "Mapa de localidades"
 msgstr "Map of localities"
 
-#: templates/index.html:54 templates/salidas/perfil_especies_detalle.html:62
+#: templates/index.html:54 templates/salidas/perfil_especies_detalle.html:64
 #: templates/salidas/perfil_fg_detalle.html:81
 msgid "Datos Generales"
 msgstr "General Data"
@@ -289,7 +376,7 @@ msgstr "Organitations"
 #: templates/salidas/numero_especies_comunidad.html:27
 #: templates/salidas/perfil_abd.html:46
 #: templates/salidas/perfil_especies.html:28
-#: templates/salidas/perfil_especies_detalle.html:26
+#: templates/salidas/perfil_especies_detalle.html:28
 #: templates/salidas/perfil_fg_detalle.html:46
 #: templates/salidas/perfil_focus_groups.html:30
 msgid "filtro"
@@ -301,7 +388,7 @@ msgstr "filter"
 #: templates/salidas/numero_especies_comunidad.html:33
 #: templates/salidas/perfil_abd.html:52
 #: templates/salidas/perfil_especies.html:34
-#: templates/salidas/perfil_especies_detalle.html:32
+#: templates/salidas/perfil_especies_detalle.html:34
 #: templates/salidas/perfil_fg_detalle.html:52
 #: templates/salidas/perfil_focus_groups.html:36
 msgid "indicadores"
@@ -352,7 +439,7 @@ msgstr "Cultivated"
 #: templates/salidas/numero_especies.html:244
 #: templates/salidas/numero_especies_comunidad.html:62
 #: templates/salidas/perfil_abd.html:191
-#: templates/salidas/perfil_especies_detalle.html:147
+#: templates/salidas/perfil_especies_detalle.html:162
 #: templates/salidas/perfil_fg_detalle.html:242
 msgid "Vendido"
 msgstr "Sold"
@@ -363,7 +450,7 @@ msgstr "Sold"
 #: templates/salidas/numero_especies.html:252
 #: templates/salidas/numero_especies_comunidad.html:63
 #: templates/salidas/perfil_abd.html:104 templates/salidas/perfil_abd.html:193
-#: templates/salidas/perfil_especies_detalle.html:155
+#: templates/salidas/perfil_especies_detalle.html:170
 #: templates/salidas/perfil_fg_detalle.html:155
 #: templates/salidas/perfil_fg_detalle.html:244
 msgid "Comprado"
@@ -375,7 +462,7 @@ msgstr "Purchased"
 #: templates/salidas/numero_especies.html:260
 #: templates/salidas/numero_especies_comunidad.html:64
 #: templates/salidas/perfil_abd.html:102
-#: templates/salidas/perfil_especies_detalle.html:163
+#: templates/salidas/perfil_especies_detalle.html:178
 msgid "Consumido"
 msgstr "Consumed"
 
@@ -391,7 +478,7 @@ msgstr "Consumed"
 #: templates/salidas/grupo_nutricional_pais.html:194
 #: templates/salidas/numero_especies.html:110
 #: templates/salidas/numero_especies.html:221
-#: templates/salidas/perfil_especies_detalle.html:133
+#: templates/salidas/perfil_especies_detalle.html:148
 msgid "Hombres"
 msgstr "Men"
 
@@ -407,7 +494,7 @@ msgstr "Men"
 #: templates/salidas/grupo_nutricional_pais.html:194
 #: templates/salidas/numero_especies.html:111
 #: templates/salidas/numero_especies.html:222
-#: templates/salidas/perfil_especies_detalle.html:134
+#: templates/salidas/perfil_especies_detalle.html:149
 msgid "Mujeres"
 msgstr "Women"
 
@@ -438,7 +525,7 @@ msgstr "Numbre of species"
 
 #: templates/salidas/numero_especies.html:109
 #: templates/salidas/numero_especies.html:220
-#: templates/salidas/perfil_especies_detalle.html:132
+#: templates/salidas/perfil_especies_detalle.html:147
 msgid "Media"
 msgstr "Mean"
 
@@ -449,7 +536,7 @@ msgstr "Total"
 
 #: templates/salidas/numero_especies.html:125
 #: templates/salidas/perfil_abd.html:103 templates/salidas/perfil_abd.html:192
-#: templates/salidas/perfil_especies_detalle.html:139
+#: templates/salidas/perfil_especies_detalle.html:154
 #: templates/salidas/perfil_fg_detalle.html:154
 #: templates/salidas/perfil_fg_detalle.html:243
 msgid "Producido"
@@ -656,7 +743,7 @@ msgid "Lista de especies"
 msgstr "List of species"
 
 #: templates/salidas/perfil_especies.html:73
-#: templates/salidas/perfil_especies_detalle.html:81
+#: templates/salidas/perfil_especies_detalle.html:83
 msgid "Nombre científico"
 msgstr "Scientific name"
 
@@ -665,17 +752,17 @@ msgid "Nombre científico 2"
 msgstr "Scientific name 2"
 
 #: templates/salidas/perfil_especies.html:75
-#: templates/salidas/perfil_especies_detalle.html:82
+#: templates/salidas/perfil_especies_detalle.html:84
 msgid "Nombre en ingles"
 msgstr "English name"
 
 #: templates/salidas/perfil_especies.html:76
-#: templates/salidas/perfil_especies_detalle.html:83
+#: templates/salidas/perfil_especies_detalle.html:85
 msgid "Nombre en francés"
 msgstr "French name"
 
 #: templates/salidas/perfil_especies.html:77
-#: templates/salidas/perfil_especies_detalle.html:89
+#: templates/salidas/perfil_especies_detalle.html:91
 msgid "Nombre vernáculo"
 msgstr "Vernacular name"
 
@@ -683,12 +770,8 @@ msgstr "Vernacular name"
 msgid "Grupo nutricional"
 msgstr "Food group"
 
-#: templates/salidas/perfil_especies.html:79
-msgid "Tipo"
-msgstr "Type"
-
 #: templates/salidas/perfil_especies.html:115
-#: templates/salidas/perfil_especies_detalle.html:79
+#: templates/salidas/perfil_especies_detalle.html:81
 msgid "Planta"
 msgstr "Plant"
 
@@ -752,88 +835,88 @@ msgstr "Previous"
 msgid "Buscar"
 msgstr "Search"
 
-#: templates/salidas/perfil_especies_detalle.html:9
-#: templates/salidas/perfil_especies_detalle.html:14
+#: templates/salidas/perfil_especies_detalle.html:11
+#: templates/salidas/perfil_especies_detalle.html:16
 msgid "Perfil"
 msgstr "Profile"
 
-#: templates/salidas/perfil_especies_detalle.html:69
+#: templates/salidas/perfil_especies_detalle.html:71
 msgid "Nombre del género"
 msgstr "Name of the genus"
 
-#: templates/salidas/perfil_especies_detalle.html:70
+#: templates/salidas/perfil_especies_detalle.html:72
 msgid "Nombre de la especie"
 msgstr "Specie name"
 
-#: templates/salidas/perfil_especies_detalle.html:71
+#: templates/salidas/perfil_especies_detalle.html:73
 msgid "Nombre común"
 msgstr "Common name"
 
-#: templates/salidas/perfil_especies_detalle.html:72
+#: templates/salidas/perfil_especies_detalle.html:74
 msgid "Grupo alimenticio"
 msgstr "Food group"
 
-#: templates/salidas/perfil_especies_detalle.html:73
+#: templates/salidas/perfil_especies_detalle.html:75
 msgid "Orden de nombre"
 msgstr "Order name"
 
-#: templates/salidas/perfil_especies_detalle.html:78
+#: templates/salidas/perfil_especies_detalle.html:80
 msgid "Nombre de la familia"
 msgstr "Family name"
 
-#: templates/salidas/perfil_especies_detalle.html:79
+#: templates/salidas/perfil_especies_detalle.html:81
 #, fuzzy
 #| msgid "Cultivado"
 msgid "Cultivar"
 msgstr "Cultivated"
 
-#: templates/salidas/perfil_especies_detalle.html:79
+#: templates/salidas/perfil_especies_detalle.html:81
 msgid "Animal"
 msgstr "Animal"
 
-#: templates/salidas/perfil_especies_detalle.html:80
+#: templates/salidas/perfil_especies_detalle.html:82
 msgid "Tipo de especie"
 msgstr "Type of specie"
 
-#: templates/salidas/perfil_especies_detalle.html:84
+#: templates/salidas/perfil_especies_detalle.html:86
 msgid "Usos"
 msgstr "Uses"
 
-#: templates/salidas/perfil_especies_detalle.html:90
+#: templates/salidas/perfil_especies_detalle.html:92
 msgid "Porcentaje de paises"
 msgstr "Percentage of countries"
 
-#: templates/salidas/perfil_especies_detalle.html:90
+#: templates/salidas/perfil_especies_detalle.html:92
 #, fuzzy
 #| msgid "total de registros"
 msgid "Total de paises registrados"
 msgstr "Total of registered countries"
 
-#: templates/salidas/perfil_especies_detalle.html:91
+#: templates/salidas/perfil_especies_detalle.html:93
 msgid "Porcentaje de comunidades"
 msgstr "Percentage of communities"
 
-#: templates/salidas/perfil_especies_detalle.html:91
+#: templates/salidas/perfil_especies_detalle.html:93
 #, fuzzy
 #| msgid "total de registros"
 msgid "Total de comunidades registradas"
 msgstr "Total of registered communities"
 
-#: templates/salidas/perfil_especies_detalle.html:95
+#: templates/salidas/perfil_especies_detalle.html:97
 #: templates/salidas/select_filtros.html:30
 msgid "Paises"
 msgstr "Countries"
 
-#: templates/salidas/perfil_especies_detalle.html:96
+#: templates/salidas/perfil_especies_detalle.html:98
 #: templates/salidas/select_filtros.html:44
 msgid "Comunidades"
 msgstr "Communities"
 
-#: templates/salidas/perfil_especies_detalle.html:121
+#: templates/salidas/perfil_especies_detalle.html:136
 msgid "Perfil de la especie"
 msgstr "Specie profile"
 
-#: templates/salidas/perfil_especies_detalle.html:122
+#: templates/salidas/perfil_especies_detalle.html:137
 msgid "Datos"
 msgstr "Data"
 

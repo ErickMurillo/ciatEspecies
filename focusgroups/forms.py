@@ -30,9 +30,9 @@ class FocusGroupForm(forms.Form):
         self.fields['gender'] = forms.ChoiceField(choices=GENDER_CHOICES,required=False,label=u'Género')
         self.fields['year'] = forms.ChoiceField(choices=fecha_choice(),required=False,label=u'Año')
 
-DATA_CHOICES = (('Solicitar datos','Solicitar datos'),('Afilizarse','Afilizarse'))
+DATA_CHOICES = ((_('Solicitar datos'),_('Solicitar datos')),(_('Afilizarse'),_('Afilizarse')))
 class EmailForm(forms.Form):
-      name = forms.CharField(max_length=255,label=_("Send Options"))
+      name = forms.CharField(max_length=255,label=_("Nombre"))
       email = forms.EmailField(label=_("Correo"))
       project = forms.CharField(max_length=255,label=_("Proyecto"))
       tipo = forms.ChoiceField(choices=DATA_CHOICES,label=_("Tipo"))
