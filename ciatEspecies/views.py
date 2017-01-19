@@ -109,7 +109,7 @@ def afiliarse(request, template="afiliarse.html"):
             msg.send()
 
             enviado = 1
-            return http.HttpResponseRedirect('')
+            return HttpResponseRedirect('')
         except:
             pass
 
