@@ -5,6 +5,7 @@ import json as simplejson
 from focusgroups.models import *
 from informacion.models import *
 from django.views.generic import DetailView, ListView
+from focusgroups.forms import *
 
 # Create your views here.
 def set_lang(request, lang_code):
@@ -75,5 +76,28 @@ def obtener_lista(request):
 
 		serializado = simplejson.dumps(lista)
 		return HttpResponse(serializado, content_type = 'application/json')
+
 def afiliarse(request, template="afiliarse.html"):
+    arreglo_mail = ['erickmurillo@gmail.com',]
+    if request.method == 'POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            project = form.cleaned_data['project']
+            tipo = form.cleaned_data['tipo']
+            message = form.cleaned_data['message']
+            try:
+                text_content = render_to_string('notify.txt',{'name': name,'email': email,'project':project,'tipo':tipo,'message':message})
+                send_mail('ABD Species', text_content, 'noreply@abd-data.org', arreglo_mail)
+
+                enviado = 1
+
+            except:
+                pass
+        else:
+			enviado = 0
+
+    else:
+        form = EmailForm()
     return render(request, template, locals())

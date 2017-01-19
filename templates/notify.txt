@@ -1,0 +1,9 @@
+Tiene un nuevo correo
+
+De: {{name}}
+Correo: {{email}}
+Projecto : {{project}}
+Tipo: {{tipo}}
+Mensaje: {{message}}
+
+ABD
