@@ -6,6 +6,8 @@ from focusgroups.models import *
 from informacion.models import *
 from django.views.generic import DetailView, ListView
 from focusgroups.forms import *
+from django.template.loader import render_to_string
+from django.core.mail import send_mail, EmailMultiAlternatives
 
 # Create your views here.
 def set_lang(request, lang_code):
@@ -78,7 +80,7 @@ def obtener_lista(request):
 		return HttpResponse(serializado, content_type = 'application/json')
 
 def afiliarse(request, template="afiliarse.html"):
-    arreglo_mail = ['erickmurillo@gmail.com',]
+    arreglo_mail = ['erickmurillo22@gmail.com',]
     if request.method == 'POST':
         form = EmailForm(request.POST)
         if form.is_valid():
@@ -87,16 +89,36 @@ def afiliarse(request, template="afiliarse.html"):
             project = form.cleaned_data['project']
             tipo = form.cleaned_data['tipo']
             message = form.cleaned_data['message']
-            try:
-                text_content = render_to_string('notify.txt',{'name': name,'email': email,'project':project,'tipo':tipo,'message':message})
-                send_mail('ABD Species', text_content, 'noreply@abd-data.org', arreglo_mail)
+        #     try:
+        #         text_content = render_to_string('notify.txt',{'name': name,'email': email,'project':project,'tipo':tipo,'message':message})
+        #         send_mail('ABD Species', text_content, 'noreply@abd-data.org', arreglo_mail)
+        #
+        #         enviado = 1
+        #
+        #     except:
+        #         enviado = 2
+        # else:
+		# 	enviado = 0
 
-                enviado = 1
+        try:
+            subject, from_email, to = 'ABD Species', 'noreply@abd-data.org', arreglo_mail
+            text_content =  'Nombre: ' + str(name) + ', '  + \
+                            'Telefono: ' + str(project) + ', ' + \
+                            'Correo: ' + str(email) + ', ' + \
+                            'Mensaje: ' + str(message)
 
-            except:
-                pass
-        else:
-			enviado = 0
+            html_content = 'Nombre: ' + str(name) + ', '  + \
+                            'Telefono: ' + str(project) + ', ' + \
+                            'Correo: ' + str(email) + ', ' + \
+                            'Mensaje: ' + str(message)
+
+            msg = EmailMultiAlternatives(subject, text_content, from_email, arreglo_mail)
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
+
+            return HttpResponseRedirect('/')
+        except:
+            pass
 
     else:
         form = EmailForm()
