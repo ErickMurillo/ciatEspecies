@@ -73,4 +73,3 @@ CACHE
 *.sql
 *.DS_Store
 media/
-*.styl

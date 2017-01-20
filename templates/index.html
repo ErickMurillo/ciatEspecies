@@ -254,66 +254,6 @@
 </div>
 <!-- / Parallax Close Close -->
 <div class="clearfix"></div>
-<!-- CONTACT Section
-	==================================================
-<div class="contact" id="contact">
-  <div class="container">
-	<div class="head_section">
-	  <h2>SOLICITAR DATOS</h2>
-	  <p>VIVAMUS QUIS RISUS UT TURPIS SAGITTIS VENENATIS. ALIQUAM ENIM SEM PRETIUM VITAE, POSUERE AC MATTIS VITAE ARCU</p>
-	</div>
-  </div>
-  <div class="contact_wrap">
-	<div class="row">
-	  <div class="col-sm-6">
-		<div class="query politicas">
-			<h3>POLITICA DE SOLICITUD DE DATOS</h3>
-			<div class="terminos">
-				<p>
-					Urna a aliquet pid phasellus integer nunc nunc rhoncus duis, et ac a mattis sed pellentesque dictumst massa enim augue in nec a? Lundium et dignissim sed nunc? In phasellus penatibus pulvinar duis rhoncus amet adipiscing et nec vel magnis, cursus ridiculus, tortor augue, magnis platea elit elementum, etiam! Cras enim etiam vel ultricies proin urna integer, et dapibus cum dis tempor aliquam dignissim urna? Lectus, est? Tristique! Urna velit, urna elementum! Habitasse in? Ultricies. Elementum ultricies a. Dolor dolor, ut! Sed dignissim adipiscing, aliquet? Dignissim platea placerat! In sed? Porttitor aliquet. Et placerat porta integer cum urna ultricies, dis! Dis tristique habitasse nunc aenean? Integer parturient habitasse, hac eu. Augue, tincidunt augue parturient, vel elementum ut magna nunc placerat.
-				</p>
-				<p>
-					Auctor. Turpis nascetur ut parturient, porttitor lectus sed proin! Elit auctor. Lorem et porta! In porta rhoncus in placerat, mattis dolor. Pid! Hac, augue porttitor proin nec, dis integer odio dictumst sit et, natoque sit pulvinar phasellus dignissim phasellus. Arcu nisi tempor pulvinar, nisi velit amet ut. Mus! Vut, aliquet, ut penatibus? Duis ac a vel, tortor auctor tristique, mid dis elementum urna montes dignissim turpis integer vut? Facilisis tempor tincidunt, pulvinar porttitor, urna cursus. Placerat magnis! Tincidunt porta! Dictumst? Tincidunt non adipiscing tristique, cursus pellentesque et in cum? Augue scelerisque placerat proin ultricies integer! Turpis, dapibus purus. Ultricies! Sociis odio adipiscing enim aliquet? Proin auctor ut rhoncus integer arcu augue? Auctor amet, nascetur nisi penatibus turpis, odio integer.
-				</p>
-			</div>
-
-		</div>
-	  </div>
-	  <div class="col-sm-6">
-		<div class="query">
-		  <h3>FORMULARIO DE SOLICITUD</h3>
-		  <form name="mailform" id="mailform" method="post" enctype="multipart/form-data" >
-			<div class="form-group">
-			  <input type="text" class="form-control textfild" name="name" id="name" placeholder="Nombre">
-			</div>
-			<div class="form-group">
-			  <input type="email" name="email" id="email" class="form-control textfild" placeholder="Correo">
-			</div>
-			<div class="form-group">
-			  <input type="text" name="subject" id="subject" class="form-control textfild" placeholder="Projecto">
-			</div>
-			<div class="form-group">
-			  <textarea name="textarea" id="textarea" class="form-control textareafild" placeholder="Descripción breve"></textarea>
-			</div>
-			<div class="checkbox checkbox-success">
-				<input id="checkbox3" type="checkbox">
-				<label for="checkbox3">
-					Acepto los terminimos y condiciones.
-				</label>
-			</div>
-
-
-			<div class="error"></div>
-			<input type="button" value="SOLICITAR" class="submit-btn" onClick="ValiDate()">
-		  </form>
-		  <div class="mailSuccessDiv"> Your Message Sent Successfully!!! </div>
-		</div>
-	  </div>
-	</div>
-  </div>
-</div>
-<div class="clearfix"></div>
-/ contact Close -->
 
 <!-- Organizaciones Section
 	================================================== -->
@@ -327,8 +267,32 @@
 				<a href="/lista-cientificos"><h4 style="text-align:center;">{% trans "Científicos Participantes" %}</h4></a>
 
 			</div>
+			<!--{% for obj in cientificos%}
+			  <div class="col-sm-3">
+				  <div class="member">
+					<a href="{% url 'cientifico-detalle' obj.slug %}">
+					{% if obj.foto %}
+					  	{% thumbnail obj.foto "200x200" crop="center" as img %}
+						<div class="photo"> <img  src="/media/{{img}}" alt="" class="img-circle"  /> </div>
+						{% endthumbnail %}
+					{% else %}
+					  <div class="photo"> <img  src="http://placehold.it/200x200" alt="" class="img-circle"  /> </div>
+					{% endif %}
+
+					  <div class="info">
+						  <h4 class="name">{{obj.name}}</h4>
+						  <span class="designation">{{obj.cargo}}</span>
+						  <ul class="datamember">
+							  <p><span class="fa fa-envelope"></span> {{obj.correo}}</p>
+							  <p><span class="fa fa-phone"> {{obj.telefono}}</span></p>
+						  </ul>
+					  </div>
+					  </a>
+				  </div>
+			  </div>
+			  {% endfor %}-->
 			<div role="tabpanel">
-				<!-- Nav tabs -->
+
 				<ul class="nav nav-tabs nav-pills" role="tablist">
 					{% for k in dicc.keys %}
 					  <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
@@ -337,7 +301,7 @@
 					{% endfor %}
 				</ul>
 
-				<!-- Tab panes -->
+
 				<div class="tab-content">
 				  {% for k,v in dicc.items %}
 					<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{k.id}}">
@@ -355,11 +319,11 @@
 												  <div class="member">
 													<a href="{% url 'cientifico-detalle' obj.slug %}">
 													{% if obj.foto %}
-													  	{% thumbnail obj.foto "178x178" crop="center" as img %}
+													  	{% thumbnail obj.foto "200x200" crop="center" as img %}
 														<div class="photo"> <img  src="/media/{{img}}" alt="" class="img-circle"  /> </div>
 														{% endthumbnail %}
 													{% else %}
-													  <div class="photo"> <img  src="http://placehold.it/178x178" alt="" class="img-circle"  /> </div>
+													  <div class="photo"> <img  src="http://placehold.it/200x200" alt="" class="img-circle"  /> </div>
 													{% endif %}
 
 													  <div class="info">
@@ -416,7 +380,7 @@
 				</div>
 			</div>
 
-<div class="clearfix"></div>
+			<div class="clearfix"></div>
 			<div>
 				<h4 style="text-align:center;">{% trans "Organizaciones" %}</h4>
 

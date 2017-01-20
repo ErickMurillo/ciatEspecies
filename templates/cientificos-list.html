@@ -5,13 +5,12 @@
 <div class="metodologia">
 	<div class="container">
 		<div class="head_section">
-		  <h2>PROYECTOS Y PUBLICACIONES</h2>
+		  <h2>CIENTÍFICOS PARTICIPANTES</h2>
 		
 		</div>
 		<div class="row">
-			{% paginate 1 object_list %}
+			{% paginate 16 object_list %}
 			{% for obj in object_list %}
-
 			<div class="col-sm-3">
 			  <div class="member">
 				<a href="{% url 'cientifico-detalle' obj.slug %}">
@@ -27,7 +26,7 @@
 					  <span class="designation">{{obj.cargo}}</span>
 					  <ul class="datamember">
 						  <p><span class="fa fa-envelope"></span> {{obj.correo}}</p>
-						  <p><span class="fa fa-phone"> {{obj.telefono}}</span></p>
+						  <p><span class="fa fa-phone"> </span> {{obj.telefono}}</p>
 					  </ul>
 				  </div>
 				  </a>
