@@ -12,6 +12,7 @@ from django.db.models import Avg, Sum, F, Count
 from collections import OrderedDict, Counter
 import collections
 from django.utils import translation
+from django.core import serializers
 
 # Create your views here.
 def _queryset_filtrado(request):
@@ -81,11 +82,21 @@ def filtros(request,template="consulta.html"):
             # del request.session['year']
         except:
             pass
+    paises = Country.objects.all()
 
     focusgroups = FocusGroup.objects.all()
     species = Species.objects.all()
 
     return render(request, template, locals())
+
+def mapa(request):
+    pais = request.GET['id']
+    community = Community.objects.filter(province__country = pais)
+    dicc = {}
+    for comu in community:
+        focusgroups = FocusGroup.objects.filter(community = comu).aggregate(avg = Avg('population'))['avg']
+        dicc[comu.name] = (comu.latitud,comu.longitud,focusgroups)
+    return HttpResponse(simplejson.dumps(dicc),content_type='application/json')
 
 def grupo_nutricional_comunidad(request,template="salidas/grupo_nutricional.html"):
     filtro = _queryset_filtrado(request)

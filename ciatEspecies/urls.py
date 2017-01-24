@@ -34,6 +34,7 @@ urlpatterns = [
     # url(r'^report_builder/', include('report_builder.urls'))
     url(r'^mapa-index/$', obtener_lista, name='obtener-lista'),
     url(r'^filtros/$', filtros, name='filtros'),
+    url(r'^map/$', mapa, name='map'),
     url(r'^especies/', include('focusgroups.urls')),
     url(r'^ajax/countries/$', get_country, name='get-country'),
     url(r'^ajax/provinces/$', get_province, name='get-province'),
