@@ -20,11 +20,11 @@
 				</div>
 				<div class="col-md-6 col-sm-6">
 					<div class="member-detail">
-						<div class="name">{% trans "Nombre:" %} {{object.nombre}}</div>
+						<div class="name">{% trans "Nombre:" %} {{object.name}}</div>
 						<div class="pais">{% trans "País:" %} {{object.pais}}</div>
 						<div class="cargo">{% trans "Dirección:" %} {{object.direccion}}</div>
 						<div class="telefono">{% trans "Teléfono:" %} <a href="callto:{{object.telefono}}">{{object.telefono}}</a></div>
-						<div class="correo">{% trans "Sitio:" %} <a href="mailto:{{object.url}}">{{object.url}}</a></div>
+						<div class="correo">{% trans "Sitio:" %} <a href="{{object.url}}" target="_blank">{{object.url}}</a></div>
 
 					</div>
 					

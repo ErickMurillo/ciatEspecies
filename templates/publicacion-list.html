@@ -36,14 +36,26 @@
 		
 		{% endfor %}
 
-<!-- pagination box -->
-   <div class="pagination-box">
-     <ul class="pagination-list">
-       {% show_pages %}
-     </ul>
-     <p>{% show_current_number %} de {% get_pages %}{{ pages|length }} paginas.</p>
-   </div>
-   <!-- End Pagination box -->
+		<div class="row">
+			
+			<!-- pagination box -->
+			<nav class="Page navigation pagination-box">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-8">
+					<ul class="pagination pagination-list">
+						<li>{% show_pages %}</li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+					<div class="paginas pull-right">
+						<p>{% show_current_number %} de {% get_pages %}{{ pages|length }} paginas</p>
+					</div>
+					
+				</div>
+				
+			</nav>
+			<!-- End Pagination box -->
+			
+		</div>
 	</div>
 </div>
 {% endblock content %}
