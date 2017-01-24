@@ -2,6 +2,8 @@
 from django.db import models
 from models import *
 from django import forms
+from django.forms import ModelForm
+from django.utils.translation import ugettext_lazy as _
 
 CHOICE_REGION = (('','-------'),(1, 'APAC'),(2, 'LatAm'),(3, 'South Asia'),(4, 'Asia'),(5, 'Africa'),)
 
@@ -27,3 +29,11 @@ class FocusGroupForm(forms.Form):
         self.fields['community'] = forms.ModelMultipleChoiceField(queryset=Community.objects.all(),required=True)
         self.fields['gender'] = forms.ChoiceField(choices=GENDER_CHOICES,required=False,label=u'Género')
         self.fields['year'] = forms.ChoiceField(choices=fecha_choice(),required=False,label=u'Año')
+
+DATA_CHOICES = ((_('Solicitar datos'),_('Solicitar datos')),(_('Unirse a la red de datos ABD'),_('Unirse a la red de datos ABD')))
+class EmailForm(forms.Form):
+      name = forms.CharField(max_length=255,label=_("Nombre"))
+      email = forms.EmailField(label=_("Correo"))
+      project = forms.CharField(max_length=255,label=_("Proyecto"))
+      tipo = forms.ChoiceField(choices=DATA_CHOICES,label=_("Tipo"))
+      message = forms.CharField(widget=forms.Textarea,label=_("Descripción breve"))

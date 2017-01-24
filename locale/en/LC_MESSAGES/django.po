@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-13 10:17-0600\n"
+"POT-Creation-Date: 2017-01-19 14:05-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,21 +25,62 @@ msgstr "Spanish"
 msgid "English"
 msgstr "Ingles"
 
-#: templates/afiliarse.html:8 templates/base.html:64 templates/index.html:249
+#: focusgroups/forms.py:33
+msgid "Solicitar datos"
+msgstr "Request information"
+
+#: focusgroups/forms.py:33
+msgid "Unirse a la red de datos ABD"
+msgstr "Join ABD data network"
+
+#: focusgroups/forms.py:35 templates/afiliarse.html:69
+msgid "Nombre"
+msgstr "Name"
+
+#: focusgroups/forms.py:36 templates/afiliarse.html:72
+msgid "Correo"
+msgstr "Email"
+
+#: focusgroups/forms.py:37
+msgid "Proyecto"
+msgstr "Project"
+
+#: focusgroups/forms.py:38 templates/afiliarse.html:78
+#: templates/salidas/perfil_especies.html:79
+msgid "Tipo"
+msgstr "Type"
+
+#: focusgroups/forms.py:39 templates/afiliarse.html:81
+msgid "Descripción breve"
+msgstr "Brief description"
+
+#: templates/afiliarse.html:9 templates/base.html:64 templates/index.html:255
 msgid "AFILIARSE"
 msgstr "AFFILIATE"
 
-#: templates/afiliarse.html:14
+#: templates/afiliarse.html:15
 msgid "POLITICA DE SOLICITUD DE DATOS"
 msgstr "DATA APPLICATION POLICY"
 
-#: templates/afiliarse.html:26
+#: templates/afiliarse.html:27
 msgid "FORMULARIO DE SOLICITUD"
 msgstr "APPLICATION FORM"
 
-#: templates/afiliarse.html:43
+#: templates/afiliarse.html:29
+msgid "Su mensaje ha sido enviado correctamente!!!"
+msgstr "Your message has been sent successfully!!!"
+
+#: templates/afiliarse.html:50
 msgid "Acepto los terminimos y condiciones"
 msgstr "I accept the terms and conditions"
+
+#: templates/afiliarse.html:54
+msgid "SOLICITAR DATOS"
+msgstr "REQUEST INFORMATION"
+
+#: templates/afiliarse.html:75
+msgid "Projecto"
+msgstr "Project"
 
 #: templates/base.html:10
 msgid "Sistema ABD"
@@ -113,7 +154,7 @@ msgstr ""
 #: templates/consulta.html:57 templates/indicadores.html:18
 #: templates/salidas/perfil_especies.html:12
 #: templates/salidas/perfil_especies.html:16
-#: templates/salidas/perfil_especies_detalle.html:13
+#: templates/salidas/perfil_especies_detalle.html:15
 msgid "Perfil de Especies"
 msgstr "Species Profile"
 
@@ -184,7 +225,7 @@ msgstr "Several options selected!"
 #: templates/salidas/numero_especies_comunidad.html:13
 #: templates/salidas/perfil_abd.html:32
 #: templates/salidas/perfil_especies.html:14
-#: templates/salidas/perfil_especies_detalle.html:11
+#: templates/salidas/perfil_especies_detalle.html:13
 #: templates/salidas/perfil_fg_detalle.html:31
 #: templates/salidas/perfil_focus_groups.html:16
 msgid "Inicio"
@@ -199,88 +240,107 @@ msgid "Red de datos globales"
 msgstr "Global data network"
 
 #: templates/index.html:24
-msgid "OBJETIVO"
-msgstr "OBJECTIVE"
+msgid "INTRODUCCIÓN"
+msgstr "INTRODUCTION"
 
 #: templates/index.html:28
 msgid ""
-"El objetivo general es comprender los patrones y los motores del uso de ABD "
-"e identificar oportunidades para mejorar el ingreso y la nutrición de los "
-"hogares a través del uso de la agrobiodiversidad. El método de cuatro "
-"células se desarrolló para la evaluación rápida del uso total de ABD en la "
-"comunidad y se ha aplicado en varias acciones de Humidtropics sitio. Estos "
-"datos se utilizarán en combinación con otros datos de diagnóstico de hogares "
-"y agroecosistemas para identificar intervenciones clave para la mejora del "
-"sistema en diferentes tipologías de fincas. Un paso esencial es transformar "
-"los conjuntos de datos ABD en un formato de interpretación y discusión con "
-"los hogares agrícolas y las organizaciones locales que es conducente a la "
-"identificación de intervenciones clave de ABD. El objetivo específico es "
-"desarrollar métodos para analizar y diseñar para presentar datos ABD "
-"complejos. Aquí se usan datos del territorio cafetero del sitio de acción "
-"del Norte de Nicaragua para ilustrar los métodos potenciales para analizar y "
-"presentar los perfiles ABD de la comunidad"
+"Los trópicos son conocidos por los altos niveles de biodiversidad que se "
+"encuentran en estas áreas, pero se sabe poco sobre el uso de la "
+"agrobiodiversidad en los trópicos. La biodiversidad agrícola es la base para "
+"la producción sostenible en los agroecosistemas. También es la base para "
+"diversas dietas, que es una estrategia para mejorar las dietas ricas en "
+"nutrientes y saludables. El conocimiento sobre el uso de la biodiversidad "
+"agrícola permite identificar las necesidades y soluciones para mejorar la "
+"producción sostenible y la diversidad de la dieta en las comunidades rurales"
 msgstr ""
-"The broad objective is to understand patterns and drivers of ABD use and to "
-"identify opportunities to improve household income and nutrition through "
-"agrobiodiversity use. The four-cell method was developed for rapid "
-"assessment of total community ABD use and has been applied in various "
-"Humidtropics actions site. This data will be used in combination with other "
-"household and agroecosystem diagnostic data to identify key interventions "
-"for system improvement in different farm typologies. An essential step is to "
-"transform the ABD datasets into a format for interpretation and discussion "
-"with farming households and local organizations that is conducive to the "
-"identification of key ABD interventions. The specific objective is to "
-"develop methods to analyze and designs to present complex ABD data. Here we "
-"use data from the coffee territory of the Northern Nicaragua action site to "
-"illustrate the potential methods for analyzing and presenting the community "
-"ABD profiles."
+"The tropics are known for the high levels of biodiversity found in these "
+"areas, but little is known aboutthe use of agrobiodiversity in the tropics. "
+"Agricultural biodiversity is the basis for sustainableproduction in "
+"agroecosystems. It is also the basis for diverse diets, which is a strategy "
+"to enhancenutrition-rich and healthy diets. Knowledge on the use of "
+"agricultural biodiversity allows to identifyneeds and solutions to enhance "
+"sustainable production and diet diversity in rural communities"
 
-#: templates/index.html:35 templates/salidas/grupo_nutricional.html:18
+#: templates/index.html:31
+msgid ""
+"El portal de datos sobre agrobiodiversidad comparte conocimientos sobre el "
+"uso de la biodiversidad agrícola en las comunidades agrícolas de los "
+"trópicos. Los datos de cada comunidad se recogen con una metodología común: "
+"el enfoque de cuatro celdas. Esta metodología es una técnica de evaluación "
+"participativa y rápida que fue originalmente creada para evaluar la "
+"abundancia y distribución de la agrobiodiversidad en las comunidades "
+"agrícolas.Para cada comunidad agrícola incluida en la base de datos, el "
+"portal presenta la producción, consumo, compra y comercialización de la "
+"biodiversidad agrícola"
+msgstr ""
+"The agrobiodiversity data portal shares knowledge about the use of "
+"agricultural biodiversity in farmingcommunities in the tropics. Data for "
+"each community is collected with a common methodology: theFour-Cell "
+"Approach. This methodology is a participatory and rapid appraisal technique "
+"that wasoriginally created to assess the abundance and distribution of "
+"agrobiodiversity in farmingcommunities. For each farming community included "
+"in the database, the portal presents theproduction, consumption, purchase "
+"and marketing of agricultural biodiversity."
+
+#: templates/index.html:34
+msgid ""
+"Puede utilizar la información presentada para identificar las lagunas y "
+"opciones para la producción sostenible y la diversidad alimentaria en estas "
+"comunidades. Puede colaborar y utilizar el enfoque de cuatro celdas en las "
+"comunidades donde trabajan o viven, o ambos"
+msgstr ""
+"You can use the information presented to identifying gaps and options for "
+"sustainable production anddiet diversity in these communities. You can "
+"collaborate and use of the Four-Cell Approach in thecommunities where they "
+"work or live, or both."
+
+#: templates/index.html:41 templates/salidas/grupo_nutricional.html:18
 #: templates/salidas/grupo_nutricional_pais.html:14
 #: templates/salidas/numero_especies.html:13
 #: templates/salidas/numero_especies_comunidad.html:14
 #: templates/salidas/perfil_abd.html:33
 #: templates/salidas/perfil_especies.html:15
-#: templates/salidas/perfil_especies_detalle.html:12
+#: templates/salidas/perfil_especies_detalle.html:14
 #: templates/salidas/perfil_fg_detalle.html:32
 #: templates/salidas/perfil_focus_groups.html:17
 msgid "Explorar datos"
 msgstr "Explore data"
 
-#: templates/index.html:46
+#: templates/index.html:52
 msgid "Mapa de localidades"
 msgstr "Map of localities"
 
-#: templates/index.html:54 templates/salidas/perfil_especies_detalle.html:62
+#: templates/index.html:60 templates/salidas/perfil_especies_detalle.html:64
 #: templates/salidas/perfil_fg_detalle.html:81
 msgid "Datos Generales"
 msgstr "General Data"
 
-#: templates/index.html:159
+#: templates/index.html:165
 msgid "Leer más..."
 msgstr "Read more..."
 
-#: templates/index.html:170
+#: templates/index.html:176
 msgid "PROYECTOS Y PUBLICACIONES"
 msgstr "PROJECTS AND PUBLICATIONS"
 
-#: templates/index.html:238
+#: templates/index.html:244
 msgid "Ver publicaciones"
 msgstr "View posts"
 
-#: templates/index.html:253
+#: templates/index.html:259
 msgid "AFILIARSE AHORA"
 msgstr "AFFILIATE NOW"
 
-#: templates/index.html:323
+#: templates/index.html:329
 msgid "CONTRIBUYENTES"
 msgstr "CONTRIBUTORS"
 
-#: templates/index.html:327
+#: templates/index.html:333
 msgid "Científicos Participantes"
 msgstr "Participating Scientists"
 
-#: templates/index.html:421
+#: templates/index.html:427
 msgid "Organizaciones"
 msgstr "Organitations"
 
@@ -289,7 +349,7 @@ msgstr "Organitations"
 #: templates/salidas/numero_especies_comunidad.html:27
 #: templates/salidas/perfil_abd.html:46
 #: templates/salidas/perfil_especies.html:28
-#: templates/salidas/perfil_especies_detalle.html:26
+#: templates/salidas/perfil_especies_detalle.html:28
 #: templates/salidas/perfil_fg_detalle.html:46
 #: templates/salidas/perfil_focus_groups.html:30
 msgid "filtro"
@@ -301,7 +361,7 @@ msgstr "filter"
 #: templates/salidas/numero_especies_comunidad.html:33
 #: templates/salidas/perfil_abd.html:52
 #: templates/salidas/perfil_especies.html:34
-#: templates/salidas/perfil_especies_detalle.html:32
+#: templates/salidas/perfil_especies_detalle.html:34
 #: templates/salidas/perfil_fg_detalle.html:52
 #: templates/salidas/perfil_focus_groups.html:36
 msgid "indicadores"
@@ -352,7 +412,7 @@ msgstr "Cultivated"
 #: templates/salidas/numero_especies.html:244
 #: templates/salidas/numero_especies_comunidad.html:62
 #: templates/salidas/perfil_abd.html:191
-#: templates/salidas/perfil_especies_detalle.html:147
+#: templates/salidas/perfil_especies_detalle.html:162
 #: templates/salidas/perfil_fg_detalle.html:242
 msgid "Vendido"
 msgstr "Sold"
@@ -363,7 +423,7 @@ msgstr "Sold"
 #: templates/salidas/numero_especies.html:252
 #: templates/salidas/numero_especies_comunidad.html:63
 #: templates/salidas/perfil_abd.html:104 templates/salidas/perfil_abd.html:193
-#: templates/salidas/perfil_especies_detalle.html:155
+#: templates/salidas/perfil_especies_detalle.html:170
 #: templates/salidas/perfil_fg_detalle.html:155
 #: templates/salidas/perfil_fg_detalle.html:244
 msgid "Comprado"
@@ -375,7 +435,7 @@ msgstr "Purchased"
 #: templates/salidas/numero_especies.html:260
 #: templates/salidas/numero_especies_comunidad.html:64
 #: templates/salidas/perfil_abd.html:102
-#: templates/salidas/perfil_especies_detalle.html:163
+#: templates/salidas/perfil_especies_detalle.html:178
 msgid "Consumido"
 msgstr "Consumed"
 
@@ -391,7 +451,7 @@ msgstr "Consumed"
 #: templates/salidas/grupo_nutricional_pais.html:194
 #: templates/salidas/numero_especies.html:110
 #: templates/salidas/numero_especies.html:221
-#: templates/salidas/perfil_especies_detalle.html:133
+#: templates/salidas/perfil_especies_detalle.html:148
 msgid "Hombres"
 msgstr "Men"
 
@@ -407,7 +467,7 @@ msgstr "Men"
 #: templates/salidas/grupo_nutricional_pais.html:194
 #: templates/salidas/numero_especies.html:111
 #: templates/salidas/numero_especies.html:222
-#: templates/salidas/perfil_especies_detalle.html:134
+#: templates/salidas/perfil_especies_detalle.html:149
 msgid "Mujeres"
 msgstr "Women"
 
@@ -438,7 +498,7 @@ msgstr "Numbre of species"
 
 #: templates/salidas/numero_especies.html:109
 #: templates/salidas/numero_especies.html:220
-#: templates/salidas/perfil_especies_detalle.html:132
+#: templates/salidas/perfil_especies_detalle.html:147
 msgid "Media"
 msgstr "Mean"
 
@@ -449,7 +509,7 @@ msgstr "Total"
 
 #: templates/salidas/numero_especies.html:125
 #: templates/salidas/perfil_abd.html:103 templates/salidas/perfil_abd.html:192
-#: templates/salidas/perfil_especies_detalle.html:139
+#: templates/salidas/perfil_especies_detalle.html:154
 #: templates/salidas/perfil_fg_detalle.html:154
 #: templates/salidas/perfil_fg_detalle.html:243
 msgid "Producido"
@@ -656,7 +716,7 @@ msgid "Lista de especies"
 msgstr "List of species"
 
 #: templates/salidas/perfil_especies.html:73
-#: templates/salidas/perfil_especies_detalle.html:81
+#: templates/salidas/perfil_especies_detalle.html:83
 msgid "Nombre científico"
 msgstr "Scientific name"
 
@@ -665,17 +725,17 @@ msgid "Nombre científico 2"
 msgstr "Scientific name 2"
 
 #: templates/salidas/perfil_especies.html:75
-#: templates/salidas/perfil_especies_detalle.html:82
+#: templates/salidas/perfil_especies_detalle.html:84
 msgid "Nombre en ingles"
 msgstr "English name"
 
 #: templates/salidas/perfil_especies.html:76
-#: templates/salidas/perfil_especies_detalle.html:83
+#: templates/salidas/perfil_especies_detalle.html:85
 msgid "Nombre en francés"
 msgstr "French name"
 
 #: templates/salidas/perfil_especies.html:77
-#: templates/salidas/perfil_especies_detalle.html:89
+#: templates/salidas/perfil_especies_detalle.html:91
 msgid "Nombre vernáculo"
 msgstr "Vernacular name"
 
@@ -683,12 +743,8 @@ msgstr "Vernacular name"
 msgid "Grupo nutricional"
 msgstr "Food group"
 
-#: templates/salidas/perfil_especies.html:79
-msgid "Tipo"
-msgstr "Type"
-
 #: templates/salidas/perfil_especies.html:115
-#: templates/salidas/perfil_especies_detalle.html:79
+#: templates/salidas/perfil_especies_detalle.html:81
 msgid "Planta"
 msgstr "Plant"
 
@@ -752,88 +808,88 @@ msgstr "Previous"
 msgid "Buscar"
 msgstr "Search"
 
-#: templates/salidas/perfil_especies_detalle.html:9
-#: templates/salidas/perfil_especies_detalle.html:14
+#: templates/salidas/perfil_especies_detalle.html:11
+#: templates/salidas/perfil_especies_detalle.html:16
 msgid "Perfil"
 msgstr "Profile"
 
-#: templates/salidas/perfil_especies_detalle.html:69
+#: templates/salidas/perfil_especies_detalle.html:71
 msgid "Nombre del género"
 msgstr "Name of the genus"
 
-#: templates/salidas/perfil_especies_detalle.html:70
+#: templates/salidas/perfil_especies_detalle.html:72
 msgid "Nombre de la especie"
 msgstr "Specie name"
 
-#: templates/salidas/perfil_especies_detalle.html:71
+#: templates/salidas/perfil_especies_detalle.html:73
 msgid "Nombre común"
 msgstr "Common name"
 
-#: templates/salidas/perfil_especies_detalle.html:72
+#: templates/salidas/perfil_especies_detalle.html:74
 msgid "Grupo alimenticio"
 msgstr "Food group"
 
-#: templates/salidas/perfil_especies_detalle.html:73
+#: templates/salidas/perfil_especies_detalle.html:75
 msgid "Orden de nombre"
 msgstr "Order name"
 
-#: templates/salidas/perfil_especies_detalle.html:78
+#: templates/salidas/perfil_especies_detalle.html:80
 msgid "Nombre de la familia"
 msgstr "Family name"
 
-#: templates/salidas/perfil_especies_detalle.html:79
+#: templates/salidas/perfil_especies_detalle.html:81
 #, fuzzy
 #| msgid "Cultivado"
 msgid "Cultivar"
 msgstr "Cultivated"
 
-#: templates/salidas/perfil_especies_detalle.html:79
+#: templates/salidas/perfil_especies_detalle.html:81
 msgid "Animal"
 msgstr "Animal"
 
-#: templates/salidas/perfil_especies_detalle.html:80
+#: templates/salidas/perfil_especies_detalle.html:82
 msgid "Tipo de especie"
 msgstr "Type of specie"
 
-#: templates/salidas/perfil_especies_detalle.html:84
+#: templates/salidas/perfil_especies_detalle.html:86
 msgid "Usos"
 msgstr "Uses"
 
-#: templates/salidas/perfil_especies_detalle.html:90
+#: templates/salidas/perfil_especies_detalle.html:92
 msgid "Porcentaje de paises"
 msgstr "Percentage of countries"
 
-#: templates/salidas/perfil_especies_detalle.html:90
+#: templates/salidas/perfil_especies_detalle.html:92
 #, fuzzy
 #| msgid "total de registros"
 msgid "Total de paises registrados"
 msgstr "Total of registered countries"
 
-#: templates/salidas/perfil_especies_detalle.html:91
+#: templates/salidas/perfil_especies_detalle.html:93
 msgid "Porcentaje de comunidades"
 msgstr "Percentage of communities"
 
-#: templates/salidas/perfil_especies_detalle.html:91
+#: templates/salidas/perfil_especies_detalle.html:93
 #, fuzzy
 #| msgid "total de registros"
 msgid "Total de comunidades registradas"
 msgstr "Total of registered communities"
 
-#: templates/salidas/perfil_especies_detalle.html:95
+#: templates/salidas/perfil_especies_detalle.html:97
 #: templates/salidas/select_filtros.html:30
 msgid "Paises"
 msgstr "Countries"
 
-#: templates/salidas/perfil_especies_detalle.html:96
+#: templates/salidas/perfil_especies_detalle.html:98
 #: templates/salidas/select_filtros.html:44
 msgid "Comunidades"
 msgstr "Communities"
 
-#: templates/salidas/perfil_especies_detalle.html:121
+#: templates/salidas/perfil_especies_detalle.html:136
 msgid "Perfil de la especie"
 msgstr "Specie profile"
 
-#: templates/salidas/perfil_especies_detalle.html:122
+#: templates/salidas/perfil_especies_detalle.html:137
 msgid "Datos"
 msgstr "Data"
 
@@ -948,3 +1004,57 @@ msgstr "Select all"
 #: templates/salidas/select_filtros.html:38
 msgid "Provincias"
 msgstr "Provinces"
+
+#~ msgid "Afilizarse"
+#~ msgstr "Affiliate"
+
+#~ msgid "Nombre: "
+#~ msgstr "Name: "
+
+#~ msgid "Correo: "
+#~ msgstr "Email: "
+
+#~ msgid "Proyecto: "
+#~ msgstr "Project: "
+
+#~ msgid "Tipo: "
+#~ msgstr "Type: "
+
+#~ msgid "Mensaje: "
+#~ msgstr "Message: "
+
+#~ msgid "OBJETIVO"
+#~ msgstr "OBJECTIVE"
+
+#~ msgid ""
+#~ "El objetivo general es comprender los patrones y los motores del uso de "
+#~ "ABD e identificar oportunidades para mejorar el ingreso y la nutrición de "
+#~ "los hogares a través del uso de la agrobiodiversidad. El método de cuatro "
+#~ "células se desarrolló para la evaluación rápida del uso total de ABD en "
+#~ "la comunidad y se ha aplicado en varias acciones de Humidtropics sitio. "
+#~ "Estos datos se utilizarán en combinación con otros datos de diagnóstico "
+#~ "de hogares y agroecosistemas para identificar intervenciones clave para "
+#~ "la mejora del sistema en diferentes tipologías de fincas. Un paso "
+#~ "esencial es transformar los conjuntos de datos ABD en un formato de "
+#~ "interpretación y discusión con los hogares agrícolas y las organizaciones "
+#~ "locales que es conducente a la identificación de intervenciones clave de "
+#~ "ABD. El objetivo específico es desarrollar métodos para analizar y "
+#~ "diseñar para presentar datos ABD complejos. Aquí se usan datos del "
+#~ "territorio cafetero del sitio de acción del Norte de Nicaragua para "
+#~ "ilustrar los métodos potenciales para analizar y presentar los perfiles "
+#~ "ABD de la comunidad"
+#~ msgstr ""
+#~ "The broad objective is to understand patterns and drivers of ABD use and "
+#~ "to identify opportunities to improve household income and nutrition "
+#~ "through agrobiodiversity use. The four-cell method was developed for "
+#~ "rapid assessment of total community ABD use and has been applied in "
+#~ "various Humidtropics actions site. This data will be used in combination "
+#~ "with other household and agroecosystem diagnostic data to identify key "
+#~ "interventions for system improvement in different farm typologies. An "
+#~ "essential step is to transform the ABD datasets into a format for "
+#~ "interpretation and discussion with farming households and local "
+#~ "organizations that is conducive to the identification of key ABD "
+#~ "interventions. The specific objective is to develop methods to analyze "
+#~ "and designs to present complex ABD data. Here we use data from the coffee "
+#~ "territory of the Northern Nicaragua action site to illustrate the "
+#~ "potential methods for analyzing and presenting the community ABD profiles."

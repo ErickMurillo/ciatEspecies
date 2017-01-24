@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load thumbnail %}
+{% load i18n %}
 
 {% block content %}
 <div class="metodologia">
@@ -24,31 +25,34 @@
 	  <div class="col-sm-6">
 		<div class="query">
 		  <h3>{% trans "FORMULARIO DE SOLICITUD" %}</h3>
-		  <form name="mailform" id="mailform" method="post" enctype="multipart/form-data" >
+			{% if enviado == 1 %}
+			<div class="text-success">{% trans "Su mensaje ha sido enviado correctamente!!!" %}</div>
+			{% endif %}
+		  <form name="mailform" id="mailform" method="post" enctype="multipart/form-data" >{% csrf_token %}
 			<div class="form-group">
-			  <input type="text" class="form-control textfild" name="name" id="name" placeholder="Nombre">
+			  {{form.name}}
 			</div>
 			<div class="form-group">
-			  <input type="email" name="email" id="email" class="form-control textfild" placeholder="Correo">
+				{{form.email}}
 			</div>
 			<div class="form-group">
-			  <input type="text" name="subject" id="subject" class="form-control textfild" placeholder="Projecto">
+				{{form.project}}
 			</div>
 			<div class="form-group">
-			  <textarea name="textarea" id="textarea" class="form-control textareafild" placeholder="Descripción breve"></textarea>
+				{{form.tipo}}
 			</div>
-			<div class="checkbox checkbox-success">
+			<div class="form-group">
+				{{form.message}}
+			</div>
+			<!--<div class="checkbox checkbox-success">
 				<input id="checkbox3" type="checkbox">
 				<label for="checkbox3">
 					{% trans "Acepto los terminimos y condiciones" %}.
 				</label>
-			</div>
-
-
+			</div>-->
 			<div class="error"></div>
-			<input type="button" value="SOLICITAR DATOS" class="submit-btn" onClick="ValiDate()">
+			<input class="submit-btn" value="{% trans 'SOLICITAR DATOS' %}" type="submit" onClick="ValiDate()">
 		  </form>
-		  <div class="mailSuccessDiv"> Your Message Sent Successfully!!! </div>
 		</div>
 	  </div>
 	</div>
@@ -56,4 +60,35 @@
 	</div>
 
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#id_name').addClass("form-control textfild");
+	$('#id_name').attr("placeholder", "{% trans 'Nombre' %}");
+
+	$('#id_email').addClass("form-control textfild");
+	$('#id_email').attr("placeholder", "{% trans 'Correo' %}");
+
+	$('#id_project').addClass("form-control textfild");
+	$('#id_project').attr("placeholder", "{% trans 'Projecto' %}");
+
+	$('#id_tipo').addClass("form-control textfild");
+	$('#id_tipo').attr("placeholder", "{% trans 'Tipo' %}");
+
+	$('#id_message').addClass("form-control textareafild");
+	$('#id_message').attr("placeholder", "{% trans 'Descripción breve' %}");
+});
+
+{% if enviado == 1 %}
+$(document).ready(function(){
+  $('#id_name').val('');
+	$('#id_email').val('');
+	$('#id_project').val('');
+	$('#id_message').val('');
+});
+{% endif %}
+
+</script>
 {% endblock %}

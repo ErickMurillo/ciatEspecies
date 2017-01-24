@@ -5,6 +5,10 @@ import json as simplejson
 from focusgroups.models import *
 from informacion.models import *
 from django.views.generic import DetailView, ListView
+from focusgroups.forms import *
+from django.template.loader import render_to_string
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.utils.translation import ugettext_lazy as _
 
 # Create your views here.
 def set_lang(request, lang_code):
@@ -77,5 +81,39 @@ def obtener_lista(request):
 
 		serializado = simplejson.dumps(lista)
 		return HttpResponse(serializado, content_type = 'application/json')
+
 def afiliarse(request, template="afiliarse.html"):
+    arreglo_mail = ['m.vanzonneveld@cgiar.org','j.raneri@cgiar.org']
+    if request.method == 'POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            project = form.cleaned_data['project']
+            tipo = form.cleaned_data['tipo']
+            message = form.cleaned_data['message']
+        try:
+            subject, from_email, to = 'ABD Species', 'noreply@abd-data.org', arreglo_mail
+            text_content = 'Nombre: ' + str(name) + '<br>'  + \
+                            'Correo: ' + str(email) + '<br>' + \
+                            'Proyecto: ' + str(project) + '<br>' + \
+                            'Tipo: ' + str(tipo) + '<br>' + \
+                            'Mensaje: ' + str(message)
+
+            html_content = 'Nombre: ' + str(name) + '<br>'  + \
+                            'Correo: ' + str(email) + '<br>' + \
+                            'Proyecto: ' + str(project) + '<br>' + \
+                            'Tipo: ' + str(tipo) + '<br>' + \
+                            'Mensaje: ' + str(message)
+
+            msg = EmailMultiAlternatives(subject, text_content, from_email, arreglo_mail)
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
+
+            enviado = 1
+        except:
+            pass
+
+    else:
+        form = EmailForm()
     return render(request, template, locals())
