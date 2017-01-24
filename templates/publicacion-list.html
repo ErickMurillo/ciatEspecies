@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% load thumbnail %}
 {% load el_pagination_tags %}
+{% block extra_js %}
+<script type="text/javascript">
+	$(".pagination a:contains('>')").html("Siguiente");
+	$(".pagination a:contains('<')").html("Anterior");
+</script>
+
+{% endblock %}
 {% block content %}
 <div class="metodologia">
 	<div class="container">

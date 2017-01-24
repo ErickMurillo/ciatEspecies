@@ -15,12 +15,7 @@
 #td-especies {background-color: #ffd966}
 #td-especies2 {background-color: #ffe699}
 #td-especies3 {background-color: #fff2cc}
-.table-responsive {
-  margin-top: 20px;
-  height: 600px !important;
-  overflow: scroll;
-  width: 100% !important
-}
+
 </style>
 <div class="menu-dashboard">
   <div class="container-fluid">
@@ -73,7 +68,7 @@
 <div class="consulta" id="consulta">
   <div class="contact_wrap">
     <div class="container">
-      <div class="row">
+    <div class="row">
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-primary">{% trans "Seleccione la comunidad" %}</button>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -90,152 +85,203 @@
                 {% endfor %}
             </div>
         </div>
+    </div>
+      <div class="row">
+        
 
         <div class="tab-content">
-					{% for key,values in comu.items %}
-					<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
-            <div class="table-responsive">
-            <table class="table table-bordered">
-              <caption>{% blocktrans %}Perfil ABD de especies y productos consumidos por el grupo focal{% endblocktrans %}</caption>
-              <thead>
-                <tr>
-                  <th>{% trans "Consumido" %}</th>
-                  <th>{% trans "Producido" %}</th>
-                  <th>{% trans "Comprado" %}</th>
-                  <th>{% trans "Especies" %}</th>
-                  <!--{% for obj in food_groups %}<th>{{obj.1}}</th>{% endfor %}-->
-                </tr>
-              </thead>
-              <tbody>
-                {% for kkey,val in values.0.items %}
-                  <tr>
-                    <td id="{% if forloop.counter == 1 %}consume-most{% else %}consume-few{% endif %}" rowspan="{% if forloop.counter == 1 %}7{% else %}4{% endif %}">
-                      {{kkey}}
-                    </td>
-                  </tr>
-                  {% for k,v in val.items %}
-                    <tr>
-                      {% if kkey == 'Most consume/frequent' and k == 'Most Produce or widely available in community' or kkey == 'La mayoria consume/con frecuencia' and k == 'La mayoria produce o ampliamente disponibles en la comunidad' %}
-                      <td rowspan="3" id="many-produce" width="20%">{{k}}</td>
-                      {% for x in v.keys %}
-                        <tr>
-                          <td width="10%" id="{% if forloop.counter|divisibleby:'2' %}few2{% else %}few1{% endif %}">{{x}}</td>
-                          <td id="consume-most">
-                            {% for z,y in v.items %}
-                            {% if z == x %}
-                            <table class="table" id="consume-most">
-                              <thead>
-                                <tr>
-                                  {% for val in y.keys %}
-                                    <th>{{val}}</th>
-                                  {% endfor %}
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  {% for val in y.values %}
-                                    <td>{% for va in val %} {{va}},{% endfor %}</td>
-                                  {% endfor %}
-                                </tr>
-                              </tbody>
+			{% for key,values in comu.items %}
+			<div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
+                <!-- START SALES BLOCK -->
+                <div class="panel panel-default panel-salidas">
+                    <div class="panel-heading">
+                        <div class="panel-title-box">
+                            <h3>{% blocktrans %}Perfil ABD de especies y productos consumidos por el grupo focal{% endblocktrans %}</h3>
+                            <span>{% trans "Tabla de valores" %}</span>
+
+                        </div>
+                        <div class="btn-group pull-right">
+                            <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
+                            <ul class="dropdown-menu">
+
+                                <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="table-responsive" id="modalidad{{forloop.counter}}">
+                            <table class="table table-bordered table-hover" id="especies_comunidad">
+                                <thead>
+                                    <tr>
+                                        <th>{% trans "Consumido" %}</th>
+                                        <th>{% trans "Producido" %}</th>
+                                        <th>{% trans "Comprado" %}</th>
+                                        <th>{% trans "Especies" %}</th>
+                                        <!--{% for obj in food_groups %}<th>{{obj.1}}</th>{% endfor %}-->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for kkey,val in values.0.items %}
+                                    <tr>
+                                        <td id="{% if forloop.counter == 1 %}consume-most{% else %}consume-few{% endif %}" rowspan="{% if forloop.counter == 1 %}7{% else %}4{% endif %}">
+                                            {{kkey}}
+                                        </td>
+                                    </tr>
+                                    {% for k,v in val.items %}
+                                    <tr>
+                                        {% if kkey == 'Most consume/frequent' and k == 'Most Produce or widely available in community' or kkey == 'La mayoria consume/con frecuencia' and k == 'La mayoria produce o ampliamente disponibles en la comunidad' %}
+                                        <td rowspan="3" id="many-produce" width="20%">{{k}}</td>
+                                        {% for x in v.keys %}
+                                        <tr>
+                                            <td width="10%" id="{% if forloop.counter|divisibleby:'2' %}few2{% else %}few1{% endif %}">{{x}}</td>
+                                            <td id="consume-most">
+                                                {% for z,y in v.items %}
+                                                {% if z == x %}
+                                                <table class="table" id="consume-most">
+                                                    <thead>
+                                                        <tr>
+                                                            {% for val in y.keys %}
+                                                            <th>{{val}}</th>
+                                                            {% endfor %}
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            {% for val in y.values %}
+                                                            <td>{% for va in val %} {{va}},{% endfor %}</td>
+                                                            {% endfor %}
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                {% endif %}
+                                                {% endfor %}
+                                            </td>
+                                        </tr>
+
+                                        {% endfor %}
+
+
+                                        {% else %}
+                                        <td colspan="1" id="few-produce{% if forloop.counter <= 4 and kkey == 'Most consume/frequent' or kkey == 'La mayoría consume/con frecuencia' %}{{forloop.counter}}{% else %}{{forloop.counter}}2{% endif %}" width="20%">{{k}}</td>
+                                        <td width="10%" id="{% if forloop.counter|divisibleby:'2' and kkey == 'Most consume/frequent' or kkey == 'La mayoría consume/con frecuencia' %}few1{% else %}few2{% endif %}">
+                                            {% for x,y in v.items %}
+                                            {{x}}
+                                            {% endfor %}
+                                        </td>
+                                        <td id="{% if kkey == 'Most consume/frequent' or kkey == 'La mayoría consume/con frecuencia' %}td-especies2{% else %}td-especies3{% endif %}">
+                                            {% for y in v.values %}
+                                            <table class="table" id="{% if kkey == 'Most consume/frequent' or key == 'La mayoría consume/con frecuencia' %}td-especies2{% else %}td-especies3{% endif %}">
+                                                <thead>
+                                                    <tr>
+                                                        {% for val in y.keys %}
+                                                        <th>{{val}}</th>
+                                                        {% endfor %}
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        {% for val in y.values %}
+                                                        <td>{% for va in val %} {{va}},{% endfor %}</td>
+                                                        {% endfor %}
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            {% endfor %}
+                                        </td>
+                                        {% endif %}
+                                    </tr>
+                                    {% endfor %}
+                                    {% endfor %}
+                                </tbody>
                             </table>
-                            {% endif %}
-                            {% endfor %}
-                          </td>
-                        </tr>
+                        </div>
 
-                      {% endfor %}
+                    </div>
+                </div>
+                <!-- END SALES BLOCK -->
+                <!-- START SALES BLOCK -->
+                <div class="panel panel-default panel-salidas">
+                    <div class="panel-heading">
+                        <div class="panel-title-box">
+                            <h3>{% blocktrans %}Perfil ABD de las especies utilizadas para la generación de ingresos para el grupo focal{% endblocktrans %}</h3>
+                            <span>{% trans "Tabla de valores" %}</span>
 
+                        </div>
+                        <div class="btn-group pull-right">
+                            <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
+                            <ul class="dropdown-menu">
 
-                      {% else %}
-                      <td colspan="1" id="few-produce{% if forloop.counter <= 4 and kkey == 'Most consume/frequent' or kkey == 'La mayoría consume/con frecuencia' %}{{forloop.counter}}{% else %}{{forloop.counter}}2{% endif %}" width="20%">{{k}}</td>
-                      <td width="10%" id="{% if forloop.counter|divisibleby:'2' and kkey == 'Most consume/frequent' or kkey == 'La mayoría consume/con frecuencia' %}few1{% else %}few2{% endif %}">
-                        {% for x,y in v.items %}
-                          {{x}}
-                        {% endfor %}
-                      </td>
-                      <td id="{% if kkey == 'Most consume/frequent' or kkey == 'La mayoría consume/con frecuencia' %}td-especies2{% else %}td-especies3{% endif %}">
-                        {% for y in v.values %}
-                        <table class="table" id="{% if kkey == 'Most consume/frequent' or key == 'La mayoría consume/con frecuencia' %}td-especies2{% else %}td-especies3{% endif %}">
-                          <thead>
-                            <tr>
-                              {% for val in y.keys %}
-                                <th>{{val}}</th>
-                              {% endfor %}
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              {% for val in y.values %}
-                                <td>{% for va in val %} {{va}},{% endfor %}</td>
-                              {% endfor %}
-                            </tr>
-                          </tbody>
-                        </table>
-                        {% endfor %}
-                      </td>
-                      {% endif %}
-                    </tr>
-                  {% endfor %}
-                {% endfor %}
-              </tbody>
-            </table>
-            </div>
-            <hr>
-            <br>
+                                <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="table-responsive" id="modalidad{{forloop.counter}}">
+                            <table class="table table-bordered table-hover" id="especies_comunidad">
+                                <thead>
+                                    <tr>
+                                        <th>{% trans "Vendido" %}</th>
+                                        <th>{% trans "Producido" %}</th>
+                                        <th>{% trans "Comprado" %}</th>
+                                        <th>{% trans "Especies" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for key,values in values.1.items %}
+                                    <tr>
+                                        <td width="10%" id="{% if forloop.counter == 1 %}consume-most{% else %}consume-few{% endif %}" rowspan="{% if forloop.counter == 1 %}4{% else %}9{% endif %}">{{key}}</td>
+                                    </tr>
+                                    {% for k,v in values.items %}
+                                    <tr>
+                                        {% if key == 'Sold by Most' or key == 'Sold by few' or key == 'Muchos venden' or key == 'Pocos venden' %}
+                                        <td rowspan="4" width="10%" id="{% if k == 'Most Produce' or k == 'La mayoria produce' %}many-produce{% else %}few-produce2{% endif %}">{{k}}</td>
+                                        {% for x in v.keys %}
+                                        <tr>
+                                            <td width="10%" id="{% if x == 'Most buy' or key == 'La mayoria compra' %}few2{% elif x == 'Few buy' or x == 'Few or none buy' or x == 'Pocos compran' or x == 'Pocos o ninguno compra' %}few1{% elif x == 'None buy' or x == 'Ninguno compra' %}td-especies3{% else %}few3{% endif %}">{{x}}</td>
+                                            <td id="{% if key == 'Sold by Most' or key == 'Muchos venden' %}consume-most{% else %}consume-few{% endif %}">
+                                                {% for z,y in v.items %}
+                                                {% if z == x %}
+                                                <table class="table" id="{% if key == 'Sold by Most' or key == 'Muchos venden' %}consume-most{% else %}consume-few{% endif %}">
+                                                    <thead>
+                                                        <tr>
+                                                            {% for val in y.keys %}
+                                                            <th>{{val}}</th>
+                                                            {% endfor %}
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            {% for val in y.values %}
+                                                            <td>{% for va in val %} {{va}},{% endfor %}</td>
+                                                            {% endfor %}
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                {% endif %}
+                                                {% endfor %}
+                                            </td>
+                                        </tr>
+
+                                        {% endfor %}
+                                        {% endif %}
+                                    </tr>
+                                    {% endfor %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- END SALES BLOCK -->
 
             <table class="table table-bordered table-hover">
-              <caption>{% blocktrans %}Perfil ABD de las especies utilizadas para la generación de ingresos para el grupo focal{% endblocktrans %}</caption>
-              <thead>
-                <tr>
-                  <th>{% trans "Vendido" %}</th>
-                  <th>{% trans "Producido" %}</th>
-                  <th>{% trans "Comprado" %}</th>
-                  <th>{% trans "Especies" %}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for key,values in values.1.items %}
-                  <tr>
-                    <td width="10%" id="{% if forloop.counter == 1 %}consume-most{% else %}consume-few{% endif %}" rowspan="{% if forloop.counter == 1 %}4{% else %}9{% endif %}">{{key}}</td>
-                  </tr>
-                  {% for k,v in values.items %}
-                    <tr>
-                      {% if key == 'Sold by Most' or key == 'Sold by few' or key == 'Muchos venden' or key == 'Pocos venden' %}
-                      <td rowspan="4" width="10%" id="{% if k == 'Most Produce' or k == 'La mayoria produce' %}many-produce{% else %}few-produce2{% endif %}">{{k}}</td>
-                      {% for x in v.keys %}
-                        <tr>
-                          <td width="10%" id="{% if x == 'Most buy' or key == 'La mayoria compra' %}few2{% elif x == 'Few buy' or x == 'Few or none buy' or x == 'Pocos compran' or x == 'Pocos o ninguno compra' %}few1{% elif x == 'None buy' or x == 'Ninguno compra' %}td-especies3{% else %}few3{% endif %}">{{x}}</td>
-                          <td id="{% if key == 'Sold by Most' or key == 'Muchos venden' %}consume-most{% else %}consume-few{% endif %}">
-                            {% for z,y in v.items %}
-                            {% if z == x %}
-                            <table class="table" id="{% if key == 'Sold by Most' or key == 'Muchos venden' %}consume-most{% else %}consume-few{% endif %}">
-                              <thead>
-                                <tr>
-                                  {% for val in y.keys %}
-                                    <th>{{val}}</th>
-                                  {% endfor %}
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  {% for val in y.values %}
-                                    <td>{% for va in val %} {{va}},{% endfor %}</td>
-                                  {% endfor %}
-                                </tr>
-                              </tbody>
-                            </table>
-                            {% endif %}
-                            {% endfor %}
-                          </td>
-                        </tr>
-
-                      {% endfor %}
-                    {% endif %}
-                    </tr>
-                  {% endfor %}
-                {% endfor %}
-              </tbody>
+              <caption></caption>
+              
             </table>
           </div>
         {% endfor %}

@@ -131,61 +131,61 @@
       <div class="row">
         <!-- START SALES BLOCK -->
         <div class="panel panel-default panel-salidas">
-          <div class="panel-heading">
-            <div class="panel-title-box">
-              <h3>{% trans "Perfil de la especie" %}</h3>
-              <span>{% trans "Datos" %}</span>
+            <div class="panel-heading">
+                <div class="panel-title-box">
+                    <h3>{% trans "Perfil de la especie" %}</h3>
+                    <span>{% trans "Datos" %}</span>
 
+                </div>
             </div>
-          </div>
-          <div class="panel-body">
-            <div class="table-responsive">
-              <table class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>{% trans "Media" %}</th>
-                    <th>{% trans "Hombres" %}</th>
-                    <th>{% trans "Mujeres" %}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{% trans "Producido" %}</td>
-                    {% for valor in produced %}
-                    <td>{{valor.0}}</td>
-                    <td>{{valor.1}}</td>
-                    <td>{{valor.2}}</td>
-                    {% endfor %}
-                  </tr>
-                  <tr>
-                    <td>{% trans "Vendido" %}</td>
-                    {% for valor in sold %}
-                    <td>{{valor.0}}</td>
-                    <td>{{valor.1}}</td>
-                    <td>{{valor.2}}</td>
-                    {% endfor %}
-                  </tr>
-                  <tr>
-                    <td>{% trans "Comprado" %}</td>
-                    {% for valor in purchased %}
-                    <td>{{valor.0}}</td>
-                    <td>{{valor.1}}</td>
-                    <td>{{valor.2}}</td>
-                    {% endfor %}
-                  </tr>
-                  <tr>
-                    <td>{% trans "Consumido" %}</td>
-                    {% for valor in consumed %}
-                    <td>{{valor.0}}</td>
-                    <td>{{valor.1}}</td>
-                    <td>{{valor.2}}</td>
-                    {% endfor %}
-                  </tr>
-                </tbody>
-              </table>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>{% trans "Media" %}</th>
+                                <th>{% trans "Hombres" %}</th>
+                                <th>{% trans "Mujeres" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{% trans "Producido" %}</td>
+                                {% for valor in produced %}
+                                <td>{{valor.0}}</td>
+                                <td>{{valor.1}}</td>
+                                <td>{{valor.2}}</td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <td>{% trans "Vendido" %}</td>
+                                {% for valor in sold %}
+                                <td>{{valor.0}}</td>
+                                <td>{{valor.1}}</td>
+                                <td>{{valor.2}}</td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <td>{% trans "Comprado" %}</td>
+                                {% for valor in purchased %}
+                                <td>{{valor.0}}</td>
+                                <td>{{valor.1}}</td>
+                                <td>{{valor.2}}</td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <td>{% trans "Consumido" %}</td>
+                                {% for valor in consumed %}
+                                <td>{{valor.0}}</td>
+                                <td>{{valor.1}}</td>
+                                <td>{{valor.2}}</td>
+                                {% endfor %}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-          </div>
         </div>
         <!-- END SALES BLOCK -->
 
