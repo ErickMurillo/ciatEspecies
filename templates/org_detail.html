@@ -1,18 +1,47 @@
 {% extends "base.html" %}
 {% load thumbnail %}
-
+{% load i18n %}
 {% block content %}
-{{object.nombre}}<br>
-{{object.pais}}<br>
-{{object.direccion}}<br>
-{{object.telefono}}<br>
-{{object.url}}<br>
-{% if obj.logo %}
-  {% thumbnail object.logo "740x450" crop="center" as img %}
-     <img src="/media/{{img}}" alt="">
-  {% endthumbnail %}
-{% else %}
-  <img src="http://placehold.it/740x450" alt="" />
-{% endif %}<br>
-{{object.descripcion|safe}}<br>
+<div class="metodologia" id="consulta">
+
+	<div class="" id="services">
+		<div class="container">
+			<div class="row profile">
+				<div class="col-md-2 col-sm-6">
+					
+					{% if obj.logo %}
+						{% thumbnail object.logo  as img %}
+						    <img class="logo-org" src="/media/{{img}}" alt="">
+						{% endthumbnail %}
+					{% else %}
+						<img src="http://placehold.it/200x200" alt="" />
+					{% endif %}
+
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="member-detail">
+						<div class="name">{% trans "Nombre:" %} {{object.name}}</div>
+						<div class="pais">{% trans "País:" %} {{object.pais}}</div>
+						<div class="cargo">{% trans "Dirección:" %} {{object.direccion}}</div>
+						<div class="telefono">{% trans "Teléfono:" %} <a href="callto:{{object.telefono}}">{{object.telefono}}</a></div>
+						<div class="correo">{% trans "Sitio:" %} <a href="{{object.url}}" target="_blank">{{object.url}}</a></div>
+
+					</div>
+					
+
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="bar-text">
+						{{object.descripcion|safe}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
 {% endblock %}

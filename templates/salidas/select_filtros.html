@@ -6,7 +6,7 @@
            <p>{% trans "Filtros" %} <br>
             {% trans "seleccionados" %}:</p>
         </li>
-        <li>
+        <li class="f-border">
             {% if request.session.year %}
             <p>{% trans "Año" %}: {{request.session.year}}</p>
             {% endif %}
@@ -14,26 +14,25 @@
             <p>
             <strong>{% trans "Región" %}: </strong>
               {% if request.session.region == '1' %}
-              APAC
+              APAC, 
               {% elif request.session.region == '2' %}
-              LatAm
+              LatAm, 
               {% elif request.session.region == '3' %}
-              South Asia
+              South Asia, 
               {% elif request.session.region == '4' %}
-              Asia
+              Asia, 
               {% elif request.session.region == '5' %}
-              Africa
+              Africa, 
               {% endif %}
-          </p>
-          <p>
-
               <strong>{% trans "Paises" %}: </strong>
               {% for pais in request.session.country %}
                 {{pais}}{% if not forloop.last %},{% endif %}
               {% endfor %}
           </p>
-        </li>
-        <li>
+          <p>
+
+              
+          </p>
             <p>
                 <strong>{% trans "Provincias" %}: </strong>
                 {% for province in request.session.province %}

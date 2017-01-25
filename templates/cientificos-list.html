@@ -1,17 +1,27 @@
 {% extends "base.html" %}
 {% load thumbnail %}
 {% load el_pagination_tags %}
+{% block extra_js %}
+<script type="text/javascript">
+	$(".pagination a:contains('>')").html("Siguiente");
+	$(".pagination a:contains('<')").html("Anterior");
+</script>
+
+{% endblock %}
+
+
 {% block content %}
+
+
 <div class="metodologia">
 	<div class="container">
 		<div class="head_section">
-		  <h2>PROYECTOS Y PUBLICACIONES</h2>
+		  <h2>CIENTÍFICOS PARTICIPANTES</h2>
 		
 		</div>
 		<div class="row">
-			{% paginate 1 object_list %}
+			{% paginate 16 object_list %}
 			{% for obj in object_list %}
-
 			<div class="col-sm-3">
 			  <div class="member">
 				<a href="{% url 'cientifico-detalle' obj.slug %}">
@@ -27,7 +37,7 @@
 					  <span class="designation">{{obj.cargo}}</span>
 					  <ul class="datamember">
 						  <p><span class="fa fa-envelope"></span> {{obj.correo}}</p>
-						  <p><span class="fa fa-phone"> {{obj.telefono}}</span></p>
+						  <p><span class="fa fa-phone"> </span> {{obj.telefono}}</p>
 					  </ul>
 				  </div>
 				  </a>
@@ -36,15 +46,26 @@
 			
 			{% endfor %}
 		</div>
-
-<!-- pagination box -->
-   <div class="pagination-box">
-     <ul class="pagination-list">
-       {% show_pages %}
-     </ul>
-     <p>{% show_current_number %} de {% get_pages %}{{ pages|length }} paginas.</p>
-   </div>
-   <!-- End Pagination box -->
+		<div class="row">
+			
+			<!-- pagination box -->
+			<nav class="Page navigation pagination-box">
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-8">
+					<ul class="pagination pagination-list">
+						<li>{% show_pages %}</li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+					<div class="paginas pull-right">
+						<p>{% show_current_number %} de {% get_pages %}{{ pages|length }} paginas</p>
+					</div>
+					
+				</div>
+				
+			</nav>
+			<!-- End Pagination box -->
+			
+		</div>
 	</div>
 </div>
 {% endblock %}

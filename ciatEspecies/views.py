@@ -32,6 +32,8 @@ def index(request,template="index.html"):
     species = FocusGroup.objects.all().distinct('fcacode__species').count()
     focus_groups = FocusGroup.objects.all().count()
     proyectos = Proyectos.objects.order_by('-id')
+    cien = Scientists.objects.order_by('-id')
+    org = Organizations.objects.order_by('-id')
 
     dicc = {}
     orgs = {}

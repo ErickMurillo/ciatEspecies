@@ -2,18 +2,50 @@
 {% load thumbnail %}
 
 {% block content %}
-{{object.titulo}}<br>
-{{object.fecha}}<br>
-{% if object.imagen %}
-  {% thumbnail object.imagen "740x450" crop="center" as img %}
-     <img src="/media/{{img}}" alt="">
-  {% endthumbnail %}
-{% else %}
-  <img src="http://placehold.it/740x450" alt="" />
-{% endif %}<br>
-{{object.contenido|safe}}<br>
+<div class="metodologia" id="consulta">
 
-{% for obj in object.archivos_set.all %}
-  <a href="/media/{{obj.archivo}}" target="_blank">{{obj.nombre_archivo}}</a><br>
-{% endfor %}
+	<div class="" id="services">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="nota-detail">
+						<figure>
+							{% if object.imagen %}
+								{% thumbnail object.imagen "1000" crop="center" as img %}
+									<img  src="/media/{{img}}" alt="">
+								{% endthumbnail %}
+							{% else %}
+								<img width="100%" src="http://placehold.it/740x450" alt="" />
+							{% endif %}
+							
+						</figure>
+						<div class="titulo">
+							<h3>{{object.titulo}}</h3>
+							<div class="fecha">{{object.fecha}}</div>
+						</div>
+						
+						<div class="nota">{{object.contenido|safe}}</div>
+						<hr>
+						    <h5>Archivos Adjuntos:</h5>
+						    <ul class="archivo">
+							{% for obj in object.archivos_set.all %}
+								<li><a href="/media/{{obj.archivo}}" target="_blank">{{obj.nombre_archivo}}</a></li>
+
+							{% endfor %}
+							</ul>
+
+						    
+						
+					</div>
+				</div>
+				
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
 {% endblock %}
