@@ -91,12 +91,16 @@ def filtros(request,template="consulta.html"):
 
 def mapa(request):
     pais = request.GET['id']
-    community = Community.objects.filter(province__country = pais)
-    dicc = {}
-    for comu in community:
-        focusgroups = FocusGroup.objects.filter(community = comu).aggregate(avg = Avg('population'))['avg']
-        dicc[comu.name] = (comu.latitud,comu.longitud,focusgroups)
-    return HttpResponse(simplejson.dumps(dicc),content_type='application/json')
+    paises = Country.objects.filter(id = pais)
+    list = []
+    for obj in paises:
+        community = Community.objects.filter(province__country = pais)
+        dicc = {}
+        for comu in community:
+            focusgroups = FocusGroup.objects.filter(community = comu).aggregate(avg = Avg('population'))['avg']
+            dicc[comu.name] = (comu.latitud,comu.longitud,focusgroups)
+        list.append((obj.latitud,obj.longitud,dicc))
+    return HttpResponse(simplejson.dumps(list),content_type='application/json')
 
 def grupo_nutricional_comunidad(request,template="salidas/grupo_nutricional.html"):
     filtro = _queryset_filtrado(request)
