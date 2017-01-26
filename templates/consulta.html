@@ -549,7 +549,7 @@ $(document).on('change','#select-pais',function() {
               title: ''+i+'',
           });
             marker.addListener('click', function() {
-              infowindow+i.open(map, marker);
+              infowindow.open(map, marker);
             });
           });
 
