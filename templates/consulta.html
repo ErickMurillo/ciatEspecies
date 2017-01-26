@@ -184,6 +184,7 @@ Género
 <div class="col-sm-6">
   <div class="">
     <div class="col-md-9">
+      <p>{% trans "Filtro de Población" %}</p>
       <select class="form-control" id="select-pais" name='pais'>
         <option value=''>-------</option>
         {% for obj in paises %}
@@ -507,14 +508,13 @@ $(document).on('change','#select-pais',function() {
 
       function initialize() {
         var myOptions = {
-          zoom: 4,
+          zoom: 5,
           center: latlng,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           panControl: false,
           zoomControl: false,
           scaleControl: false,
         };
-        var image = new google.maps.MarkerImage('/static/imges/m2.png');
 
         map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
 
@@ -525,24 +525,12 @@ $(document).on('change','#select-pais',function() {
               '</div>'+
               '<h1 id="firstHeading" class="firstHeading">'+i+'</h1>'+
               '<div id="bodyContent">'+
-              '<p>Población: '+item2[2]+' </p>' +
+              '<p>{% trans "Población" %}: '+item2[2]+' </p>' +
               '</div>'+
               '</div>';
             var infowindow = new google.maps.InfoWindow({
               content: contentString
             });
-            // var marker+i = new MarkerWithLabel({
-            //   position: new google.maps.LatLng(item2[0], item2[1]),
-            //   map: map,
-            //   //draggable: true,
-            //   title: '{{municipio.0}}',
-            //   raiseOnDrag: true,
-            //   labelContent: ""+item2[2]+"",
-            //   labelAnchor: new google.maps.Point(3, 30),
-            //   labelClass: "labels", // the CSS class for the label
-            //   labelInBackground: false,
-            //    icon: image,
-            // });
             var marker = new google.maps.Marker({
               position: new google.maps.LatLng(item2[0], item2[1]),
               map: map,

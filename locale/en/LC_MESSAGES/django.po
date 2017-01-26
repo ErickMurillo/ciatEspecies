@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-25 11:14-0600\n"
+"POT-Creation-Date: 2017-01-26 10:47-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -229,20 +229,31 @@ msgstr "Year"
 msgid "CONSULTAR"
 msgstr "QUERY"
 
-#: templates/consulta.html:322 templates/consulta.html:348
-#: templates/consulta.html:374 templates/consulta.html:400
+#: templates/consulta.html:187
+#, fuzzy
+#| msgid "Población"
+msgid "Filtro de Población"
+msgstr "Population filter"
+
+#: templates/consulta.html:323 templates/consulta.html:349
+#: templates/consulta.html:375 templates/consulta.html:401
 msgid "Seleccionar todos"
 msgstr "Select all"
 
-#: templates/consulta.html:325 templates/consulta.html:351
-#: templates/consulta.html:377 templates/consulta.html:403
+#: templates/consulta.html:326 templates/consulta.html:352
+#: templates/consulta.html:378 templates/consulta.html:404
 msgid "Sin selección ..."
 msgstr "No selection ..."
 
-#: templates/consulta.html:328 templates/consulta.html:354
-#: templates/consulta.html:380 templates/consulta.html:406
+#: templates/consulta.html:329 templates/consulta.html:355
+#: templates/consulta.html:381 templates/consulta.html:407
 msgid "Varias opciones seleccionadas!"
 msgstr "Several options selected!"
+
+#: templates/consulta.html:528 templates/salidas/perfil_fg_detalle.html:127
+#: templates/salidas/perfil_fg_detalle.html:129
+msgid "Población"
+msgstr "Population"
 
 #: templates/filtros.html:19 templates/salidas/grupo_nutricional.html:17
 #: templates/salidas/grupo_nutricional_pais.html:13
@@ -1007,11 +1018,6 @@ msgstr "Climate zone"
 #: templates/salidas/perfil_fg_detalle.html:118
 msgid "Temperatura media"
 msgstr "Mean temperature"
-
-#: templates/salidas/perfil_fg_detalle.html:127
-#: templates/salidas/perfil_fg_detalle.html:129
-msgid "Población"
-msgstr "Population"
 
 #: templates/salidas/perfil_fg_detalle.html:128
 msgid "Distancia de mercado"
