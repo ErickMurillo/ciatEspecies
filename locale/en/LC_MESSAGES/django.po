@@ -230,8 +230,6 @@ msgid "CONSULTAR"
 msgstr "QUERY"
 
 #: templates/consulta.html:187
-#, fuzzy
-#| msgid "Población"
 msgid "Filtro de Población"
 msgstr "Population filter"
 
