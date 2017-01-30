@@ -443,6 +443,7 @@ def perfil_focus_groups_detail(request,id = None):
     template = "salidas/perfil_fg_detalle.html"
     cur_language = translation.get_language()
     object = FocusGroup.objects.get(id = id)
+    fotos = FotosGroups.objects.filter(focus_groups = object)
     species = FcaCode.objects.filter(focus_groups = object.id).distinct('species').values_list(
                         'species_vernacular_name','fca_cultivated','fca_sold','fca_purchased','fca_consumed','species__food_group')
 

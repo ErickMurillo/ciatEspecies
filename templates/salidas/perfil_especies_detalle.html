@@ -2,6 +2,10 @@
 {% load i18n %}
 {% load thumbnail %}
 
+{% block extra_css %}
+<link href="/static/css/lightbox.css" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
 <div class="menu-dashboard">
   <div class="container-fluid">
@@ -114,9 +118,9 @@
               {% if fotos %}
               <div class="images">
                 {% for obj in fotos %}
-        					{% thumbnail obj.fotos "270x210" crop="center" as img %}
+        					{% thumbnail obj.fotos "570x510" crop="center" as img %}
                     <div class="col-md-4">
-                      <img src="/media/{{img}}" alt="..." class="img-rounded">
+                      <a href="/media/{{img}}" data-lightbox="species"><img src="/media/{{img}}" alt="..." class="img-rounded" width="270px"></a>
                     </div>
         					{% endthumbnail %}
                 {% endfor %}
@@ -194,4 +198,15 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/lightbox.js"></script>
+<script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'positionFromTop': 120,
+    })
+</script>
 {% endblock %}

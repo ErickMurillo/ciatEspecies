@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load thumbnail %}
+
+{% block extra_css %}
+<link href="/static/css/lightbox.css" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
 <style media="screen">
 #consume-most {background-color: #ffd966;}
@@ -107,8 +113,6 @@
 
               </div>
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-
-
                 <p>{% if object.hh %}HH: {{object.hh}} <br>{% endif %}</p>
                 <p>{% if object.area %}{% trans "Área" %}: {{object.area}} <br>{% endif %}</p>
                 <p>{% if object.frecuency %}{% trans "Frecuencia" %}: {{object.frecuency}} <br>{% endif %}</p>
@@ -118,21 +122,30 @@
                 <p>{% if object.annual_mean_temperature %}{% trans "Temperatura media" %}: {{object.annual_mean_temperature}} <br>{% endif %}</p>
                 <p>{% if object.rainfall %}{% trans "Lluvia" %}: {{object.rainfall}} <br>{% endif %}</p>
                 <p>{% if object.precipitation %}{% trans "Precipitación" %}: {{object.precipitation}} <br>{% endif %}</p>
-
               </div>
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-
-
                 <p>{% if object.altitude %}{% trans "Altitud" %}: {{object.altitude}} <br>{% endif %}</p>
                 <p>{% if object.population %}{% trans "Población" %}: {{object.population}} <br>{% endif %}</p>
                 <p>{% if object.market_distance %}{% trans "Distancia de mercado" %}: {{object.market_distance}} <br>{% endif %}</p>
                 <p>{% if object.population %}{% trans "Población" %}: {{object.population}} <br>{% endif %}</p>
                 <p>{% if object.gender %}{% trans "Género" %}: {{object.get_gender_display}} <br>{% endif %}</p>
                 <p>{% if object.method_observations %}{% trans "Metodo de observación" %}: {{object.method_observations}} <br>{% endif %}</p>
-
               </div>
 
 
+            </div>
+            <div class="row">
+              {% if fotos %}
+              <div class="images">
+                {% for obj in fotos %}
+        					{% thumbnail obj.fotos "570x510" crop="center" as img %}
+                    <div class="col-md-4">
+                      <a href="/media/{{img}}" data-lightbox="species"><img src="/media/{{img}}" alt="..." class="img-rounded" width="270px"></a>
+                    </div>
+        					{% endthumbnail %}
+                {% endfor %}
+              </div>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -163,7 +176,7 @@
                         <table class="table table-bordered table-hover" id="especies_comunidad">
                             <thead>
                                 <tr>
-                                    <th>{% trans "Cnsumido" %}</th>
+                                    <th>{% trans "Consumido" %}</th>
                                     <th>{% trans "Producido" %}</th>
                                     <th>{% trans "Comprado" %}</th>
                                     <th>{% trans "Especies" %}</th>
@@ -334,4 +347,15 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/lightbox.js"></script>
+<script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'positionFromTop': 120,
+    })
+</script>
 {% endblock %}
