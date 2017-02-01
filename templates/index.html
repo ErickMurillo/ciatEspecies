@@ -118,73 +118,40 @@
   <div class="container">
 	<div class="head_section">
 	  <h2>{% trans "PROYECTOS Y PUBLICACIONES" %}</h2>
-	  <div class="blog-carousel-control"> <a class="left fa fa-angle-left" href="#blogCarousel" data-slide="prev"></a> <a class="right fa fa-angle-right" href="#blogCarousel" data-slide="next"></a> </div>
 	</div>
 
+
+
 	<div class="row">
-	  <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner">
-		  <div class="item active">
-			<div class="row">
-			  {% for obj in proyectos|slice:":3" %}
-				<div class="col-sm-4">
-				  <div class="post-item">
-					<div class="post-headre">
-					  <div class="post-seam">
-						<div class="date"> <span>{{obj.fecha.day}}</span> {{obj.fecha|date:"M"}} </div>
-					  </div>
-					  <div class="post-image">
-						<a href="{% url 'proyecto-detalle' obj.slug %}"><i class="fa fa-search"></i></a>
-						{% if obj.imagen %}
-						  {% thumbnail obj.imagen "740x450" crop="center" as img %}
-										   <img src="/media/{{img}}" alt="">
-										{% endthumbnail %}
-						{% else %}
-						  <img src="http://placehold.it/740x450" alt="" />
-						{% endif %}
-					  </div>
-					</div>
-					<div class="post-content">
-					  <h4>{{obj.titulo}}</h4>
-					  <p>{{obj.contenido|safe|striptags|truncatewords:20}}</p>
-					</div>
-				  </div>
-				</div>
-			  {% endfor %}
+	  {% for obj in proyectos|slice:":3" %}
+		<div class="col-sm-4">
+		  <div class="post-item">
+			<div class="post-headre">
+			  <div class="post-seam">
+				<div class="date"> <span>{{obj.fecha.day}}</span> {{obj.fecha|date:"M"}} </div>
+			  </div>
+			  <div class="post-image">
+				<a href="{% url 'proyecto-detalle' obj.slug %}"><i class="fa fa-search"></i></a>
+				{% if obj.imagen %}
+				  {% thumbnail obj.imagen "740x450" crop="center" as img %}
+								   <img src="/media/{{img}}" alt="">
+								{% endthumbnail %}
+				{% else %}
+				  <img src="http://placehold.it/740x450" alt="" />
+				{% endif %}
+			  </div>
 			</div>
-		  </div>
-		  <div class="item">
-			<div class="row">
-			  {% for obj in proyectos|slice:"3:6" %}
-				<div class="col-sm-4">
-				  <div class="post-item">
-					<div class="post-headre">
-					  <div class="post-seam">
-						<div class="date"> <span>{{obj.fecha.day}}</span> {{obj.fecha|date:"M"}} </div>
-					  </div>
-					  <div class="post-image">
-						<a href="{% url 'proyecto-detalle' obj.slug %}"><i class="fa fa-search"></i></a>
-						{% if obj.imagen %}
-						  {% thumbnail obj.imagen "740x450" crop="center" as img %}
-										   <img src="/media/{{img}}" alt="">
-										{% endthumbnail %}
-						{% else %}
-						  <img src="http://placehold.it/740x450" alt="" />
-						{% endif %}
-					  </div>
-					</div>
-					<div class="post-content">
-					  <h4>{{obj.titulo}}</h4>
-					  <p>{{obj.contenido|safe|striptags|truncatewords:20}}</p>
-					</div>
-				  </div>
-				</div>
-			  {% endfor %}
+			<div class="post-content">
+			  <h4>{{obj.titulo}}</h4>
+			  <p>{{obj.contenido|safe|striptags|truncatewords:20}}</p>
 			</div>
 		  </div>
 		</div>
-	  </div>
+	  {% endfor %}
 	</div>
+
+
+
 	<a href="/list-publicaciones/" class="btndatos pull-right">{% trans "Ver publicaciones" %}</a>
   </div>
 </div>
