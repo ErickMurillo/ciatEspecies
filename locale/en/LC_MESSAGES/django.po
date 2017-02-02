@@ -562,7 +562,7 @@ msgstr "Select country"
 
 #: templates/salidas/numero_especies.html:86
 msgid "Número de especies por comunidad"
-msgstr "Number of species by communiTy"
+msgstr "Number of species by community"
 
 #: templates/salidas/numero_especies.html:105
 #: templates/salidas/numero_especies.html:216

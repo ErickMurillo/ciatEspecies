@@ -7,6 +7,7 @@ from django.template.defaultfilters import slugify
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from sorl.thumbnail import ImageField
+from paintstore.fields import ColorPickerField
 
 # Create your models here.
 
@@ -25,6 +26,7 @@ class Country(models.Model):
 	name = models.CharField(max_length=250)
 	latitud = models.FloatField(blank=True,null=True)
 	longitud = models.FloatField(blank=True,null=True)
+	color = ColorPickerField()
 
 	def __str__(self):
 		return self.name

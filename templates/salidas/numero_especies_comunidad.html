@@ -377,6 +377,7 @@ $(function () {
           {% for k,v in rainfall.items %}
                 {
                   name: '{{k}}',
+                  color: '{{k.province.country.color}}',
                   data: [ [{{v.0}}, {{v.1}}],]
               },
           {% endfor %}
@@ -433,6 +434,7 @@ $(function () {
           {% for k,v in rainfall_sold.items %}
                 {
                   name: '{{k}}',
+                  color: '{{k.province.country.color}}',
                   data: [ [{{v.0}}, {{v.1}}],]
               },
           {% endfor %}
@@ -489,6 +491,7 @@ $(function () {
           {% for k,v in rainfall_purchased.items %}
                 {
                   name: '{{k}}',
+                  color: '{{k.province.country.color}}',
                   data: [ [{{v.0}}, {{v.1}}],]
               },
           {% endfor %}
@@ -545,6 +548,7 @@ $(function () {
           {% for k,v in rainfall_consumed.items %}
                 {
                   name: '{{k}}',
+                  color: '{{k.province.country.color}}',
                   data: [ [{{v.0}}, {{v.1}}],]
               },
           {% endfor %}
@@ -593,6 +597,7 @@ $(function () {
 						 {% for k,v in rainfall.items %}
 						 {
 							 name: '{{k}}',
+               color: '{{k.province.country.color}}',
 							 y: {{v}},
 						 },
 						 {% endfor %}
@@ -651,6 +656,7 @@ $(function () {
          {% for k,v in temperature.items %}
                {
                  name: '{{k}}',
+                 color: '{{k.province.country.color}}',
                  data: [ [{{v.0}}, {{v.1}}],]
              },
          {% endfor %}
@@ -707,6 +713,7 @@ $(function () {
          {% for k,v in temperature_sold.items %}
                {
                  name: '{{k}}',
+                 color: '{{k.province.country.color}}',
                  data: [ [{{v.0}}, {{v.1}}],]
              },
          {% endfor %}
@@ -763,6 +770,7 @@ $(function () {
          {% for k,v in temperature_purchased.items %}
                {
                  name: '{{k}}',
+                 color: '{{k.province.country.color}}',
                  data: [ [{{v.0}}, {{v.1}}],]
              },
          {% endfor %}
@@ -819,6 +827,7 @@ $(function () {
          {% for k,v in temperature_consumed.items %}
                {
                  name: '{{k}}',
+                 color: '{{k.province.country.color}}',
                  data: [ [{{v.0}}, {{v.1}}],]
              },
          {% endfor %}
@@ -876,6 +885,7 @@ $(function () {
           {% for k,v in precipitation.items %}
                 {
                   name: '{{k}}',
+                  color: '{{k.province.country.color}}',
                   data: [ [{{v.0}}, {{v.1}}],]
               },
           {% endfor %}
@@ -932,6 +942,7 @@ $(function () {
           {% for k,v in precipitation_sold.items %}
                 {
                   name: '{{k}}',
+                  color: '{{k.province.country.color}}',
                   data: [ [{{v.0}}, {{v.1}}],]
               },
           {% endfor %}
@@ -988,6 +999,7 @@ $(function () {
           {% for k,v in precipitation_purchased.items %}
                 {
                   name: '{{k}}',
+                  color: '{{k.province.country.color}}',
                   data: [ [{{v.0}}, {{v.1}}],]
               },
           {% endfor %}
@@ -1044,6 +1056,7 @@ $(function () {
           {% for k,v in precipitation_consumed.items %}
                 {
                   name: '{{k}}',
+                  color: '{{k.province.country.color}}',
                   data: [ [{{v.0}}, {{v.1}}],]
               },
           {% endfor %}
@@ -1100,6 +1113,7 @@ $(function () {
            {% for k,v in altitude.items %}
                  {
                    name: '{{k}}',
+                   color: '{{k.province.country.color}}',
                    data: [ [{{v.0}}, {{v.1}}],]
                },
            {% endfor %}
@@ -1156,6 +1170,7 @@ $(function () {
            {% for k,v in altitude_sold.items %}
                  {
                    name: '{{k}}',
+                   color: '{{k.province.country.color}}',
                    data: [ [{{v.0}}, {{v.1}}],]
                },
            {% endfor %}
@@ -1212,6 +1227,7 @@ $(function () {
            {% for k,v in altitude_purchased.items %}
                  {
                    name: '{{k}}',
+                   color: '{{k.province.country.color}}',
                    data: [ [{{v.0}}, {{v.1}}],]
                },
            {% endfor %}
@@ -1268,6 +1284,7 @@ $(function () {
            {% for k,v in altitude_consumed.items %}
                  {
                    name: '{{k}}',
+                   color: '{{k.province.country.color}}',
                    data: [ [{{v.0}}, {{v.1}}],]
                },
            {% endfor %}

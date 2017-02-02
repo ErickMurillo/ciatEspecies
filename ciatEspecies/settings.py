@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'sorl.thumbnail',
     'el_pagination',
+    'paintstore',
 
     #otras apps
     'informacion',
