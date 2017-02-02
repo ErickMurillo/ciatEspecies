@@ -6,7 +6,7 @@
 <div class="metodologia">
 	<div class="container">
 		<div class="head_section">
-			<h2>{% trans "AFILIARSE" %}</h2>
+			<h2>{% trans "CONTACTAR" %}</h2>
 		</div>
 		  <div class="contact_wrap">
 	<div class="row">
@@ -15,7 +15,10 @@
 			<h3>{% trans "POLITICA DE SOLICITUD DE DATOS" %}</h3>
 			<div class="terminos">
 				<p>
-					Urna a aliquet pid phasellus integer nunc nunc rhoncus duis, et ac a mattis sed pellentesque dictumst massa enim augue in nec a? Lundium et dignissim sed nunc? In phasellus penatibus pulvinar duis rhoncus amet adipiscing et nec vel magnis, cursus ridiculus, tortor augue, magnis platea elit elementum, etiam! Cras enim etiam vel ultricies proin urna integer, et dapibus cum dis tempor aliquam dignissim urna? Lectus, est? Tristique! Urna velit, urna elementum! Habitasse in? Ultricies. Elementum ultricies a. Dolor dolor, ut! Sed dignissim adipiscing, aliquet? Dignissim platea placerat! In sed? Porttitor aliquet. Et placerat porta integer cum urna ultricies, dis! Dis tristique habitasse nunc aenean? Integer parturient habitasse, hac eu. Augue, tincidunt augue parturient, vel elementum ut magna nunc placerat.
+					{% blocktrans %}Póngase en contacto con nosotros si desea solicitar acceso a los datos de ABD, si desea contribuir con los datos, o para cualquier otra consulta o comentario. Puede enviarnos un mensaje usando el formulario adyacente.{% endblocktrans %}
+				</p>
+				<p>
+					{% blocktrans %}Por favor, incluya una breve descripción y nos pondremos en contacto con usted lo antes posible con más detalles sobre nuestra política de uso de datos.{% endblocktrans %}
 				</p>
 
 			</div>
@@ -24,7 +27,7 @@
 	  </div>
 	  <div class="col-sm-6">
 		<div class="query">
-		  <h3>{% trans "FORMULARIO DE SOLICITUD" %}</h3>
+		  <!--<h3>{% trans "FORMULARIO DE SOLICITUD" %}</h3>-->
 			{% if enviado == 1 %}
 			<div class="text-success">{% trans "Su mensaje ha sido enviado correctamente!!!" %}</div>
 			{% endif %}
@@ -51,7 +54,7 @@
 				</label>
 			</div>-->
 			<div class="error"></div>
-			<input class="submit-btn" value="{% trans 'SOLICITAR DATOS' %}" type="submit" onClick="ValiDate()">
+			<input class="submit-btn" value="{% trans 'ENVIAR MENSAJE' %}" type="submit" onClick="ValiDate()">
 		  </form>
 		</div>
 	  </div>

@@ -6,7 +6,7 @@
 	================================================== -->
 <div id="home">
 	<div class="banner" style="background-image:url(/static/images/1.jpg);">
-		<h2 class="sltext">{% trans "Red de datos globales" %}<br>
+		<h2 class="sltext">{% trans "Red de datos ABD" %}<br>
 		ABD</h2>
 	</div>
 
@@ -101,6 +101,7 @@
     {% load flatpages %}
     {% get_flatpages as flatpages %}
     {% for page in flatpages %}
+			{% if LANGUAGE_CODE == 'es' %}
       {% if page.url == '/metodologia/' %}
         <h2>{{page.title}}</h2>
       <p>
@@ -108,6 +109,16 @@
       </p>
       <a href="/metodologia/" class="plink">{% trans "Leer más..." %}</a>
       {% endif %}
+			{% elif LANGUAGE_CODE == 'en' %}
+			{% if page.url == '/methodology/' %}
+        <h2>{{page.title}}</h2>
+      <p>
+        {{ page.content|safe|truncatewords:100 }}
+      </p>
+      <a href="/methodology/" class="plink">{% trans "Leer más..." %}</a>
+      {% endif %}
+			{% endif %}
+
     {% endfor %}
   </div>
 </div>
@@ -119,9 +130,6 @@
 	<div class="head_section">
 	  <h2>{% trans "PROYECTOS Y PUBLICACIONES" %}</h2>
 	</div>
-
-
-
 	<div class="row">
 	  {% for obj in proyectos|slice:":3" %}
 		<div class="col-sm-4">
@@ -149,9 +157,6 @@
 		</div>
 	  {% endfor %}
 	</div>
-
-
-
 	<a href="/list-publicaciones/" class="btndatos pull-right">{% trans "Ver publicaciones" %}</a>
   </div>
 </div>
@@ -163,11 +168,14 @@
 	================================================== -->
 <div class="parallax parallax_d" id="afiliase">
   <div class="container">
-	<h2>{% trans "AFILIARSE" %}</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto quos, modi, mollitia nemo earum architecto placeat autem ea asperiores, nisi saepe nam molestiae ipsam voluptate qui perspiciatis quisquam libero excepturi!. Eligendi minus, nostrum recusandae ea consequuntur quo. Consequuntur quisquam, quaerat distinctio ratione. Optio excepturi, amet dolor nobis non est impedit sapiente sequi.</p>
-
+	<h2>{% trans "CONTACTAR" %}</h2>
+	<p>
+		{% blocktrans %}
+		Póngase en contacto con nosotros si desea solicitar acceso a los datos de ABD, si desea contribuir con los datos, o para cualquier otra consulta o comentario.
+	{% endblocktrans %}
+</p>
 	<div class="clearfix"></div>
-	<a href="/afiliarse" class="plink">{% trans "AFILIARSE AHORA" %}</a> </div>
+	<a href="/contactar" class="plink">{% trans "CONTACTAR AHORA" %}</a> </div>
 </div>
 <!-- / Parallax Close Close -->
 <div class="clearfix"></div>
@@ -177,7 +185,7 @@
 <div class="ourteam" id="team">
 	<div class="container">
 		<div class="head_section">
-			<h2>{% trans "CONTRIBUYENTES" %}</h2> 
+			<h2>{% trans "CONTRIBUYENTES" %}</h2>
 		</div>
 
 			<div class="title-link">
@@ -187,7 +195,7 @@
 
 			</div>
 			<div class="team-carousel-control">
-				<a class="left" href="#team-carousel2" data-slide="prev"><i class=" fa fa-angle-left"></i></a> 
+				<a class="left" href="#team-carousel2" data-slide="prev"><i class=" fa fa-angle-left"></i></a>
 				<a class="right" href="#team-carousel2" data-slide="next"><i class="fa fa-angle-right"></i></a>
 			</div>
 			<div class="container">
@@ -221,7 +229,7 @@
 									{% if forloop.counter|divisibleby:4 %}
 
 										</div>
-										<div class="item row">	
+										<div class="item row">
 									{% endif %}
 								{% endfor %}
 							</div>
@@ -235,10 +243,10 @@
 		<div>
 			<h4 style="text-align:center;">{% trans "Organizaciones" %}</h4>
 
-		</div>			
+		</div>
 
 		<div class="team-carousel-control">
-			<a class="left" href="#team-carousel" data-slide="prev"><i class=" fa fa-angle-left"></i></a> 
+			<a class="left" href="#team-carousel" data-slide="prev"><i class=" fa fa-angle-left"></i></a>
 			<a class="right" href="#team-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
 		</div>
 		<div class="container">
