@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-02 14:31-0600\n"
+"POT-Creation-Date: 2017-02-02 14:50-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -378,26 +378,26 @@ msgstr "View posts"
 
 #: templates/index.html:173
 msgid ""
-"\n"
-"\t\tPóngase en contacto con nosotros si desea solicitar acceso a los datos "
-"de ABD, si desea contribuir con los datos, o para cualquier otra consulta o "
-"comentario.\n"
-"\t"
+"Póngase en contacto con nosotros si desea solicitar acceso a los datos de "
+"ABD, si desea contribuir con los datos, o para cualquier otra consulta o "
+"comentario."
 msgstr ""
+"Please contact us if you wish to request access to ABD data, if you wish to "
+"contribute with data, or for any other inquiry or comment."
 
-#: templates/index.html:178
+#: templates/index.html:176
 msgid "CONTACTAR AHORA"
 msgstr "CONTACT NOW"
 
-#: templates/index.html:188
+#: templates/index.html:186
 msgid "CONTRIBUYENTES"
 msgstr "CONTRIBUTORS"
 
-#: templates/index.html:193
+#: templates/index.html:191
 msgid "Científicos Participantes"
 msgstr "Participating Scientists"
 
-#: templates/index.html:244
+#: templates/index.html:242
 msgid "Organizaciones"
 msgstr "Organizations"
 
