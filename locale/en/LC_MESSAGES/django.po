@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-07 08:58-0600\n"
+"POT-Creation-Date: 2017-02-07 13:51-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,7 +147,7 @@ msgstr ""
 
 #: templates/cientificos_detail.html:24 templates/org_detail.html:23
 msgid "Nombre:"
-msgstr "Name: "
+msgstr "Name:"
 
 #: templates/cientificos_detail.html:25 templates/org_detail.html:24
 msgid "País:"
@@ -403,11 +403,27 @@ msgstr "Organizations"
 
 #: templates/org_detail.html:25
 msgid "Dirección:"
-msgstr "Precipitation"
+msgstr "Address"
 
 #: templates/org_detail.html:27
 msgid "Sitio:"
-msgstr ""
+msgstr "Website"
+
+#: templates/org_detail.html:28
+msgid "Persona de contacto:"
+msgstr "Contact person"
+
+#: templates/org_detail.html:29
+msgid "Puesto persona de contacto:"
+msgstr "Contact person workstation"
+
+#: templates/org_detail.html:30
+msgid "Email persona de contacto:"
+msgstr "Email contact person"
+
+#: templates/org_detail.html:31
+msgid "Telefono persona de contacto:"
+msgstr "Phone contact person"
 
 #: templates/salidas/grupo_nutricional.html:31
 #: templates/salidas/numero_especies.html:26

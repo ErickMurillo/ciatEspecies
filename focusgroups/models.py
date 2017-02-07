@@ -123,6 +123,10 @@ class Organizations(models.Model):
 	slug = models.SlugField(editable=False, max_length=450)
 	url = models.URLField(blank=True, null=True)
 	pais = models.ForeignKey(Country)
+	persona_contacto = models.CharField(max_length=250,blank=True, null=True)
+	puesto_persona_contacto = models.CharField(max_length=250,blank=True, null=True)
+	email_persona_contacto = models.EmailField(max_length=250,blank=True, null=True)
+	telefono_persona_contacto = models.CharField(max_length=200,blank=True, null=True)
 	descripcion = RichTextUploadingField(blank=True, null=True)
 
 	def save(self, *args, **kwargs):
