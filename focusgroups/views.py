@@ -99,7 +99,7 @@ def mapa(request):
         for comu in community:
             focusgroups = FocusGroup.objects.filter(community = comu).aggregate(avg = Avg('population'))['avg']
             dicc[comu.name] = (comu.latitud,comu.longitud,focusgroups)
-        list.append((obj.latitud,obj.longitud,dicc))
+        list.append((obj.latitud,obj.longitud,dicc,obj.name))
     return HttpResponse(simplejson.dumps(list),content_type='application/json')
 
 def grupo_nutricional_comunidad(request,template="salidas/grupo_nutricional.html"):
@@ -454,9 +454,9 @@ def perfil_focus_groups_detail(request,id = None):
     lista = list(set(lista))
 
     if cur_language == 'en':
-        food_groups = FoodGroup.objects.filter(id__in = lista).values_list('id','name')
+        food_groups = FoodGroup.objects.filter(id__in = lista).exclude(name = 'Fuel, Fodder, Ornamental, Medicinal').values_list('id','name')
     elif cur_language == 'es':
-        food_groups = FoodGroup.objects.filter(id__in = lista).values_list('id','es_name')
+        food_groups = FoodGroup.objects.filter(id__in = lista).exclude(es_name = 'Leña, Forraje, Ornamental, Medicinal').values_list('id','es_name')
 
 
     #consumo
@@ -679,9 +679,9 @@ def perfil_abd(request,template = "salidas/perfil_abd.html"):
         lista = list(set(lista))
 
         if cur_language == 'en':
-            food_groups = FoodGroup.objects.filter(id__in = lista).values_list('id','name')
+            food_groups = FoodGroup.objects.filter(id__in = lista).exclude(name = 'Fuel, Fodder, Ornamental, Medicinal').values_list('id','name')
         elif cur_language == 'es':
-            food_groups = FoodGroup.objects.filter(id__in = lista).values_list('id','es_name')
+            food_groups = FoodGroup.objects.filter(id__in = lista).exclude(es_name = 'Leña, Forraje, Ornamental, Medicinal').values_list('id','es_name')
 
         # #consumo
         consume = collections.OrderedDict()

@@ -194,7 +194,7 @@ Género
 			</select>
 		</div>
 
-		
+
 	</div>
 
     <div id="map_canvas" class="map" style="width:100%; height:430px"></div>
@@ -508,11 +508,12 @@ $(document).on('change','#select-pais',function() {
     success : function(data){
       var i = 0;
       var map;
+      // console.log(data[0][0],data[0][1],data[0][3]);
       var latlng = new google.maps.LatLng(data[0][0],data[0][1]);
 
       function initialize() {
         var myOptions = {
-          zoom: 5,
+          zoom: 4,
           center: latlng,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           panControl: false,

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-07 13:51-0600\n"
+"POT-Creation-Date: 2017-02-09 14:31-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,11 +33,11 @@ msgstr "Request information"
 msgid "Unirse a la red de datos ABD"
 msgstr "Join ABD data network"
 
-#: focusgroups/forms.py:35 templates/afiliarse.html:72
+#: focusgroups/forms.py:35 templates/afiliarse.html:68
 msgid "Nombre"
 msgstr "Name"
 
-#: focusgroups/forms.py:36 templates/afiliarse.html:75
+#: focusgroups/forms.py:36 templates/afiliarse.html:71
 msgid "Correo"
 msgstr "Email"
 
@@ -45,18 +45,18 @@ msgstr "Email"
 msgid "Proyecto"
 msgstr "Project"
 
-#: focusgroups/forms.py:38 templates/afiliarse.html:81
+#: focusgroups/forms.py:38 templates/afiliarse.html:77
 #: templates/salidas/perfil_especies.html:79
 msgid "Tipo"
 msgstr "Type"
 
-#: focusgroups/forms.py:39 templates/afiliarse.html:84
+#: focusgroups/forms.py:39 templates/afiliarse.html:80
 msgid "Descripción breve"
 msgstr "Brief description"
 
-#: templates/afiliarse.html:9 templates/base.html:76 templates/index.html:170
-msgid "CONTACTAR"
-msgstr "CONTACT"
+#: templates/afiliarse.html:9 templates/base.html:76 templates/index.html:173
+msgid "INVOLUCRARSE"
+msgstr "GET INVOLVED"
 
 #: templates/afiliarse.html:15
 msgid "POLITICA DE SOLICITUD DE DATOS"
@@ -64,40 +64,36 @@ msgstr "DATA APPLICATION POLICY"
 
 #: templates/afiliarse.html:18
 msgid ""
-"Póngase en contacto con nosotros si desea solicitar acceso a los datos de "
-"ABD, si desea contribuir con los datos, o para cualquier otra consulta o "
-"comentario. Puede enviarnos un mensaje usando el formulario adyacente."
+"Si tienes preguntas sobre cómo usar la análisis ABD de Cuatro Celdas  y/o si "
+"desea contribuir con datos a la Red, o para cualquier otra consulta o "
+"comentario, por favor póngase en contacto con nosotros. Puede enviarnos un "
+"mensaje usando el formulario adyacente. Por favor, incluya una breve "
+"descripción y nos pondremos en contacto con usted lo antes posible con más "
+"detalles sobre nuestra política de uso de datos."
 msgstr ""
-"Please contact us if you wish to request access to ABD data, if you wish to "
-"contribute with data, or for any other inquiry or comment. You can send us a "
-"message using the adjacent form."
-
-#: templates/afiliarse.html:21
-msgid ""
-"Por favor, incluya una breve descripción y nos pondremos en contacto con "
-"usted lo antes posible con más detalles sobre nuestra política de uso de "
-"datos."
-msgstr ""
-"Please include a brief description and we come back to you as soon as "
+"If you have questions about how to use the ABD four cell approach and/ or if "
+"you wish to contribute with data to the Network, or for any other inquiry or "
+"comment, please contact us. You can send us a message using the adjacent "
+"form. Please include a brief description and we come back to you as soon as "
 "possible with further details on our data use policy."
 
-#: templates/afiliarse.html:30
+#: templates/afiliarse.html:26
 msgid "FORMULARIO DE SOLICITUD"
 msgstr "APPLICATION FORM"
 
-#: templates/afiliarse.html:32
+#: templates/afiliarse.html:28
 msgid "Su mensaje ha sido enviado correctamente!!!"
 msgstr "Your message has been sent successfully!!!"
 
-#: templates/afiliarse.html:53
+#: templates/afiliarse.html:49
 msgid "Acepto los terminimos y condiciones"
 msgstr "I accept the terms and conditions"
 
-#: templates/afiliarse.html:57
+#: templates/afiliarse.html:53
 msgid "ENVIAR MENSAJE"
 msgstr "SEND MESSAGE"
 
-#: templates/afiliarse.html:78
+#: templates/afiliarse.html:74
 msgid "Projecto"
 msgstr "Project"
 
@@ -284,8 +280,8 @@ msgid "Filtro"
 msgstr "Filter"
 
 #: templates/index.html:9
-msgid "Red de datos ABD"
-msgstr "ABD data network"
+msgid "Red de Datos de Agrobiodiversidad"
+msgstr "Agrobiodiversity Data Network"
 
 #: templates/index.html:22
 msgid "INTRODUCCIÓN"
@@ -294,56 +290,71 @@ msgstr "INTRODUCTION"
 #: templates/index.html:26
 msgid ""
 "Los trópicos son conocidos por los altos niveles de biodiversidad que se "
-"encuentran en estas áreas, pero se sabe poco sobre el uso de la "
-"agrobiodiversidad en los trópicos. La biodiversidad agrícola es la base para "
-"la producción sostenible en los agroecosistemas. También es la base para "
-"diversas dietas, que es una estrategia para mejorar las dietas ricas en "
-"nutrientes y saludables. El conocimiento sobre el uso de la biodiversidad "
-"agrícola permite identificar las necesidades y soluciones para mejorar la "
-"producción sostenible y la diversidad de la dieta en las comunidades rurales"
+"encuentran en estas áreas, pero se sabe poco sobre la disponibilidad y el "
+"uso de la biodiversidad agrícola en los trópicos. Biodiversidad agrícola es "
+"la base para una producción agrícola sostenible. Biodiversidad agrícola es "
+"también la base para dietas diversas y saludables. El conocimiento sobre el "
+"la disponibilidad y uso de biodiversidad agrícola en comunidades agrícolas "
+"permite a investigadores, comunitarios, y sus organizaciones de apoyo, para "
+"identificar las necesidades y soluciones para mejorar la producción y la "
+"comida en estas comunidades agrícolas."
 msgstr ""
-"The tropics are known for the high levels of biodiversity found in these "
-"areas, but little is known aboutthe use of agrobiodiversity in the tropics. "
-"Agricultural biodiversity is the basis for sustainableproduction in "
-"agroecosystems. It is also the basis for diverse diets, which is a strategy "
-"to enhancenutrition-rich and healthy diets. Knowledge on the use of "
-"agricultural biodiversity allows to identifyneeds and solutions to enhance "
-"sustainable production and diet diversity in rural communities"
+"The tropics are known for the high levels of biodiversity found in these areas, "
+"but little is known about the availability and use of agricultural biodiversity "
+"in the tropics. Agricultural biodiversity is the basis for sustainable production "
+"in agroecosystems. It is also an important basis for diverse diets, and can "
+"contribute to more nutritious and healthy diets. Knowledge on the use of "
+"agricultural biodiversity allows researchers and community members and their "
+"supporting organizations to identify needs and solutions to enhance sustainable "
+"production and diet diversity in rural farming communities."
 
 #: templates/index.html:29
 msgid ""
-"El portal de datos sobre agrobiodiversidad comparte conocimientos sobre el "
-"uso de la biodiversidad agrícola en las comunidades agrícolas de los "
-"trópicos. Los datos de cada comunidad se recogen con una metodología común: "
-"el enfoque de cuatro celdas. Esta metodología es una técnica de evaluación "
-"participativa y rápida que fue originalmente creada para evaluar la "
-"abundancia y distribución de la agrobiodiversidad en las comunidades "
-"agrícolas.Para cada comunidad agrícola incluida en la base de datos, el "
-"portal presenta la producción, consumo, compra y comercialización de la "
-"biodiversidad agrícola"
+"En este portal, la Red de Datos de Biodiversidad Agrícola comparte "
+"conocimiento sobre la disponibilidad y el uso de biodiversidad agrícola en "
+"comunidades agrícolas de los trópicos. Hasta el momento la base de datos "
+"incluye información de 52 comunidades agrícolas de 8 países. Por lo que "
+"sabemos, esta es la base de datos más extensa de la diversidad y uso de "
+"biodiversidad agrícola a nivel comunitario en los trópicos."
 msgstr ""
-"The agrobiodiversity data portal shares knowledge about the use of "
-"agricultural biodiversity in farmingcommunities in the tropics. Data for "
-"each community is collected with a common methodology: theFour-Cell "
-"Approach. This methodology is a participatory and rapid appraisal technique "
-"that wasoriginally created to assess the abundance and distribution of "
-"agrobiodiversity in farmingcommunities. For each farming community included "
-"in the database, the portal presents theproduction, consumption, purchase "
-"and marketing of agricultural biodiversity."
+"In this portal, the Agricultural Biodiversity Data Network shares knowledge "
+"about the use of agricultural biodiversity in farming communities in the tropics. "
+"So far the database includes information from 8 countries and 52 communities. As "
+"far as we know, this is the most extensive database of ABD use at community level "
+"in the tropics."
 
 #: templates/index.html:32
 msgid ""
-"Puede utilizar la información presentada para identificar las lagunas y "
-"opciones para la producción sostenible y la diversidad alimentaria en estas "
-"comunidades. Puede colaborar y utilizar el enfoque de cuatro celdas en las "
-"comunidades donde trabajan o viven, o ambos"
+"Los datos de cada comunidad se recogieron con una metodología común: el "
+"análisis de cuatro celdas. Esta metodología es una técnica de evaluación "
+"participativa y rápida que fue originalmente creada para evaluar la "
+"abundancia y distribución de variedades de cultivos en comunidades "
+"agrícolas. La metodología fue adaptada para evaluar la abundancia y uso de "
+"biodiversidad agrícola en sistemas alimentarios de comunidades agrícolas. "
+"Para cada comunidad agrícola incluida en la base de datos, el portal "
+"presenta la producción, consumo, adquisición y comercialización de cada "
+"especie en los sistemas alimentarios de comunidades agrícolas."
 msgstr ""
-"You can use the information presented to identifying gaps and options for "
-"sustainable production anddiet diversity in these communities. You can "
-"collaborate and use of the Four-Cell Approach in thecommunities where they "
-"work or live, or both."
+"Data for each community was collected with a common methodology: the "
+"Four-Cell Approach. This methodology is a rapid participatory appraisal "
+"technique that was originally created to assess the abundance and distribution "
+"of crop varieties in farming communities. The method was adapted to assess the "
+"abundance and utilization of agricultural biodiversity in local food systems. "
+"For each farming community included in the database, the portal presents the "
+"production, consumption, purchase and sale of species in their local food systems."
 
-#: templates/index.html:39 templates/salidas/grupo_nutricional.html:18
+#: templates/index.html:35
+msgid ""
+"Se puede utilizar la información presentada para identificar los vacíos e "
+"identificar opciones para la producción sostenible y la diversidad "
+"alimentaria en estas comunidades."
+msgstr ""
+"The information presented on this Webpage can be used to identify gaps in "
+"production, marketing and diets for the communities included and to identify "
+"options to sustain production, and to improve income and dietary intake by a "
+"better use of agricultural biodiversity in these communities."
+
+#: templates/index.html:42 templates/salidas/grupo_nutricional.html:18
 #: templates/salidas/grupo_nutricional_pais.html:14
 #: templates/salidas/numero_especies.html:13
 #: templates/salidas/numero_especies_comunidad.html:14
@@ -355,49 +366,50 @@ msgstr ""
 msgid "Explorar datos"
 msgstr "Explore data"
 
-#: templates/index.html:50
+#: templates/index.html:53
 msgid "Mapa de localidades"
 msgstr "Map of localities"
 
-#: templates/index.html:58 templates/salidas/perfil_especies_detalle.html:68
+#: templates/index.html:61 templates/salidas/perfil_especies_detalle.html:68
 #: templates/salidas/perfil_fg_detalle.html:86
 msgid "Datos Generales"
 msgstr "General Data"
 
-#: templates/index.html:109 templates/index.html:117
+#: templates/index.html:112 templates/index.html:120
 msgid "Leer más..."
 msgstr "Read more..."
 
-#: templates/index.html:130
+#: templates/index.html:133
 msgid "PROYECTOS Y PUBLICACIONES"
 msgstr "PROJECTS AND PUBLICATIONS"
 
-#: templates/index.html:159
+#: templates/index.html:162
 msgid "Ver publicaciones"
 msgstr "View posts"
 
-#: templates/index.html:172
-msgid ""
-"Póngase en contacto con nosotros si desea solicitar acceso a los datos de "
-"ABD, si desea contribuir con los datos, o para cualquier otra consulta o "
-"comentario."
-msgstr ""
-"Please contact us if you wish to request access to ABD data, if you wish to "
-"contribute with data, or for any other inquiry or comment."
-
 #: templates/index.html:175
-msgid "CONTACTAR AHORA"
-msgstr "CONTACT NOW"
+msgid ""
+"Si tienes preguntas sobre cómo usar la análisis ABD de Cuatro Celdas  y/o si "
+"desea contribuir con datos a la Red, o para cualquier otra consulta o "
+"comentario, por favor póngase en contacto con nosotros."
+msgstr ""
+"If you have questions about how to use the ABD four cell approach and/ or if "
+"you wish to contribute with data to the Network, or for any other inquiry or "
+"comment, please contact us"
 
-#: templates/index.html:185
+#: templates/index.html:178
+msgid "INVOLUCRARSE AHORA"
+msgstr "GET INVOLVED NOW"
+
+#: templates/index.html:188
 msgid "CONTRIBUYENTES"
 msgstr "CONTRIBUTORS"
 
-#: templates/index.html:190
+#: templates/index.html:193
 msgid "Científicos Participantes"
 msgstr "Participating Scientists"
 
-#: templates/index.html:241
+#: templates/index.html:244
 msgid "Organizaciones"
 msgstr "Organizations"
 
@@ -1094,6 +1106,37 @@ msgstr "Selected"
 #: templates/salidas/select_filtros.html:37
 msgid "Provincias"
 msgstr "Provinces"
+
+#~ msgid "CONTACTAR"
+#~ msgstr "CONTACT"
+
+#~ msgid ""
+#~ "Póngase en contacto con nosotros si desea solicitar acceso a los datos de "
+#~ "ABD, si desea contribuir con los datos, o para cualquier otra consulta o "
+#~ "comentario. Puede enviarnos un mensaje usando el formulario adyacente."
+#~ msgstr ""
+#~ "Please contact us if you wish to request access to ABD data, if you wish "
+#~ "to contribute with data, or for any other inquiry or comment. You can "
+#~ "send us a message using the adjacent form."
+
+#~ msgid ""
+#~ "Por favor, incluya una breve descripción y nos pondremos en contacto con "
+#~ "usted lo antes posible con más detalles sobre nuestra política de uso de "
+#~ "datos."
+#~ msgstr ""
+#~ "Please include a brief description and we come back to you as soon as "
+#~ "possible with further details on our data use policy."
+
+#~ msgid "Red de datos ABD"
+#~ msgstr "ABD data network"
+
+#~ msgid ""
+#~ "Póngase en contacto con nosotros si desea solicitar acceso a los datos de "
+#~ "ABD, si desea contribuir con los datos, o para cualquier otra consulta o "
+#~ "comentario."
+#~ msgstr ""
+#~ "Please contact us if you wish to request access to ABD data, if you wish "
+#~ "to contribute with data, or for any other inquiry or comment."
 
 #~ msgid "Promedio"
 #~ msgstr "Average"
