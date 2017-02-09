@@ -9,8 +9,8 @@
 			<div class="row profile">
 				<div class="col-md-2 col-sm-6">
 
-					{% if obj.logo %}
-						{% thumbnail object.logo  as img %}
+					{% if object.logo %}
+						{% thumbnail object.logo "200" format="PNG" as img %}
 						    <img class="logo-org" src="/media/{{img}}" alt="">
 						{% endthumbnail %}
 					{% else %}
@@ -30,7 +30,6 @@
 						<div class="cargo">{% trans "Email persona de contacto:" %} {{object.email_persona_contacto}}</div>
 						<div class="cargo">{% trans "Telefono persona de contacto:" %} {{object.telefono_persona_contacto}}</div>
 					</div>
-
 
 				</div>
 
