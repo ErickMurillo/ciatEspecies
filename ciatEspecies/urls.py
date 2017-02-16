@@ -24,13 +24,12 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
 
-
 urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^jet/', include('jet.urls', 'jet')),
     #url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     # url(r'^report_builder/', include('report_builder.urls'))
     url(r'^mapa-index/$', obtener_lista, name='obtener-lista'),
     url(r'^filtros/$', filtros, name='filtros'),
@@ -52,7 +51,6 @@ urlpatterns = [
     url(r'^lista-cientificos/$', CientificosListView.as_view(), name='cientificos-detalle'),
 
     url(r'^lang/(?P<lang_code>\w+)/$', set_lang, name='set_lang'),
-
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

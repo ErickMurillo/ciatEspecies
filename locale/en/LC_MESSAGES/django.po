@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-09 14:31-0600\n"
+"POT-Creation-Date: 2017-02-16 10:09-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +54,7 @@ msgstr "Type"
 msgid "Descripción breve"
 msgstr "Brief description"
 
-#: templates/afiliarse.html:9 templates/base.html:76 templates/index.html:173
+#: templates/afiliarse.html:9 templates/base.html:77
 msgid "INVOLUCRARSE"
 msgstr "GET INVOLVED"
 
@@ -118,28 +118,20 @@ msgid "EXPLORAR DATOS"
 msgstr "EXPLORE DATA"
 
 #: templates/base.html:74
+msgid "USO DE DATOS ABD"
+msgstr "ABD DATA USE"
+
+#: templates/base.html:75
 msgid "METODOLOGÍA"
 msgstr "METHODOLOGY"
 
-#: templates/base.html:75
+#: templates/base.html:76
 msgid "PUBLICACIONES"
 msgstr "PUBLICATIONS"
 
-#: templates/base.html:77
+#: templates/base.html:78
 msgid "INICIAR SESIÓN"
 msgstr "LOG IN"
-
-#: templates/base.html:98
-msgid "Todos los derechos reservados. Desarrollado por"
-msgstr "All rights reserved. Developed by"
-
-#: templates/base.html:98
-msgid ""
-" El ingreso y actualización de la información es responsabilidad de "
-"Bioversity, así como el contenido de la misma."
-msgstr ""
-" The input and update of the information is the responsibility of "
-"Bioversity, as well as the content of it"
 
 #: templates/cientificos_detail.html:24 templates/org_detail.html:23
 msgid "Nombre:"
@@ -257,7 +249,7 @@ msgstr "No selection ..."
 msgid "Varias opciones seleccionadas!"
 msgstr "Several options selected!"
 
-#: templates/consulta.html:532 templates/salidas/perfil_fg_detalle.html:132
+#: templates/consulta.html:533 templates/salidas/perfil_fg_detalle.html:132
 #: templates/salidas/perfil_fg_detalle.html:134
 msgid "Población"
 msgstr "Population"
@@ -280,81 +272,10 @@ msgid "Filtro"
 msgstr "Filter"
 
 #: templates/index.html:9
-msgid "Red de Datos de Agrobiodiversidad"
-msgstr "Agrobiodiversity Data Network"
+msgid "Red de Datos de Biodiversidad Agrícola"
+msgstr "Agricultural Biodiversity Data Network"
 
-#: templates/index.html:22
-msgid "INTRODUCCIÓN"
-msgstr "INTRODUCTION"
-
-#: templates/index.html:26
-msgid ""
-"Los trópicos son conocidos por los altos niveles de biodiversidad que se "
-"encuentran en estas áreas, pero se sabe poco sobre la disponibilidad y el "
-"uso de la biodiversidad agrícola en los trópicos. Biodiversidad agrícola es "
-"la base para una producción agrícola sostenible. Biodiversidad agrícola es "
-"también la base para dietas diversas y saludables. El conocimiento sobre el "
-"la disponibilidad y uso de biodiversidad agrícola en comunidades agrícolas "
-"permite a investigadores, comunitarios, y sus organizaciones de apoyo, para "
-"identificar las necesidades y soluciones para mejorar la producción y la "
-"comida en estas comunidades agrícolas."
-msgstr ""
-"The tropics are known for the high levels of biodiversity found in these areas, "
-"but little is known about the availability and use of agricultural biodiversity "
-"in the tropics. Agricultural biodiversity is the basis for sustainable production "
-"in agroecosystems. It is also an important basis for diverse diets, and can "
-"contribute to more nutritious and healthy diets. Knowledge on the use of "
-"agricultural biodiversity allows researchers and community members and their "
-"supporting organizations to identify needs and solutions to enhance sustainable "
-"production and diet diversity in rural farming communities."
-
-#: templates/index.html:29
-msgid ""
-"En este portal, la Red de Datos de Biodiversidad Agrícola comparte "
-"conocimiento sobre la disponibilidad y el uso de biodiversidad agrícola en "
-"comunidades agrícolas de los trópicos. Hasta el momento la base de datos "
-"incluye información de 52 comunidades agrícolas de 8 países. Por lo que "
-"sabemos, esta es la base de datos más extensa de la diversidad y uso de "
-"biodiversidad agrícola a nivel comunitario en los trópicos."
-msgstr ""
-"In this portal, the Agricultural Biodiversity Data Network shares knowledge "
-"about the use of agricultural biodiversity in farming communities in the tropics. "
-"So far the database includes information from 8 countries and 52 communities. As "
-"far as we know, this is the most extensive database of ABD use at community level "
-"in the tropics."
-
-#: templates/index.html:32
-msgid ""
-"Los datos de cada comunidad se recogieron con una metodología común: el "
-"análisis de cuatro celdas. Esta metodología es una técnica de evaluación "
-"participativa y rápida que fue originalmente creada para evaluar la "
-"abundancia y distribución de variedades de cultivos en comunidades "
-"agrícolas. La metodología fue adaptada para evaluar la abundancia y uso de "
-"biodiversidad agrícola en sistemas alimentarios de comunidades agrícolas. "
-"Para cada comunidad agrícola incluida en la base de datos, el portal "
-"presenta la producción, consumo, adquisición y comercialización de cada "
-"especie en los sistemas alimentarios de comunidades agrícolas."
-msgstr ""
-"Data for each community was collected with a common methodology: the "
-"Four-Cell Approach. This methodology is a rapid participatory appraisal "
-"technique that was originally created to assess the abundance and distribution "
-"of crop varieties in farming communities. The method was adapted to assess the "
-"abundance and utilization of agricultural biodiversity in local food systems. "
-"For each farming community included in the database, the portal presents the "
-"production, consumption, purchase and sale of species in their local food systems."
-
-#: templates/index.html:35
-msgid ""
-"Se puede utilizar la información presentada para identificar los vacíos e "
-"identificar opciones para la producción sostenible y la diversidad "
-"alimentaria en estas comunidades."
-msgstr ""
-"The information presented on this Webpage can be used to identify gaps in "
-"production, marketing and diets for the communities included and to identify "
-"options to sustain production, and to improve income and dietary intake by a "
-"better use of agricultural biodiversity in these communities."
-
-#: templates/index.html:42 templates/salidas/grupo_nutricional.html:18
+#: templates/index.html:44 templates/salidas/grupo_nutricional.html:18
 #: templates/salidas/grupo_nutricional_pais.html:14
 #: templates/salidas/numero_especies.html:13
 #: templates/salidas/numero_especies_comunidad.html:14
@@ -366,50 +287,40 @@ msgstr ""
 msgid "Explorar datos"
 msgstr "Explore data"
 
-#: templates/index.html:53
+#: templates/index.html:55
 msgid "Mapa de localidades"
 msgstr "Map of localities"
 
-#: templates/index.html:61 templates/salidas/perfil_especies_detalle.html:68
+#: templates/index.html:63 templates/salidas/perfil_especies_detalle.html:68
 #: templates/salidas/perfil_fg_detalle.html:86
 msgid "Datos Generales"
 msgstr "General Data"
 
-#: templates/index.html:112 templates/index.html:120
+#: templates/index.html:114 templates/index.html:122
 msgid "Leer más..."
 msgstr "Read more..."
 
-#: templates/index.html:133
+#: templates/index.html:135
 msgid "PROYECTOS Y PUBLICACIONES"
 msgstr "PROJECTS AND PUBLICATIONS"
 
-#: templates/index.html:162
-msgid "Ver publicaciones"
-msgstr "View posts"
+#: templates/index.html:164
+msgid "Ver publicaciones y proyectos"
+msgstr "View publications and projects"
 
-#: templates/index.html:175
-msgid ""
-"Si tienes preguntas sobre cómo usar la análisis ABD de Cuatro Celdas  y/o si "
-"desea contribuir con datos a la Red, o para cualquier otra consulta o "
-"comentario, por favor póngase en contacto con nosotros."
-msgstr ""
-"If you have questions about how to use the ABD four cell approach and/ or if "
-"you wish to contribute with data to the Network, or for any other inquiry or "
-"comment, please contact us"
-
-#: templates/index.html:178
+#: templates/index.html:187
 msgid "INVOLUCRARSE AHORA"
 msgstr "GET INVOLVED NOW"
 
-#: templates/index.html:188
+#: templates/index.html:197
 msgid "CONTRIBUYENTES"
 msgstr "CONTRIBUTORS"
 
-#: templates/index.html:193
+#: templates/index.html:202
 msgid "Científicos Participantes"
 msgstr "Participating Scientists"
 
-#: templates/index.html:244
+#: templates/index.html:253
 msgid "Organizaciones"
 msgstr "Organizations"
 
@@ -1106,6 +1017,93 @@ msgstr "Selected"
 #: templates/salidas/select_filtros.html:37
 msgid "Provincias"
 msgstr "Provinces"
+
+#~ msgid "Todos los derechos reservados. Desarrollado por"
+#~ msgstr "All rights reserved. Developed by"
+
+#~ msgid ""
+#~ " El ingreso y actualización de la información es responsabilidad de "
+#~ "Bioversity, así como el contenido de la misma."
+#~ msgstr ""
+#~ " The input and update of the information is the responsibility of "
+#~ "Bioversity, as well as the content of it"
+
+#~ msgid "INTRODUCCIÓN"
+#~ msgstr "INTRODUCTION"
+
+#~ msgid ""
+#~ "Los trópicos son conocidos por los altos niveles de biodiversidad que se "
+#~ "encuentran en estas áreas, pero se sabe poco sobre la disponibilidad y el "
+#~ "uso de la biodiversidad agrícola en los trópicos. Biodiversidad agrícola "
+#~ "es la base para una producción agrícola sostenible. Biodiversidad "
+#~ "agrícola es también la base para dietas diversas y saludables. El "
+#~ "conocimiento sobre el la disponibilidad y uso de biodiversidad agrícola "
+#~ "en comunidades agrícolas permite a investigadores, comunitarios, y sus "
+#~ "organizaciones de apoyo, para identificar las necesidades y soluciones "
+#~ "para mejorar la producción y la comida en estas comunidades agrícolas."
+#~ msgstr ""
+#~ "The tropics are known for the high levels of biodiversity found in these "
+#~ "areas, but little is known about the availability and use of agricultural "
+#~ "biodiversity in the tropics. Agricultural biodiversity is the basis for "
+#~ "sustainable production in agroecosystems. It is also an important basis "
+#~ "for diverse diets, and can contribute to more nutritious and healthy "
+#~ "diets. Knowledge on the use of agricultural biodiversity allows "
+#~ "researchers and community members and their supporting organizations to "
+#~ "identify needs and solutions to enhance sustainable production and diet "
+#~ "diversity in rural farming communities."
+
+#~ msgid ""
+#~ "En este portal, la Red de Datos de Biodiversidad Agrícola comparte "
+#~ "conocimiento sobre la disponibilidad y el uso de biodiversidad agrícola "
+#~ "en comunidades agrícolas de los trópicos. Hasta el momento la base de "
+#~ "datos incluye información de 52 comunidades agrícolas de 8 países. Por lo "
+#~ "que sabemos, esta es la base de datos más extensa de la diversidad y uso "
+#~ "de biodiversidad agrícola a nivel comunitario en los trópicos."
+#~ msgstr ""
+#~ "In this portal, the Agricultural Biodiversity Data Network shares "
+#~ "knowledge about the use of agricultural biodiversity in farming "
+#~ "communities in the tropics. So far the database includes information from "
+#~ "8 countries and 52 communities. As far as we know, this is the most "
+#~ "extensive database of ABD use at community level in the tropics."
+
+#~ msgid ""
+#~ "Los datos de cada comunidad se recogieron con una metodología común: el "
+#~ "análisis de cuatro celdas. Esta metodología es una técnica de evaluación "
+#~ "participativa y rápida que fue originalmente creada para evaluar la "
+#~ "abundancia y distribución de variedades de cultivos en comunidades "
+#~ "agrícolas. La metodología fue adaptada para evaluar la abundancia y uso "
+#~ "de biodiversidad agrícola en sistemas alimentarios de comunidades "
+#~ "agrícolas. Para cada comunidad agrícola incluida en la base de datos, el "
+#~ "portal presenta la producción, consumo, adquisición y comercialización de "
+#~ "cada especie en los sistemas alimentarios de comunidades agrícolas."
+#~ msgstr ""
+#~ "Data for each community was collected with a common methodology: the Four-"
+#~ "Cell Approach. This methodology is a rapid participatory appraisal "
+#~ "technique that was originally created to assess the abundance and "
+#~ "distribution of crop varieties in farming communities. The method was "
+#~ "adapted to assess the abundance and utilization of agricultural "
+#~ "biodiversity in local food systems. For each farming community included "
+#~ "in the database, the portal presents the production, consumption, "
+#~ "purchase and sale of species in their local food systems."
+
+#~ msgid ""
+#~ "Se puede utilizar la información presentada para identificar los vacíos e "
+#~ "identificar opciones para la producción sostenible y la diversidad "
+#~ "alimentaria en estas comunidades."
+#~ msgstr ""
+#~ "The information presented on this Webpage can be used to identify gaps in "
+#~ "production, marketing and diets for the communities included and to "
+#~ "identify options to sustain production, and to improve income and dietary "
+#~ "intake by a better use of agricultural biodiversity in these communities."
+
+#~ msgid ""
+#~ "Si tienes preguntas sobre cómo usar la análisis ABD de Cuatro Celdas  y/o "
+#~ "si desea contribuir con datos a la Red, o para cualquier otra consulta o "
+#~ "comentario, por favor póngase en contacto con nosotros."
+#~ msgstr ""
+#~ "If you have questions about how to use the ABD four cell approach and/ or "
+#~ "if you wish to contribute with data to the Network, or for any other "
+#~ "inquiry or comment, please contact us"
 
 #~ msgid "CONTACTAR"
 #~ msgstr "CONTACT"

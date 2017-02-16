@@ -71,6 +71,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="/">{% trans "INICIO" %}</a></li>
 					<li><a href="/filtros/">{% trans "EXPLORAR DATOS" %}</a></li>
+          <li><a href="{% if LANGUAGE_CODE == 'es' %}/uso-datos-abd/{% elif LANGUAGE_CODE == 'en' %}/abd-data-use/{% endif %}">{% trans "USO DE DATOS ABD" %}</a></li>
 					<li><a href="{% if LANGUAGE_CODE == 'es' %}/metodologia/{% elif LANGUAGE_CODE == 'en' %}/methodology/{% endif %}">{% trans "METODOLOGÍA" %}</a></li>
 					<li><a href="/list-publicaciones">{% trans "PUBLICACIONES" %}</a></li>
 					<li><a href="/contactar">{% trans "INVOLUCRARSE" %}</a></li>
@@ -95,8 +96,15 @@
 		<div class="qborder"></div>
 	  </div>
 	</div>
-	<p>© 2016 Bioversity Internacional, {% blocktrans %}Todos los derechos reservados. Desarrollado por{% endblocktrans %} <span style="color:green;">SIMAS</span>{% blocktrans %} El ingreso y actualización de la información es responsabilidad de Bioversity, así como el contenido de la misma.{% endblocktrans %}</p>
-
+  {% load flatpages %}
+  {% get_flatpages as flatpages %}
+  {% for page in flatpages %}
+  {% if page.url == '/disclaimer-es/' and LANGUAGE_CODE == 'es' %}
+    <p>{{ page.content|safe }}</p>
+  {% elif page.url == '/disclaimer-en/' and LANGUAGE_CODE == 'en' %}
+    <p>{{ page.content|safe }}</p>
+  {% endif %}
+  {% endfor %}
   </div>
 </div>
 <!-- / contact Close -->
