@@ -5,9 +5,15 @@ from django import forms
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
 
-CHOICE_REGION = (('','-------'),(1, 'APAC'),(2, 'LatAm'),(3, 'South Asia'),(4, 'Asia'),(5, 'Africa'),)
-
 GENDER_CHOICES = (('','-------'),(1,'Female'),(2, 'Male'),(3,'Both'))
+
+def region():
+    region = []
+    for value in CHOICE_REGION:
+        for en in FocusGroup.objects.filter(country__region = value[0]).order_by('country__region').values_list('country__region', flat=True):
+            region.append((value[0],value[1]))
+    region.append(('','-------'))
+    return list(sorted(set(region)))
 
 def fecha_choice():
     years = []
@@ -22,7 +28,7 @@ def country():
 class FocusGroupForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(FocusGroupForm, self).__init__(*args, **kwargs)
-        self.fields['region'] = forms.ChoiceField(choices=CHOICE_REGION,required=True,label=u'Region Geografico')
+        self.fields['region'] = forms.ChoiceField(choices=region(),required=True,label=u'Region Geografico')
         self.fields['country'] = forms.ModelMultipleChoiceField(queryset=country(), required=True, label=u'Pais')
         self.fields['province'] = forms.ModelMultipleChoiceField(queryset=Province.objects.all(), required=True)
         # self.fields['county'] = forms.ModelMultipleChoiceField(queryset=County.objects.all(), required=False)

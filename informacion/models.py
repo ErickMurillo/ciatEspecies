@@ -77,3 +77,13 @@ class Organizaciones(models.Model):
     class Meta:
         verbose_name = "Organización"
         verbose_name_plural = "Organizaciones"
+
+class ListaCorreo(models.Model):
+    correo = models.EmailField(max_length=50)
+
+    class Meta:
+        verbose_name = "Lista correo"
+        verbose_name_plural = "Lista de correos"
+
+    def __str__(self):
+        return self.correo

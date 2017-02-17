@@ -14,6 +14,7 @@ class ProyectosAdmin(admin.ModelAdmin):
     date_hierarchy = 'fecha'
 
 admin.site.register(Proyectos,ProyectosAdmin)
+admin.site.register(ListaCorreo)
 #admin.site.register(Cientificos)
 #admin.site.register(Organizaciones)
 

@@ -18,6 +18,9 @@ CHOICE_REGION = (
 					(3, 'South Asia'),
 					(4, 'Asia'),
 					(5, 'Africa'),
+					(6, 'Europe'),
+					(7, 'North America'),
+					(8, 'Australia'),
 				)
 
 

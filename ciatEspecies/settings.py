@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'el_pagination',
     'paintstore',
+    'django_extensions',
 
     #otras apps
     'informacion',
@@ -186,4 +187,10 @@ CKEDITOR_CONFIGS = {
         'height': '300px',
         'width': 'auto',
     },
+}
+
+#para generar grafico de la bd
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
 }
