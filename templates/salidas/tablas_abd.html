@@ -1,0 +1,301 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<style media="screen">
+.table-bordered>thead>tr>th, .table-bordered>thead>tr>td {
+  width: 20%;
+}
+</style>
+<div class="menu-dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+                <div class="salida-title">
+                    <h4>{% trans "Tablas ABD" %}</h4>
+                    <ol class="breadcrumb">
+                        <li><a href="/">{% trans "Inicio" %}</a></li>
+                        <li><a href="/filtros/">{% trans "Explorar datos" %}</a></li>
+                        <li class="active">{% trans "Tablas ABD" %}</li>
+                    </ol>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+                <ul class="nav nav-tabs menu-fs pull-right" role="tablist">
+
+                    <li role="presentation" class="active">
+
+                        <a href="#filtro" aria-controls="filtro" role="tab" data-toggle="tab">
+                        <div class="f-icon"><i class="fa fa-filter fa-2x"></i></div>
+                        <h6>{% trans "filtro" %}</h6>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#indicadores" aria-controls="indicadores" role="tab" data-toggle="tab">
+                            <div class="f-icon"><i class="fa fa-bar-chart fa-2x"></i></div>
+                            <h6>{% trans "indicadores" %}</h6>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div role="tabpanel">
+    <!-- Tab panes -->
+    <div class="tab-content filtro-indicador">
+        <div role="tabpanel" class="tab-pane active" id="filtro">
+            {% include "salidas/select_filtros.html" %}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="indicadores">
+            {% include "indicadores.html" %}
+        </div>
+    </div>
+</div>
+
+<div class="consulta" id="consulta">
+  <div class="contact_wrap">
+    <div class="container">
+      <div class="row">
+        <div class="btn-group pull-right">
+          <button type="button" class="btn btn-primary">{% trans "Seleccione la comunidad" %}</button>
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="dw-s">
+              {% for key in comu.keys|slice:"1" %}{{key}}{% endfor %}
+              <span class="caret"></span>
+            </span>
+          </button>
+          <div class="dropdown-menu">
+            {% for key in comu.keys %}
+            <li role="presentation" class="{% if forloop.counter == 1 %}active{% endif %}">
+              <a class="drop" href="#{{forloop.counter}}" aria-controls="{{forloop.counter}}" role="tab" data-toggle="tab">{{key}}</a>
+            </li>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="tab-content">
+          {% for key,values in comu.items %}
+          <div role="tabpanel" class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{forloop.counter}}">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#cultiva{{forloop.counter}}" aria-controls="cultiva{{forloop.counter}}" role="tab" data-toggle="tab">{% trans "Producido" %}</a></li>
+              <li role="presentation"><a href="#vendido{{forloop.counter}}" aria-controls="vendido{{forloop.counter}}" role="tab" data-toggle="tab">{% trans "Vendido" %}</a></li>
+              <li role="presentation"><a href="#comprado{{forloop.counter}}" aria-controls="comprado{{forloop.counter}}" role="tab" data-toggle="tab">{% trans "Comprado" %}</a></li>
+              <li role="presentation"><a href="#consumido{{forloop.counter}}" aria-controls="consumido{{forloop.counter}}" role="tab" data-toggle="tab">{% trans "Consumido" %}</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane" id="consumido{{forloop.counter}}">
+                <!-- START SALES BLOCK -->
+                <div class="panel panel-default panel-salidas">
+                  <div class="panel-heading">
+                    <div class="panel-title-box">
+                      <h3>{% blocktrans %}Alimentos que se consumen en la comunidad{% endblocktrans %}</h3>
+                      <span>{% trans "Tabla de valores" %}</span>
+
+                    </div>
+                    <div class="btn-group pull-right">
+                      <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
+                      <ul class="dropdown-menu">
+                        <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="table-responsive" id="modalidad{{forloop.counter}}">
+                      <table class="table table-bordered table-hover" id="especies_comunidad">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>{% trans "Muchos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Muchos hogares & área pequeña/infrecuentemente" %}</th>
+                            <th>{% trans "Pocos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Pocos hogares & área pequeña/infrecuentemente" %}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for k,v in values.0.items %}
+                          <tr>
+                            <td>{{k}}</td>
+                            <td>{% for x in v.0 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{% for x in v.1 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{% for x in v.2 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{% for x in v.3 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- END SALES BLOCK -->
+              </div>
+              <div role="tabpanel" class="tab-pane active" id="producido{{forloop.counter}}">
+                <!-- START SALES BLOCK -->
+                <div class="panel panel-default panel-salidas">
+                  <div class="panel-heading">
+                    <div class="panel-title-box">
+                      <h3>{% blocktrans %}Alimentos que se producen o están disponibles en la comunidad{% endblocktrans %}</h3>
+                      <span>{% trans "Tabla de valores" %}</span>
+
+                    </div>
+                    <div class="btn-group pull-right">
+                      <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
+                      <ul class="dropdown-menu">
+                        <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="table-responsive" id="modalidad{{forloop.counter}}">
+                      <table class="table table-bordered table-hover" id="especies_comunidad">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>{% trans "Muchos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Muchos hogares & área pequeña/infrecuentemente" %}</th>
+                            <th>{% trans "Pocos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Pocos hogares & área pequeña/infrecuentemente" %}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for k,v in values.1.items %}
+                          <tr>
+                            <td>{{k}}</td>
+                            <td>{% for x in v.0 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{% for x in v.1 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{% for x in v.2 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{% for x in v.3 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- END SALES BLOCK -->
+              </div>
+              <div role="tabpanel" class="tab-pane" id="comprado{{forloop.counter}}">
+                <!-- START SALES BLOCK -->
+                <div class="panel panel-default panel-salidas">
+                  <div class="panel-heading">
+                    <div class="panel-title-box">
+                      <h3>{% blocktrans %}Alimentos que se adquieren en la comunidad{% endblocktrans %}</h3>
+                      <span>{% trans "Tabla de valores" %}</span>
+
+                    </div>
+                    <div class="btn-group pull-right">
+                      <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
+                      <ul class="dropdown-menu">
+                        <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="table-responsive" id="modalidad{{forloop.counter}}">
+                      <table class="table table-bordered table-hover" id="especies_comunidad">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>{% trans "Muchos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Muchos hogares & área pequeña/infrecuentemente" %}</th>
+                            <th>{% trans "Pocos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Pocos hogares & área pequeña/infrecuentemente" %}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for k,v in values.2.items %}
+                          <tr>
+                            <td>{{k}}</td>
+                            <td>{% for x in v.0 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{% for x in v.1 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{% for x in v.2 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{% for x in v.3 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- END SALES BLOCK -->
+              </div>
+              <div role="tabpanel" class="tab-pane" id="vendido{{forloop.counter}}">
+                <!-- START SALES BLOCK -->
+                <div class="panel panel-default panel-salidas">
+                  <div class="panel-heading">
+                    <div class="panel-title-box">
+                      <h3>{% blocktrans %}Alimentos que venden en la comunidad{% endblocktrans %}</h3>
+                      <span>{% trans "Tabla de valores" %}</span>
+
+                    </div>
+                    <div class="btn-group pull-right">
+                      <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
+                      <ul class="dropdown-menu">
+                        <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="table-responsive" id="modalidad{{forloop.counter}}">
+                      <table class="table table-bordered table-hover" id="especies_comunidad">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>{% trans "Muchos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Muchos hogares & área pequeña/infrecuentemente" %}</th>
+                            <th>{% trans "Pocos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Pocos hogares & área pequeña/infrecuentemente" %}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for k,v in values.3.items %}
+                          <tr>
+                            <td>{{k}}</td>
+                            <td>{% for x in v.0 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{% for x in v.1 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{% for x in v.2 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <td>{% for x in v.3 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- END SALES BLOCK -->
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript">
+
+$(".drop").click(function(){
+  $('.drop').parent().removeClass("active");
+  var content = $(this).text();
+  $(".dw-s").text(content+" ");
+  $(".dw-s").append("<span class='caret'></span>")
+})
+$(".drop2").click(function(){
+  $('.drop2').parent().removeClass("active");
+  var content = $(this).text();
+  $(".dw-s2").text(content+" ");
+  $(".dw-s2").append("<span class='caret'></span>")
+})
+
+</script>
+{% endblock %}

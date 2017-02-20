@@ -106,18 +106,18 @@
     {% get_flatpages as flatpages %}
     {% for page in flatpages %}
 			{% if LANGUAGE_CODE == 'es' %}
-      {% if page.url == '/metodologia/' %}
+      {% if page.url == '/metodologia-index/' %}
         <h2>{{page.title}}</h2>
       <p>
-        {{ page.content|safe|truncatewords:100 }}
+        {{ page.content|safe }}
       </p>
       <a href="/metodologia/" class="plink">{% trans "Leer más..." %}</a>
       {% endif %}
 			{% elif LANGUAGE_CODE == 'en' %}
-			{% if page.url == '/methodology/' %}
+			{% if page.url == '/methodology-index/' %}
         <h2>{{page.title}}</h2>
       <p>
-        {{ page.content|safe|truncatewords:100 }}
+        {{ page.content|safe }}
       </p>
       <a href="/methodology/" class="plink">{% trans "Leer más..." %}</a>
       {% endif %}
@@ -161,7 +161,7 @@
 		</div>
 	  {% endfor %}
 	</div>
-	<a href="/list-publicaciones/" class="btndatos pull-right">{% trans "Ver publicaciones y proyectos" %}</a>
+	<a href="/publications-and-proyects-list/" class="btndatos pull-right">{% trans "Ver publicaciones y proyectos" %}</a>
   </div>
 </div>
 <!-- / blog Close -->
@@ -178,13 +178,13 @@
 	{% if page.url == '/involucrarse/' and LANGUAGE_CODE == 'es' %}
 			<h2>{{page.title}}</h2>
 			<p>{{ page.content|safe }}</p>
-	{% elif page.url == '/get-involved/' and LANGUAGE_CODE == 'en' %}	
+	{% elif page.url == '/get-involved/' and LANGUAGE_CODE == 'en' %}
 		<h2>{{page.title}}</h2>
 		<p>{{ page.content|safe }}</p>
 	{% endif %}
 	{% endfor %}
 	<div class="clearfix"></div>
-	<a href="/contactar" class="plink">{% trans "INVOLUCRARSE AHORA" %}</a> </div>
+	<a href="/contact/" class="plink">{% trans "INVOLUCRARSE AHORA" %}</a> </div>
 </div>
 <!-- / Parallax Close Close -->
 <div class="clearfix"></div>
@@ -198,7 +198,7 @@
 		</div>
 
 			<div class="title-link">
-				<a href="/lista-cientificos">
+				<a href="/scientists-list">
 					<h4 style="text-align:center;">{% trans "Científicos Participantes" %}</h4>
 				</a>
 
@@ -215,7 +215,7 @@
 								{% for obj in cien %}
 									<div class="col-sm-3">
 										<div class="member">
-											<a href="{% url 'cientifico-detalle' obj.slug %}">
+											<a href="{% url 'scientists-detail' obj.slug %}">
 												{% if obj.foto %}
 												{% thumbnail obj.foto "200x200" crop="center" as img %}
 												<div class="photo"> <img  src="/media/{{img}}" alt="" class="img-circle"  /> </div>

@@ -32,9 +32,9 @@ urlpatterns = [
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     # url(r'^report_builder/', include('report_builder.urls'))
     url(r'^mapa-index/$', obtener_lista, name='obtener-lista'),
-    url(r'^filtros/$', filtros, name='filtros'),
+    url(r'^filters/$', filtros, name='filtros'),
     url(r'^map/$', mapa, name='map'),
-    url(r'^especies/', include('focusgroups.urls')),
+    url(r'^species/', include('focusgroups.urls')),
     url(r'^ajax/countries/$', get_country, name='get-country'),
     url(r'^ajax/provinces/$', get_province, name='get-province'),
     url(r'^ajax/communities/$', get_community, name='get-community'),
@@ -42,13 +42,13 @@ urlpatterns = [
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     # url(r'^export-focusgroup/$', export_focusgroup_csv, name='export-focusgroup-csv'),
     # url(r'^export-species/$', export_species_csv, name='export-species-csv'),
-    url(r'^contactar/$', afiliarse, name='afiliarse'),
+    url(r'^contact/$', afiliarse, name='afiliarse'),
 
-    url(r'^publicacion/(?P<slug>[\w-]+)/$', ProyectoDetailView.as_view(), name='proyecto-detalle'),
-    url(r'^organizacion/(?P<slug>[\w-]+)/$', OrganizacionDetailView.as_view(), name='org-detalle'),
-    url(r'^cientifico/(?P<slug>[\w-]+)/$', CientificoDetailView.as_view(), name='cientifico-detalle'),
-    url(r'^list-publicaciones/$', PublicacionListView.as_view(), name='publicaciones-detalle'),
-    url(r'^lista-cientificos/$', CientificosListView.as_view(), name='cientificos-detalle'),
+    url(r'^publication-project/(?P<slug>[\w-]+)/$', ProyectoDetailView.as_view(), name='proyecto-detalle'),
+    url(r'^organitation/(?P<slug>[\w-]+)/$', OrganizacionDetailView.as_view(), name='org-detalle'),
+    url(r'^scientists/(?P<slug>[\w-]+)/$', CientificoDetailView.as_view(), name='scientists-detail'),
+    url(r'^publications-and-proyects-list/$', PublicacionListView.as_view(), name='publications-and-proyects-list'),
+    url(r'^scientists-list/$', CientificosListView.as_view(), name='scientists-list'),
 
     url(r'^lang/(?P<lang_code>\w+)/$', set_lang, name='set_lang'),
 

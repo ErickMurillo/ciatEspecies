@@ -99,7 +99,7 @@
 								<tbody>
 									{% for value in focus_groups %}
 									<tr>
-										<td><a href="{% url 'perfil-focus-groups-detail' value.id %}">{{value.id}}</a></td>
+										<td><a href="{% url 'profile-focus-groups-detail' value.id %}">{{value.id}}</a></td>
 										<td>{{value.country.get_region_display}}</td>
 										<td>{{value.country}}</td>
 										<td>{{value.province}}</td>

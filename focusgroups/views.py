@@ -294,6 +294,10 @@ def numero_especies_comunidad(request,template="salidas/numero_especies_comunida
     altitude_sold = {}
     altitude_purchased = {}
     altitude_consumed = {}
+    market_distance_cultivated = {}
+    market_distance_sold = {}
+    market_distance_purchased = {}
+    market_distance_consumed  = {}
     for obj in community:
         # species
         species = filtro.filter(community = obj,fcacode__presence_cultivated = 1).distinct('fcacode__species').count()
@@ -344,6 +348,17 @@ def numero_especies_comunidad(request,template="salidas/numero_especies_comunida
         altitude_purchased[obj] = (altitud,species_purchased)
         #altitude consumed
         altitude_consumed[obj] = (altitud,species_consumed)
+
+        #market distance--------------------------------------------------------------------
+        market_distance = filtro.filter(community = obj).aggregate(avg = Avg('market_distance_1'))['avg']
+        #market distance cultivado
+        market_distance_cultivated[obj] = (market_distance,species)
+        #market distance sold
+        market_distance_sold[obj] = (market_distance,species_sold)
+        #market distance purchased
+        market_distance_purchased[obj] = (market_distance,species_purchased)
+        #market distance consumed
+        market_distance_consumed[obj] = (market_distance,species_consumed)
 
     return render(request, template, locals())
 
@@ -885,6 +900,102 @@ def perfil_abd(request,template = "salidas/perfil_abd.html"):
             venta['Pocos venden'] = venta_produce_1
 
         comu[obj] = (consume,venta)
+
+    return render(request, template, locals())
+
+def tables_abd(request,template = "salidas/tablas_abd.html"):
+    filtro = _queryset_filtrado(request)
+    cur_language = translation.get_language()
+    community = request.session['community']
+
+    comu = {}
+    lista = []
+    for obj in community:
+        species = filtro.filter(community = obj).distinct('fcacode__species').values_list(
+                    'fcacode__species_vernacular_name','fcacode__fca_cultivated','fcacode__fca_sold',
+                    'fcacode__fca_purchased','fcacode__fca_consumed','fcacode__species__food_group')
+        for x in species:
+            if x[5] != None:
+                lista.append(x[5])
+        lista = list(set(lista))
+
+        if cur_language == 'en':
+            food_groups = FoodGroup.objects.filter(id__in = lista).exclude(name = 'Fuel, Fodder, Ornamental, Medicinal').values_list('id','name')
+        elif cur_language == 'es':
+            food_groups = FoodGroup.objects.filter(id__in = lista).exclude(es_name = 'Leña, Forraje, Ornamental, Medicinal').values_list('id','es_name')
+
+        consumen = {}
+        producen = {}
+        compran = {}
+        venden = {}
+        for food in food_groups:
+            columna_1,columna_2,columna_3,columna_4 = [],[],[],[]
+            producen_col_1,producen_col_2,producen_col_3,producen_col_4 = [],[],[],[]
+            compran_col_1,compran_col_2,compran_col_3,compran_col_4 = [],[],[],[]
+            venden_col_1,venden_col_2,venden_col_3,venden_col_4 = [],[],[],[]
+            for specie in species:
+                #consumen
+                if specie[4] == 4:
+                    if specie[5] == food[0]:
+                        columna_1.append(specie[0])
+                elif specie[4] == 2:
+                    if specie[5] == food[0]:
+                        columna_2.append(specie[0])
+                elif specie[4] == 3:
+                    if specie[5] == food[0]:
+                        columna_3.append(specie[0])
+                elif specie[4] == 1:
+                    if specie[5] == food[0]:
+                        columna_4.append(specie[0])
+
+                #producen
+                if specie[1] == 4:
+                    if specie[5] == food[0]:
+                        producen_col_1.append(specie[0])
+                elif specie[1] == 2:
+                    if specie[5] == food[0]:
+                        producen_col_2.append(specie[0])
+                elif specie[1] == 3:
+                    if specie[5] == food[0]:
+                        producen_col_3.append(specie[0])
+                elif specie[1] == 1:
+                    if specie[5] == food[0]:
+                        producen_col_4.append(specie[0])
+
+                #compran
+                if specie[3] == 4:
+                    if specie[5] == food[0]:
+                        compran_col_1.append(specie[0])
+                elif specie[3] == 2:
+                    if specie[5] == food[0]:
+                        compran_col_2.append(specie[0])
+                elif specie[3] == 3:
+                    if specie[5] == food[0]:
+                        compran_col_3.append(specie[0])
+                elif specie[3] == 1:
+                    if specie[5] == food[0]:
+                        compran_col_4.append(specie[0])
+
+                #venden
+                if specie[2] == 4:
+                    if specie[5] == food[0]:
+                        venden_col_1.append(specie[0])
+                elif specie[2] == 2:
+                    if specie[5] == food[0]:
+                        venden_col_2.append(specie[0])
+                elif specie[2] == 3:
+                    if specie[5] == food[0]:
+                        venden_col_3.append(specie[0])
+                elif specie[2] == 1:
+                    if specie[5] == food[0]:
+                        venden_col_4.append(specie[0])
+
+
+            consumen[food[1]] = (columna_1,columna_2,columna_3,columna_4)
+            producen[food[1]] = (producen_col_1,producen_col_2,producen_col_3,producen_col_4)
+            compran[food[1]] = (compran_col_1,compran_col_2,compran_col_3,compran_col_4)
+            venden[food[1]] = (venden_col_1,venden_col_2,venden_col_3,venden_col_4)
+        comu[obj] = (consumen,producen,compran,venden)
 
     return render(request, template, locals())
 

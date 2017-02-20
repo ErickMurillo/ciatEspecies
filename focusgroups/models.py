@@ -191,7 +191,7 @@ class FocusGroup(models.Model):
 	annual_mean_temperature = models.FloatField(blank=True,null=True)
 	altitude = models.FloatField(blank=True,null=True)
 	# market_distance = models.TextField(help_text='in km',blank=True,null=True)
-	market_distance_1 = models.FloatField(help_text='in km',blank=True,null=True)
+	market_distance_1 = models.FloatField(help_text='in km',blank=True,null=True,verbose_name='Market distance')
 	market = models.TextField(blank=True,null=True)
 	population = models.FloatField(blank=True,null=True)
 	gender = models.IntegerField(choices=GENDER_CHOICES,blank=True,null=True)
