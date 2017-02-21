@@ -95,7 +95,7 @@
                 <div class="panel panel-default panel-salidas">
                   <div class="panel-heading">
                     <div class="panel-title-box">
-                      <h3>{% blocktrans %}Alimentos que se consumen en la comunidad{% endblocktrans %}</h3>
+                      <h3>{% blocktrans %}Alimentos que se consumen en la comunidad (Hombres){% endblocktrans %}</h3>
                       <span>{% trans "Tabla de valores" %}</span>
 
                     </div>
@@ -119,14 +119,66 @@
                           </tr>
                         </thead>
                         <tbody>
-                          {% for k,v in values.0.items %}
+                          {% for k,v in values.items %}
+                            {% if k == 'Male' %}
+                              {% for x,y in v.0.items %}
+                              <tr>
+                              <td>{{x}}</td>
+                              <td>{% for item in y.0 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.1 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.2 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.3 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              </tr>
+                              {% endfor %}
+                            {% endif %}
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- END SALES BLOCK -->
+                <!-- START SALES BLOCK -->
+                <div class="panel panel-default panel-salidas">
+                  <div class="panel-heading">
+                    <div class="panel-title-box">
+                      <h3>{% blocktrans %}Alimentos que se consumen en la comunidad (Mujeres){% endblocktrans %}</h3>
+                      <span>{% trans "Tabla de valores" %}</span>
+
+                    </div>
+                    <div class="btn-group pull-right">
+                      <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
+                      <ul class="dropdown-menu">
+                        <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="table-responsive" id="modalidad{{forloop.counter}}">
+                      <table class="table table-bordered table-hover" id="especies_comunidad">
+                        <thead>
                           <tr>
-                            <td>{{k}}</td>
-                            <td>{% for x in v.0 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-                            <td>{% for x in v.1 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-                            <td>{% for x in v.2 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-                            <td>{% for x in v.3 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <th></th>
+                            <th>{% trans "Muchos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Muchos hogares & área pequeña/infrecuentemente" %}</th>
+                            <th>{% trans "Pocos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Pocos hogares & área pequeña/infrecuentemente" %}</th>
                           </tr>
+                        </thead>
+                        <tbody>
+                          {% for k,v in values.items %}
+                            {% if k == 'Female' %}
+                              {% for x,y in v.0.items %}
+                              <tr>
+                              <td>{{x}}</td>
+                              <td>{% for item in y.0 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.1 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.2 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.3 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              </tr>
+                              {% endfor %}
+                            {% endif %}
                           {% endfor %}
                         </tbody>
                       </table>
@@ -141,7 +193,7 @@
                 <div class="panel panel-default panel-salidas">
                   <div class="panel-heading">
                     <div class="panel-title-box">
-                      <h3>{% blocktrans %}Alimentos que se producen o están disponibles en la comunidad{% endblocktrans %}</h3>
+                      <h3>{% blocktrans %}Alimentos que se producen o están disponibles en la comunidad (Hombres){% endblocktrans %}</h3>
                       <span>{% trans "Tabla de valores" %}</span>
 
                     </div>
@@ -165,14 +217,66 @@
                           </tr>
                         </thead>
                         <tbody>
-                          {% for k,v in values.1.items %}
+                          {% for k,v in values.items %}
+                            {% if k == 'Male' %}
+                              {% for x,y in v.1.items %}
+                              <tr>
+                              <td>{{x}}</td>
+                              <td>{% for item in y.0 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.1 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.2 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.3 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              </tr>
+                              {% endfor %}
+                            {% endif %}
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- END SALES BLOCK -->
+                <!-- START SALES BLOCK -->
+                <div class="panel panel-default panel-salidas">
+                  <div class="panel-heading">
+                    <div class="panel-title-box">
+                      <h3>{% blocktrans %}Alimentos que se producen o están disponibles en la comunidad (Mujeres){% endblocktrans %}</h3>
+                      <span>{% trans "Tabla de valores" %}</span>
+
+                    </div>
+                    <div class="btn-group pull-right">
+                      <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
+                      <ul class="dropdown-menu">
+                        <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="table-responsive" id="modalidad{{forloop.counter}}">
+                      <table class="table table-bordered table-hover" id="especies_comunidad">
+                        <thead>
                           <tr>
-                            <td>{{k}}</td>
-                            <td>{% for x in v.0 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-                            <td>{% for x in v.1 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-                            <td>{% for x in v.2 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-                            <td>{% for x in v.3 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <th></th>
+                            <th>{% trans "Muchos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Muchos hogares & área pequeña/infrecuentemente" %}</th>
+                            <th>{% trans "Pocos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Pocos hogares & área pequeña/infrecuentemente" %}</th>
                           </tr>
+                        </thead>
+                        <tbody>
+                          {% for k,v in values.items %}
+                            {% if k == 'Female' %}
+                              {% for x,y in v.1.items %}
+                              <tr>
+                              <td>{{x}}</td>
+                              <td>{% for item in y.0 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.1 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.2 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.3 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              </tr>
+                              {% endfor %}
+                            {% endif %}
                           {% endfor %}
                         </tbody>
                       </table>
@@ -187,7 +291,7 @@
                 <div class="panel panel-default panel-salidas">
                   <div class="panel-heading">
                     <div class="panel-title-box">
-                      <h3>{% blocktrans %}Alimentos que se adquieren en la comunidad{% endblocktrans %}</h3>
+                      <h3>{% blocktrans %}Alimentos que se adquieren en la comunidad (Hombres){% endblocktrans %}</h3>
                       <span>{% trans "Tabla de valores" %}</span>
 
                     </div>
@@ -211,14 +315,66 @@
                           </tr>
                         </thead>
                         <tbody>
-                          {% for k,v in values.2.items %}
+                          {% for k,v in values.items %}
+                            {% if k == 'Male' %}
+                              {% for x,y in v.2.items %}
+                              <tr>
+                              <td>{{x}}</td>
+                              <td>{% for item in y.0 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.1 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.2 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.3 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              </tr>
+                              {% endfor %}
+                            {% endif %}
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- END SALES BLOCK -->
+                <!-- START SALES BLOCK -->
+                <div class="panel panel-default panel-salidas">
+                  <div class="panel-heading">
+                    <div class="panel-title-box">
+                      <h3>{% blocktrans %}Alimentos que se adquieren en la comunidad (Mujeres){% endblocktrans %}</h3>
+                      <span>{% trans "Tabla de valores" %}</span>
+
+                    </div>
+                    <div class="btn-group pull-right">
+                      <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
+                      <ul class="dropdown-menu">
+                        <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="table-responsive" id="modalidad{{forloop.counter}}">
+                      <table class="table table-bordered table-hover" id="especies_comunidad">
+                        <thead>
                           <tr>
-                            <td>{{k}}</td>
-                            <td>{% for x in v.0 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-                            <td>{% for x in v.1 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-                            <td>{% for x in v.2 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-                            <td>{% for x in v.3 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <th></th>
+                            <th>{% trans "Muchos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Muchos hogares & área pequeña/infrecuentemente" %}</th>
+                            <th>{% trans "Pocos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Pocos hogares & área pequeña/infrecuentemente" %}</th>
                           </tr>
+                        </thead>
+                        <tbody>
+                          {% for k,v in values.items %}
+                            {% if k == 'Female' %}
+                              {% for x,y in v.2.items %}
+                              <tr>
+                              <td>{{x}}</td>
+                              <td>{% for item in y.0 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.1 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.2 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.3 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              </tr>
+                              {% endfor %}
+                            {% endif %}
                           {% endfor %}
                         </tbody>
                       </table>
@@ -233,7 +389,7 @@
                 <div class="panel panel-default panel-salidas">
                   <div class="panel-heading">
                     <div class="panel-title-box">
-                      <h3>{% blocktrans %}Alimentos que venden en la comunidad{% endblocktrans %}</h3>
+                      <h3>{% blocktrans %}Alimentos que venden en la comunidad (Hombres){% endblocktrans %}</h3>
                       <span>{% trans "Tabla de valores" %}</span>
 
                     </div>
@@ -257,14 +413,66 @@
                           </tr>
                         </thead>
                         <tbody>
-                          {% for k,v in values.3.items %}
+                          {% for k,v in values.items %}
+                            {% if k == 'Male' %}
+                              {% for x,y in v.3.items %}
+                              <tr>
+                              <td>{{x}}</td>
+                              <td>{% for item in y.0 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.1 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.2 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.3 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              </tr>
+                              {% endfor %}
+                            {% endif %}
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- END SALES BLOCK -->
+                <!-- START SALES BLOCK -->
+                <div class="panel panel-default panel-salidas">
+                  <div class="panel-heading">
+                    <div class="panel-title-box">
+                      <h3>{% blocktrans %}Alimentos que venden en la comunidad (Mujeres){% endblocktrans %}</h3>
+                      <span>{% trans "Tabla de valores" %}</span>
+
+                    </div>
+                    <div class="btn-group pull-right">
+                      <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
+                      <ul class="dropdown-menu">
+                        <li><a onclick="exportarXLS('modalidad{{forloop.counter}}'); return false;" href="#"><img src='/static/images/xls.png' width="24"/> XLS</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="table-responsive" id="modalidad{{forloop.counter}}">
+                      <table class="table table-bordered table-hover" id="especies_comunidad">
+                        <thead>
                           <tr>
-                            <td>{{k}}</td>
-                            <td>{% for x in v.0 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-                            <td>{% for x in v.1 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-                            <td>{% for x in v.2 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
-                            <td>{% for x in v.3 %}{{x}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                            <th></th>
+                            <th>{% trans "Muchos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Muchos hogares & área pequeña/infrecuentemente" %}</th>
+                            <th>{% trans "Pocos hogares & área grande/frecuencia alta" %}</th>
+                            <th>{% trans "Pocos hogares & área pequeña/infrecuentemente" %}</th>
                           </tr>
+                        </thead>
+                        <tbody>
+                          {% for k,v in values.items %}
+                            {% if k == 'Female' %}
+                              {% for x,y in v.3.items %}
+                              <tr>
+                              <td>{{x}}</td>
+                              <td>{% for item in y.0 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.1 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.2 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              <td>{% for item in y.3 %}{{item}}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+                              </tr>
+                              {% endfor %}
+                            {% endif %}
                           {% endfor %}
                         </tbody>
                       </table>

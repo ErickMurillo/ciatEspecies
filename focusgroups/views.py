@@ -910,92 +910,97 @@ def tables_abd(request,template = "salidas/tablas_abd.html"):
 
     comu = {}
     lista = []
+    GENDER_CHOICES = ((1,'Female'),(2, 'Male'))
     for obj in community:
-        species = filtro.filter(community = obj).distinct('fcacode__species').values_list(
-                    'fcacode__species_vernacular_name','fcacode__fca_cultivated','fcacode__fca_sold',
-                    'fcacode__fca_purchased','fcacode__fca_consumed','fcacode__species__food_group')
-        for x in species:
-            if x[5] != None:
-                lista.append(x[5])
-        lista = list(set(lista))
+        dic_gender = {}
+        for gender in GENDER_CHOICES:
+            species = filtro.filter(community = obj,gender = gender[0]).distinct('fcacode__species').values_list(
+                        'fcacode__species_vernacular_name','fcacode__fca_cultivated','fcacode__fca_sold',
+                        'fcacode__fca_purchased','fcacode__fca_consumed','fcacode__species__food_group')
+            for x in species:
+                if x[5] != None:
+                    lista.append(x[5])
+            lista = list(set(lista))
 
-        if cur_language == 'en':
-            food_groups = FoodGroup.objects.filter(id__in = lista).exclude(name = 'Fuel, Fodder, Ornamental, Medicinal').values_list('id','name')
-        elif cur_language == 'es':
-            food_groups = FoodGroup.objects.filter(id__in = lista).exclude(es_name = 'Leña, Forraje, Ornamental, Medicinal').values_list('id','es_name')
+            if cur_language == 'en':
+                food_groups = FoodGroup.objects.filter(id__in = lista).exclude(name = 'Fuel, Fodder, Ornamental, Medicinal').values_list('id','name')
+            elif cur_language == 'es':
+                food_groups = FoodGroup.objects.filter(id__in = lista).exclude(es_name = 'Leña, Forraje, Ornamental, Medicinal').values_list('id','es_name')
 
-        consumen = {}
-        producen = {}
-        compran = {}
-        venden = {}
-        for food in food_groups:
-            columna_1,columna_2,columna_3,columna_4 = [],[],[],[]
-            producen_col_1,producen_col_2,producen_col_3,producen_col_4 = [],[],[],[]
-            compran_col_1,compran_col_2,compran_col_3,compran_col_4 = [],[],[],[]
-            venden_col_1,venden_col_2,venden_col_3,venden_col_4 = [],[],[],[]
-            for specie in species:
-                #consumen
-                if specie[4] == 4:
-                    if specie[5] == food[0]:
-                        columna_1.append(specie[0])
-                elif specie[4] == 2:
-                    if specie[5] == food[0]:
-                        columna_2.append(specie[0])
-                elif specie[4] == 3:
-                    if specie[5] == food[0]:
-                        columna_3.append(specie[0])
-                elif specie[4] == 1:
-                    if specie[5] == food[0]:
-                        columna_4.append(specie[0])
+            consumen = {}
+            producen = {}
+            compran = {}
+            venden = {}
+            for food in food_groups:
+                columna_1,columna_2,columna_3,columna_4 = [],[],[],[]
+                producen_col_1,producen_col_2,producen_col_3,producen_col_4 = [],[],[],[]
+                compran_col_1,compran_col_2,compran_col_3,compran_col_4 = [],[],[],[]
+                venden_col_1,venden_col_2,venden_col_3,venden_col_4 = [],[],[],[]
+                for specie in species:
+                    #consumen
+                    if specie[4] == 4:
+                        if specie[5] == food[0]:
+                            columna_1.append(specie[0])
+                    elif specie[4] == 2:
+                        if specie[5] == food[0]:
+                            columna_2.append(specie[0])
+                    elif specie[4] == 3:
+                        if specie[5] == food[0]:
+                            columna_3.append(specie[0])
+                    elif specie[4] == 1:
+                        if specie[5] == food[0]:
+                            columna_4.append(specie[0])
 
-                #producen
-                if specie[1] == 4:
-                    if specie[5] == food[0]:
-                        producen_col_1.append(specie[0])
-                elif specie[1] == 2:
-                    if specie[5] == food[0]:
-                        producen_col_2.append(specie[0])
-                elif specie[1] == 3:
-                    if specie[5] == food[0]:
-                        producen_col_3.append(specie[0])
-                elif specie[1] == 1:
-                    if specie[5] == food[0]:
-                        producen_col_4.append(specie[0])
+                    #producen
+                    if specie[1] == 4:
+                        if specie[5] == food[0]:
+                            producen_col_1.append(specie[0])
+                    elif specie[1] == 2:
+                        if specie[5] == food[0]:
+                            producen_col_2.append(specie[0])
+                    elif specie[1] == 3:
+                        if specie[5] == food[0]:
+                            producen_col_3.append(specie[0])
+                    elif specie[1] == 1:
+                        if specie[5] == food[0]:
+                            producen_col_4.append(specie[0])
 
-                #compran
-                if specie[3] == 4:
-                    if specie[5] == food[0]:
-                        compran_col_1.append(specie[0])
-                elif specie[3] == 2:
-                    if specie[5] == food[0]:
-                        compran_col_2.append(specie[0])
-                elif specie[3] == 3:
-                    if specie[5] == food[0]:
-                        compran_col_3.append(specie[0])
-                elif specie[3] == 1:
-                    if specie[5] == food[0]:
-                        compran_col_4.append(specie[0])
+                    #compran
+                    if specie[3] == 4:
+                        if specie[5] == food[0]:
+                            compran_col_1.append(specie[0])
+                    elif specie[3] == 2:
+                        if specie[5] == food[0]:
+                            compran_col_2.append(specie[0])
+                    elif specie[3] == 3:
+                        if specie[5] == food[0]:
+                            compran_col_3.append(specie[0])
+                    elif specie[3] == 1:
+                        if specie[5] == food[0]:
+                            compran_col_4.append(specie[0])
 
-                #venden
-                if specie[2] == 4:
-                    if specie[5] == food[0]:
-                        venden_col_1.append(specie[0])
-                elif specie[2] == 2:
-                    if specie[5] == food[0]:
-                        venden_col_2.append(specie[0])
-                elif specie[2] == 3:
-                    if specie[5] == food[0]:
-                        venden_col_3.append(specie[0])
-                elif specie[2] == 1:
-                    if specie[5] == food[0]:
-                        venden_col_4.append(specie[0])
+                    #venden
+                    if specie[2] == 4:
+                        if specie[5] == food[0]:
+                            venden_col_1.append(specie[0])
+                    elif specie[2] == 2:
+                        if specie[5] == food[0]:
+                            venden_col_2.append(specie[0])
+                    elif specie[2] == 3:
+                        if specie[5] == food[0]:
+                            venden_col_3.append(specie[0])
+                    elif specie[2] == 1:
+                        if specie[5] == food[0]:
+                            venden_col_4.append(specie[0])
 
 
-            consumen[food[1]] = (columna_1,columna_2,columna_3,columna_4)
-            producen[food[1]] = (producen_col_1,producen_col_2,producen_col_3,producen_col_4)
-            compran[food[1]] = (compran_col_1,compran_col_2,compran_col_3,compran_col_4)
-            venden[food[1]] = (venden_col_1,venden_col_2,venden_col_3,venden_col_4)
-        comu[obj] = (consumen,producen,compran,venden)
+                consumen[food[1]] = (columna_1,columna_2,columna_3,columna_4)
+                producen[food[1]] = (producen_col_1,producen_col_2,producen_col_3,producen_col_4)
+                compran[food[1]] = (compran_col_1,compran_col_2,compran_col_3,compran_col_4)
+                venden[food[1]] = (venden_col_1,venden_col_2,venden_col_3,venden_col_4)
+            dic_gender[gender[1]] = [consumen,producen,compran,venden]
+        comu[obj] = dic_gender
+        print comu
 
     return render(request, template, locals())
 
