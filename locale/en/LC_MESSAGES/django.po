@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-20 15:28-0600\n"
+"POT-Creation-Date: 2017-02-23 08:56-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ciatEspecies/settings.py:119 templates/base.html:59
+#: ciatEspecies/settings.py:119 templates/base.html:64
 msgid "Español"
 msgstr "Spanish"
 
@@ -54,7 +54,7 @@ msgstr "Type"
 msgid "Descripción breve"
 msgstr "Brief description"
 
-#: templates/afiliarse.html:9 templates/base.html:77
+#: templates/afiliarse.html:9 templates/base.html:82
 msgid "INVOLUCRARSE"
 msgstr "GET INVOLVED"
 
@@ -101,35 +101,35 @@ msgstr "Project"
 msgid "Sistema ABD"
 msgstr "ABD System"
 
-#: templates/base.html:53
+#: templates/base.html:58
 msgid "Idioma"
 msgstr "Language"
 
-#: templates/base.html:58
+#: templates/base.html:63
 msgid "Ingles"
 msgstr "English"
 
-#: templates/base.html:72
+#: templates/base.html:77
 msgid "INICIO"
 msgstr "HOME"
 
-#: templates/base.html:73 templates/consulta.html:28
+#: templates/base.html:78 templates/consulta.html:37
 msgid "EXPLORAR DATOS"
 msgstr "EXPLORE DATA"
 
-#: templates/base.html:74
+#: templates/base.html:79
 msgid "USO DE INFORMACIÓN"
 msgstr "INFORMATION USE"
 
-#: templates/base.html:75
+#: templates/base.html:80
 msgid "METODOLOGÍA"
 msgstr "METHODOLOGY"
 
-#: templates/base.html:76
+#: templates/base.html:81
 msgid "PUBLICACIONES Y PROYECTOS"
 msgstr "PUBLICATIONS AND PROJECTS"
 
-#: templates/base.html:78
+#: templates/base.html:83
 msgid "INICIAR SESIÓN"
 msgstr "LOG IN"
 
@@ -153,108 +153,170 @@ msgstr "Phone"
 msgid "Correo:"
 msgstr "Email: "
 
-#: templates/consulta.html:46 templates/indicadores.html:6
+#: templates/consulta.html:55 templates/indicadores.html:6
 #: templates/salidas/grupo_nutricional.html:15
 #: templates/salidas/grupo_nutricional.html:19
 msgid "Especies por Grupo Nutricionales por Comunidad"
 msgstr "Species by Nutritional Groups by Community"
 
-#: templates/consulta.html:52 templates/indicadores.html:9
+#: templates/consulta.html:56
+msgid ""
+"Cuales grupos nutricionales están bien representados en una comunidad? "
+"Cuales grupos nutricionales están bajo representados?"
+msgstr ""
+"Which food groups are well represented in a community? "
+"Which food groups are under-represented?"
+
+#: templates/consulta.html:62 templates/indicadores.html:9
 #: templates/salidas/grupo_nutricional_pais.html:11
 #: templates/salidas/grupo_nutricional_pais.html:15
 msgid "Especies por Grupo Nutricional por País"
 msgstr "Species by Nutritional Groups by Country"
 
-#: templates/consulta.html:59 templates/indicadores.html:12
+#: templates/consulta.html:63
+msgid ""
+"Cuales grupos nutricionales están bien representados en un país? Cuales "
+"grupos nutricionales están bajo representados?"
+msgstr ""
+"Which food groups are most represented in a country? Which "
+"food groups are under-represented?"
+
+#: templates/consulta.html:70 templates/indicadores.html:12
 #: templates/salidas/numero_especies.html:10
 #: templates/salidas/numero_especies.html:14
 msgid "Total de Especies"
 msgstr "Total Species"
 
-#: templates/consulta.html:65 templates/indicadores.html:15
+#: templates/consulta.html:71
+msgid ""
+"Cuantas especies se consume, se produce, se adquiere y se vende en una "
+"comunidad?"
+msgstr ""
+"How many species are consumed, are produced, are purchased and are sold in a "
+"community?"
+
+#: templates/consulta.html:77 templates/indicadores.html:15
 #: templates/salidas/numero_especies_comunidad.html:11
 #: templates/salidas/numero_especies_comunidad.html:15
 msgid "Relación entre número especies, factores ambientales y económicos"
 msgstr ""
 "Relationship between number of species, environmental and economic factors"
 
-#: templates/consulta.html:71 templates/indicadores.html:18
+#: templates/consulta.html:78
+msgid ""
+"Que son los dinámicos entre los números de especies usados y factores "
+"ambientales y económicos?"
+msgstr ""
+"What are the dynamics between number of species that are used in communities "
+"and environmental or economic factors?"
+
+#: templates/consulta.html:84 templates/indicadores.html:18
 #: templates/salidas/perfil_especies.html:12
 #: templates/salidas/perfil_especies.html:16
 #: templates/salidas/perfil_especies_detalle.html:19
 msgid "Perfil de Especies"
-msgstr "Species profile-spicies"
+msgstr "Species profile"
 
-#: templates/consulta.html:77 templates/indicadores.html:21
+#: templates/consulta.html:85
+msgid ""
+"Información detallada sobre las especies usadas en las comunidades "
+"seleccionadas"
+msgstr ""
+"Detailed information about the species used in the selected communities"
+
+#: templates/consulta.html:91 templates/indicadores.html:21
 #: templates/salidas/perfil_focus_groups.html:14
 #: templates/salidas/perfil_focus_groups.html:18
 msgid "Perfil de Grupos Focales"
-msgstr "Focus Groups profile-spicies"
+msgstr "Focus Groups profile"
 
-#: templates/consulta.html:83 templates/indicadores.html:24
+#: templates/consulta.html:92
+msgid ""
+"Información detallada sobre los grupos focales de las comunidades "
+"seleccionadas"
+msgstr ""
+"Detailed information about the focus groups of the selected communities"
+
+#: templates/consulta.html:98 templates/indicadores.html:24
 #: templates/salidas/perfil_abd.html:29 templates/salidas/perfil_abd.html:33
 msgid "Perfil ABD"
-msgstr "ABD profile-spicies"
+msgstr "ABD profile"
 
-#: templates/consulta.html:89 templates/indicadores.html:27
+#: templates/consulta.html:99
+msgid "Resumen total del uso de las especies usadas en la comunidad"
+msgstr "Total summary of the species that are used in a community"
+
+#: templates/consulta.html:105 templates/indicadores.html:27
 #: templates/salidas/tablas_abd.html:15 templates/salidas/tablas_abd.html:19
 msgid "Tablas ABD"
 msgstr "ABD Tables"
 
-#: templates/consulta.html:103
+#: templates/consulta.html:106
+msgid ""
+"Para cada especies, cuantas hogares (muchas o pocas) consume, produce, "
+"adquiere y/o vende esta especies? Cuál es la frecuencia de consumo, "
+"adquisición y venta de cada especie (alta o baja)? Cuál es el tamaño del "
+"área de producción de cada especies (largo o pequeño)? "
+msgstr ""
+"For each species, how many households (many or few) consume, produce, "
+"purchase or sell this species? What is the frequency of consumption, "
+"purchase and sell of each species (high or low)? What is the area of "
+"production each species (large or small)? "
+
+#: templates/consulta.html:120
 msgid "FILTRO DE DATOS"
 msgstr "DATA FILTER"
 
-#: templates/consulta.html:104
+#: templates/consulta.html:121
 msgid "Los campos con (*) son requeridos"
 msgstr "Fields with (*) are required"
 
-#: templates/consulta.html:131
+#: templates/consulta.html:148
 msgid "Región Geográfica"
 msgstr "Geographical Region"
 
-#: templates/consulta.html:139
+#: templates/consulta.html:156
 msgid "País"
 msgstr "Country"
 
-#: templates/consulta.html:147 templates/salidas/perfil_fg_detalle.html:95
+#: templates/consulta.html:164 templates/salidas/perfil_fg_detalle.html:95
 #: templates/salidas/perfil_focus_groups.html:92
 msgid "Provincia"
 msgstr "Province"
 
-#: templates/consulta.html:163 templates/salidas/perfil_fg_detalle.html:96
+#: templates/consulta.html:180 templates/salidas/perfil_fg_detalle.html:96
 #: templates/salidas/perfil_focus_groups.html:93
 msgid "Comunidad"
 msgstr "Community"
 
-#: templates/consulta.html:172 templates/salidas/select_filtros.html:11
+#: templates/consulta.html:189 templates/salidas/select_filtros.html:11
 msgid "Año"
 msgstr "Year"
 
-#: templates/consulta.html:187
+#: templates/consulta.html:204
 msgid "CONSULTAR"
 msgstr "QUERY"
 
-#: templates/consulta.html:194
+#: templates/consulta.html:211
 msgid "Filtro de Población"
 msgstr "Population filter"
 
-#: templates/consulta.html:333 templates/consulta.html:359
-#: templates/consulta.html:385 templates/consulta.html:411
+#: templates/consulta.html:350 templates/consulta.html:376
+#: templates/consulta.html:402 templates/consulta.html:428
 msgid "Seleccionar todos"
 msgstr "Select all"
 
-#: templates/consulta.html:336 templates/consulta.html:362
-#: templates/consulta.html:388 templates/consulta.html:414
+#: templates/consulta.html:353 templates/consulta.html:379
+#: templates/consulta.html:405 templates/consulta.html:431
 msgid "Sin selección ..."
 msgstr "No selection ..."
 
-#: templates/consulta.html:339 templates/consulta.html:365
-#: templates/consulta.html:391 templates/consulta.html:417
+#: templates/consulta.html:356 templates/consulta.html:382
+#: templates/consulta.html:408 templates/consulta.html:434
 msgid "Varias opciones seleccionadas!"
 msgstr "Several options selected!"
 
-#: templates/consulta.html:539 templates/salidas/perfil_fg_detalle.html:132
+#: templates/consulta.html:556 templates/salidas/perfil_fg_detalle.html:132
 #: templates/salidas/perfil_fg_detalle.html:134
 msgid "Población"
 msgstr "Population"
@@ -405,8 +467,10 @@ msgstr "Graphic Frequency"
 #: templates/salidas/perfil_abd.html:104 templates/salidas/perfil_abd.html:221
 #: templates/salidas/perfil_fg_detalle.html:165
 #: templates/salidas/perfil_fg_detalle.html:285
-#: templates/salidas/tablas_abd.html:99 templates/salidas/tablas_abd.html:145
-#: templates/salidas/tablas_abd.html:191 templates/salidas/tablas_abd.html:237
+#: templates/salidas/tablas_abd.html:99 templates/salidas/tablas_abd.html:147
+#: templates/salidas/tablas_abd.html:197 templates/salidas/tablas_abd.html:245
+#: templates/salidas/tablas_abd.html:295 templates/salidas/tablas_abd.html:343
+#: templates/salidas/tablas_abd.html:393 templates/salidas/tablas_abd.html:441
 msgid "Tabla de valores"
 msgstr "Value table"
 
@@ -415,8 +479,10 @@ msgstr "Value table"
 #: templates/salidas/perfil_abd.html:108 templates/salidas/perfil_abd.html:225
 #: templates/salidas/perfil_fg_detalle.html:169
 #: templates/salidas/perfil_fg_detalle.html:289
-#: templates/salidas/tablas_abd.html:103 templates/salidas/tablas_abd.html:149
-#: templates/salidas/tablas_abd.html:195 templates/salidas/tablas_abd.html:241
+#: templates/salidas/tablas_abd.html:103 templates/salidas/tablas_abd.html:151
+#: templates/salidas/tablas_abd.html:201 templates/salidas/tablas_abd.html:249
+#: templates/salidas/tablas_abd.html:299 templates/salidas/tablas_abd.html:347
+#: templates/salidas/tablas_abd.html:397 templates/salidas/tablas_abd.html:445
 msgid "Exportar Datos"
 msgstr "Export Data"
 
@@ -599,10 +665,8 @@ msgstr "Average Altitude (m)"
 #: templates/salidas/numero_especies_comunidad.html:201
 #: templates/salidas/numero_especies_comunidad.html:273
 #: templates/salidas/numero_especies_comunidad.html:345
-#, fuzzy
-#| msgid "Distancia de mercado"
 msgid "Distancia a mercado (km) promedio"
-msgstr "Market distance"
+msgstr "Average market distance (km)"
 
 #: templates/salidas/numero_especies_comunidad.html:392
 msgid "Precipitaciones anuales (mm) vs Especies cultivadas"
@@ -771,8 +835,7 @@ msgstr "Market distance (km) vs Species consumed"
 #: templates/salidas/perfil_abd.html:103
 #: templates/salidas/perfil_fg_detalle.html:164
 msgid "Perfil ABD de especies y productos consumidos por el grupo focal"
-msgstr ""
-"ABD profile-spicies of species and products consumed by the focus group"
+msgstr "ABD profile of species and products consumed by the focus group"
 
 #: templates/salidas/perfil_abd.html:164 templates/salidas/perfil_abd.html:201
 #: templates/salidas/perfil_abd.html:278
@@ -787,12 +850,11 @@ msgstr "No data"
 msgid ""
 "Perfil ABD de las especies utilizadas para la generación de ingresos para el "
 "grupo focal"
-msgstr ""
-"ABD profile-spicies of species used for income generation for the focus group"
+msgstr "ABD profile of species used for income generation for the focus group"
 
 #: templates/salidas/perfil_especies.html:63
 msgid "Perfil de especie"
-msgstr "Species profile-spicies"
+msgstr "Species profile"
 
 #: templates/salidas/perfil_especies.html:64
 msgid "Lista de especies"
@@ -1082,40 +1144,64 @@ msgid "Provincias"
 msgstr "Provinces"
 
 #: templates/salidas/tablas_abd.html:98
-msgid "Alimentos que se consumen en la comunidad"
-msgstr "Foods consumed in the community"
+msgid "Alimentos que se consumen en la comunidad (Hombres)"
+msgstr "Foods consumed in the community (Men)"
 
-#: templates/salidas/tablas_abd.html:115 templates/salidas/tablas_abd.html:161
-#: templates/salidas/tablas_abd.html:207 templates/salidas/tablas_abd.html:253
+#: templates/salidas/tablas_abd.html:115 templates/salidas/tablas_abd.html:163
+#: templates/salidas/tablas_abd.html:213 templates/salidas/tablas_abd.html:261
+#: templates/salidas/tablas_abd.html:311 templates/salidas/tablas_abd.html:359
+#: templates/salidas/tablas_abd.html:409 templates/salidas/tablas_abd.html:457
 msgid "Muchos hogares & área grande/frecuencia alta"
 msgstr "Many households & large area/frequently"
 
-#: templates/salidas/tablas_abd.html:116 templates/salidas/tablas_abd.html:162
-#: templates/salidas/tablas_abd.html:208 templates/salidas/tablas_abd.html:254
+#: templates/salidas/tablas_abd.html:116 templates/salidas/tablas_abd.html:164
+#: templates/salidas/tablas_abd.html:214 templates/salidas/tablas_abd.html:262
+#: templates/salidas/tablas_abd.html:312 templates/salidas/tablas_abd.html:360
+#: templates/salidas/tablas_abd.html:410 templates/salidas/tablas_abd.html:458
 msgid "Muchos hogares & área pequeña/infrecuentemente"
 msgstr "Many households & small area/infrequently"
 
-#: templates/salidas/tablas_abd.html:117 templates/salidas/tablas_abd.html:163
-#: templates/salidas/tablas_abd.html:209 templates/salidas/tablas_abd.html:255
+#: templates/salidas/tablas_abd.html:117 templates/salidas/tablas_abd.html:165
+#: templates/salidas/tablas_abd.html:215 templates/salidas/tablas_abd.html:263
+#: templates/salidas/tablas_abd.html:313 templates/salidas/tablas_abd.html:361
+#: templates/salidas/tablas_abd.html:411 templates/salidas/tablas_abd.html:459
 msgid "Pocos hogares & área grande/frecuencia alta"
 msgstr "Few households & large area/frequently"
 
-#: templates/salidas/tablas_abd.html:118 templates/salidas/tablas_abd.html:164
-#: templates/salidas/tablas_abd.html:210 templates/salidas/tablas_abd.html:256
+#: templates/salidas/tablas_abd.html:118 templates/salidas/tablas_abd.html:166
+#: templates/salidas/tablas_abd.html:216 templates/salidas/tablas_abd.html:264
+#: templates/salidas/tablas_abd.html:314 templates/salidas/tablas_abd.html:362
+#: templates/salidas/tablas_abd.html:412 templates/salidas/tablas_abd.html:460
 msgid "Pocos hogares & área pequeña/infrecuentemente"
 msgstr "Few households & small area/infrequently"
 
-#: templates/salidas/tablas_abd.html:144
-msgid "Alimentos que se producen o están disponibles en la comunidad"
-msgstr "Foods that are produced or available in the community"
+#: templates/salidas/tablas_abd.html:146
+msgid "Alimentos que se consumen en la comunidad (Mujeres)"
+msgstr "Foods consumed in the community (Women)"
 
-#: templates/salidas/tablas_abd.html:190
-msgid "Alimentos que se adquieren en la comunidad"
-msgstr "Foods that are acquired in the community"
+#: templates/salidas/tablas_abd.html:196
+msgid "Alimentos que se producen o están disponibles en la comunidad (Hombres)"
+msgstr "Foods that are produced or available in the community (Men)"
 
-#: templates/salidas/tablas_abd.html:236
-msgid "Alimentos que venden en la comunidad"
-msgstr "Foods sold in the community"
+#: templates/salidas/tablas_abd.html:244
+msgid "Alimentos que se producen o están disponibles en la comunidad (Mujeres)"
+msgstr "Foods that are produced or available in the community (Women)"
+
+#: templates/salidas/tablas_abd.html:294
+msgid "Alimentos que se adquieren en la comunidad (Hombres)"
+msgstr "Foods that are acquired in the community (Men)"
+
+#: templates/salidas/tablas_abd.html:342
+msgid "Alimentos que se adquieren en la comunidad (Mujeres)"
+msgstr "Foods that are acquired in the community (Women)"
+
+#: templates/salidas/tablas_abd.html:392
+msgid "Alimentos que venden en la comunidad (Hombres)"
+msgstr "Foods sold in the community (Men)"
+
+#: templates/salidas/tablas_abd.html:440
+msgid "Alimentos que venden en la comunidad (Mujeres)"
+msgstr "Foods sold in the community (Women)"
 
 #~ msgid "USO DE DATOS ABD"
 #~ msgstr "ABD DATA USE"

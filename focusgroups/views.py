@@ -528,35 +528,35 @@ def perfil_focus_groups_detail(request,id = None):
                     list_8.append(sp[0])
 
             # tabla 2 venta ------------------------------------------------------------------
-            if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 2 or sp[3] == 4) and (sp[2] == 1 or sp[2] == 3):
+            if (sp[1] == 4 or sp[1] == 3) and (sp[3] == 2 or sp[3] == 1) and (sp[2] == 4 or sp[2] == 3):
                 if x[0] == sp[5]:
                     ventalist_1.append(sp[0])
 
-            if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 1 or sp[3] == 3) and (sp[2] == 1 or sp[2] == 3):
+            if (sp[1] == 4 or sp[1] == 3) and (sp[3] == 4 or sp[3] == 3) and (sp[2] == 4 or sp[2] == 3):
                 if x[0] == sp[5]:
                     ventalist_2.append(sp[0])
 
-            if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 1 or sp[3] == 3) and (sp[2] == 2 or sp[2] == 4):
+            if (sp[1] == 4 or sp[1] == 3) and (sp[3] == 4 or sp[3] == 3) and (sp[2] == 2 or sp[2] == 1):
                 if x[0] == sp[5]:
                     ventalist_3.append(sp[0])
 
-            if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 2 or sp[3] == 4) and (sp[2] == 2 or sp[2] == 4):
+            if (sp[1] == 4 or sp[1] == 3) and (sp[3] == 2 or sp[3] == 1) and (sp[2] == 2 or sp[2] == 1):
                 if x[0] == sp[5]:
                     ventalist_4.append(sp[0])
 
-            if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 0 or sp[3] == None) and (sp[2] == 2 or sp[2] == 4):
+            if (sp[1] == 4 or sp[1] == 3) and (sp[3] == 0 or sp[3] == None) and (sp[2] == 2 or sp[2] == 1):
                 if x[0] == sp[5]:
                     ventalist_5.append(sp[0])
 
-            if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 0 or sp[3] == None) and (sp[2] == 2 or sp[2] == 4):
+            if (sp[1] == 2 or sp[1] == 1) and (sp[3] == 0 or sp[3] == None) and (sp[2] == 2 or sp[2] == 1):
                 if x[0] == sp[5]:
                     ventalist_6.append(sp[0])
 
-            if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 2 or sp[3] == 4) and (sp[2] == 2 or sp[2] == 4):
+            if (sp[1] == 2 or sp[1] == 1) and (sp[3] == 2 or sp[3] == 1) and (sp[2] == 2 or sp[2] == 1):
                 if x[0] == sp[5]:
                     ventalist_7.append(sp[0])
 
-            if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 1 or sp[3] == 3) and (sp[2] == 2 or sp[2] == 4):
+            if (sp[1] == 2 or sp[1] == 1) and (sp[3] == 4 or sp[3] == 3) and (sp[2] == 2 or sp[2] == 1):
                 if x[0] == sp[5]:
                     ventalist_8.append(sp[0])
 
@@ -751,36 +751,37 @@ def perfil_abd(request,template = "salidas/perfil_abd.html"):
                     if x[0] == sp[5]:
                         list_8.append(sp[0])
 
-        #         # tabla 2 venta ------------------------------------------------------------------
-                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 2 or sp[3] == 4) and (sp[2] == 1 or sp[2] == 3):
+                #tabla 2 venta ------------------------------------------------------------------
+                #'fcacode__fca_cultivated','fcacode__fca_sold','fcacode__fca_purchased','fcacode__fca_consumed',
+                if (sp[1] == 4 or sp[1] == 3) and (sp[3] == 2 or sp[3] == 1) and (sp[2] == 4 or sp[2] == 3):
                     if x[0] == sp[5]:
                         ventalist_1.append(sp[0])
 
-                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 1 or sp[3] == 3) and (sp[2] == 1 or sp[2] == 3):
+                if (sp[1] == 4 or sp[1] == 3) and (sp[3] == 4 or sp[3] == 3) and (sp[2] == 4 or sp[2] == 3):
                     if x[0] == sp[5]:
                         ventalist_2.append(sp[0])
 
-                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 1 or sp[3] == 3) and (sp[2] == 2 or sp[2] == 4):
+                if (sp[1] == 4 or sp[1] == 3) and (sp[3] == 4 or sp[3] == 3) and (sp[2] == 2 or sp[2] == 1):
                     if x[0] == sp[5]:
                         ventalist_3.append(sp[0])
 
-                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 2 or sp[3] == 4) and (sp[2] == 2 or sp[2] == 4):
+                if (sp[1] == 4 or sp[1] == 3) and (sp[3] == 2 or sp[3] == 1) and (sp[2] == 2 or sp[2] == 1):
                     if x[0] == sp[5]:
                         ventalist_4.append(sp[0])
 
-                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 0 or sp[3] == None) and (sp[2] == 2 or sp[2] == 4):
+                if (sp[1] == 4 or sp[1] == 3) and (sp[3] == 0 or sp[3] == None) and (sp[2] == 2 or sp[2] == 1):
                     if x[0] == sp[5]:
                         ventalist_5.append(sp[0])
 
-                if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 0 or sp[3] == None) and (sp[2] == 2 or sp[2] == 4):
+                if (sp[1] == 2 or sp[1] == 1) and (sp[3] == 0 or sp[3] == None) and (sp[2] == 2 or sp[2] == 1):
                     if x[0] == sp[5]:
                         ventalist_6.append(sp[0])
 
-                if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 2 or sp[3] == 4) and (sp[2] == 2 or sp[2] == 4):
+                if (sp[1] == 2 or sp[1] == 1) and (sp[3] == 2 or sp[3] == 1) and (sp[2] == 2 or sp[2] == 1):
                     if x[0] == sp[5]:
                         ventalist_7.append(sp[0])
 
-                if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 1 or sp[3] == 3) and (sp[2] == 2 or sp[2] == 4):
+                if (sp[1] == 2 or sp[1] == 1) and (sp[3] == 4 or sp[3] == 3) and (sp[2] == 2 or sp[2] == 1):
                     if x[0] == sp[5]:
                         ventalist_8.append(sp[0])
 

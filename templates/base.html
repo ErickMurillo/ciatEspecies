@@ -31,6 +31,10 @@
 .filtro-select .btn-primary {
     border-radius: 5px !important;
 }
+#logos-footer img{
+  float: left;
+  margin-right: 35px
+}
 </style>
 
 <script>
@@ -101,15 +105,21 @@
 		<div class="qborder"></div>
 	  </div>
 	</div>
-  {% load flatpages %}
-  {% get_flatpages as flatpages %}
-  {% for page in flatpages %}
-  {% if page.url == '/disclaimer-es/' and LANGUAGE_CODE == 'es' %}
-    <p>{{ page.content|safe }}</p>
-  {% elif page.url == '/disclaimer-en/' and LANGUAGE_CODE == 'en' %}
-    <p>{{ page.content|safe }}</p>
-  {% endif %}
-  {% endfor %}
+  <div class="row">
+    {% load flatpages %}
+    {% get_flatpages as flatpages %}
+    {% for page in flatpages %}
+    {% if page.url == '/disclaimer-es/' and LANGUAGE_CODE == 'es' %}
+      <p>{{ page.content|safe }}</p>
+    {% elif page.url == '/disclaimer-en/' and LANGUAGE_CODE == 'en' %}
+      <p>{{ page.content|safe }}</p>
+    {% endif %}
+    {% endfor %}
+  </div>
+    <div class="row" id="logos-footer">
+      <img src="/static/images/bioversity_logo.png" alt="" class="img-responsive" width="70px">
+      <img src="/static/images/CGIAR_black_logo.jpg" alt="" class="img-responsive" width="150px">
+    </div>
   </div>
 </div>
 <!-- / contact Close -->

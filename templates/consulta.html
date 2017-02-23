@@ -19,6 +19,15 @@
   padding: -2px;
   border-radius: 15px
 }
+.service_tiem {
+    display: block;
+    border: 1px solid #ccc;
+     min-height: none !important;
+    height: 225px;
+}
+.service_tiem h2 {
+    height: auto !important;
+}
 </style>
 <!-- CONTACT Section
 ================================================== -->
@@ -44,12 +53,14 @@
             <a href="/species/nutritional-group-by-community/" class="service_tiem">
               <!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
               <h2>{% trans "Especies por Grupo Nutricionales por Comunidad" %}</h2>
+              <p>{% blocktrans %}Cuales grupos nutricionales están bien representados en una comunidad? Cuales grupos nutricionales están bajo representados?{% endblocktrans %}</p>
             </a>
           </div>
           <div class="col-md-3 col-sm-6">
             <a href="/species/nutritional-group-by-country/" class="service_tiem">
               <!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
               <h2>{% trans "Especies por Grupo Nutricional por País" %}</h2>
+              <p>{% blocktrans %}Cuales grupos nutricionales están bien representados en un país? Cuales grupos nutricionales están bajo representados?{% endblocktrans %}</p>
             </a>
           </div>
           <div class="col-md-3 col-sm-6">
@@ -57,36 +68,42 @@
             <a href="/species/number-of-species/" class="service_tiem">
               <!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
               <h2>{% trans "Total de Especies" %}</h2>
+              <p>{% blocktrans %}Cuantas especies se consume, se produce, se adquiere y se vende en una comunidad?{% endblocktrans %}</p>
             </a>
           </div>
           <div class="col-md-3 col-sm-6">
             <a href="/species/relationship-between-number-of-species-environmental-and-economic-factors/" class="service_tiem">
               <!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
               <h2>{% trans "Relación entre número especies, factores ambientales y económicos" %}</h2>
+              <p>{% blocktrans %}Que son los dinámicos entre los números de especies usados y factores ambientales y económicos?{% endblocktrans %}</p>
             </a>
           </div>
           <div class="col-md-3 col-sm-6">
             <a href="/species/profile-spicies/" class="service_tiem">
               <!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
               <h2>{% trans "Perfil de Especies" %}</h2>
+              <p>{% blocktrans %}Información detallada sobre las especies usadas en las comunidades seleccionadas{% endblocktrans %}</p>
             </a>
           </div>
           <div class="col-md-3 col-sm-6">
             <a href="/species/profile-focus-groups/" class="service_tiem">
               <!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
               <h2>{% trans "Perfil de Grupos Focales" %}</h2>
+              <p>{% blocktrans %}Información detallada sobre los grupos focales de las comunidades seleccionadas{% endblocktrans %}</p>
             </a>
           </div>
           <div class="col-md-3 col-sm-6">
             <a href="/species/profile-abd/" class="service_tiem">
               <!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
               <h2>{% trans "Perfil ABD" %}</h2>
+              <p>{% blocktrans %}Resumen total del uso de las especies usadas en la comunidad{% endblocktrans %}</p>
             </a>
           </div>
           <div class="col-md-3 col-sm-6">
             <a href="/species/tables-abd/" class="service_tiem">
               <!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
               <h2>{% trans "Tablas ABD" %}</h2>
+              <p>{% blocktrans %}Para cada especies, cuantas hogares (muchas o pocas) consume, produce, adquiere y/o vende esta especies? Cuál es la frecuencia de consumo, adquisición y venta de cada especie (alta o baja)? Cuál es el tamaño del área de producción de cada especies (largo o pequeño)? {% endblocktrans %}</p>
             </a>
           </div>
         </div>
