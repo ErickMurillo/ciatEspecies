@@ -13,17 +13,19 @@
 
             <p>
             <strong>{% trans "Región" %}: </strong>
-              {% if request.session.region == '1' %}
-              APAC, 
-              {% elif request.session.region == '2' %}
-              LatAm, 
-              {% elif request.session.region == '3' %}
-              South Asia, 
-              {% elif request.session.region == '4' %}
-              Asia, 
-              {% elif request.session.region == '5' %}
-              Africa, 
+              {% for region in request.session.region %}
+              {% if region == '1' %}
+              APAC,
+              {% elif region == '2' %}
+              LatAm,
+              {% elif region == '3' %}
+              South Asia,
+              {% elif region == '4' %}
+              Asia,
+              {% elif region == '5' %}
+              Africa,
               {% endif %}
+              {% endfor %}
               <strong>{% trans "Paises" %}: </strong>
               {% for pais in request.session.country %}
                 {{pais}}{% if not forloop.last %},{% endif %}
@@ -31,7 +33,7 @@
           </p>
           <p>
 
-              
+
           </p>
             <p>
                 <strong>{% trans "Provincias" %}: </strong>

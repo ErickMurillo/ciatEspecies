@@ -19,7 +19,7 @@ def _queryset_filtrado(request):
     params = {}
 
     if request.session['region']:
-        params['country__region'] = request.session['region']
+        params['country__region__in'] = request.session['region']
 
     if request.session['country']:
         params['country__in'] = request.session['country']
@@ -495,35 +495,35 @@ def perfil_focus_groups_detail(request,id = None):
         ventalist_1,ventalist_2,ventalist_3,ventalist_4,ventalist_5,ventalist_6,ventalist_7,ventalist_8 = [],[],[],[],[],[],[],[]
         for sp in species:
             # tabla 1 consumo ---------------------------------------------------------------
-            if (sp[1] == 1 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 1 or sp[4] == 3):
+            if (sp[1] == 4 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 1) and (sp[4] == 4 or sp[4] == 3):
                 if x[0] == sp[5]:
                     list_1.append(sp[0])
 
-            if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
+            if (sp[1] == 4 or sp[1] == 3) and (sp[3] == 4 or sp[3] == 3) and (sp[4] == 4 or sp[4] == 3):
                 if x[0] == sp[5]:
                     list_2.append(sp[0])
 
-            if (sp[1] == 4) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 1 or sp[4] == 3):
+            if (sp[1] == 1) and (sp[3] == None or sp[3] == 0 or sp[3] == 1) and (sp[4] == 4 or sp[4] == 3):
                 if x[0] == sp[5]:
                     list_3.append(sp[0])
 
-            if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
+            if (sp[1] == 2 or sp[1] == 1) and (sp[3] == 4 or sp[3] == 3) and (sp[4] == 4 or sp[4] == 3):
                 if x[0] == sp[5]:
                     list_4.append(sp[0])
 
-            if (sp[1] == 0 or sp[1] == None) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
+            if (sp[1] == 0 or sp[1] == None) and (sp[3] == 4 or sp[3] == 3) and (sp[4] == 4 or sp[4] == 3):
                 if x[0] == sp[5]:
                     list_5.append(sp[0])
 
-            if (sp[1] == 1 or sp[1] == 3) and (sp[4] == 4):
+            if (sp[1] == 4 or sp[1] == 3) and (sp[4] == 4):
                 if x[0] == sp[5]:
                     list_6.append(sp[0])
 
-            if (sp[1] == 4 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 4):
+            if (sp[1] == 1) and (sp[3] == None or sp[3] == 0 or sp[3] == 1) and (sp[4] == 1):
                 if x[0] == sp[5]:
                     list_7.append(sp[0])
 
-            if (sp[1] == 0 or sp[1] == None) and (sp[3] == 2 or sp[3] == 4) and (sp[4] == 2 or sp[4] == 4):
+            if (sp[1] == 0 or sp[1] == None) and (sp[3] == 2 or sp[3] == 1) and (sp[4] == 2 or sp[4] == 1):
                 if x[0] == sp[5]:
                     list_8.append(sp[0])
 
@@ -719,35 +719,35 @@ def perfil_abd(request,template = "salidas/perfil_abd.html"):
             ventalist_1,ventalist_2,ventalist_3,ventalist_4,ventalist_5,ventalist_6,ventalist_7,ventalist_8 = [],[],[],[],[],[],[],[]
             for sp in species:
                 # tabla 1 consumo ---------------------------------------------------------------
-                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 1 or sp[4] == 3):
+                if (sp[1] == 4 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 1) and (sp[4] == 4 or sp[4] == 3):
                     if x[0] == sp[5]:
                         list_1.append(sp[0])
 
-                if (sp[1] == 1 or sp[1] == 3) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
+                if (sp[1] == 4 or sp[1] == 3) and (sp[3] == 4 or sp[3] == 3) and (sp[4] == 4 or sp[4] == 3):
                     if x[0] == sp[5]:
                         list_2.append(sp[0])
 
-                if (sp[1] == 4) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 1 or sp[4] == 3):
+                if (sp[1] == 1) and (sp[3] == None or sp[3] == 0 or sp[3] == 1) and (sp[4] == 4 or sp[4] == 3):
                     if x[0] == sp[5]:
                         list_3.append(sp[0])
 
-                if (sp[1] == 2 or sp[1] == 4) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
+                if (sp[1] == 2 or sp[1] == 1) and (sp[3] == 4 or sp[3] == 3) and (sp[4] == 4 or sp[4] == 3):
                     if x[0] == sp[5]:
                         list_4.append(sp[0])
 
-                if (sp[1] == 0 or sp[1] == None) and (sp[3] == 1 or sp[3] == 3) and (sp[4] == 1 or sp[4] == 3):
+                if (sp[1] == 0 or sp[1] == None) and (sp[3] == 4 or sp[3] == 3) and (sp[4] == 4 or sp[4] == 3):
                     if x[0] == sp[5]:
                         list_5.append(sp[0])
 
-                if (sp[1] == 1 or sp[1] == 3) and (sp[4] == 4):
+                if (sp[1] == 4 or sp[1] == 3) and (sp[4] == 1):
                     if x[0] == sp[5]:
                         list_6.append(sp[0])
 
-                if (sp[1] == 4 or sp[1] == 3) and (sp[3] == None or sp[3] == 0 or sp[3] == 4) and (sp[4] == 4):
+                if (sp[1] == 1) and (sp[3] == None or sp[3] == 0 or sp[3] == 1) and (sp[4] == 1):
                     if x[0] == sp[5]:
                         list_7.append(sp[0])
 
-                if (sp[1] == 0 or sp[1] == None) and (sp[3] == 2 or sp[3] == 4) and (sp[4] == 2 or sp[4] == 4):
+                if (sp[1] == 0 or sp[1] == None) and (sp[3] == 2 or sp[3] == 1) and (sp[4] == 2 or sp[4] == 1):
                     if x[0] == sp[5]:
                         list_8.append(sp[0])
 

@@ -20,13 +20,18 @@
   border-radius: 15px
 }
 .service_tiem {
-    display: block;
-    border: 1px solid #ccc;
-     min-height: none !important;
-    height: 225px;
+  display: block;
+  border: 1px solid #ccc;
+  min-height: none !important;
+  height: 225px;
 }
 .service_tiem h2 {
-    height: auto !important;
+  height: auto !important;
+}
+.dropdown-menu {
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 </style>
 <!-- CONTACT Section
@@ -75,7 +80,7 @@
             <a href="/species/relationship-between-number-of-species-environmental-and-economic-factors/" class="service_tiem">
               <!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
               <h2>{% trans "Relación entre número especies, factores ambientales y económicos" %}</h2>
-              <p>{% blocktrans %}Que son los dinámicos entre los números de especies usados y factores ambientales y económicos?{% endblocktrans %}</p>
+              <p>{% blocktrans %}Que son los dinámicos entre el número de especies usadas y factores ambientales y económicos?{% endblocktrans %}</p>
             </a>
           </div>
           <div class="col-md-3 col-sm-6">
@@ -93,17 +98,17 @@
             </a>
           </div>
           <div class="col-md-3 col-sm-6">
+            <a href="/species/tables-abd/" class="service_tiem">
+              <!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
+              <h2>{% trans "Tablas ABD" %}</h2>
+              <p>{% blocktrans %}Para cada especie, cuantas hogares consume, produce, adquiere o vende esta especies? Cuál es la frecuencia de consumo, adquisición y venta de cada especie? Cuál es el tamaño del área de producción de cada especie?{% endblocktrans %}</p>
+            </a>
+          </div>
+          <div class="col-md-3 col-sm-6">
             <a href="/species/profile-abd/" class="service_tiem">
               <!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
               <h2>{% trans "Perfil ABD" %}</h2>
               <p>{% blocktrans %}Resumen total del uso de las especies usadas en la comunidad{% endblocktrans %}</p>
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="/species/tables-abd/" class="service_tiem">
-              <!-- <div class="sicon"><i class="fa fa-cogs"></i></div> -->
-              <h2>{% trans "Tablas ABD" %}</h2>
-              <p>{% blocktrans %}Para cada especies, cuantas hogares (muchas o pocas) consume, produce, adquiere y/o vende esta especies? Cuál es la frecuencia de consumo, adquisición y venta de cada especie (alta o baja)? Cuál es el tamaño del área de producción de cada especies (largo o pequeño)? {% endblocktrans %}</p>
             </a>
           </div>
         </div>
@@ -112,7 +117,6 @@
     </div>
 
     {% endif %}
-
     <div class="container cerrar">
       <div class="row">
         <div class="col-sm-6">
@@ -120,81 +124,59 @@
             <h3>{% trans "FILTRO DE DATOS" %}</h3>
             {% if centinela == 0 %}<p class="text-danger">{% trans "Los campos con (*) son requeridos" %}</p>{% endif %}
             <form name="mailform" id="mailform" action="." method="post" enctype="multipart/form-data" >{% csrf_token %}
-              <!--               <div class="form-group row">
+
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+                  {% trans "Región Geográfica" %} *
+                </label>
+                <div class="col-sm-12 col-lg-8">
+                  {{form.region}}
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+                  {% trans "País" %} *
+                </label>
+                <div class="col-sm-12 col-lg-8">
+                  {{form.country}}
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+                  {% trans "Provincia" %} *
+                </label>
+                <div class="col-sm-12 col-lg-8">
+                  {{form.province}}
+                </div>
+              </div>
+              <!--<div class="form-group row">
               <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-              Zona Agroecologico
+              Estado
             </label>
             <div class="col-sm-12 col-lg-8">
-            <select name="" id="input" class="form-control" required="required">
-            <option value="">-------</option>
-            <option value="valor1"> Valor1</option>
-          </select>
+            {{form.county}}
+          </div>
+        </div>-->
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+            {% trans "Comunidad" %} *
+          </label>
+          <div class="col-sm-12 col-lg-8">
+            {{form.community}}
+          </div>
         </div>
-      </div>
-      <div class="form-group row">
-      <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-      Sistema de producción
-    </label>
-    <div class="col-sm-12 col-lg-8">
-    <select name="" id="input" class="form-control" required="required">
-    <option value="">-------</option>
-    <option value="valor1"> Valor1</option>
-  </select>
-</div>
-</div> -->
 
-<div class="form-group row">
+        <!--<div class="form-group row">
+        <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
+        {% trans "Año" %}
+      </label>
+      <div class="col-sm-12 col-lg-8">
+      {{form.year}}
+    </div>
+  </div>-->
+  <!--<div class="form-group row">
   <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-    {% trans "Región Geográfica" %} *
-  </label>
-  <div class="col-sm-12 col-lg-8">
-    {{form.region}}
-  </div>
-</div>
-<div class="form-group row">
-  <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-    {% trans "País" %} *
-  </label>
-  <div class="col-sm-12 col-lg-8">
-    {{form.country}}
-  </div>
-</div>
-<div class="form-group row">
-  <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-    {% trans "Provincia" %} *
-  </label>
-  <div class="col-sm-12 col-lg-8">
-    {{form.province}}
-  </div>
-</div>
-<!--<div class="form-group row">
-<label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-Estado
-</label>
-<div class="col-sm-12 col-lg-8">
-{{form.county}}
-</div>
-</div>-->
-<div class="form-group row">
-  <label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-    {% trans "Comunidad" %} *
-  </label>
-  <div class="col-sm-12 col-lg-8">
-    {{form.community}}
-  </div>
-</div>
-
-<!--<div class="form-group row">
-<label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-{% trans "Año" %}
-</label>
-<div class="col-sm-12 col-lg-8">
-{{form.year}}
-</div>
-</div>-->
-<!--<div class="form-group row">
-<label for="inputEmail3" class="col-sm-12 col-lg-4 control-label">
-Género
+  Género
 </label>
 <div class="col-sm-12 col-lg-8">
 {{form.gender}}
@@ -206,23 +188,23 @@ Género
 </div>
 </div>
 <div class="col-sm-6">
-	<div class="form-inline pull-right f-mapa">
-		<div class="form-group">
-			<label for="exampleInputName2">{% trans "Filtro de Población" %}</label>
-			<select class="form-control" id="select-pais" name='pais'>
-				<option value=''>-------</option>
-				{% for obj in paises %}
-				<option value='{{obj.id}}'>{{obj.name}}</option>
-				{% endfor %}
-			</select>
-		</div>
+  <div class="form-inline pull-right f-mapa">
+    <div class="form-group">
+      <label for="exampleInputName2">{% trans "Filtro de Población" %}</label>
+      <select class="form-control" id="select-pais" name='pais'>
+        <option value=''>-------</option>
+        {% for obj in paises %}
+        <option value='{{obj.id}}'>{{obj.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
 
 
-	</div>
-
-    <div id="map_canvas" class="map" style="width:100%; height:430px"></div>
-    <iframe id="fake-map" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d52491780.825310744!2d-8.517101532792102!3d17.265583516212416!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sni!4v1466710021328" width="100%" height="430" frameborder="0" style="border:0" allowfullscreen></iframe>
   </div>
+
+  <div id="map_canvas" class="map" style="width:100%; height:430px"></div>
+  <iframe id="fake-map" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d52491780.825310744!2d-8.517101532792102!3d17.265583516212416!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sni!4v1466710021328" width="100%" height="430" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
 </div>
 
 <style media="screen">
@@ -232,101 +214,6 @@ Género
   overflow: scroll;
 }
 </style>
-<!--<div class="col-sm-12">
-<h4>Focus Groups Table <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad'); return false;">Exportar</a></h4>
-<div class="table-responsive" id="modalidad">
-<table class="table table-bordered table-hover" cellspacing="0" width="100%">
-<thead>
-<tr>
-<th>ID</th>
-<th>Country</th>
-<th>Province</th>
-<th>Community</th>
-<th>Date</th>
-<th>Scientist</th>
-<th>Organization</th>
-<th>CRP</th>
-<th>Ethnic group</th>
-<th>Language</th>
-<th>HH</th>
-<th>Area</th>
-<th>Frecuency</th>
-<th>Year round</th>
-<th>Lean season</th>
-<th>Climate</th>
-<th>Population</th>
-<th>Market distance</th>
-<th>Gender</th>
-<th>Method observations</th>
-</tr>
-</thead>
-<tbody>
-{%for fg in focusgroups %}
-<tr>
-<td>{{fg.id}}</td>
-<td>{{fg.country|default:""}}</td>
-<td>{{fg.province|default:""}}</td>
-<td>{{fg.community|default:""}}</td>
-<td>{{fg.date|default:""}}</td>
-<td>{{fg.scientist|default:""}}</td>
-<td>{{fg.organization|default:""}}</td>
-<td>{{fg.crp|default:""}}</td>
-<td>{% for x in fg.ethnic_group.all %}{{x|default:""}},{% endfor %}</td>
-<td>{% for x in fg.language.all %}{{x|default:""}},{% endfor %}</td>
-<td>{{fg.hh|default:""}}</td>
-<td>{{fg.area|default:""}}</td>
-<td>{{fg.frecuency|default:""}}</td>
-<td>{{fg.year_round|default:""}}</td>
-<td>{{fg.lean_season|default:""}}</td>
-<td>{{fg.climate|default:""}}</td>
-<td>{{fg.population|default:""}}</td>
-<td>{{fg.market_distance|default:""}}</td>
-<td>{{fg.get_gender_display|default:""}}</td>
-<td>{{fg.method_observations|default:""}}</td>
-</tr>
-{%endfor%}
-</tbody>
-</table>
-</div>
-</div>
-
-<div class="col-sm-12">
-<h4>Species Table <a class="btn btn-default" role="button" href="#" onclick="exportarXLS('modalidad1'); return false;">Exportar</a></h4>
-<div class="table-responsive" id="modalidad1">
-<table class="table table-bordered table-hover" cellspacing="0" width="100%">
-<thead>
-<tr>
-<th>ID</th>
-<th>Scientific name</th>
-<th>Name genus</th>
-<th>Name species</th>
-<th>Common name</th>
-<th>Food group</th>
-<th>Name order</th>
-<th>Name family</th>
-<th>Cultivar</th>
-<th>Type species</th>
-</tr>
-</thead>
-<tbody>
-{%for specie in species %}
-<tr>
-<td>{{specie.id}}</td>
-<td>{{specie.scientific_name|default:""}}</td>
-<td>{{specie.name_genus1|default:""}}</td>
-<td>{{specie.name_species1|default:""}}</td>
-<td>{{specie.common_name|default:""}}</td>
-<td>{{specie.food_group|default:""}}</td>
-<td>{{specie.name_order|default:""}}</td>
-<td>{{specie.name_family|default:""}}</td>
-<td>{{specie.get_cultivar_display|default:""}}</td>
-<td>{{specie.get_type_species_display|default:""}}</td>
-</tr>
-{%endfor%}
-</tbody>
-</table>
-</div>
-</div>-->
 </div>
 </div>
 </div>
@@ -343,6 +230,33 @@ $(document).ready(function() {
   $('#id_region').addClass('form-control');
   $('#id_gender').addClass('form-control');
   $('#id_year').addClass('form-control');
+
+  $('#id_region').multiselect({
+    buttonWidth: '100%',
+    includeSelectAllOption: true,
+    selectAllText: '{% trans "Seleccionar todos" %}',
+    buttonText: function(options, select) {
+      if (options.length === 0) {
+        return '{% trans "Sin selección ..." %}';
+      }
+      else if (options.length > 3) {
+        return '{% trans "Varias opciones seleccionadas!" %}';
+      }
+      else {
+        var labels = [];
+        options.each(function() {
+          if ($(this).attr('label') !== undefined) {
+            labels.push($(this).attr('label'));
+          }
+          else {
+            labels.push($(this).html());
+          }
+        });
+        return labels.join(', ') + '';
+      }
+    }
+  });
+
 
   $('#id_country').multiselect({
     buttonWidth: '100%',
@@ -453,9 +367,13 @@ $(document).ready(function() {
   $("#id_community").multiselect('disable');
 
   // country
+  var region = [];
   $(document).on('change','#id_region',function(){
-    var region = $('#id_region :selected').val();
-    $.getJSON('/ajax/countries/?ids='+region, function(data){
+    // var region = $('#id_region :selected').val();
+    $('#id_region :selected').each(function(i, selected){
+      region[i] = $(selected).val();
+    });
+    $.getJSON('/ajax/countries/?ids='+region.join(","), function(data){
       $('#id_country').html('');
       $("#id_country").multiselect('enable');
       if(data){
@@ -548,14 +466,14 @@ $(document).on('change','#select-pais',function() {
 
         $.each(data, function (index, item) {
           $.each(item[2], function (i, item2) {
-              var contentString = '<div id="content">'+
-              '<div id="siteNotice">'+
-              '</div>'+
-              '<h1 id="firstHeading" class="firstHeading">'+i+'</h1>'+
-              '<div id="bodyContent">'+
-              '<p>{% trans "Población" %}: '+item2[2]+' </p>' +
-              '</div>'+
-              '</div>';
+            var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">'+i+'</h1>'+
+            '<div id="bodyContent">'+
+            '<p>{% trans "Población" %}: '+item2[2]+' </p>' +
+            '</div>'+
+            '</div>';
             var infowindow = new google.maps.InfoWindow({
               content: contentString
             });
@@ -563,7 +481,7 @@ $(document).on('change','#select-pais',function() {
               position: new google.maps.LatLng(item2[0], item2[1]),
               map: map,
               title: ''+i+'',
-          });
+            });
             marker.addListener('click', function() {
               infowindow.open(map, marker);
             });

@@ -33,8 +33,10 @@
     border-radius: 5px !important;
 }
 #logos-footer img{
-  float: left;
-  margin-right: 35px
+  margin-right: 35px;
+  display: inline-block;
+  margin: 0;
+  padding: 10px;
 }
 </style>
 
@@ -85,6 +87,7 @@
 					<li><a href="{% if LANGUAGE_CODE == 'es' %}/metodologia/{% elif LANGUAGE_CODE == 'en' %}/methodology/{% endif %}">{% trans "METODOLOGÍA" %}</a></li>
 					<li><a href="/publications-and-proyects-list/">{% trans "PUBLICACIONES Y PROYECTOS" %}</a></li>
 					<li><a href="/contact/">{% trans "INVOLUCRARSE" %}</a></li>
+          <li><a href="{% if LANGUAGE_CODE == 'es' %}/socios/{% elif LANGUAGE_CODE == 'en' %}/partners/{% endif %}">{% trans "SOCIOS" %}</a></li>
 					<li><a href="/admin">{% trans "INICIAR SESIÓN" %}</a></li>
 				</ul>
 			</div>

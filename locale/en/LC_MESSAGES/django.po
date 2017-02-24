@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-23 08:56-0600\n"
+"POT-Creation-Date: 2017-02-24 13:51-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ciatEspecies/settings.py:119 templates/base.html:64
+#: ciatEspecies/settings.py:119 templates/base.html:71
 msgid "Español"
 msgstr "Spanish"
 
@@ -25,36 +25,36 @@ msgstr "Spanish"
 msgid "English"
 msgstr "Ingles"
 
-#: focusgroups/forms.py:39
+#: focusgroups/forms.py:38
 msgid "Solicitar datos"
 msgstr "Request information"
 
-#: focusgroups/forms.py:39
+#: focusgroups/forms.py:38
 msgid "Unirse a la red de datos ABD"
 msgstr "Join ABD data network"
 
-#: focusgroups/forms.py:41 templates/afiliarse.html:68
+#: focusgroups/forms.py:40 templates/afiliarse.html:68
 msgid "Nombre"
 msgstr "Name"
 
-#: focusgroups/forms.py:42 templates/afiliarse.html:71
+#: focusgroups/forms.py:41 templates/afiliarse.html:71
 msgid "Correo"
 msgstr "Email"
 
-#: focusgroups/forms.py:43
+#: focusgroups/forms.py:42
 msgid "Proyecto"
 msgstr "Project"
 
-#: focusgroups/forms.py:44 templates/afiliarse.html:77
+#: focusgroups/forms.py:43 templates/afiliarse.html:77
 #: templates/salidas/perfil_especies.html:79
 msgid "Tipo"
 msgstr "Type"
 
-#: focusgroups/forms.py:45 templates/afiliarse.html:80
+#: focusgroups/forms.py:44 templates/afiliarse.html:80
 msgid "Descripción breve"
 msgstr "Brief description"
 
-#: templates/afiliarse.html:9 templates/base.html:82
+#: templates/afiliarse.html:9 templates/base.html:89
 msgid "INVOLUCRARSE"
 msgstr "GET INVOLVED"
 
@@ -97,41 +97,49 @@ msgstr "SEND MESSAGE"
 msgid "Projecto"
 msgstr "Project"
 
-#: templates/base.html:10
+#: templates/base.html:11
 msgid "Sistema ABD"
 msgstr "ABD System"
 
-#: templates/base.html:58
+#: templates/base.html:65
 msgid "Idioma"
 msgstr "Language"
 
-#: templates/base.html:63
+#: templates/base.html:70
 msgid "Ingles"
 msgstr "English"
 
-#: templates/base.html:77
+#: templates/base.html:84
 msgid "INICIO"
 msgstr "HOME"
 
-#: templates/base.html:78 templates/consulta.html:37
+#: templates/base.html:85 templates/consulta.html:42
 msgid "EXPLORAR DATOS"
 msgstr "EXPLORE DATA"
 
-#: templates/base.html:79
+#: templates/base.html:86
 msgid "USO DE INFORMACIÓN"
 msgstr "INFORMATION USE"
 
-#: templates/base.html:80
+#: templates/base.html:87
 msgid "METODOLOGÍA"
 msgstr "METHODOLOGY"
 
-#: templates/base.html:81
+#: templates/base.html:88
 msgid "PUBLICACIONES Y PROYECTOS"
 msgstr "PUBLICATIONS AND PROJECTS"
 
-#: templates/base.html:83
+#: templates/base.html:90
+msgid "SOCIOS"
+msgstr "PARTNERS"
+
+#: templates/base.html:91
 msgid "INICIAR SESIÓN"
 msgstr "LOG IN"
+
+#: templates/cientificos-list.html:19 templates/index.html:197
+msgid "CONTRIBUYENTES"
+msgstr "CONTRIBUTORS"
 
 #: templates/cientificos_detail.html:24 templates/org_detail.html:23
 msgid "Nombre:"
@@ -153,41 +161,41 @@ msgstr "Phone"
 msgid "Correo:"
 msgstr "Email: "
 
-#: templates/consulta.html:55 templates/indicadores.html:6
+#: templates/consulta.html:60 templates/indicadores.html:6
 #: templates/salidas/grupo_nutricional.html:15
 #: templates/salidas/grupo_nutricional.html:19
 msgid "Especies por Grupo Nutricionales por Comunidad"
 msgstr "Species by Nutritional Groups by Community"
 
-#: templates/consulta.html:56
+#: templates/consulta.html:61
 msgid ""
 "Cuales grupos nutricionales están bien representados en una comunidad? "
 "Cuales grupos nutricionales están bajo representados?"
 msgstr ""
-"Which food groups are well represented in a community? "
-"Which food groups are under-represented?"
+"Which food groups are well represented in a community? Which food groups are "
+"under-represented?"
 
-#: templates/consulta.html:62 templates/indicadores.html:9
+#: templates/consulta.html:67 templates/indicadores.html:9
 #: templates/salidas/grupo_nutricional_pais.html:11
 #: templates/salidas/grupo_nutricional_pais.html:15
 msgid "Especies por Grupo Nutricional por País"
 msgstr "Species by Nutritional Groups by Country"
 
-#: templates/consulta.html:63
+#: templates/consulta.html:68
 msgid ""
 "Cuales grupos nutricionales están bien representados en un país? Cuales "
 "grupos nutricionales están bajo representados?"
 msgstr ""
-"Which food groups are most represented in a country? Which "
-"food groups are under-represented?"
+"Which food groups are most represented in a country? Which food groups are "
+"under-represented?"
 
-#: templates/consulta.html:70 templates/indicadores.html:12
+#: templates/consulta.html:75 templates/indicadores.html:12
 #: templates/salidas/numero_especies.html:10
 #: templates/salidas/numero_especies.html:14
 msgid "Total de Especies"
 msgstr "Total Species"
 
-#: templates/consulta.html:71
+#: templates/consulta.html:76
 msgid ""
 "Cuantas especies se consume, se produce, se adquiere y se vende en una "
 "comunidad?"
@@ -195,128 +203,130 @@ msgstr ""
 "How many species are consumed, are produced, are purchased and are sold in a "
 "community?"
 
-#: templates/consulta.html:77 templates/indicadores.html:15
+#: templates/consulta.html:82 templates/indicadores.html:15
 #: templates/salidas/numero_especies_comunidad.html:11
 #: templates/salidas/numero_especies_comunidad.html:15
 msgid "Relación entre número especies, factores ambientales y económicos"
 msgstr ""
 "Relationship between number of species, environmental and economic factors"
 
-#: templates/consulta.html:78
+#: templates/consulta.html:83
 msgid ""
-"Que son los dinámicos entre los números de especies usados y factores "
+"Que son los dinámicos entre el número de especies usadas y factores "
 "ambientales y económicos?"
 msgstr ""
 "What are the dynamics between number of species that are used in communities "
 "and environmental or economic factors?"
 
-#: templates/consulta.html:84 templates/indicadores.html:18
+#: templates/consulta.html:89 templates/indicadores.html:18
 #: templates/salidas/perfil_especies.html:12
 #: templates/salidas/perfil_especies.html:16
 #: templates/salidas/perfil_especies_detalle.html:19
 msgid "Perfil de Especies"
 msgstr "Species profile"
 
-#: templates/consulta.html:85
+#: templates/consulta.html:90
 msgid ""
 "Información detallada sobre las especies usadas en las comunidades "
 "seleccionadas"
 msgstr ""
 "Detailed information about the species used in the selected communities"
 
-#: templates/consulta.html:91 templates/indicadores.html:21
+#: templates/consulta.html:96 templates/indicadores.html:21
 #: templates/salidas/perfil_focus_groups.html:14
 #: templates/salidas/perfil_focus_groups.html:18
 msgid "Perfil de Grupos Focales"
 msgstr "Focus Groups profile"
 
-#: templates/consulta.html:92
+#: templates/consulta.html:97
 msgid ""
 "Información detallada sobre los grupos focales de las comunidades "
 "seleccionadas"
 msgstr ""
 "Detailed information about the focus groups of the selected communities"
 
-#: templates/consulta.html:98 templates/indicadores.html:24
-#: templates/salidas/perfil_abd.html:29 templates/salidas/perfil_abd.html:33
-msgid "Perfil ABD"
-msgstr "ABD profile"
-
-#: templates/consulta.html:99
-msgid "Resumen total del uso de las especies usadas en la comunidad"
-msgstr "Total summary of the species that are used in a community"
-
-#: templates/consulta.html:105 templates/indicadores.html:27
+#: templates/consulta.html:103 templates/indicadores.html:24
 #: templates/salidas/tablas_abd.html:15 templates/salidas/tablas_abd.html:19
 msgid "Tablas ABD"
 msgstr "ABD Tables"
 
-#: templates/consulta.html:106
+#: templates/consulta.html:104
 msgid ""
-"Para cada especies, cuantas hogares (muchas o pocas) consume, produce, "
-"adquiere y/o vende esta especies? Cuál es la frecuencia de consumo, "
-"adquisición y venta de cada especie (alta o baja)? Cuál es el tamaño del "
-"área de producción de cada especies (largo o pequeño)? "
+"Para cada especie, cuantas hogares consume, produce, adquiere o vende esta "
+"especies? Cuál es la frecuencia de consumo, adquisición y venta de cada "
+"especie? Cuál es el tamaño del área de producción de cada especie?"
 msgstr ""
 "For each species, how many households (many or few) consume, produce, "
 "purchase or sell this species? What is the frequency of consumption, "
 "purchase and sell of each species (high or low)? What is the area of "
 "production each species (large or small)? "
 
-#: templates/consulta.html:120
+#: templates/consulta.html:110 templates/indicadores.html:27
+#: templates/salidas/perfil_abd.html:29 templates/salidas/perfil_abd.html:33
+msgid "Perfil ABD"
+msgstr "ABD profile"
+
+#: templates/consulta.html:111
+msgid "Resumen total del uso de las especies usadas en la comunidad"
+msgstr "Total summary of the species that are used in a community"
+
+#: templates/consulta.html:124
 msgid "FILTRO DE DATOS"
 msgstr "DATA FILTER"
 
-#: templates/consulta.html:121
+#: templates/consulta.html:125
 msgid "Los campos con (*) son requeridos"
 msgstr "Fields with (*) are required"
 
-#: templates/consulta.html:148
+#: templates/consulta.html:130
 msgid "Región Geográfica"
 msgstr "Geographical Region"
 
-#: templates/consulta.html:156
+#: templates/consulta.html:138
 msgid "País"
 msgstr "Country"
 
-#: templates/consulta.html:164 templates/salidas/perfil_fg_detalle.html:95
+#: templates/consulta.html:146 templates/salidas/perfil_fg_detalle.html:95
 #: templates/salidas/perfil_focus_groups.html:92
 msgid "Provincia"
 msgstr "Province"
 
-#: templates/consulta.html:180 templates/salidas/perfil_fg_detalle.html:96
+#: templates/consulta.html:162 templates/salidas/perfil_fg_detalle.html:96
 #: templates/salidas/perfil_focus_groups.html:93
 msgid "Comunidad"
 msgstr "Community"
 
-#: templates/consulta.html:189 templates/salidas/select_filtros.html:11
+#: templates/consulta.html:171 templates/salidas/select_filtros.html:11
 msgid "Año"
 msgstr "Year"
 
-#: templates/consulta.html:204
+#: templates/consulta.html:186
 msgid "CONSULTAR"
 msgstr "QUERY"
 
-#: templates/consulta.html:211
+#: templates/consulta.html:193
 msgid "Filtro de Población"
 msgstr "Population filter"
 
-#: templates/consulta.html:350 templates/consulta.html:376
-#: templates/consulta.html:402 templates/consulta.html:428
+#: templates/consulta.html:237 templates/consulta.html:264
+#: templates/consulta.html:290 templates/consulta.html:316
+#: templates/consulta.html:342
 msgid "Seleccionar todos"
 msgstr "Select all"
 
-#: templates/consulta.html:353 templates/consulta.html:379
-#: templates/consulta.html:405 templates/consulta.html:431
+#: templates/consulta.html:240 templates/consulta.html:267
+#: templates/consulta.html:293 templates/consulta.html:319
+#: templates/consulta.html:345
 msgid "Sin selección ..."
 msgstr "No selection ..."
 
-#: templates/consulta.html:356 templates/consulta.html:382
-#: templates/consulta.html:408 templates/consulta.html:434
+#: templates/consulta.html:243 templates/consulta.html:270
+#: templates/consulta.html:296 templates/consulta.html:322
+#: templates/consulta.html:348
 msgid "Varias opciones seleccionadas!"
 msgstr "Several options selected!"
 
-#: templates/consulta.html:556 templates/salidas/perfil_fg_detalle.html:132
+#: templates/consulta.html:474 templates/salidas/perfil_fg_detalle.html:132
 #: templates/salidas/perfil_fg_detalle.html:134
 msgid "Población"
 msgstr "Population"
@@ -368,7 +378,7 @@ msgstr "General Data"
 msgid "Leer más..."
 msgstr "Read more..."
 
-#: templates/index.html:135
+#: templates/index.html:135 templates/publicacion-list.html:15
 msgid "PROYECTOS Y PUBLICACIONES"
 msgstr "PROJECTS AND PUBLICATIONS"
 
@@ -379,10 +389,6 @@ msgstr "View publications and projects"
 #: templates/index.html:187
 msgid "INVOLUCRARSE AHORA"
 msgstr "GET INVOLVED NOW"
-
-#: templates/index.html:197
-msgid "CONTRIBUYENTES"
-msgstr "CONTRIBUTORS"
 
 #: templates/index.html:202
 msgid "Científicos Participantes"
@@ -615,7 +621,7 @@ msgstr "Number of species by country"
 #: templates/salidas/numero_especies_comunidad.html:217
 #: templates/salidas/numero_especies_comunidad.html:289
 msgid "Precipitaciones anuales (mm) promedio"
-msgstr "Average of Rainfall in the driest quarter (mm)"
+msgstr "Average of annual rainfall (mm)"
 
 #: templates/salidas/numero_especies_comunidad.html:74
 #: templates/salidas/numero_especies_comunidad.html:88
@@ -670,7 +676,7 @@ msgstr "Average market distance (km)"
 
 #: templates/salidas/numero_especies_comunidad.html:392
 msgid "Precipitaciones anuales (mm) vs Especies cultivadas"
-msgstr "Rainfall in the driest quarter (mm) vs Species cultivated"
+msgstr "Annual rainfall (mm) vs Species cultivated"
 
 #: templates/salidas/numero_especies_comunidad.html:397
 #: templates/salidas/numero_especies_comunidad.html:454
@@ -1015,12 +1021,12 @@ msgid "Total de comunidades registradas"
 msgstr "Total of registered communities"
 
 #: templates/salidas/perfil_especies_detalle.html:101
-#: templates/salidas/select_filtros.html:27
+#: templates/salidas/select_filtros.html:29
 msgid "Paises"
 msgstr "Countries"
 
 #: templates/salidas/perfil_especies_detalle.html:102
-#: templates/salidas/select_filtros.html:43
+#: templates/salidas/select_filtros.html:45
 msgid "Comunidades"
 msgstr "Communities"
 
@@ -1139,7 +1145,7 @@ msgstr "Filters"
 msgid "seleccionados"
 msgstr "Selected"
 
-#: templates/salidas/select_filtros.html:37
+#: templates/salidas/select_filtros.html:39
 msgid "Provincias"
 msgstr "Provinces"
 

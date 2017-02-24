@@ -4,7 +4,7 @@ django-ckeditor==5.2.1
 django-el-pagination==3.0.1
 django-extensions==1.7.6
 django-import-export==0.4.5
-django-jet==0.1.4
+django-jet==0.1.5
 django-paintstore==0.2
 django-report-builder==3.3.0
 django-report-utils==0.3.15
