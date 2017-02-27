@@ -7,8 +7,7 @@
 	<div class="" id="services">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<div class="nota-detail">
+				<div class="col-md-4 hidden-xs">
 						<figure>
 							{% if object.imagen %}
 								{% thumbnail object.imagen "1000" crop="center" as img %}
@@ -19,10 +18,16 @@
 							{% endif %}
 							
 						</figure>
-						<div class="titulo">
-							<h3>{{object.titulo}}</h3>
-							<div class="fecha">{{object.fecha}}</div>
-						</div>
+				</div>
+				<div class="col-md-8">
+					<div class="nota">
+						<h3 class="titulo">{{object.titulo}}
+						<br>
+						<small>{{object.fecha}}</small>
+						</h3>
+						<div class="fecha"></div>
+					
+						
 						
 						<div class="nota">{{object.contenido|safe}}</div>
 						<hr>
@@ -33,9 +38,6 @@
 
 							{% endfor %}
 							</ul>
-
-						    
-						
 					</div>
 				</div>
 				
