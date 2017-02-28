@@ -23,10 +23,10 @@ sombras()
 .aboutus
 	padding-top 40px	
 .banner
-	height 509px
-	background-size 100%
+	background-size 100% 100%
 	display table
 	width 100%
+	background-repeat no-repeat
 	.sltext
 		display table-cell
 		vertical-align middle
@@ -645,3 +645,33 @@ select#input
 	text-rendering: optimizeLegibility
 .f-mapa
 	padding 10px 0
+/**************************XS-Device************************************/
+@media (max-width: 767px)
+	.banner
+		height 350px
+		.sltext
+			margin 55px 0
+			font-size 30px
+/**************************SM-Device************************************/
+@media (min-width: 768px)
+	.banner
+		height 470px
+		.sltext
+			margin 55px 0
+			font-size 45px
+/**************************MD-Device************************************/
+@media (min-width: 992px)
+	.banner
+		height 509px
+		.sltext
+			margin 55px 0
+			font-size 52px
+		
+/**************************LG-Device************************************/		
+@media (min-width: 1230px)
+	.banner
+		height 509px
+		.sltext
+			margin 55px 0
+			font-size 52px
+		
