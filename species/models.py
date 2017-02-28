@@ -79,7 +79,6 @@ class FctEspecies(models.Model):
     carbohidrate = models.FloatField(null=True, blank=True)
     sum_proximates = models.FloatField(null=True, blank=True)
     formula = models.FloatField(null=True, blank=True)
-    #otras ondas
     ca = models.FloatField(null=True, blank=True)
     fe = models.FloatField(null=True, blank=True)
     mg = models.FloatField(null=True, blank=True)
@@ -120,3 +119,7 @@ class FctEspecies(models.Model):
 
     def __str__(self):
         return self.specie
+
+    class Meta:
+    	verbose_name = 'Fct Species'
+    	verbose_name_plural = 'Fct Species'

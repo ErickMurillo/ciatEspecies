@@ -34,6 +34,9 @@ class Country(models.Model):
 	def __str__(self):
 		return self.name
 
+	class Meta:
+		verbose_name = 'Country'
+		verbose_name_plural = 'Countries'
 
 class Province(models.Model):
 	country = models.ForeignKey(Country,blank=True,null=True)
@@ -43,6 +46,10 @@ class Province(models.Model):
 
 	def __str__(self):
 		return self.name.encode('ASCII', 'ignore')
+
+	class Meta:
+		verbose_name = 'Province'
+		verbose_name_plural = 'Provinces'
 
 class County(models.Model):
 	province = models.ForeignKey(Province,blank=True,null=True)
@@ -63,6 +70,9 @@ class Community(models.Model):
 	def __str__(self):
 		return self.name.encode('ASCII', 'ignore')
 
+	class Meta:
+		verbose_name = 'Community'
+		verbose_name_plural = 'Communities'
 
 class Climate(models.Model):
 	name =  models.CharField(max_length=250)
@@ -139,6 +149,10 @@ class Organizations(models.Model):
 	def __str__(self):
 		return self.name.encode('utf-8')
 
+	class Meta:
+		verbose_name = 'Organization'
+		verbose_name_plural = 'Organizations'
+
 
 class CRP(models.Model):
 	name = models.CharField(max_length = 250)
@@ -160,6 +174,10 @@ class EthnicGroup(models.Model):
 
 	def __str__(self):
 		return self.name
+
+	class Meta:
+		verbose_name = 'Ethnic Group'
+		verbose_name_plural = 'Ethnic Groups'
 
 CHOICE_SEASONS = (
 					(1, 'Year-Round (Y)'),
@@ -206,6 +224,10 @@ class FocusGroup(models.Model):
 			self.year = self.date.year
 		super(FocusGroup, self).save(*args, **kwargs)
 
+	class Meta:
+		verbose_name = 'Focus Group'
+		verbose_name_plural = 'Focus Groups'
+
 CHOICE_FCA = ((1, '1'),(2, '2'),(3, '3'),(4,'4'))
 CHOICE_PRESENCE = ((0, '0'),(1, '1'))
 CHOICE_SOURCE = ((1, 'Cultivated/Reared'),(2, 'Wild'),(3, 'Mixed/Both'))
@@ -222,17 +244,29 @@ class PartUsed(models.Model):
 	def __str__(self):
 		return self.name.encode('ASCII', 'ignore')
 
+	class Meta:
+		verbose_name = 'Part Used'
+		verbose_name_plural = 'Parts Used'
+
 class Uses(models.Model):
 	name = models.CharField(max_length=250)
 
 	def __str__(self):
 		return self.name.encode('ASCII', 'ignore')
 
+	class Meta:
+		verbose_name = 'Uses'
+		verbose_name_plural = 'Uses'
+
 class CookingMethod(models.Model):
 	name = models.CharField(max_length=250)
 
 	def __str__(self):
 		return self.name.encode('ASCII', 'ignore')
+
+	class Meta:
+		verbose_name = 'Cooking Method'
+		verbose_name_plural = 'Cooking Methods'
 
 class FcaCode(models.Model):
 	focus_groups = models.ForeignKey(FocusGroup)
