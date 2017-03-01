@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 08:48-0600\n"
+"POT-Creation-Date: 2017-03-01 08:51-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -421,6 +421,14 @@ msgstr "Email contact person:"
 #: templates/org_detail.html:31
 msgid "Telefono persona de contacto:"
 msgstr "Phone contact person:"
+
+#: templates/publicacion-list.html:59
+msgid "de"
+msgstr "of"
+
+#: templates/publicacion-list.html:59
+msgid "paginas"
+msgstr "pages"
 
 #: templates/salidas/grupo_nutricional.html:31
 #: templates/salidas/grupo_nutricional_pais.html:27
