@@ -38,6 +38,9 @@
   margin: 0;
   padding: 10px;
 }
+.dropdown-menu>li>a {
+    font-weight: 200 !important;
+}
 </style>
 
 <script>
@@ -82,11 +85,19 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="/">{% trans "INICIO" %}</a></li>
-					<li><a href="/filters/">{% trans "EXPLORAR DATOS" %}</a></li>
-          <li><a href="{% if LANGUAGE_CODE == 'es' %}/uso-de-informacion/{% elif LANGUAGE_CODE == 'en' %}/information-use/{% endif %}">{% trans "USO DE INFORMACIÓN" %}</a></li>
-					<li><a href="{% if LANGUAGE_CODE == 'es' %}/metodologia/{% elif LANGUAGE_CODE == 'en' %}/methodology/{% endif %}">{% trans "METODOLOGÍA" %}</a></li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              {% trans "EXPLORAR DATOS" %} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/filters/">{% trans "EXPLORAR DATOS" %}</a></li>
+              <li><a href="{% if LANGUAGE_CODE == 'es' %}/politicas-uso-datos/{% elif LANGUAGE_CODE == 'en' %}/data-use-policy/{% endif %}">{% trans "POLÍTICAS USO DE DATOS" %}</a></li>
+              <li><a href="{% if LANGUAGE_CODE == 'es' %}/como-citarnos/{% elif LANGUAGE_CODE == 'en' %}/how-to-cite-us/{% endif %}">{% trans "COMO CITARNOS" %}</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact/">{% trans "INVOLUCRARSE" %}</a></li>
+          <li><a href="{% if LANGUAGE_CODE == 'es' %}/metodologia/{% elif LANGUAGE_CODE == 'en' %}/methodology/{% endif %}">{% trans "METODOLOGÍA" %}</a></li>
 					<li><a href="/publications-and-proyects-list/">{% trans "PUBLICACIONES Y PROYECTOS" %}</a></li>
-					<li><a href="/contact/">{% trans "INVOLUCRARSE" %}</a></li>
           <li><a href="{% if LANGUAGE_CODE == 'es' %}/socios/{% elif LANGUAGE_CODE == 'en' %}/partners/{% endif %}">{% trans "SOCIOS" %}</a></li>
 					<li><a href="/admin">{% trans "INICIAR SESIÓN" %}</a></li>
 				</ul>

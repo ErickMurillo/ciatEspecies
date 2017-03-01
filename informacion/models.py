@@ -13,7 +13,9 @@ class Proyectos(models.Model):
     titulo = models.CharField(max_length=450)
     slug = models.SlugField(editable=False, max_length=450)
     fecha = models.DateField()
-    imagen = ImageField(upload_to='imagenes/')
+    imagen_principal = ImageField(upload_to='imagenes/',verbose_name='Imagen portada')
+    imagen = ImageField(upload_to='imagenes/',verbose_name='Imagen detalle')
+
     contenido = RichTextUploadingField()
 
     def save(self, *args, **kwargs):

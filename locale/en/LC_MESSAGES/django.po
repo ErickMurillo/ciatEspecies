@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 08:51-0600\n"
+"POT-Creation-Date: 2017-03-01 13:38-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ciatEspecies/settings.py:119 templates/base.html:71
+#: ciatEspecies/settings.py:119 templates/base.html:74
 msgid "Español"
 msgstr "Spanish"
 
@@ -54,7 +54,7 @@ msgstr "Type"
 msgid "Descripción breve"
 msgstr "Brief description"
 
-#: templates/afiliarse.html:9 templates/base.html:89
+#: templates/afiliarse.html:9 templates/base.html:98
 msgid "INVOLUCRARSE"
 msgstr "GET INVOLVED"
 
@@ -101,39 +101,43 @@ msgstr "Project"
 msgid "Sistema ABD"
 msgstr "ABD System"
 
-#: templates/base.html:65
+#: templates/base.html:68
 msgid "Idioma"
 msgstr "Language"
 
-#: templates/base.html:70
+#: templates/base.html:73
 msgid "Ingles"
 msgstr "English"
 
-#: templates/base.html:84
+#: templates/base.html:87
 msgid "INICIO"
 msgstr "HOME"
 
-#: templates/base.html:85 templates/consulta.html:42
+#: templates/base.html:90 templates/base.html:93 templates/consulta.html:42
 msgid "EXPLORAR DATOS"
 msgstr "EXPLORE DATA"
 
-#: templates/base.html:86
-msgid "USO DE INFORMACIÓN"
-msgstr "INFORMATION USE"
+#: templates/base.html:94
+msgid "POLÍTICAS USO DE DATOS"
+msgstr "DATA USE POLICY"
 
-#: templates/base.html:87
+#: templates/base.html:95
+msgid "COMO CITARNOS"
+msgstr "HOW TO CITE US"
+
+#: templates/base.html:99
 msgid "METODOLOGÍA"
 msgstr "METHODOLOGY"
 
-#: templates/base.html:88
+#: templates/base.html:100
 msgid "PUBLICACIONES Y PROYECTOS"
 msgstr "PUBLICATIONS AND PROJECTS"
 
-#: templates/base.html:90
+#: templates/base.html:101
 msgid "SOCIOS"
 msgstr "PARTNERS"
 
-#: templates/base.html:91
+#: templates/base.html:102
 msgid "INICIAR SESIÓN"
 msgstr "LOG IN"
 
@@ -1213,6 +1217,9 @@ msgstr "Foods sold in the community (Men)"
 #: templates/salidas/tablas_abd.html:440
 msgid "Alimentos que venden en la comunidad (Mujeres)"
 msgstr "Foods sold in the community (Women)"
+
+#~ msgid "USO DE INFORMACIÓN"
+#~ msgstr "INFORMATION USE"
 
 #~ msgid "USO DE DATOS ABD"
 #~ msgstr "ABD DATA USE"
