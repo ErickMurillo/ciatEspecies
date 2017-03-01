@@ -144,8 +144,8 @@
 			  </div>
 			  <div class="post-image">
 				<a href="{% url 'proyecto-detalle' obj.slug %}"><i class="fa fa-search"></i></a>
-				{% if obj.imagen %}
-				  {% thumbnail obj.imagen "740x450" crop="center" as img %}
+				{% if obj.imagen_principal %}
+				  {% thumbnail obj.imagen_principal "740x450" crop="center" as img %}
 								   <img src="/media/{{img}}" alt="">
 								{% endthumbnail %}
 				{% else %}
