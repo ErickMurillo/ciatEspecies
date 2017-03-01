@@ -609,7 +609,7 @@ msgid "Total"
 msgstr "Total"
 
 #: templates/salidas/numero_especies.html:170
-msgid "Seleccione el páis"
+msgid "Seleccione el país"
 msgstr "Select country"
 
 #: templates/salidas/numero_especies.html:196

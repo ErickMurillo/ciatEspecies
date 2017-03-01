@@ -235,36 +235,36 @@ def numero_especies(request,template="salidas/numero_especies.html"):
     for obj in country:
         #produced
         country_produced = []
-        country_produced_hombres = filtro.filter(country = obj,gender = '2',fcacode__presence_cultivated = 1).distinct('fcacode__species').count()
-        country_produced_mujeres = filtro.filter(country = obj,gender = '1',fcacode__presence_cultivated = 1).distinct('fcacode__species').count()
+        country_produced_hombres = FcaCode.objects.filter(focus_groups__country = obj,focus_groups__gender = '2',presence_cultivated = 1).distinct('species').count()
+        country_produced_mujeres = FcaCode.objects.filter(focus_groups__country = obj,focus_groups__gender = '1',presence_cultivated = 1).distinct('species').count()
         country_produced_media = (country_produced_hombres + country_produced_mujeres) / float(2)
         country_produced.append((country_produced_media,country_produced_hombres,country_produced_mujeres))
 
         #sold
         country_sold = []
-        country_sold_hombres = filtro.filter(country = obj,gender = '2',fcacode__presence_sold = 1).distinct('fcacode__species').count()
-        country_sold_mujeres = filtro.filter(country = obj,gender = '1',fcacode__presence_sold = 1).distinct('fcacode__species').count()
+        country_sold_hombres = FcaCode.objects.filter(focus_groups__country = obj,focus_groups__gender = '2',presence_sold = 1).distinct('species').count()
+        country_sold_mujeres = FcaCode.objects.filter(focus_groups__country = obj,focus_groups__gender = '1',presence_sold = 1).distinct('species').count()
         country_sold_media = (country_sold_hombres + country_sold_mujeres) / float(2)
         country_sold.append((country_sold_media,country_sold_hombres,country_sold_mujeres))
 
         #purchased
         country_purchased = []
-        country_purchased_hombres = filtro.filter(country = obj,gender = '2',fcacode__presence_purchased = 1).distinct('fcacode__species').count()
-        country_purchased_mujeres = filtro.filter(country = obj,gender = '1',fcacode__presence_purchased = 1).distinct('fcacode__species').count()
+        country_purchased_hombres = FcaCode.objects.filter(focus_groups__country = obj,focus_groups__gender = '2',presence_purchased = 1).distinct('species').count()
+        country_purchased_mujeres = FcaCode.objects.filter(focus_groups__country = obj,focus_groups__gender = '1',presence_purchased = 1).distinct('species').count()
         country_purchased_media = (country_purchased_hombres + country_purchased_mujeres) / float(2)
         country_purchased.append((country_purchased_media,country_purchased_hombres,country_purchased_mujeres))
 
         #consumed
         country_consumed = []
-        country_consumed_hombres = filtro.filter(country = obj,gender = '2',fcacode__presence_consumed = 1).distinct('fcacode__species').count()
-        country_consumed_mujeres = filtro.filter(country = obj,gender = '1',fcacode__presence_consumed = 1).distinct('fcacode__species').count()
+        country_consumed_hombres = FcaCode.objects.filter(focus_groups__country = obj,focus_groups__gender = '2',presence_consumed = 1).distinct('species').count()
+        country_consumed_mujeres = FcaCode.objects.filter(focus_groups__country = obj,focus_groups__gender = '1',presence_consumed = 1).distinct('species').count()
         country_consumed_media = (country_consumed_hombres + country_consumed_mujeres) / float(2)
         country_consumed.append((country_consumed_media,country_consumed_hombres,country_consumed_mujeres))
 
         #total
         country_total = []
-        country_total_hombres = filtro.filter(country = obj,gender = '2').distinct('fcacode__species').count()
-        country_total_mujeres = filtro.filter(country = obj,gender = '1').distinct('fcacode__species').count()
+        country_total_hombres = FcaCode.objects.filter(focus_groups__country = obj,focus_groups__gender = '2').distinct('species').count()
+        country_total_mujeres = FcaCode.objects.filter(focus_groups__country = obj,focus_groups__gender = '1').distinct('species').count()
         country_total_media = (country_total_hombres + country_total_mujeres) / float(2)
         country_total.append((country_total_media,country_total_hombres,country_total_mujeres))
         pais[obj] = (country_total,country_produced,country_sold,country_purchased,country_consumed)
