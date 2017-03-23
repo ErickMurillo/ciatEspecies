@@ -9,6 +9,7 @@ from focusgroups.forms import *
 from django.template.loader import render_to_string
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.utils.translation import ugettext_lazy as _
+from django.utils import translation
 
 # Create your views here.
 def set_lang(request, lang_code):
@@ -27,11 +28,17 @@ def set_lang(request, lang_code):
     return response
 
 def index(request,template="index.html"):
+    cur_language = translation.get_language()
+
     paises = FocusGroup.objects.all().distinct('country__name').count()
     comunidades = FocusGroup.objects.all().distinct('community__name').count()
     species = FocusGroup.objects.all().distinct('fcacode__species').count()
     focus_groups = FocusGroup.objects.all().count()
-    proyectos = Proyectos.objects.order_by('-id')
+    if cur_language == 'en':
+        proyectos = Proyectos.objects.filter(idioma__in = [2,3]).order_by('-id')
+    elif cur_language == 'es':
+        proyectos = Proyectos.objects.filter(idioma__in = [1,3]).order_by('-id')
+
     cien = Scientists.objects.order_by('-id')
     org = Organizations.objects.order_by('-id')
 
@@ -60,9 +67,14 @@ class CientificoDetailView(DetailView):
     model = Scientists
     template_name = "cientificos_detail.html"
 
-class PublicacionListView(ListView):
-    model = Proyectos
-    template_name = "publicacion-list.html"
+def getPublicacionList(request,template="publicacion-list.html"):
+    cur_language = translation.get_language()
+    if cur_language == 'en':
+        object_list = Proyectos.objects.filter(idioma__in = [2,3]).order_by('-id')
+    elif cur_language == 'es':
+        object_list = Proyectos.objects.filter(idioma__in = [1,3]).order_by('-id')
+
+    return render(request, template, locals())
 
 class CientificosListView(ListView):
     queryset = Scientists.objects.order_by('-id')

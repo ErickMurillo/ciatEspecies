@@ -1018,13 +1018,15 @@ def crear_rangos(request, lista, start=0, stop=0, step=0):
 
 #ajax
 def get_country(request):
-	ids = request.GET.get('ids', '')
-	if ids:
-		lista = ids.split(',')
-	results = []
-	countries = Country.objects.filter(region__in = lista).order_by('name').values('id', 'name')
+    ids = request.GET.get('ids', '')
+    if ids:
+        lista = ids.split(',')
+    results = []
 
-	return HttpResponse(simplejson.dumps(list(countries)), content_type = 'application/json')
+    foo = FocusGroup.objects.filter(country__region__in = lista).order_by('country__name').distinct().values_list('country__id', flat=True)
+    countries = Country.objects.filter(id__in=foo).order_by('name').values('id', 'name')
+
+    return HttpResponse(simplejson.dumps(list(countries)), content_type = 'application/json')
 
 def get_province(request):
     ids = request.GET.get('ids', '')

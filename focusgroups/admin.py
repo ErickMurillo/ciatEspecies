@@ -76,6 +76,8 @@ class FocusGroupAdmin(ImportExportModelAdmin):
     empty_value_display = '-empty-'
     list_display = ('id','community','date','scientist','organization')
     inlines = [FotosInline,]
+    search_fields = ['country','province','community','scientist','organization']
+    list_filter = ['country',]
 
 admin.site.register(FocusGroup,FocusGroupAdmin)
 

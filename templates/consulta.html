@@ -372,10 +372,12 @@ $(document).ready(function() {
     // var region = $('#id_region :selected').val();
     $('#id_region :selected').each(function(i, selected){
       region[i] = $(selected).val();
+      $('#id_country').multiselect('rebuild');
     });
     $.getJSON('/ajax/countries/?ids='+region.join(","), function(data){
       $('#id_country').html('');
       $("#id_country").multiselect('enable');
+      $("#id_country").multiselect('refresh');
       if(data){
         $.each(data, function(i, item){
           $('#id_country').append($('<option></option>').val(item.id).html(item.name));
@@ -383,6 +385,7 @@ $(document).ready(function() {
         $('#id_country').multiselect('rebuild');
       }
     });
+
   });
 
   //province
@@ -390,10 +393,12 @@ $(document).ready(function() {
   $(document).on('change','#id_country',function(){
     $('#id_country :selected').each(function(i, selected){
       foo[i] = $(selected).val();
+      $('#id_province').multiselect('rebuild');
     });
     $.getJSON('/ajax/provinces/?ids='+foo.join(","), function(data){
       $('#id_province').html('');
       $('#id_province').multiselect('enable');
+      $("#id_province").multiselect('refresh');
       var province = $('#id_province');
       if(data){
         $.each(data, function(i, item){
@@ -415,10 +420,12 @@ $(document).ready(function() {
   $(document).on('change','#id_province',function(){
     $('#id_province :selected').each(function(i, selected){
       foo2[i] = $(selected).val();
+      $('#id_community').multiselect('rebuild');
     });
     $.getJSON('/ajax/communities/?ids='+foo2.join(","), function(data){
       $("#id_community").html('');
       $("#id_community").multiselect('enable');
+      $("#id_community").multiselect('refresh');
       var community = $('#id_community')
       if(data){
         $.each(data, function(i, item){
@@ -471,7 +478,7 @@ $(document).on('change','#select-pais',function() {
             '</div>'+
             '<h1 id="firstHeading" class="firstHeading">'+i+'</h1>'+
             '<div id="bodyContent">'+
-            '<p>{% trans "Población" %}: '+item2[2]+' </p>' +
+            // '<p>{% trans "Población" %}: '+item2[2]+' </p>' +
             '</div>'+
             '</div>';
             var infowindow = new google.maps.InfoWindow({

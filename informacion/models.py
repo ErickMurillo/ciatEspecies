@@ -9,12 +9,15 @@ from sorl.thumbnail import ImageField
 from focusgroups.models import Country
 
 # Create your models here.
+IDIOMA_CHOICES = ((1,'Español'),(2,'Ingles'),(3,'Español/Ingles'))
+
 class Proyectos(models.Model):
     titulo = models.CharField(max_length=450)
     slug = models.SlugField(editable=False, max_length=450)
     fecha = models.DateField()
     imagen_principal = ImageField(upload_to='imagenes/',verbose_name='Imagen portada')
     imagen = ImageField(upload_to='imagenes/',verbose_name='Imagen detalle')
+    idioma = models.IntegerField(choices = IDIOMA_CHOICES)
 
     contenido = RichTextUploadingField()
 
