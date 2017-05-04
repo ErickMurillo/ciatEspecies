@@ -1001,7 +1001,6 @@ def tables_abd(request,template = "salidas/tablas_abd.html"):
                 venden[food[1]] = (venden_col_1,venden_col_2,venden_col_3,venden_col_4)
             dic_gender[gender[1]] = [consumen,producen,compran,venden]
         comu[obj] = dic_gender
-        print comu
 
     return render(request, template, locals())
 

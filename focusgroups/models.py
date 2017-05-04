@@ -13,9 +13,9 @@ from paintstore.fields import ColorPickerField
 
 
 CHOICE_REGION = (
-					(1, 'APAC'),
+					# (1, 'APAC'),
 					(2, 'LatAm'),
-					(3, 'South Asia'),
+					# (3, 'South Asia'),
 					(4, 'Asia'),
 					(5, 'Africa'),
 					(6, 'Europe'),
