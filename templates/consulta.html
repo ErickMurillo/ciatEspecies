@@ -372,7 +372,6 @@ $(document).ready(function() {
     // var region = $('#id_region :selected').val();
     $('#id_region :selected').each(function(i, selected){
       region[i] = $(selected).val();
-      $('#id_country').multiselect('rebuild');
     });
     $.getJSON('/ajax/countries/?ids='+region.join(","), function(data){
       $('#id_country').html('');
