@@ -104,6 +104,7 @@ class FcaCodeAdmin(ImportExportModelAdmin):
     empty_value_display = '-empty-'
     list_display = ('id','focus_groups','species')
     search_fields = ['focus_groups__id',]
+    list_filter = ['focus_groups__country']
 
 admin.site.register(FcaCode,FcaCodeAdmin)
 
