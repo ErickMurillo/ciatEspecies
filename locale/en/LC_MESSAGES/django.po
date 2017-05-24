@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 13:38-0600\n"
+"POT-Creation-Date: 2017-05-24 10:02-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -295,7 +295,8 @@ msgstr "Country"
 msgid "Provincia"
 msgstr "Province"
 
-#: templates/consulta.html:162 templates/salidas/perfil_fg_detalle.html:96
+#: templates/consulta.html:162 templates/salidas/grupo_nutricional.html:184
+#: templates/salidas/perfil_fg_detalle.html:96
 #: templates/salidas/perfil_focus_groups.html:93
 msgid "Comunidad"
 msgstr "Community"
@@ -330,7 +331,7 @@ msgstr "No selection ..."
 msgid "Varias opciones seleccionadas!"
 msgstr "Several options selected!"
 
-#: templates/consulta.html:474 templates/salidas/perfil_fg_detalle.html:132
+#: templates/consulta.html:480 templates/salidas/perfil_fg_detalle.html:132
 #: templates/salidas/perfil_fg_detalle.html:134
 msgid "Población"
 msgstr "Population"
@@ -460,26 +461,30 @@ msgstr "filter"
 msgid "indicadores"
 msgstr "indicators"
 
-#: templates/salidas/grupo_nutricional.html:66
+#: templates/salidas/grupo_nutricional.html:43
+msgid "exportar atributos"
+msgstr "export attributes"
+
+#: templates/salidas/grupo_nutricional.html:68
 #: templates/salidas/numero_especies.html:59
 #: templates/salidas/perfil_abd.html:77 templates/salidas/tablas_abd.html:63
 msgid "Seleccione la comunidad"
 msgstr "Select community"
 
-#: templates/salidas/grupo_nutricional.html:93
-#: templates/salidas/grupo_nutricional.html:109
+#: templates/salidas/grupo_nutricional.html:94
+#: templates/salidas/grupo_nutricional.html:110
 #: templates/salidas/grupo_nutricional_pais.html:86
 #: templates/salidas/grupo_nutricional_pais.html:103
 msgid "Número de especies por grupo nutricional"
 msgstr "Number of species by nutritional group"
 
-#: templates/salidas/grupo_nutricional.html:94
+#: templates/salidas/grupo_nutricional.html:95
 #: templates/salidas/grupo_nutricional_pais.html:87
 #: templates/salidas/grupo_nutricional_pais.html:104
 msgid "Gráfico Frecuencia"
 msgstr "Graphic Frequency"
 
-#: templates/salidas/grupo_nutricional.html:110
+#: templates/salidas/grupo_nutricional.html:111
 #: templates/salidas/numero_especies.html:87
 #: templates/salidas/numero_especies.html:197
 #: templates/salidas/perfil_abd.html:104 templates/salidas/perfil_abd.html:221
@@ -492,7 +497,7 @@ msgstr "Graphic Frequency"
 msgid "Tabla de valores"
 msgstr "Value table"
 
-#: templates/salidas/grupo_nutricional.html:114
+#: templates/salidas/grupo_nutricional.html:115
 #: templates/salidas/grupo_nutricional_pais.html:108
 #: templates/salidas/perfil_abd.html:108 templates/salidas/perfil_abd.html:225
 #: templates/salidas/perfil_fg_detalle.html:169
@@ -504,7 +509,7 @@ msgstr "Value table"
 msgid "Exportar Datos"
 msgstr "Export Data"
 
-#: templates/salidas/grupo_nutricional.html:129
+#: templates/salidas/grupo_nutricional.html:130
 #: templates/salidas/grupo_nutricional_pais.html:122
 #: templates/salidas/numero_especies.html:125
 #: templates/salidas/numero_especies.html:236
@@ -517,7 +522,7 @@ msgstr "Export Data"
 msgid "Producido"
 msgstr "Produced"
 
-#: templates/salidas/grupo_nutricional.html:130
+#: templates/salidas/grupo_nutricional.html:131
 #: templates/salidas/grupo_nutricional_pais.html:123
 #: templates/salidas/numero_especies.html:133
 #: templates/salidas/numero_especies.html:244
@@ -529,7 +534,7 @@ msgstr "Produced"
 msgid "Vendido"
 msgstr "Sold"
 
-#: templates/salidas/grupo_nutricional.html:131
+#: templates/salidas/grupo_nutricional.html:132
 #: templates/salidas/grupo_nutricional_pais.html:124
 #: templates/salidas/numero_especies.html:141
 #: templates/salidas/numero_especies.html:252
@@ -542,7 +547,7 @@ msgstr "Sold"
 msgid "Comprado"
 msgstr "Purchased"
 
-#: templates/salidas/grupo_nutricional.html:132
+#: templates/salidas/grupo_nutricional.html:133
 #: templates/salidas/grupo_nutricional_pais.html:125
 #: templates/salidas/numero_especies.html:149
 #: templates/salidas/numero_especies.html:260
@@ -554,11 +559,11 @@ msgstr "Purchased"
 msgid "Consumido"
 msgstr "Consumed"
 
-#: templates/salidas/grupo_nutricional.html:136
-#: templates/salidas/grupo_nutricional.html:138
-#: templates/salidas/grupo_nutricional.html:140
-#: templates/salidas/grupo_nutricional.html:142
-#: templates/salidas/grupo_nutricional.html:229
+#: templates/salidas/grupo_nutricional.html:137
+#: templates/salidas/grupo_nutricional.html:139
+#: templates/salidas/grupo_nutricional.html:141
+#: templates/salidas/grupo_nutricional.html:143
+#: templates/salidas/grupo_nutricional.html:249
 #: templates/salidas/grupo_nutricional_pais.html:129
 #: templates/salidas/grupo_nutricional_pais.html:131
 #: templates/salidas/grupo_nutricional_pais.html:133
@@ -570,11 +575,11 @@ msgstr "Consumed"
 msgid "Hombres"
 msgstr "Men"
 
-#: templates/salidas/grupo_nutricional.html:137
-#: templates/salidas/grupo_nutricional.html:139
-#: templates/salidas/grupo_nutricional.html:141
-#: templates/salidas/grupo_nutricional.html:143
-#: templates/salidas/grupo_nutricional.html:229
+#: templates/salidas/grupo_nutricional.html:138
+#: templates/salidas/grupo_nutricional.html:140
+#: templates/salidas/grupo_nutricional.html:142
+#: templates/salidas/grupo_nutricional.html:144
+#: templates/salidas/grupo_nutricional.html:249
 #: templates/salidas/grupo_nutricional_pais.html:130
 #: templates/salidas/grupo_nutricional_pais.html:132
 #: templates/salidas/grupo_nutricional_pais.html:134
@@ -586,12 +591,22 @@ msgstr "Men"
 msgid "Mujeres"
 msgstr "Women"
 
-#: templates/salidas/grupo_nutricional.html:229
+#: templates/salidas/grupo_nutricional.html:183
+#: templates/salidas/perfil_fg_detalle.html:94
+#: templates/salidas/perfil_focus_groups.html:91
+msgid "Pais"
+msgstr "Country"
+
+#: templates/salidas/grupo_nutricional.html:185
+msgid "Atributos"
+msgstr ""
+
+#: templates/salidas/grupo_nutricional.html:249
 #: templates/salidas/grupo_nutricional_pais.html:194
 msgid "Ambos"
 msgstr "Both"
 
-#: templates/salidas/grupo_nutricional.html:236
+#: templates/salidas/grupo_nutricional.html:256
 #: templates/salidas/perfil_fg_detalle.html:122
 msgid "Frecuencia"
 msgstr "Frecuency"
@@ -1065,11 +1080,6 @@ msgstr "Focus group"
 #: templates/salidas/select_filtros.html:15
 msgid "Región"
 msgstr "Region"
-
-#: templates/salidas/perfil_fg_detalle.html:94
-#: templates/salidas/perfil_focus_groups.html:91
-msgid "Pais"
-msgstr "Country"
 
 #: templates/salidas/perfil_fg_detalle.html:97
 #: templates/salidas/perfil_focus_groups.html:95

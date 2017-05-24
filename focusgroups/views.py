@@ -107,6 +107,7 @@ def grupo_nutricional_comunidad(request,template="salidas/grupo_nutricional.html
 
     # 1. Gráfica histograma y tabla de conteos de número de especies por
     # grupo nutricional entre comunidades seleccionada por el usuario
+    countries = request.session['country']
     comunnity = request.session['community']
     GENDER_CHOICES = ((1,'Female'),(2, 'Male'))
 
@@ -142,6 +143,9 @@ def grupo_nutricional_comunidad(request,template="salidas/grupo_nutricional.html
                 food_tabla[x.es_name] = tabla
 
         comu[obj] = (food,food_tabla)
+
+    #atributos
+    scientist = filtro.values_list('country__name','community__name','scientist__name','date','organization__name').order_by('country').distinct()
 
     return render(request, template, locals())
 
@@ -181,6 +185,9 @@ def grupo_nutricional_pais(request,template="salidas/grupo_nutricional_pais.html
                 food[x.es_name] = lista
                 food_tabla[x.es_name] = tabla
         pais[obj] = (food,food_tabla)
+
+    #atributos
+    scientist = filtro.values_list('country__name','scientist__name','date','organization__name').distinct('scientist')
 
     return render(request, template, locals())
 
