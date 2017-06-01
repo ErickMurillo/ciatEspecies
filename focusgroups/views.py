@@ -276,6 +276,9 @@ def numero_especies(request,template="salidas/numero_especies.html"):
         country_total.append((country_total_media,country_total_hombres,country_total_mujeres))
         pais[obj] = (country_total,country_produced,country_sold,country_purchased,country_consumed)
 
+    #atributos
+    scientist = filtro.values_list('country__name','community__name','scientist__name','date','organization__name').order_by('country').distinct()
+
     return render(request, template, locals())
 
 def numero_especies_comunidad(request,template="salidas/numero_especies_comunidad.html"):
@@ -908,6 +911,8 @@ def perfil_abd(request,template = "salidas/perfil_abd.html"):
             venta['Pocos venden'] = venta_produce_1
 
         comu[obj] = (consume,venta)
+    #atributos
+    scientist = filtro.values_list('country__name','scientist__name','date','organization__name').distinct('scientist')
 
     return render(request, template, locals())
 
@@ -1009,6 +1014,9 @@ def tables_abd(request,template = "salidas/tablas_abd.html"):
             dic_gender[gender[1]] = [consumen,producen,compran,venden]
         comu[obj] = dic_gender
 
+    #atributos
+    scientist = filtro.values_list('country__name','scientist__name','date','organization__name').distinct('scientist')
+    
     return render(request, template, locals())
 
 def crear_rangos(request, lista, start=0, stop=0, step=0):

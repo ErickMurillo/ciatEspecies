@@ -51,6 +51,14 @@
               <h6>{% trans "indicadores" %}</h6>
             </a>
           </li>
+          {% if user.is_authenticated %}
+          <li role="presentation">
+            <a onclick="exportarXLS('atributos'); return false;" href="#" aria-controls="indicadores" role="tab" data-toggle="tab">
+                <div class="f-icon"><i class="fa fa-file-excel-o fa-2x"></i></div>
+                <h6>{% trans "exportar atributos" %}</h6>
+            </a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </div>
@@ -104,6 +112,7 @@
                   <span>{% trans "Tabla de valores" %}</span>
 
                 </div>
+                {% if user.is_authenticated %}
                 <div class="btn-group pull-right">
                   <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
                   <ul class="dropdown-menu">
@@ -112,6 +121,7 @@
 
                   </ul>
                 </div>
+                {% endif %}
               </div>
               <div class="panel-body">
 
@@ -221,6 +231,7 @@
                   <span>{% trans "Tabla de valores" %}</span>
 
                 </div>
+                {% if user.is_authenticated %}
                 <div class="btn-group pull-right">
                   <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
                   <ul class="dropdown-menu">
@@ -229,6 +240,7 @@
 
                   </ul>
                 </div>
+                {% endif %}
               </div>
               <div class="panel-body">
 
@@ -304,6 +316,24 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="" style="display:none" id="atributos">
+    <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+              <th>{% trans "Pais" %}</th>
+              <th>{% trans "Atributos" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in scientist %}
+          <tr>
+            <th>{{x.0}}</th>
+            <th>{{x.1}} ({{x.2|date:'o'}}) Agricultural Bioversity Data Network. {{x.3}}</th>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
   </div>
 </div>
 {% endblock %}

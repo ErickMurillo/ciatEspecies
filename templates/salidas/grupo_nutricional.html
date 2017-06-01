@@ -37,12 +37,14 @@
                             <h6>{% trans "indicadores" %}</h6>
                         </a>
                     </li>
+                    {% if user.is_authenticated %}
                     <li role="presentation">
                       <a onclick="exportarXLS('atributos'); return false;" href="#" aria-controls="indicadores" role="tab" data-toggle="tab">
                           <div class="f-icon"><i class="fa fa-file-excel-o fa-2x"></i></div>
                           <h6>{% trans "exportar atributos" %}</h6>
                       </a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -111,6 +113,7 @@
                                         <span>{% trans "Tabla de valores" %}</span>
 
                                     </div>
+                                    {% if user.is_authenticated %}
                                     <div class="btn-group pull-right">
                                         <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> {% trans "Exportar Datos" %}</button>
                                         <ul class="dropdown-menu">
@@ -119,6 +122,7 @@
 
                                         </ul>
                                     </div>
+                                    {% endif %}
                                 </div>
                                 <div class="panel-body">
 

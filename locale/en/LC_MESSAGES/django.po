@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-24 10:02-0600\n"
+"POT-Creation-Date: 2017-06-01 14:09-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,26 +31,30 @@ msgstr "Request information"
 
 #: focusgroups/forms.py:38
 msgid "Unirse a la red de datos ABD"
-msgstr "Join ABD data network"
+msgstr "Contribute to ABD data network"
 
-#: focusgroups/forms.py:40 templates/afiliarse.html:68
+#: focusgroups/forms.py:39
+msgid "Consultas generales"
+msgstr "General questions"
+
+#: focusgroups/forms.py:41 templates/afiliarse.html:68
 msgid "Nombre"
 msgstr "Name"
 
-#: focusgroups/forms.py:41 templates/afiliarse.html:71
+#: focusgroups/forms.py:42 templates/afiliarse.html:71
 msgid "Correo"
 msgstr "Email"
 
-#: focusgroups/forms.py:42
+#: focusgroups/forms.py:43
 msgid "Proyecto"
 msgstr "Project"
 
-#: focusgroups/forms.py:43 templates/afiliarse.html:77
+#: focusgroups/forms.py:44 templates/afiliarse.html:77
 #: templates/salidas/perfil_especies.html:79
 msgid "Tipo"
 msgstr "Type"
 
-#: focusgroups/forms.py:44 templates/afiliarse.html:80
+#: focusgroups/forms.py:45 templates/afiliarse.html:80
 msgid "Descripción breve"
 msgstr "Brief description"
 
@@ -295,7 +299,8 @@ msgstr "Country"
 msgid "Provincia"
 msgstr "Province"
 
-#: templates/consulta.html:162 templates/salidas/grupo_nutricional.html:184
+#: templates/consulta.html:162 templates/salidas/grupo_nutricional.html:188
+#: templates/salidas/numero_especies.html:300
 #: templates/salidas/perfil_fg_detalle.html:96
 #: templates/salidas/perfil_focus_groups.html:93
 msgid "Comunidad"
@@ -461,182 +466,192 @@ msgstr "filter"
 msgid "indicadores"
 msgstr "indicators"
 
-#: templates/salidas/grupo_nutricional.html:43
+#: templates/salidas/grupo_nutricional.html:44
+#: templates/salidas/grupo_nutricional_pais.html:40
+#: templates/salidas/numero_especies.html:39
+#: templates/salidas/perfil_abd.html:58 templates/salidas/tablas_abd.html:44
 msgid "exportar atributos"
 msgstr "export attributes"
 
-#: templates/salidas/grupo_nutricional.html:68
-#: templates/salidas/numero_especies.html:59
-#: templates/salidas/perfil_abd.html:77 templates/salidas/tablas_abd.html:63
+#: templates/salidas/grupo_nutricional.html:70
+#: templates/salidas/numero_especies.html:67
+#: templates/salidas/perfil_abd.html:85 templates/salidas/tablas_abd.html:71
 msgid "Seleccione la comunidad"
 msgstr "Select community"
 
-#: templates/salidas/grupo_nutricional.html:94
-#: templates/salidas/grupo_nutricional.html:110
-#: templates/salidas/grupo_nutricional_pais.html:86
-#: templates/salidas/grupo_nutricional_pais.html:103
+#: templates/salidas/grupo_nutricional.html:96
+#: templates/salidas/grupo_nutricional.html:112
+#: templates/salidas/grupo_nutricional_pais.html:94
+#: templates/salidas/grupo_nutricional_pais.html:111
 msgid "Número de especies por grupo nutricional"
 msgstr "Number of species by nutritional group"
 
-#: templates/salidas/grupo_nutricional.html:95
-#: templates/salidas/grupo_nutricional_pais.html:87
-#: templates/salidas/grupo_nutricional_pais.html:104
+#: templates/salidas/grupo_nutricional.html:97
+#: templates/salidas/grupo_nutricional_pais.html:95
+#: templates/salidas/grupo_nutricional_pais.html:112
 msgid "Gráfico Frecuencia"
 msgstr "Graphic Frequency"
 
-#: templates/salidas/grupo_nutricional.html:111
-#: templates/salidas/numero_especies.html:87
-#: templates/salidas/numero_especies.html:197
-#: templates/salidas/perfil_abd.html:104 templates/salidas/perfil_abd.html:221
+#: templates/salidas/grupo_nutricional.html:113
+#: templates/salidas/numero_especies.html:95
+#: templates/salidas/numero_especies.html:207
+#: templates/salidas/perfil_abd.html:112 templates/salidas/perfil_abd.html:231
 #: templates/salidas/perfil_fg_detalle.html:165
-#: templates/salidas/perfil_fg_detalle.html:285
-#: templates/salidas/tablas_abd.html:99 templates/salidas/tablas_abd.html:147
-#: templates/salidas/tablas_abd.html:197 templates/salidas/tablas_abd.html:245
-#: templates/salidas/tablas_abd.html:295 templates/salidas/tablas_abd.html:343
-#: templates/salidas/tablas_abd.html:393 templates/salidas/tablas_abd.html:441
+#: templates/salidas/perfil_fg_detalle.html:287
+#: templates/salidas/tablas_abd.html:107 templates/salidas/tablas_abd.html:157
+#: templates/salidas/tablas_abd.html:209 templates/salidas/tablas_abd.html:259
+#: templates/salidas/tablas_abd.html:311 templates/salidas/tablas_abd.html:361
+#: templates/salidas/tablas_abd.html:413 templates/salidas/tablas_abd.html:463
 msgid "Tabla de valores"
 msgstr "Value table"
 
-#: templates/salidas/grupo_nutricional.html:115
-#: templates/salidas/grupo_nutricional_pais.html:108
-#: templates/salidas/perfil_abd.html:108 templates/salidas/perfil_abd.html:225
-#: templates/salidas/perfil_fg_detalle.html:169
-#: templates/salidas/perfil_fg_detalle.html:289
-#: templates/salidas/tablas_abd.html:103 templates/salidas/tablas_abd.html:151
-#: templates/salidas/tablas_abd.html:201 templates/salidas/tablas_abd.html:249
-#: templates/salidas/tablas_abd.html:299 templates/salidas/tablas_abd.html:347
-#: templates/salidas/tablas_abd.html:397 templates/salidas/tablas_abd.html:445
+#: templates/salidas/grupo_nutricional.html:118
+#: templates/salidas/grupo_nutricional_pais.html:117
+#: templates/salidas/perfil_abd.html:117 templates/salidas/perfil_abd.html:236
+#: templates/salidas/perfil_fg_detalle.html:170
+#: templates/salidas/perfil_fg_detalle.html:292
+#: templates/salidas/tablas_abd.html:112 templates/salidas/tablas_abd.html:162
+#: templates/salidas/tablas_abd.html:214 templates/salidas/tablas_abd.html:264
+#: templates/salidas/tablas_abd.html:316 templates/salidas/tablas_abd.html:366
+#: templates/salidas/tablas_abd.html:418 templates/salidas/tablas_abd.html:468
 msgid "Exportar Datos"
 msgstr "Export Data"
 
-#: templates/salidas/grupo_nutricional.html:130
-#: templates/salidas/grupo_nutricional_pais.html:122
-#: templates/salidas/numero_especies.html:125
-#: templates/salidas/numero_especies.html:236
+#: templates/salidas/grupo_nutricional.html:134
+#: templates/salidas/grupo_nutricional_pais.html:132
+#: templates/salidas/numero_especies.html:135
+#: templates/salidas/numero_especies.html:248
 #: templates/salidas/numero_especies_comunidad.html:61
-#: templates/salidas/perfil_abd.html:123 templates/salidas/perfil_abd.html:240
+#: templates/salidas/perfil_abd.html:133 templates/salidas/perfil_abd.html:252
 #: templates/salidas/perfil_especies_detalle.html:158
-#: templates/salidas/perfil_fg_detalle.html:184
-#: templates/salidas/perfil_fg_detalle.html:304
-#: templates/salidas/tablas_abd.html:85
+#: templates/salidas/perfil_fg_detalle.html:186
+#: templates/salidas/perfil_fg_detalle.html:308
+#: templates/salidas/tablas_abd.html:93
 msgid "Producido"
 msgstr "Produced"
 
-#: templates/salidas/grupo_nutricional.html:131
-#: templates/salidas/grupo_nutricional_pais.html:123
-#: templates/salidas/numero_especies.html:133
-#: templates/salidas/numero_especies.html:244
+#: templates/salidas/grupo_nutricional.html:135
+#: templates/salidas/grupo_nutricional_pais.html:133
+#: templates/salidas/numero_especies.html:143
+#: templates/salidas/numero_especies.html:256
 #: templates/salidas/numero_especies_comunidad.html:62
-#: templates/salidas/perfil_abd.html:239
+#: templates/salidas/perfil_abd.html:251
 #: templates/salidas/perfil_especies_detalle.html:166
-#: templates/salidas/perfil_fg_detalle.html:303
-#: templates/salidas/tablas_abd.html:86
+#: templates/salidas/perfil_fg_detalle.html:307
+#: templates/salidas/tablas_abd.html:94
 msgid "Vendido"
 msgstr "Sold"
 
-#: templates/salidas/grupo_nutricional.html:132
-#: templates/salidas/grupo_nutricional_pais.html:124
-#: templates/salidas/numero_especies.html:141
-#: templates/salidas/numero_especies.html:252
+#: templates/salidas/grupo_nutricional.html:136
+#: templates/salidas/grupo_nutricional_pais.html:134
+#: templates/salidas/numero_especies.html:151
+#: templates/salidas/numero_especies.html:264
 #: templates/salidas/numero_especies_comunidad.html:63
-#: templates/salidas/perfil_abd.html:124 templates/salidas/perfil_abd.html:241
+#: templates/salidas/perfil_abd.html:134 templates/salidas/perfil_abd.html:253
 #: templates/salidas/perfil_especies_detalle.html:174
-#: templates/salidas/perfil_fg_detalle.html:185
-#: templates/salidas/perfil_fg_detalle.html:305
-#: templates/salidas/tablas_abd.html:87
+#: templates/salidas/perfil_fg_detalle.html:187
+#: templates/salidas/perfil_fg_detalle.html:309
+#: templates/salidas/tablas_abd.html:95
 msgid "Comprado"
 msgstr "Purchased"
 
-#: templates/salidas/grupo_nutricional.html:133
-#: templates/salidas/grupo_nutricional_pais.html:125
-#: templates/salidas/numero_especies.html:149
-#: templates/salidas/numero_especies.html:260
+#: templates/salidas/grupo_nutricional.html:137
+#: templates/salidas/grupo_nutricional_pais.html:135
+#: templates/salidas/numero_especies.html:159
+#: templates/salidas/numero_especies.html:272
 #: templates/salidas/numero_especies_comunidad.html:64
-#: templates/salidas/perfil_abd.html:122
+#: templates/salidas/perfil_abd.html:132
 #: templates/salidas/perfil_especies_detalle.html:182
-#: templates/salidas/perfil_fg_detalle.html:183
-#: templates/salidas/tablas_abd.html:88
+#: templates/salidas/perfil_fg_detalle.html:185
+#: templates/salidas/tablas_abd.html:96
 msgid "Consumido"
 msgstr "Consumed"
 
-#: templates/salidas/grupo_nutricional.html:137
-#: templates/salidas/grupo_nutricional.html:139
 #: templates/salidas/grupo_nutricional.html:141
 #: templates/salidas/grupo_nutricional.html:143
-#: templates/salidas/grupo_nutricional.html:249
-#: templates/salidas/grupo_nutricional_pais.html:129
-#: templates/salidas/grupo_nutricional_pais.html:131
-#: templates/salidas/grupo_nutricional_pais.html:133
-#: templates/salidas/grupo_nutricional_pais.html:135
-#: templates/salidas/grupo_nutricional_pais.html:194
-#: templates/salidas/numero_especies.html:110
-#: templates/salidas/numero_especies.html:221
+#: templates/salidas/grupo_nutricional.html:145
+#: templates/salidas/grupo_nutricional.html:147
+#: templates/salidas/grupo_nutricional.html:253
+#: templates/salidas/grupo_nutricional_pais.html:139
+#: templates/salidas/grupo_nutricional_pais.html:141
+#: templates/salidas/grupo_nutricional_pais.html:143
+#: templates/salidas/grupo_nutricional_pais.html:145
+#: templates/salidas/grupo_nutricional_pais.html:224
+#: templates/salidas/numero_especies.html:120
+#: templates/salidas/numero_especies.html:233
 #: templates/salidas/perfil_especies_detalle.html:152
 msgid "Hombres"
 msgstr "Men"
 
-#: templates/salidas/grupo_nutricional.html:138
-#: templates/salidas/grupo_nutricional.html:140
 #: templates/salidas/grupo_nutricional.html:142
 #: templates/salidas/grupo_nutricional.html:144
-#: templates/salidas/grupo_nutricional.html:249
-#: templates/salidas/grupo_nutricional_pais.html:130
-#: templates/salidas/grupo_nutricional_pais.html:132
-#: templates/salidas/grupo_nutricional_pais.html:134
-#: templates/salidas/grupo_nutricional_pais.html:136
-#: templates/salidas/grupo_nutricional_pais.html:194
-#: templates/salidas/numero_especies.html:111
-#: templates/salidas/numero_especies.html:222
+#: templates/salidas/grupo_nutricional.html:146
+#: templates/salidas/grupo_nutricional.html:148
+#: templates/salidas/grupo_nutricional.html:253
+#: templates/salidas/grupo_nutricional_pais.html:140
+#: templates/salidas/grupo_nutricional_pais.html:142
+#: templates/salidas/grupo_nutricional_pais.html:144
+#: templates/salidas/grupo_nutricional_pais.html:146
+#: templates/salidas/grupo_nutricional_pais.html:224
+#: templates/salidas/numero_especies.html:121
+#: templates/salidas/numero_especies.html:234
 #: templates/salidas/perfil_especies_detalle.html:153
 msgid "Mujeres"
 msgstr "Women"
 
-#: templates/salidas/grupo_nutricional.html:183
+#: templates/salidas/grupo_nutricional.html:187
+#: templates/salidas/grupo_nutricional_pais.html:184
+#: templates/salidas/numero_especies.html:299
+#: templates/salidas/perfil_abd.html:324
 #: templates/salidas/perfil_fg_detalle.html:94
 #: templates/salidas/perfil_focus_groups.html:91
+#: templates/salidas/tablas_abd.html:517
 msgid "Pais"
 msgstr "Country"
 
-#: templates/salidas/grupo_nutricional.html:185
+#: templates/salidas/grupo_nutricional.html:189
+#: templates/salidas/grupo_nutricional_pais.html:185
+#: templates/salidas/numero_especies.html:301
+#: templates/salidas/perfil_abd.html:325 templates/salidas/tablas_abd.html:518
 msgid "Atributos"
 msgstr ""
 
-#: templates/salidas/grupo_nutricional.html:249
-#: templates/salidas/grupo_nutricional_pais.html:194
+#: templates/salidas/grupo_nutricional.html:253
+#: templates/salidas/grupo_nutricional_pais.html:224
 msgid "Ambos"
 msgstr "Both"
 
-#: templates/salidas/grupo_nutricional.html:256
+#: templates/salidas/grupo_nutricional.html:260
 #: templates/salidas/perfil_fg_detalle.html:122
 msgid "Frecuencia"
 msgstr "Frecuency"
 
-#: templates/salidas/grupo_nutricional_pais.html:60
-#: templates/salidas/numero_especies.html:170
+#: templates/salidas/grupo_nutricional_pais.html:68
+#: templates/salidas/numero_especies.html:180
 msgid "Seleccione el país"
 msgstr "Select country"
 
-#: templates/salidas/numero_especies.html:86
+#: templates/salidas/numero_especies.html:94
 msgid "Número de especies por comunidad"
 msgstr "Number of species by community"
 
-#: templates/salidas/numero_especies.html:105
-#: templates/salidas/numero_especies.html:216
+#: templates/salidas/numero_especies.html:115
+#: templates/salidas/numero_especies.html:228
 msgid "Número de especies"
 msgstr "Numbre of species"
 
-#: templates/salidas/numero_especies.html:109
-#: templates/salidas/numero_especies.html:220
+#: templates/salidas/numero_especies.html:119
+#: templates/salidas/numero_especies.html:232
 #: templates/salidas/perfil_especies_detalle.html:151
 msgid "Media"
 msgstr "Mean"
 
-#: templates/salidas/numero_especies.html:117
-#: templates/salidas/numero_especies.html:228
+#: templates/salidas/numero_especies.html:127
+#: templates/salidas/numero_especies.html:240
 msgid "Total"
 msgstr "Total"
 
-#: templates/salidas/numero_especies.html:196
+#: templates/salidas/numero_especies.html:206
 msgid "Número de especies por pais"
 msgstr "Number of species by country"
 
@@ -729,9 +744,9 @@ msgstr "Annual rainfall (mm)"
 #: templates/salidas/numero_especies_comunidad.html:1377
 #: templates/salidas/numero_especies_comunidad.html:1434
 #: templates/salidas/numero_especies_comunidad.html:1490
-#: templates/salidas/perfil_abd.html:125 templates/salidas/perfil_abd.html:242
-#: templates/salidas/perfil_fg_detalle.html:186
-#: templates/salidas/perfil_fg_detalle.html:306
+#: templates/salidas/perfil_abd.html:135 templates/salidas/perfil_abd.html:254
+#: templates/salidas/perfil_fg_detalle.html:188
+#: templates/salidas/perfil_fg_detalle.html:310
 msgid "Especies"
 msgstr "Species"
 
@@ -862,21 +877,21 @@ msgstr "Market distance (km) vs Species purchased"
 msgid "Distancia a mercado (km) vs Especies consumidas"
 msgstr "Market distance (km) vs Species consumed"
 
-#: templates/salidas/perfil_abd.html:103
+#: templates/salidas/perfil_abd.html:111
 #: templates/salidas/perfil_fg_detalle.html:164
 msgid "Perfil ABD de especies y productos consumidos por el grupo focal"
 msgstr "ABD profile of species and products consumed by the focus group"
 
-#: templates/salidas/perfil_abd.html:164 templates/salidas/perfil_abd.html:201
-#: templates/salidas/perfil_abd.html:278
-#: templates/salidas/perfil_fg_detalle.html:222
-#: templates/salidas/perfil_fg_detalle.html:259
-#: templates/salidas/perfil_fg_detalle.html:342
+#: templates/salidas/perfil_abd.html:174 templates/salidas/perfil_abd.html:211
+#: templates/salidas/perfil_abd.html:290
+#: templates/salidas/perfil_fg_detalle.html:224
+#: templates/salidas/perfil_fg_detalle.html:261
+#: templates/salidas/perfil_fg_detalle.html:346
 msgid "No existen datos"
 msgstr "No data"
 
-#: templates/salidas/perfil_abd.html:220
-#: templates/salidas/perfil_fg_detalle.html:284
+#: templates/salidas/perfil_abd.html:230
+#: templates/salidas/perfil_fg_detalle.html:286
 msgid ""
 "Perfil ABD de las especies utilizadas para la generación de ingresos para el "
 "grupo focal"
@@ -1168,63 +1183,63 @@ msgstr "Selected"
 msgid "Provincias"
 msgstr "Provinces"
 
-#: templates/salidas/tablas_abd.html:98
+#: templates/salidas/tablas_abd.html:106
 msgid "Alimentos que se consumen en la comunidad (Hombres)"
 msgstr "Foods consumed in the community (Men)"
 
-#: templates/salidas/tablas_abd.html:115 templates/salidas/tablas_abd.html:163
-#: templates/salidas/tablas_abd.html:213 templates/salidas/tablas_abd.html:261
-#: templates/salidas/tablas_abd.html:311 templates/salidas/tablas_abd.html:359
-#: templates/salidas/tablas_abd.html:409 templates/salidas/tablas_abd.html:457
+#: templates/salidas/tablas_abd.html:125 templates/salidas/tablas_abd.html:175
+#: templates/salidas/tablas_abd.html:227 templates/salidas/tablas_abd.html:277
+#: templates/salidas/tablas_abd.html:329 templates/salidas/tablas_abd.html:379
+#: templates/salidas/tablas_abd.html:431 templates/salidas/tablas_abd.html:481
 msgid "Muchos hogares & área grande/frecuencia alta"
 msgstr "Many households & large area/frequently"
 
-#: templates/salidas/tablas_abd.html:116 templates/salidas/tablas_abd.html:164
-#: templates/salidas/tablas_abd.html:214 templates/salidas/tablas_abd.html:262
-#: templates/salidas/tablas_abd.html:312 templates/salidas/tablas_abd.html:360
-#: templates/salidas/tablas_abd.html:410 templates/salidas/tablas_abd.html:458
+#: templates/salidas/tablas_abd.html:126 templates/salidas/tablas_abd.html:176
+#: templates/salidas/tablas_abd.html:228 templates/salidas/tablas_abd.html:278
+#: templates/salidas/tablas_abd.html:330 templates/salidas/tablas_abd.html:380
+#: templates/salidas/tablas_abd.html:432 templates/salidas/tablas_abd.html:482
 msgid "Muchos hogares & área pequeña/infrecuentemente"
 msgstr "Many households & small area/infrequently"
 
-#: templates/salidas/tablas_abd.html:117 templates/salidas/tablas_abd.html:165
-#: templates/salidas/tablas_abd.html:215 templates/salidas/tablas_abd.html:263
-#: templates/salidas/tablas_abd.html:313 templates/salidas/tablas_abd.html:361
-#: templates/salidas/tablas_abd.html:411 templates/salidas/tablas_abd.html:459
+#: templates/salidas/tablas_abd.html:127 templates/salidas/tablas_abd.html:177
+#: templates/salidas/tablas_abd.html:229 templates/salidas/tablas_abd.html:279
+#: templates/salidas/tablas_abd.html:331 templates/salidas/tablas_abd.html:381
+#: templates/salidas/tablas_abd.html:433 templates/salidas/tablas_abd.html:483
 msgid "Pocos hogares & área grande/frecuencia alta"
 msgstr "Few households & large area/frequently"
 
-#: templates/salidas/tablas_abd.html:118 templates/salidas/tablas_abd.html:166
-#: templates/salidas/tablas_abd.html:216 templates/salidas/tablas_abd.html:264
-#: templates/salidas/tablas_abd.html:314 templates/salidas/tablas_abd.html:362
-#: templates/salidas/tablas_abd.html:412 templates/salidas/tablas_abd.html:460
+#: templates/salidas/tablas_abd.html:128 templates/salidas/tablas_abd.html:178
+#: templates/salidas/tablas_abd.html:230 templates/salidas/tablas_abd.html:280
+#: templates/salidas/tablas_abd.html:332 templates/salidas/tablas_abd.html:382
+#: templates/salidas/tablas_abd.html:434 templates/salidas/tablas_abd.html:484
 msgid "Pocos hogares & área pequeña/infrecuentemente"
 msgstr "Few households & small area/infrequently"
 
-#: templates/salidas/tablas_abd.html:146
+#: templates/salidas/tablas_abd.html:156
 msgid "Alimentos que se consumen en la comunidad (Mujeres)"
 msgstr "Foods consumed in the community (Women)"
 
-#: templates/salidas/tablas_abd.html:196
+#: templates/salidas/tablas_abd.html:208
 msgid "Alimentos que se producen o están disponibles en la comunidad (Hombres)"
 msgstr "Foods that are produced or available in the community (Men)"
 
-#: templates/salidas/tablas_abd.html:244
+#: templates/salidas/tablas_abd.html:258
 msgid "Alimentos que se producen o están disponibles en la comunidad (Mujeres)"
 msgstr "Foods that are produced or available in the community (Women)"
 
-#: templates/salidas/tablas_abd.html:294
+#: templates/salidas/tablas_abd.html:310
 msgid "Alimentos que se adquieren en la comunidad (Hombres)"
 msgstr "Foods that are acquired in the community (Men)"
 
-#: templates/salidas/tablas_abd.html:342
+#: templates/salidas/tablas_abd.html:360
 msgid "Alimentos que se adquieren en la comunidad (Mujeres)"
 msgstr "Foods that are acquired in the community (Women)"
 
-#: templates/salidas/tablas_abd.html:392
+#: templates/salidas/tablas_abd.html:412
 msgid "Alimentos que venden en la comunidad (Hombres)"
 msgstr "Foods sold in the community (Men)"
 
-#: templates/salidas/tablas_abd.html:440
+#: templates/salidas/tablas_abd.html:462
 msgid "Alimentos que venden en la comunidad (Mujeres)"
 msgstr "Foods sold in the community (Women)"
 
